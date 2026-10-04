@@ -1,0 +1,301 @@
+﻿capital = 605 # Chongqing
+
+oob = CHI_1945
+set_convoys = 60
+set_stability = 0.5
+set_war_support = 0.75
+add_command_power = 20
+set_research_slots = 3
+add_political_power = 149
+
+set_major = yes
+
+1948.6.1 = {
+	oob = CHI_1948
+	set_capital = {
+		state = 613 # Nanjing
+		remember_old_capital = no
+	}
+}
+
+1950.6.1 = {
+	set_capital = {
+		state = 991 # Taipei
+	}
+}
+
+# Faction
+#create_faction_from_template = faction_template_chinese_united_front
+
+add_ideas = {
+	#National Spirits
+	CHI_civil_war
+	CHI_destruction_of_homeland
+	CHI_corruption_idea_1
+	CHI_reconstruction_idea_1
+	
+	#National Laws
+	limited_conscription
+	low_economic_mobilisation
+	
+	#Companies
+}
+
+add_opinion_modifier = {
+	target = PRC
+	modifier = hostile_status
+}
+
+add_opinion_modifier = {
+	target = USA
+	modifier = huge_increase
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+	else = {
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "CHI_1945_naval"
+	set_technology = {
+		#Destroyers
+		early_ship_hull_light = 1
+		
+		#Cruisers
+		early_ship_hull_cruiser = 1
+		
+		#Coastal Defence Ships
+		coastal_defense_ships = 1
+		
+		#Naval Support
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_naval_mines = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_air_oob = "CHI_1945_air_bba"
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_1 = 1
+		
+		#Transport Plane
+		bba_early_transport_plane = 1
+		
+		#Upgrades
+		early_bombs = 1
+		engines_1 = 1
+	}
+	else = {
+		set_air_oob = "CHI_1945_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
+
+set_grand_doctrine = grand_battleplan
+set_sub_doctrine = large_unit_tactics
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	infantry_weapons_2 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Special Forces ###
+	tech_mountaineers = 1
+	tech_support = 1
+	tech_recon = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_fortification_tech = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+600 = { #Jiangxi
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+602 = { #Hunan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+603 = { #Guizhu
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+605 = { #Sichuan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+606 = { #Anhui
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+607 = { #Henan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+620 = { #Hubei
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+744 = { #Xian
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+748 = { #Zunyi
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+749 = { #Huangshan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+750 = { #Changde
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+
+recruit_character = CHI_chiang_kaishek
+recruit_character = CHI_zhang_guotao
+recruit_character = CHI_weng_wenhao
+recruit_character = CHI_tu_yuming
+recruit_character = CHI_hsueh_yueh
+recruit_character = CHI_wang_yaowu
+recruit_character = CHI_sun_li_jen
+recruit_character = CHI_hu_zongnan
+recruit_character = CHI_gu_zhutong
+recruit_character = CHI_wei_lihuang
+recruit_character = CHI_fu_zuoyi
+recruit_character = CHI_zhang_xueliang
+recruit_character = CHI_fang_zeyi
+recruit_character = CHI_zhu_de
+recruit_character = CHI_chen_cheng
+recruit_character = CHI_li_zongren
+recruit_character = CHI_bo_yibo
+recruit_character = CHI_huang_shen
+recruit_character = CHI_chen_jitang
+recruit_character = CHI_wang_shuming
+recruit_character = CHI_bai_chongxi
+recruit_character = CHI_zhou_zhirou
+recruit_character = CHI_xiao_yisu
+recruit_character = CHI_chen_shaokuan
+recruit_character = CHI_xiao_jinguang
+recruit_character = CHI_yu_hanmou
+recruit_character = CHI_he_yingqin
+recruit_character = CHI_h_h_kung
+recruit_character = CHI_chen_guofu
+recruit_character = CHI_chiang_ching_kuo
+recruit_character = CHI_chen_yi
+recruit_character = CHI_soong_mei_ling
+
+set_popularities = {
+	democratic = 7 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 2
+	social_democrat = 2
+	communism = 16 #Communism
+	left_wing_radical = 1
+	neutrality = 62 #Paternal Autocracy
+	fascism = 10 #Nationalism
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1941.12.25"
+	election_frequency = 72
+	elections_allowed = no
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" } 
+	### VARIANTS ###
+	# 1936 Start #
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Jianwei Class"			
+		type = ship_hull_light_1
+		name_group = CHI_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	# Light Cruisers #
+	create_equipment_variant = {
+		name = "Hairong Class"					# Hairong protected cruisers and Zhaohe, Yingrui training cruisers
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Haiqi Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Ninghai Class"
+		type = ship_hull_cruiser_1
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}

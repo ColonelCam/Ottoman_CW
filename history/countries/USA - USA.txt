@@ -10,8 +10,6 @@ starting_train_buffer = 5
 
 add_nuclear_bombs = 1
 
-set_cosmetic_tag = USA_48
-
 create_faction_from_template = faction_template_allies
 add_to_faction = FRA
 add_to_faction = ENG

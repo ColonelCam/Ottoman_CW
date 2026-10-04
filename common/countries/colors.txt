@@ -43,8 +43,8 @@ WAD = {
 ################################
 
 SOV = {
-	color = rgb { 125 15 25 }
-	color_ui = rgb { 125 15 25 }
+	color = rgb { 43 174  97 }
+	color_ui = rgb { 43 174  97 }
 }
 RUS = {
 	color = rgb { 75 110 45 }
@@ -59,8 +59,8 @@ BLR = {
 	color_ui = rgb { 180 220 190 }
 }
 USA = {
-	color = rgb { 50 120 210 }
-	color_ui = rgb { 50 120 210 }
+	color = rgb { 190 33 20 }
+	color_ui = rgb { 190 33 20 }
 }
 TXS = {
 	color = rgb { 29 26 102 }
@@ -526,8 +526,8 @@ PAN = {
 	color_ui = rgb { 40 50 100 }
 }
 PER = {
-	color = rgb { 80 100 80 }
-	color_ui = rgb { 80 100 80 }
+	color = rgb { 173 104 97 }
+	color_ui = rgb { 173 104 97 }
 }
 IRN = {
 	color = rgb { 80 100 80 }
@@ -638,12 +638,12 @@ CIP = {
 	color_ui = rgb { 50 140 65 }
 }
 CHI = {
-	color = rgb { 230 140 30 }
-	color_ui = rgb { 230 140 30 }
+	color = rgb { 255 222 114 }
+	color_ui = rgb { 255 222 114 }
 }
 TWN = {
-	color = rgb { 78 113 244 }
-	color_ui = rgb { 78 113 244 }
+	color = rgb { 173 24 46 }
+	color_ui = rgb { 173 24 46 }
 }
 SZC = {
 	color = rgb { 85 100 142 }

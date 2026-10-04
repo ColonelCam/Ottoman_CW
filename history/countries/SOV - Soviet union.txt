@@ -19,9 +19,6 @@ army_experience = 20
 air_experience = 20
 navy_experience = 20
 
-# Flag
-set_cosmetic_tag = SOV_stalin # Until August 19th, 1955
-
 # Ukraine
 UKR = {
 	every_core_state = {
