@@ -19,14 +19,6 @@ add_ideas = {
 	#Companies
 }
 
-SOV = {
-	set_autonomy = {
-		target = CZE
-		autonomous_state = autonomy_integrated_puppet	#Military Occupation
-		freedom_level = 0.5
-	}
-}
-
 if = {
 	limit = { has_dlc = "By Blood Alone" }
 	set_air_oob = "CZE_1945_air_bba"

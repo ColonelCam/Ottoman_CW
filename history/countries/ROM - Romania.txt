@@ -1,5 +1,13 @@
 ﻿capital = 46 # Bucharest
 
+TUR = {
+	set_autonomy = {
+		target = ROM
+		autonomous_state = autonomy_integrated_puppet
+		freedom_level = 0.5
+	}
+}
+
 set_convoys = 25
 
 set_stability = 0.7
@@ -22,14 +30,6 @@ add_ideas = {
 	partial_economic_mobilisation
 	
 	#Companies
-}
-
-SOV = {
-	set_autonomy = {
-		target = ROM
-		autonomous_state = autonomy_integrated_puppet	#Military Occupation
-		freedom_level = 0.5
-	}
 }
 
 if = {

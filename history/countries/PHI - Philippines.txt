@@ -1,0 +1,243 @@
+﻿capital = 327 # Manila
+
+set_convoys = 10
+set_stability = 0.65
+set_war_support = 0.7
+add_command_power = 5
+set_research_slots = 2
+add_political_power = 49
+
+add_ideas = {
+	#National Spirits
+	PHI_huk_insurgency
+	
+	#National Laws
+	
+	#Companies
+}
+
+# Hukbalahap
+HUK = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = PHI
+			NOT = {
+				impassable = yes
+			}
+		}
+		force_enable_resistance = {
+			occupied = HUK
+		}
+		start_resistance = HUK
+		set_resistance = 20
+		set_compliance = 70
+	}
+}
+
+1948.6.1 = {
+	USA = {
+		end_puppet = PHI
+	}
+	leave_faction = yes
+	give_military_access = USA
+}
+
+1956.1.1 = {
+	remove_ideas = PHI_huk_insurgency
+}
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_oob = "PHI_1948_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+
+		#Upgrades
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+	else = {
+		set_oob = "PHI_1948"
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "PHI_1948_naval"
+	set_technology = {
+		#Destroyers
+		early_ship_hull_light = 1
+
+		#Naval Support
+		mtg_transport = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_air_oob = "PHI_1948_air_bba"
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_1 = 1
+		basic_small_airframe_2 = 1
+
+		#Large Airframe
+		basic_large_airframe_1 = 1
+	}
+	else = {
+		set_air_oob = "PHI_1948_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			fighter1 = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Special Forces ###
+	marines = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = PHI_sergio_osmena
+recruit_character = PHI_pedro_p_baguisa
+recruit_character = PHI_hermano_jacinto
+recruit_character = PHI_pelagio_cruz
+recruit_character = PHI_jose_v_andrada
+recruit_character = PHI_leoncio_s_tan
+recruit_character = PHI_benito_n_ebuen
+recruit_character = PHI_basilio_fernando
+recruit_character = PHI_basilio_j_valdez
+recruit_character = PHI_santiago_nuval
+recruit_character = PHI_heraclio_alano
+recruit_character = PHI_ramon_a_alcaraz
+recruit_character = PHI_victor_h_dizon
+recruit_character = PHI_edwin_andrews
+recruit_character = PHI_eustacio_orobia
+recruit_character = PHI_vicente_p_lim
+recruit_character = PHI_emilio_aguinaldo
+recruit_character = PHI_juan_sumulong
+
+set_popularities = {
+	democratic = 45 #Social Conservatism
+	market_liberal = 11
+	social_liberal = 27
+	social_democrat = 5
+	communism = 0 #Communism
+	left_wing_radical = 7
+	neutrality = 5 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1945.11.8"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+### VARIANTS ###
+# Naval Equipment Variants
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	create_equipment_variant = {
+		name = "Patrol Vessel Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+}
+
+# Air Equipment Variants
+if = {
+	limit = { NOT = { has_dlc = "By Blood Alone" } }
+	create_equipment_variant = {
+		name = "P-51 Mustang"
+		type = fighter_equipment_1
+		upgrades = {
+			plane_gun_upgrade = 1
+			plane_range_upgrade = 1
+			plane_engine_upgrade = 1
+			plane_reliability_upgrade = 1
+		}
+	}
+	create_equipment_variant = {
+		name = "P-40 Warhawk"
+		type = CAS_equipment_1
+		upgrades = {
+			plane_cas_upgrade = 1
+			plane_range_upgrade = 1
+			plane_engine_upgrade = 1
+			plane_reliability_upgrade = 1
+		}
+	}
+}
+
+# Aircraft Variants (By Blood Alone DLC)
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	# Philippine P-51 Mustang - Fighter aircraft
+	create_equipment_variant = {
+		name = "P-51 Mustang"
+		type = small_plane_airframe_1
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+		}
+		icon = "GFX_USA_fighter1_medium"
+	}
+
+	# Philippine P-40 Warhawk - Ground attack aircraft
+	create_equipment_variant = {
+		name = "P-40 Warhawk"
+		type = small_plane_cas_airframe_1
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = armor_plate_small
+			special_type_slot_2 = fuel_tanks_small
+		}
+		icon = "GFX_USA_CAS1_medium"
+	}
+}

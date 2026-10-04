@@ -1,0 +1,243 @@
+﻿capital = 977 # South Korea - Seoul
+
+oob = "ROK_1945"
+
+set_convoys = 25
+
+set_stability = 0.4
+
+set_war_support = 0.3
+
+add_command_power = 5
+
+set_research_slots = 2
+
+add_political_power = 49
+
+add_ideas = {
+	#National Spirits
+	ROK_hyperinflation_1
+	ROK_japanese_advisors
+	ROK_american_occupation
+	
+	#National Laws
+}
+
+add_opinion_modifier = {
+	target = DPK
+	modifier = large_decrease
+}
+
+add_opinion_modifier = {
+	target = USA
+	modifier = american_occupation
+}
+
+reverse_add_opinion_modifier = {
+	target = USA
+	modifier = american_occupation
+}
+
+1948.6.1 = {
+	# National Focuses
+	complete_national_focus = ROK_aftermath_of_japanese_rule
+	complete_national_focus = ROK_american_military_government
+	complete_national_focus = ROK_remove_japanese_influence
+	complete_national_focus = ROK_address_collaboration_issue
+	complete_national_focus = ROK_rebuild_economy
+	complete_national_focus = ROK_stabilize_inflation
+	complete_national_focus = ROK_develop_infrastructure
+	complete_national_focus = ROK_land_reform
+	complete_national_focus = ROK_education_reform
+	complete_national_focus = ROK_build_defense_forces
+	complete_national_focus = ROK_us_military_assistance
+	complete_national_focus = ROK_agricultural_development
+	complete_national_focus = ROK_first_republic
+}
+
+1950.6.1 = {
+	# National Focuses
+	complete_national_focus = ROK_anticommunist_campaigns
+	complete_national_focus = ROK_strengthen_presidential_powers
+	complete_national_focus = ROK_suppress_opposition
+	complete_national_focus = ROK_expand_army
+	complete_national_focus = ROK_border_fortifications
+	complete_national_focus = ROK_formalize_military_structure
+	complete_national_focus = ROK_found_rok_navy
+	complete_national_focus = ROK_coastal_defense
+	complete_national_focus = ROK_establish_rok_air_force
+	complete_national_focus = ROK_industrial_transformation
+	complete_national_focus = ROK_expand_ulsan_industry
+	complete_national_focus = ROK_develop_seoul_industry
+	complete_national_focus = ROK_chaebols_development
+	complete_national_focus = ROK_political_crossroads
+	complete_national_focus = ROK_consolidate_rhee_regime
+}
+
+1956.1.1 = {
+	# National Focuses
+	complete_national_focus = ROK_prepare_for_korean_war
+	complete_national_focus = ROK_korean_war_phase
+	complete_national_focus = ROK_defensive_operations
+	complete_national_focus = ROK_pusan_perimeter
+	complete_national_focus = ROK_counteroffensive_preparations
+	complete_national_focus = ROK_un_coalition_operations
+	complete_national_focus = ROK_integrated_command_structure
+	complete_national_focus = ROK_push_to_yalu
+	complete_national_focus = ROK_war_resolution
+	complete_national_focus = ROK_demilitarized_zone
+	complete_national_focus = ROK_war_recovery_efforts
+	complete_national_focus = ROK_us_military_bases
+	complete_national_focus = ROK_export_oriented_industrialization
+	complete_national_focus = ROK_cold_war_strategies
+	complete_national_focus = ROK_join_imf_world_bank
+	complete_national_focus = ROK_modernize_military
+	complete_national_focus = ROK_indigenous_defense_industry
+	complete_national_focus = ROK_liberal_party_dominance
+	complete_national_focus = ROK_suppress_student_protests
+	complete_national_focus = ROK_permanent_presidency
+	complete_national_focus = ROK_liberal_party_dominance_consolidated
+	complete_national_focus = ROK_manipulate_elections
+	# Wars
+	diplomatic_relation = {
+		country = DPK
+		relation = war_relation
+		active = no
+	}
+}
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	#set_oob = "TAG_1945_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+	}
+	else = {
+		#set_oob = "TAG_1945"
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+
+set_grand_doctrine = superior_firepower
+set_sub_doctrine = commandos
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	
+	### Special Forces ###
+	marines = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+
+# Starting characters
+recruit_character = ROK_john_r_hodge
+
+# Leaders ready to be recruited later through events or focuses
+recruit_character = ROK_syngman_rhee
+recruit_character = ROK_chang_myon
+recruit_character = ROK_lyuh_woon_hyung
+recruit_character = ROK_cho_bong_am
+recruit_character = ROK_park_chung_hee
+recruit_character = ROK_yi_pom_sok
+recruit_character = ROK_kim_seong_su
+recruit_character = ROK_yun_bo_seon
+recruit_character = ROK_pak_hon_yong
+recruit_character = ROK_kim_sam_kyu
+
+# Political Advisors
+recruit_character = ROK_shin_ik_hee
+recruit_character = ROK_lee_beom_seok
+recruit_character = ROK_kim_ku
+recruit_character = ROK_lee_si_yeong
+recruit_character = ROK_lee_yun_yong
+recruit_character = ROK_hong_myun_hui
+recruit_character = ROK_park_sun_chon
+recruit_character = ROK_yi_tonghwi
+
+# Head of Intelligence
+recruit_character = ROK_kim_doo_hwan
+
+# Military High Command
+recruit_character = ROK_choi_yong_gun
+recruit_character = ROK_lee_hyung_keun
+recruit_character = ROK_kang_mun_bong
+recruit_character = ROK_nam_il
+recruit_character = ROK_kim_yong_ju
+recruit_character = ROK_kim_ung_su
+
+# Theorists
+recruit_character = ROK_hong_sa_ik
+recruit_character = ROK_kim_dong_ha
+recruit_character = ROK_lee_hyun_ku
+
+# Industrial Concerns
+recruit_character = ROK_lee_byung_chul
+recruit_character = ROK_chung_ju_yung
+recruit_character = ROK_kim_woo_choong
+
+# Army Commanders
+recruit_character = ROK_chung_il_kwon
+recruit_character = ROK_paik_sun_yup
+recruit_character = ROK_kim_suk_won
+recruit_character = ROK_kim_hong_il
+recruit_character = ROK_song_yo_chan
+recruit_character = ROK_kim_baik_il
+recruit_character = ROK_hwang_ji
+
+# Navy Commanders
+recruit_character = ROK_son_won_il
+recruit_character = ROK_park_ok_kyu
+
+# Air Force Commanders
+recruit_character = ROK_kim_chung_yul
+recruit_character = ROK_chang_sung_hwa
+
+set_popularities = {
+	democratic = 35 #Social Conservatism
+	market_liberal = 10
+	social_liberal = 0
+	social_democrat = 0
+	communism = 25 #Communism
+	left_wing_radical = 0
+	neutrality = 30 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1942.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

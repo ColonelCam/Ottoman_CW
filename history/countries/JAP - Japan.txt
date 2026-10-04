@@ -1,4 +1,4 @@
-﻿capital = 536
+﻿capital = 282 # Tokyo
 
 set_convoys = 100
 set_stability = 0.6
@@ -9,6 +9,8 @@ add_political_power = 49
 starting_train_buffer = 1
 
 give_military_access = SOV
+
+set_cosmetic_tag = JAP_1945_empire #Until May the 3rd, 1947
 
 add_ideas = {
 	#National Spirits
@@ -26,9 +28,9 @@ add_timed_idea = {
 	days = 4015
 }
 
-SOV = {
+ENG = {
 	set_autonomy = {
-		target = JPN
+		target = JAP
 		autonomous_state = autonomy_integrated_puppet
 		freedom_level = 0.2
 	}
@@ -40,6 +42,22 @@ SOV = {
 
 1956.1.1 = {
 	drop_cosmetic_tag = yes
+}
+
+# North Kyushu (Nagasaki)
+528 = {
+	add_dynamic_modifier = {
+		modifier = fallout_atomic
+		days = 180
+	}
+}
+
+# Chugoku (Hiroshima)
+529 = {
+	add_dynamic_modifier = {
+		modifier = fallout_atomic
+		days = 180
+	}
 }
 
 create_dynamic_country = {

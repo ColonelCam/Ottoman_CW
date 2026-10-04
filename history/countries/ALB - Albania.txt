@@ -19,10 +19,10 @@ army_experience = 5
 air_experience = 5
 navy_experience = 5
 
-SOV = {
+TUR = {
 	set_autonomy = {
 		target = ALB
-		autonomous_state = autonomy_puppet
+		autonomous_state = autonomy_dominion
 		freedom_level = 0.5
 	}
 }

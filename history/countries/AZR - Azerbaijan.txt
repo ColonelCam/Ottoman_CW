@@ -1,30 +1,22 @@
-﻿capital = 202 # Kiev
+﻿capital = 1426 #Baku
 
-SOV = {
+TUR = {
 	set_autonomy = {
-		target = UKR
+		target = AZR
 		autonomous_state = autonomy_integrated_puppet
 		freedom_level = 0.5
 	}
 }
 
-#oob = "UKR_1945"
-set_stability = 0.5
-set_war_support = 0.5
-add_command_power = 5
-set_research_slots = 2
+#oob = "AZR_1945"
 
-add_ideas = {
-	#National Spirits
-	victors_of_wwii
-	
-	#National Laws
-	limited_conscription
-	
-	#Cabinet
-	
-	#Companies
-}
+set_stability = 0.5
+
+set_war_support = 0.5
+
+add_command_power = 5
+
+set_research_slots = 2
 
 # Starting tech
 set_technology = {
@@ -47,21 +39,19 @@ set_technology = {
 	basic_machine_tools = 1
 }
 
-recruit_character = UKR_nikita_khrushchyov
-
 set_popularities = {
-	democratic = 30 #Social Conservatism
+	democratic = 70 #Social Conservatism
 	market_liberal = 0
-	social_liberal = 50
+	social_liberal = 0
 	social_democrat = 0
 	communism = 0 #Communism
 	left_wing_radical = 0
-	neutrality = 10 #Paternal Autocracy
-	fascism = 10 #Nationalism
+	neutrality = 30 #Paternal Autocracy
+	fascism = 0 #Nationalism
 }
 
 set_politics = {
-	ruling_party = social_liberal
+	ruling_party = democratic
 	last_election = "1943.2.1"
 	election_frequency = 48
 	elections_allowed = yes

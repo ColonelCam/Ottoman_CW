@@ -1,0 +1,72 @@
+﻿capital = 987 # Vienna
+
+#oob = "AUS_1945"
+
+set_stability = 0.6
+
+set_war_support = 0.5
+
+add_command_power = 5
+
+set_research_slots = 3
+
+add_political_power = 49
+
+add_ideas = {
+	#National Spirits
+	AUS_provisional_state
+	
+	#National Laws
+	disarmed_nation
+	civilian_economy
+	
+	#Companies
+}
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	tech_mountaineers = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_recon = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	mechanical_computing = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = AUS_karl_renner
+
+set_popularities = {
+	democratic = 44 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 40
+	communism = 10 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 6 #Nationalism
+}
+
+set_politics = {
+	ruling_party = social_democrat
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
