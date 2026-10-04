@@ -1,0 +1,88 @@
+﻿capital = 330 # Ulaanbaatar
+
+oob = "MON_1936"
+set_stability = 0.7
+set_war_support = 0.7
+add_command_power = 5
+set_research_slots = 2
+add_political_power = 49
+
+SOV = {
+	set_autonomy = {
+		target = MON
+		autonomous_state = autonomy_satellite
+		freedom_level = 0.2
+	}
+}
+
+add_ideas = {
+	limited_conscription
+}
+
+1956.1.1 = {
+	retire_character = MON_khorloogiin_choibalsan
+	promote_character = MON_yumjaagiin_tsedenbal
+}
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Support ###
+	tech_support = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+	
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+
+	### Industry ###
+	#basic_machine_tools = 1
+}
+
+recruit_character = MON_khorloogiin_choibalsan
+recruit_character = MON_yumjaagiin_tsedenbal
+recruit_character = MON_dashiin_damba
+recruit_character = MON_jampal_namdol_chokyi_gyaltsen
+recruit_character = MON_serengdongrub
+recruit_character = MON_fu_shangzhi
+recruit_character = MON_songgotu_kangan
+recruit_character = MON_haidav
+recruit_character = MON_dagva
+recruit_character = MON_chimid
+recruit_character = MON_sukhbaataryn_yanjmaa
+recruit_character = MON_ganbaatar
+recruit_character = MON_ulanhu
+recruit_character = MON_vg_pyrselov
+recruit_character = MON_lee_shou_hsin
+recruit_character = MON_buyannmeh
+recruit_character = MON_horloogiyn_choybalsan
+recruit_character = MON_olziytrygyn_badrak
+recruit_character = MON_dashdorj
+recruit_character = MON_gomgchigryn_bumtsend
+recruit_character = MON_dansrabilegyin_dogsam
+recruit_character = MON_yundunwangcug
+recruit_character = MON_pai_yun_ti
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 20 #Communism
+	left_wing_radical = 0
+	neutrality = 80 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

@@ -1,0 +1,76 @@
+﻿capital = 267 # Kabul
+
+oob = "AFG_1945"
+
+set_stability = 0.6
+
+set_war_support = 0.5
+
+add_command_power = 5
+
+set_research_slots = 2
+
+add_political_power = 49
+
+starting_train_buffer = 1
+
+add_ideas = {
+	AFG_mohammad_zahir_shah_ns
+	AFG_pashtunwali
+	AFG_countenance_shellshocked
+	AFG_tribal_revolts
+}
+
+1270 = {
+	add_dynamic_modifier = { modifier = hazara_rebellion }
+}
+
+1946.1.1 = {
+	activate_decision = AFG_suppress_the_rebellion
+}
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Unique Tech ###
+	camelry = 1
+	
+	### Support ###
+	tech_support = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	#basic_machine_tools = 1
+	fuel_refining = 1
+	fuel_silos = 1
+}
+
+recruit_character = AFG_mohammed_zahir_shah
+recruit_character = AFG_mahmud_khan
+recruit_character = AFG_mohammad_hashim_khan
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 10 #Communism
+	left_wing_radical = 0
+	neutrality = 20 #Paternal Autocracy
+	fascism = 70 #Nationalism
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

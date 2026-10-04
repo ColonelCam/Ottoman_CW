@@ -1,0 +1,126 @@
+﻿capital = 266 # Tehran
+
+oob = "IRN_1945"
+set_convoys = 50
+set_stability = 0.6
+set_war_support = 0.7
+add_command_power = 5
+set_research_slots = 2
+add_political_power = 49
+
+
+# Shahanshah, the King of Kings
+recruit_character = IRN_mohammad_reza_shah
+
+# Prime Minister
+recruit_character = IRN_mohsen_sadr
+
+# Prime Minister
+recruit_character = IRN_qavam_al_saltaneh
+
+# Prime Minister
+recruit_character = IRN_mohammad_mosaddegh
+
+add_ideas = {
+	#National Spirits
+	IRN_the_shah
+	IRN_anglo_iranian_oil_company
+	IRN_anglo_soviet_occupation
+	IRN_hatred_british
+	
+	#Cabinet
+	IRN_mohammad_reza_shah
+}
+
+419 = { #East Azerbayjan
+	add_dynamic_modifier = { modifier = kurdish_agitation }
+}
+
+421 = { #Kurdestan
+	add_dynamic_modifier = { modifier = kurdish_agitation }
+}
+
+1036 = { #West Azerbayjan
+	add_dynamic_modifier = { modifier = kurdish_agitation }
+}
+
+# Kurdistan
+KUR = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = IRN
+			NOT = {
+				impassable = yes
+			}
+		}
+		force_enable_resistance = {
+			occupied = KUR
+		}
+		start_resistance = KUR
+		set_resistance = 10
+		set_compliance = 70
+	}
+}
+
+1948.6.1 = {
+	promote_character = IRN_qavam_al_saltaneh
+}
+
+1956.1.1 = {
+	add_power_balance_value = {
+		id = IRN_power_balance_shah_vs_mosaddegh
+		value = -1.0
+	}
+}
+
+set_grand_doctrine = grand_battleplan
+set_sub_doctrine = defensive_postures
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Unique Tech ###
+	camelry = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Support ###
+	tech_support = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+	construction1 = 1
+	fuel_silos = 1
+	fuel_refining = 1
+	fuel_refining2 = 1
+	synth_oil_experiments = 1
+	oil_processing = 1
+}
+
+set_popularities = {
+	democratic = 67 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 5
+	social_democrat = 0
+	communism = 18 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 10 #Nationalism
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1943.2.1"
+	election_frequency = 48
+	elections_allowed = yes
+}

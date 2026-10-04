@@ -1,0 +1,31 @@
+
+state={
+	id=416
+	name="STATE_416"
+
+	history={
+		owner = PER
+		add_core_of = IRN
+		add_core_of = PER
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+		}
+		victory_points = {
+			1957 5
+		}
+		victory_points = {
+			13312 8
+		}
+		victory_points = {
+			13489 10
+		}
+	}
+
+	provinces={
+		1521 1888 1957 2000 5029 5073 7573 8009 10351 10806 13312 13489 16093 16094 16095
+	}
+	manpower = 1059739
+	state_category = rural
+	local_supplies=5.0 
+}

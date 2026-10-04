@@ -1,0 +1,67 @@
+﻿capital = 266 # Tehran
+
+oob = "IRN_1945"
+set_convoys = 50
+set_stability = 0.6
+set_war_support = 0.7
+add_command_power = 5
+set_research_slots = 2
+add_political_power = 49
+
+add_ideas = {
+	#National Spirits
+	
+	#Cabinet
+}
+
+set_grand_doctrine = grand_battleplan
+set_sub_doctrine = defensive_postures
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Unique Tech ###
+	camelry = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Support ###
+	tech_support = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+	construction1 = 1
+	fuel_silos = 1
+	fuel_refining = 1
+	fuel_refining2 = 1
+	synth_oil_experiments = 1
+	oil_processing = 1
+}
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 5
+	social_democrat = 0
+	communism = 18 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 77 #Nationalism
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1943.2.1"
+	election_frequency = 48
+	elections_allowed = no
+}

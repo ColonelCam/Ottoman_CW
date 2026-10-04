@@ -1,0 +1,564 @@
+﻿capital = 10 # Warsaw
+
+set_convoys = 50
+set_stability = 0.5
+set_war_support = 0.7
+add_command_power = 20
+set_research_slots = 3
+add_political_power = 149
+
+# Experience
+army_experience = 5
+air_experience = 5
+navy_experience = 5
+
+add_ideas = {
+	#National Spirits
+	POL_soviet_political_control
+	POL_war_crimes
+	
+	#National Laws
+	
+	#Companies
+}
+
+SOV = {
+	set_autonomy = {
+		target = POL
+		autonomous_state = autonomy_integrated_puppet	#Military Occupation
+		freedom_level = 0.5
+	}
+}
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_oob = "POL_1945_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+		
+		#Light Tanks
+		basic_light_tank_chassis_1 = 1
+		
+		#Medium Tanks
+		basic_medium_tank_chassis_1 = 1
+		
+		#Upgrades
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+	else = {
+		set_oob = "POL_1945"
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+			basic_medium_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "POL_1945_naval"
+	set_technology = {
+		basic_naval_mines = 1
+		basic_depth_charges = 1
+		smoke_generator = 1
+		sonar = 1
+		basic_battery = 1
+		basic_cruiser_armor_scheme = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		mtg_transport = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_air_oob = "POL_1945_air_bba"
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_1 = 1
+		basic_small_airframe_2 = 1
+		basic_small_airframe_3 = 1
+
+		#Medium Airframe
+		basic_medium_airframe_1 = 1
+		basic_medium_airframe_2 = 1
+
+		#Transport Plane
+		bba_early_transport_plane = 1
+
+		#Upgrades
+		early_bombs = 1
+		aa_lmg = 1
+		photo_reconnaisance = 1
+		aircraft_construction = 1
+		engines_1 = 1
+		engines_2 = 1
+	}
+	else = {
+		set_air_oob = "POL_1945_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			fighter1 = 1
+			CAS1 = 1
+			naval_bomber1 = 1
+			early_transport_plane = 1
+		}
+	}
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = great_war_infantry
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	
+	### Special Forces ###
+	marines = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+	interwar_artillery = 1
+	rocket_artillery = 1
+	interwar_antiair = 1
+	interwar_antitank = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = POL_wladyslaw_raczkiewicz
+recruit_character = POL_boleslaw_bierut
+recruit_character = POL_edward_ochab
+
+# Political Advisors (Cabinet Members)
+recruit_character = POL_edward_osobka_morawski
+recruit_character = POL_stanislaw_mikolajczyk
+recruit_character = POL_wincenty_rzymowski
+recruit_character = POL_stanislaw_radkiewicz
+recruit_character = POL_henryk_swiatkowski
+recruit_character = POL_hilary_minc
+
+# Military Leadership
+recruit_character = POL_michal_zymierski_rola
+recruit_character = POL_wladyslaw_korczyts
+recruit_character = POL_stanislaw_poplawski
+recruit_character = POL_karol_swierczewski
+recruit_character = POL_marian_spychalski
+recruit_character = POL_zygmunt_berling
+recruit_character = POL_aleksander_zawadzki
+recruit_character = POL_florian_siwicki
+
+# Naval Leadership
+recruit_character = POL_wlodzimierz_steyer
+recruit_character = POL_adam_mohuczy
+
+# Air Force Leadership
+recruit_character = POL_fedor_polynin
+recruit_character = POL_aleksander_klagisz
+
+set_popularities = {
+	democratic = 45 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 45 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 10 #Nationalism
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1943.1.19"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+### VARIANTS ###
+# 1945 Start - Polish People's Army Equipment #
+
+# Aircraft Variants (By Blood Alone DLC)
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	# Polish P-11 - Early fighter aircraft
+	create_equipment_variant = {
+		name = "P-11 Polski"
+		type = small_plane_airframe_0
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_SOV_fighter1_medium"
+	}
+
+	# Polish P-24 - Basic fighter aircraft
+	create_equipment_variant = {
+		name = "P-24 Polski"
+		type = small_plane_airframe_1
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_SOV_fighter1_medium"
+	}
+
+	# Polish Yak-3 - Fighter aircraft (Base version)
+	create_equipment_variant = {
+		name = "Yak-3 Polski"
+		type = small_plane_airframe_2
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_1_1x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = fuel_tanks_small
+		}
+		icon = "GFX_SOV_fighter2_medium"
+	}
+
+	# Polish Yak-9 - Fighter aircraft
+	create_equipment_variant = {
+		name = "Yak-9 Polski"
+		type = small_plane_airframe_2
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_1_1x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = armor_plate_small
+		}
+		icon = "GFX_SOV_fighter2_medium"
+	}
+
+	# Polish Il-2 - Ground attack aircraft
+	create_equipment_variant = {
+		name = "Il-2 Polski"
+		type = small_plane_cas_airframe_2
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = armor_plate_small
+		}
+		icon = "GFX_SOV_CAS2_medium"
+	}
+
+	# Polish Po-2 - Training/utility aircraft
+	create_equipment_variant = {
+		name = "Po-2 Polski"
+		type = small_plane_airframe_1
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = fuel_tanks_small
+		}
+		icon = "GFX_SOV_light_plane_2_medium"
+	}
+
+	# Polish Li-2 - Transport aircraft
+	create_equipment_variant = {
+		name = "Li-2 Polski"
+		type = medium_plane_airframe_1
+		parent_version = 0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_SOV_medium_plane_1_medium"
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+
+	# Polish T-34/76 - Main battle tank
+	create_equipment_variant = {
+		name = "T-34/76 Polski"
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_medium_cannon
+			turret_type_slot = tank_medium_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_SOV_basic_medium_tank_medium"
+	}
+
+	# Polish T-34/85 - Improved medium tank
+	create_equipment_variant = {
+		name = "T-34/85 Polski"
+		type = medium_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_SOV_improved_medium_tank_medium"
+	}
+
+	# Polish IS-2 - Heavy tank (using medium chassis with heavy modules)
+	create_equipment_variant = {
+		name = "IS-2 Polski"
+		type = medium_tank_chassis_1
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_heavy_cannon
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_SOV_advanced_medium_tank_medium"
+	}
+
+	# Polish SU-85 - Tank destroyer
+	create_equipment_variant = {
+		name = "SU-85 Polski"
+		type = medium_tank_destroyer_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_high_velocity_cannon_2
+			turret_type_slot = tank_medium_fixed_superstructure_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_SOV_improved_medium_td_medium"
+	}
+
+	# Polish SU-100 - Tank destroyer
+	create_equipment_variant = {
+		name = "SU-100 Polski"
+		type = medium_tank_destroyer_chassis_1
+		parent_version = 1
+		modules = {
+			main_armament_slot = tank_high_velocity_cannon_3
+			turret_type_slot = tank_medium_fixed_superstructure_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_SOV_advanced_medium_td_medium"
+	}
+
+	# Polish SU-152 - Self-propelled artillery (using medium chassis)
+	create_equipment_variant = {
+		name = "SU-152 Polski"
+		type = medium_tank_artillery_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_howitzer
+			turret_type_slot = tank_medium_fixed_superstructure_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_GER_improved_medium_spaa"
+	}
+
+	# Add equipment to stockpile
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_0
+		amount = 200
+		variant_name = "T-34/76 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_1
+		amount = 150
+		variant_name = "T-34/85 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_chassis_1
+		amount = 50
+		variant_name = "IS-2 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_destroyer_chassis_1
+		amount = 75
+		variant_name = "SU-85 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_destroyer_chassis_1
+		amount = 50
+		variant_name = "SU-100 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_tank_artillery_chassis_1
+		amount = 25
+		variant_name = "SU-152 Polski"
+	}
+}
+
+# Naval Variants (Man the Guns DLC)
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+
+	# Polish Wicher Class - Destroyer
+	create_equipment_variant = {
+		name = "Wicher Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+
+	# Polish Patrol Class - Small patrol vessels
+	create_equipment_variant = {
+		name = "Patrol Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+
+	# Polish Coastal Class - Coastal defense vessels
+	create_equipment_variant = {
+		name = "Coastal Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_anti_air_1
+		}
+	}
+
+	# Polish Training Class - Training vessels
+	create_equipment_variant = {
+		name = "Training Class"
+		type = ship_hull_light_1
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}
+
+# Add aircraft equipment to stockpile (By Blood Alone DLC)
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_0
+		amount = 20
+		variant_name = "P-11 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_1
+		amount = 30
+		variant_name = "P-24 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_2
+		amount = 64
+		variant_name = "Yak-3 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_2
+		amount = 12
+		variant_name = "Yak-9 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_cas_airframe_2
+		amount = 36
+		variant_name = "Il-2 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = small_plane_airframe_1
+		amount = 40
+		variant_name = "Po-2 Polski"
+	}
+	add_equipment_to_stockpile = {
+		type = medium_plane_airframe_1
+		amount = 24
+		variant_name = "Li-2 Polski"
+	}
+}

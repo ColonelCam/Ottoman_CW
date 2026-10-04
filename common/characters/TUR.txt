@@ -1,0 +1,50 @@
+characters={
+	TUR_ismet_inonu = {
+		name="İsmet İnönü"
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_AtM_Ismet_Inonu.png"
+			}
+		}
+		country_leader={
+			ideology=kemalism
+			traits={ milli_sef }
+			expire="1965.1.1.1"
+		}
+	}
+
+	TUR_elyesa_bazna={
+		name=TUR_elyesa_bazna
+		portraits={
+			army={
+				small="GFX_idea_tur_elyesa_bazna"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = TUR_elyesa_bazna
+			allowed = {
+				original_tag = TUR
+				has_dlc = "La Resistance"
+			}
+			available = {
+				has_intelligence_agency = yes 
+			}
+			traits = {
+				head_of_intelligence 
+			}
+		}		
+	}
+	TUR_celal_bayar={
+		name = "Celal Bayar"
+		portraits={
+			civilian={
+				large="gfx/leaders/TUR/Portrait_Turkey_Celal_Beyar.png"
+			}
+		}
+		country_leader = {
+			ideology = market_liberal_sub
+			expire = "1965.1.1.1"
+		}		
+	}
+}

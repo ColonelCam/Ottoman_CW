@@ -1,0 +1,88 @@
+﻿capital = 1013 #Saigon
+
+oob = "VIN_1948"
+
+set_stability = 0.6
+
+set_war_support = 0.9
+
+add_command_power = 5
+
+set_research_slots = 2
+
+add_political_power = 49
+
+#FRA = {
+	#set_autonomy = {
+		#target = VIN
+		#autonomous_state = autonomy_supervised_state
+		#freedom_level = 0.1
+	#}
+#}
+
+1956.1.1 = {
+	# Wars
+	diplomatic_relation = {
+		country = DRV
+		relation = war_relation
+		active = no
+	}
+}
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	
+	### Special Forces ###
+	marines = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = VIN_ngo_dinh_diem
+recruit_character = VIN_phan_boi_chau
+recruit_character = VIN_ho_chi_minh
+recruit_character = VIN_bao_dai
+
+set_popularities = {
+	democratic = 80 #Social Conservatism
+	market_liberal = 10
+	social_liberal = 0
+	social_democrat = 0
+	communism = 10 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = democratic
+	last_election = "1948.1.1"
+	election_frequency = 36
+	elections_allowed = yes
+}

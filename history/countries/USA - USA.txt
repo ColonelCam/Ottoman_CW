@@ -1,0 +1,4797 @@
+﻿capital = 1069 # Washington DC
+
+set_convoys = 160
+set_stability = 0.8
+set_war_support = 0.4
+add_command_power = 20
+set_research_slots = 4
+add_political_power = 149
+starting_train_buffer = 5
+
+add_nuclear_bombs = 1
+
+set_cosmetic_tag = USA_48
+
+create_faction_from_template = faction_template_allies
+add_to_faction = FRA
+add_to_faction = ENG
+add_to_faction = BEL
+add_to_faction = HOL
+add_to_faction = LUX
+add_to_faction = ITA
+#add_to_faction = GRE # Was part of the Allies too. Has a civil war though so(?)
+add_to_faction = NOR
+add_to_faction = DEN
+add_to_faction = ICE
+
+# Experience
+army_experience = 20
+air_experience = 20
+navy_experience = 20
+
+activate_mission = USA_form_the_unsc
+
+activate_mission = USA_kkk_attack_imminent
+
+#set_power_balance = {
+	#id = USA_power_balance
+	#set_value = -0.1
+#}
+
+# Puerto Rico
+PUE = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = USA
+			NOT = {
+				impassable = yes
+			}
+		}
+		force_enable_resistance = {
+			occupied = PUE
+		}
+		start_resistance = PUE
+		set_resistance = 5
+		set_compliance = 80
+	}
+}
+
+# Hawaii
+HAW = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = USA
+			NOT = {
+				impassable = yes
+			}
+		}
+		force_enable_resistance = {
+			occupied = HAW
+		}
+		start_resistance = HAW
+		set_resistance = 0
+		set_compliance = 90
+	}
+}
+
+# Alaska
+ALS = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = USA
+			NOT = {
+				impassable = yes
+			}
+		}
+		force_enable_resistance = {
+			occupied = ALS
+		}
+		start_resistance = ALS
+		set_resistance = 0
+		set_compliance = 100
+	}
+}
+
+# Alaska
+ALS = { set_occupation_law = foreign_civilian_oversight }
+# Hawaii
+HAW = { set_occupation_law = foreign_civilian_oversight }
+# Puerto Rico
+PUE = { set_occupation_law = foreign_civilian_oversight }
+
+# Secretary of the Interior
+recruit_character = USA_harold_ickes
+
+# Head of Intelligence
+recruit_character = USA_william_donovan
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency = {
+		name = "Office of Strategic Services (OSS)"
+		icon = GFX_intelligence_agency_logo_usa
+	}
+}
+
+# Administrator of Veterans Affairs
+recruit_character = USA_omar_bradley
+
+# Chief of Staff of the United States Army
+recruit_character = USA_george_marshall
+
+# Chief of Naval Operations
+recruit_character = USA_ernest_king
+
+# Commanding General of the United States Army Air Forces
+recruit_character = USA_henry_arnold
+
+# Commander in Chief of the Navy
+recruit_character = USA_raymond_a_spruance
+
+# Commander of the Seventh Fleet
+recruit_character = USA_thomas_kinkaid
+
+# Commanding General
+recruit_character = USA_joseph_stilwell
+
+add_ideas = {
+	#National Spirits
+	victors_of_wwii
+	USA_department_of_war_ns
+	USA_segregation
+	USA_industrial_strikes
+	
+	#National Laws
+	extensive_conscription
+	free_trade
+	partial_economic_mobilisation
+	
+	#Cabinet
+	USA_harold_ickes
+	USA_william_donovan
+	USA_omar_bradley
+	USA_george_marshall
+	USA_ernest_king
+	USA_henry_arnold
+	USA_raymond_a_spruance
+	USA_thomas_kinkaid
+	USA_joseph_stilwell
+	
+	#Designers
+	#detroit_arsenal
+	#newport_news_shipbuilding
+	#boeing
+	
+	#Companies
+	USA_general_motors
+	#ford_motor_company
+}
+
+add_opinion_modifier = {
+	target = CHI
+	modifier = huge_increase
+}
+
+add_opinion_modifier = {
+	target = ENG
+	modifier = huge_increase
+}
+
+add_opinion_modifier = {
+	target = ITA
+	modifier = medium_increase
+}
+
+add_opinion_modifier = {
+	target = FRA
+	modifier = medium_increase
+}
+
+add_opinion_modifier = {
+	target = UNC
+	modifier = huge_increase
+}
+
+add_opinion_modifier = {
+	target = SAU
+	modifier = trade_deals
+}
+
+create_dynamic_country = {
+	original_tag = USA
+	set_country_flag = USA_provisional_council
+	set_politics = {
+		ruling_party = communism
+	}
+	set_cosmetic_tag = USA_communist_provisional_council
+	set_research_slots = 3
+	reserve_dynamic_country = yes
+}
+
+create_dynamic_country = {
+	original_tag = USA
+	set_country_flag = USA_union_of_america
+	set_politics = {
+		ruling_party = social_liberal
+	}
+	set_cosmetic_tag = USA_default
+	set_research_slots = 3
+	reserve_dynamic_country = yes
+}
+
+create_dynamic_country = {
+	original_tag = USA
+	set_country_flag = USA_national_state
+	set_politics = {
+		ruling_party = fascism
+	}
+	set_cosmetic_tag = USA_nationalism
+	set_research_slots = 3
+	reserve_dynamic_country = yes
+}
+
+# Remove country tag alias cores
+every_state = {
+	limit = {
+		is_core_of = USA
+	}
+	remove_core_of = UOA
+	remove_core_of = NSA
+	remove_core_of = CCA
+}
+
+#Congress
+set_variable = { var = senators_support value = 48 }
+set_variable = { var = senators_total value = 96 }
+set_variable = { var = representatives_support value = 218 }
+set_variable = { var = representatives_total value = 435 }
+set_variable = { var = quorum_low value = 39 }
+set_variable = { var = quorum_medium value = 49 }
+set_variable = { var = quorum_high value = 58 }
+USA_recalc_congress_icon_frames = yes
+USA = {
+	country_event = { id = usa.50 days = 2 }
+	country_event = { id = usa.51 days = 2 }
+}
+
+# Special Projects
+recruit_character = USA_robert_oppenheimer
+recruit_character = USA_william_francis_gibbs
+recruit_character = USA_vannevar_bush
+recruit_character = USA_edward_curtis_wells
+
+add_breakthrough_progress = {
+	specialization = specialization_nuclear
+	value = 0.1
+}
+add_breakthrough_progress = {
+	specialization = specialization_naval
+	value = 0.3
+}
+add_breakthrough_progress = {
+	specialization = specialization_air
+	value = 0.2
+}
+
+complete_special_project = {
+	project = sp:sp_nuclear_reactor
+	scientist = USA_robert_oppenheimer
+	state = 1250 # Los Alamos
+}
+complete_special_project = {
+	project = sp:sp_nuclear_bomb
+	scientist = USA_robert_oppenheimer
+	state = 1250 # Los Alamos
+}
+complete_special_project = {
+	project = sp:sp_naval_cruiser_submarine
+	scientist = USA_william_francis_gibbs
+	state = 362
+}
+complete_special_project = {
+	project = sp:sp_air_radar
+	scientist = USA_vannevar_bush
+	state = 261
+}
+complete_special_project = {
+	project = sp:sp_rocket_interceptor
+}
+complete_special_project = {
+	project = sp:sp_rockets_flying_bomb
+}
+complete_special_project = {
+	project = sp:sp_air_jet_engine
+}
+complete_special_project = {
+	project = sp:sp_naval_fleet_submarine
+}
+if = {
+	limit = {
+		has_dlc = "No Compromise, No Surrender"
+	}
+	complete_special_project = {
+		project = sp:sp_naval_support_ships
+	}
+	complete_special_project = {
+		project = sp:sp_naval_escort_carrier
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Gotterdammerung"
+	}
+	complete_special_project = {
+		project = sp:sp_air_helicopter
+		scientist = USA_edward_curtis_wells
+		state = 386
+	}
+	complete_special_project = {
+		project = sp:sp_land_military_engineering_vehicles
+		state = 393
+	}
+	complete_special_project = {
+		project = sp:sp_land_flamethrower_tank
+	}
+	set_technology = {
+		sp_armored_motorized_military_police_tech = 1
+	}
+	complete_special_project = {
+		project = sp:sp_naval_underway_replenishment
+	}
+	complete_special_project = {
+		project = sp:sp_naval_proximity_fuze
+	}
+}
+
+1948.6.1 = {
+	add_nuclear_bombs = 40
+	# Special Projects
+	complete_special_project = {
+		project = sp:sp_rockets_ballistic_missile
+	}
+	complete_special_project = {
+		project = sp:sp_air_axial_jet_engine
+	}
+	# Starting tech
+	set_technology = {
+		### Infantry ###
+		infantry_weapons_4 = 1
+		infantry_weapons_5 = 1
+		infantry_at2 = 1
+		night_vision2 = 1
+		support_weapons2 = 1
+		support_weapons3 = 1
+		
+		### Support ###
+		tech_engineers2 = 1
+		tech_recon2 = 1
+		tech_military_police2 = 1
+		tech_maintenance_company2 = 1
+		tech_field_hospital2 = 1
+		tech_logistics_company2 = 1
+		tech_signal_company2 = 1
+		
+		### Artillery ###
+		artillery1 = 1
+		antitank1 = 1
+
+		### Engineering ###
+		advanced_radio = 1
+		cavity_magnatron = 1
+		centimetric_radar = 1
+		phased_array = 1
+		monopulse_radar = 1
+		improved_computing_machine = 1
+		advanced_computing_machine = 1
+		advanced_fire_control_system = 1
+	}
+	set_technology = {
+		#Transport Plane
+		bba_improved_transport_plane = 1
+		
+		#Upgrades
+		survivability_studies = 1
+		aa_hmg = 1
+		aa_cannon_1 = 1
+		air_torpedoe_2 = 1
+	}
+	set_technology = {
+		#Destroyers
+		improved_ship_hull_light = 1
+		
+		#Cruisers
+		improved_ship_hull_cruiser = 1
+		
+		#Battleships
+		improved_ship_hull_heavy = 1
+		
+		#Submarines
+		improved_ship_hull_submarine = 1
+		
+		#Upgrades
+		advanced_sonar = 1
+		advanced_depth_charges = 1
+		basic_submarine_snorkel = 1
+		
+		#Armor Scheme
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		
+		#Naval Support
+		improved_dp_light_battery = 1
+		advanced_ship_torpedo_launcher = 1
+		damage_control_3 = 1
+		fire_control_methods_3 = 1
+		advanced_naval_mines = 1
+		improved_submarine_mine_laying = 1
+	}
+	# National Focuses
+	complete_national_focus = USA_post_war_demobilization
+	complete_national_focus = USA_allocate_funding_to_research
+	complete_national_focus = USA_initiate_operation_magic_carpet
+	complete_national_focus = USA_defend_our_german_occupation_zone
+	complete_national_focus = USA_pacific_island_defense
+	complete_national_focus = USA_occupation_over_the_home_islands
+	complete_national_focus = USA_war_of_technology
+	complete_national_focus = USA_restructure_the_air_force
+	complete_national_focus = USA_open_up_to_the_naval_sector
+	complete_national_focus = USA_heavy_military_training
+	complete_national_focus = USA_the_us_industrial_giant
+	complete_national_focus = USA_post_war_growth
+	complete_national_focus = USA_integrate_german_brands
+	complete_national_focus = USA_address_the_industrial_strikes
+	complete_national_focus = USA_reap_the_benefits_from_exports
+	complete_national_focus = USA_rebuild_the_islands
+	complete_national_focus = USA_export_american_brands
+	complete_national_focus = USA_open_up_to_the_automotive_sector
+	complete_national_focus = USA_prepare_for_a_future_war
+	complete_national_focus = USA_the_golden_age_for_capitalism
+	complete_national_focus = USA_truman_in_office
+	complete_national_focus = USA_a_delegation_choice
+	complete_national_focus = USA_treaty_with_japan
+	complete_national_focus = USA_freedom_of_europe
+	complete_national_focus = USA_reform_the_alliance
+	complete_national_focus = USA_paris_treaty_of_1947
+	complete_national_focus = USA_establish_our_presence
+	complete_national_focus = USA_offer_to_buy_greenland
+	complete_national_focus = USA_the_fight_to_expand_democracy
+	complete_national_focus = USA_rebuild_our_allies
+	complete_national_focus = USA_investments_into_western_europe
+	complete_national_focus = USA_repair_infrastructure
+	complete_national_focus = USA_the_truman_doctrine
+	complete_national_focus = USA_expand_investments
+	complete_national_focus = USA_the_marshall_plan
+	complete_national_focus = USA_eradicate_nazi_influence
+	complete_national_focus = USA_denazification_across_europe
+	complete_national_focus = USA_investments_into_italy
+	complete_national_focus = USA_investments_into_west_germany
+	complete_national_focus = USA_propose_the_bizone
+	complete_national_focus = USA_deutsche_mark_reform
+	complete_national_focus = USA_the_fight_against_segregation
+	complete_national_focus = USA_the_double_v_campaign
+	complete_national_focus = USA_the_looming_shadows_of_communism
+	complete_national_focus = USA_attack_communist_influence
+	complete_national_focus = USA_surround_the_eastern_bloc
+	complete_national_focus = USA_announce_containment_policy
+	complete_national_focus = USA_the_arms_race
+	complete_national_focus = USA_the_war_of_fear
+	complete_national_focus = USA_the_war_of_innovation
+	complete_national_focus = USA_establish_the_cia
+	complete_national_focus = USA_the_national_security_act
+	complete_national_focus = USA_training_spies
+	complete_national_focus = USA_exert_our_influence
+	complete_national_focus = USA_the_north_american_theater
+	complete_national_focus = USA_the_european_theater
+	complete_national_focus = USA_the_turkish_strait_crisis
+	complete_national_focus = USA_promote_polish_democratic_elections
+	complete_national_focus = USA_prevent_victory_for_the_italian_communists
+	complete_national_focus = USA_aid_greece_against_the_communists
+	complete_national_focus = USA_the_asian_theater
+	complete_national_focus = USA_guarantee_philippine_independence
+	complete_national_focus = USA_help_the_roc
+	complete_national_focus = USA_introduce_the_china_aid_act
+	complete_national_focus = USA_train_chinese_troops
+	# Decisions
+	activate_decision = USA_form_the_unsc
+	activate_decision = USA_intervention_philippines
+}
+
+1950.6.1 = {
+	add_nuclear_bombs = 240
+	# Special Projects
+	if = {
+		limit = { has_dlc = "Gotterdammerung" }
+		complete_special_project = {
+			project = sp:sp_air_intercontinental_bomber
+		}
+		complete_special_project = {
+			project = sp:sp_naval_rocket_launching_submarine
+		}
+	}
+	# Starting tech
+	set_technology = {
+		### Infantry ###
+		infantry_weapons_6 = 1
+		infantry_at3 = 1
+		
+		### Artillery ###
+		artillery2 = 1
+		antiair1 = 1
+		antitank2 = 1
+		
+		### Self Propelled Platforms ###
+		self_propelled_artillery_2 = 1
+		self_propelled_aa_2 = 1
+	}
+	set_technology = {
+		#Light Tanks
+		basic_light_tank_chassis_2 = 1
+		
+		#Medium Tanks
+		basic_medium_tank_chassis_2 = 1
+		
+		#Upgrades
+		armor_tech_2 = 1
+		engine_tech_2 = 1
+	}
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_4 = 1
+		
+		#Medium Airframe
+		basic_medium_airframe_4 = 1
+		
+		#Large Airframe
+		basic_large_airframe_4 = 1
+		
+		#Upgrades
+		aa_cannon_2 = 1
+		aa_cannon_3 = 1
+		air_torpedoe_3 = 1
+		engines_4 = 1
+	}
+	set_technology = {
+		#Naval Support
+		improved_light_shell = 1
+		improved_heavy_shell = 1
+		homing_torpedo = 1
+		airsweep_mines_bba = 1
+		airdrop_mines_bba = 1
+	}
+	set_popularities = {
+		democratic = 45 #Social Conservatism
+		market_liberal = 5
+		social_liberal = 50
+		social_democrat = 0
+		communism = 0 #Communism
+		left_wing_radical = 0
+		neutrality = 0 #Paternal Autocracy
+		fascism = 0 #Nationalism
+	}
+	set_politics = {
+		ruling_party = social_liberal
+		last_election = "1948.11.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	# National Focuses
+	complete_national_focus = USA_war_of_deterrence
+	complete_national_focus = USA_implement_the_selective_service_act
+	complete_national_focus = USA_cold_war_readiness_protocol
+	complete_national_focus = USA_cooperate_with_western_brands
+	complete_national_focus = USA_the_1948_recession
+	complete_national_focus = USA_tackle_unemployment
+	complete_national_focus = USA_a_fair_deal
+	complete_national_focus = USA_work_with_companies
+	complete_national_focus = USA_help_the_homeless
+	complete_national_focus = USA_provide_stable_jobs
+	complete_national_focus = USA_bread_and_butter
+	complete_national_focus = USA_invest_into_banks
+	complete_national_focus = USA_prevent_a_1929_great_depression
+	complete_national_focus = USA_tighten_the_federal_reserve
+	complete_national_focus = USA_housing_act_of_1949
+	complete_national_focus = USA_expand_our_alliances
+	complete_national_focus = USA_establish_the_nato
+	# Added trough event
+	# Founding NATO members
+	every_other_country = {
+		limit = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = HOL
+				original_tag = BEL
+				original_tag = ITA
+				original_tag = LUX
+				original_tag = NOR
+				original_tag = DEN
+				original_tag = ICE
+				original_tag = POR
+				original_tag = CAN
+			}
+		}
+		USA = {
+			add_to_faction = PREV
+		}
+		# Because on_action doesn't trigger here
+		add_ideas = nato_member
+		set_western_member = yes
+	}
+	every_other_country = {
+		limit = {
+			is_ally_with = USA
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = HOL
+					original_tag = BEL
+					original_tag = ITA
+					original_tag = LUX
+					original_tag = NOR
+					original_tag = DEN
+					original_tag = ICE
+					original_tag = POR
+					original_tag = CAN
+				}
+			}
+		}
+		USA = {
+			remove_from_faction = PREV
+		}
+	}
+	complete_national_focus = USA_formation_of_west_germany
+	complete_national_focus = USA_invest_into_neutral_countries
+	complete_national_focus = USA_trade_cooperation
+	complete_national_focus = USA_shelley_v_kraemer
+	complete_national_focus = USA_sweatt_v_painter
+	complete_national_focus = USA_the_red_scare
+	complete_national_focus = USA_expand_our_weapons_research
+	complete_national_focus = USA_expand_nuclear_arsenal
+	complete_national_focus = USA_enrichment_of_uranium
+	complete_national_focus = USA_the_end_of_our_nuclear_monopoly
+	complete_national_focus = USA_work_with_anti_communist_movements
+	complete_national_focus = USA_flood_across_the_iron_curtain
+	complete_national_focus = USA_commence_operation_bgfiend
+	complete_national_focus = USA_respond_to_the_berlin_blockade
+	complete_national_focus = USA_fortify_west_berlin
+	complete_national_focus = USA_recruit_ukrainian_emigres
+	complete_national_focus = USA_vietnamese_operations
+	complete_national_focus = USA_provide_arms_to_the_french
+	complete_national_focus = USA_the_indonesian_peace_deal
+	#
+	#
+	#
+	# Decisions
+	activate_decision = USA_intervention_philippines
+}
+
+1956.1.1 = {
+	add_nuclear_bombs = 3390
+	# Special Projects
+	complete_special_project = {
+		project = sp:sp_rockets_medium_range_ballistic_missile
+	}
+	if = {
+		limit = { has_dlc = "Gotterdammerung" }
+		complete_special_project = {
+			project = sp:sp_thermo_nuclear_bomb
+		}
+		complete_special_project = {
+			project = sp:sp_nuclear_engines
+		}
+		complete_special_project = {
+			project = sp:sp_naval_nuclear_submarine
+		}
+		complete_special_project = {
+			project = sp:sp_air_supersonic_jet
+		}
+		complete_special_project = {
+			project = sp:sp_rockets_ground_to_air_missile
+		}
+		complete_special_project = {
+			project = sp:sp_nuclear_warheads
+		}
+	}
+	every_other_country = {
+		limit = {
+			OR = {
+				original_tag = GRE
+				original_tag = TUR
+				original_tag = WGR
+			}
+		}
+		USA = {
+			add_to_faction = PREV
+		}
+		# Because on_action doesn't trigger here
+		add_ideas = nato_member
+		set_western_member = yes
+	}
+	# Starting tech
+	set_technology = {
+		### Infantry ###
+		infantry_weapons_7 = 1
+		infantry_weapons_8 = 1
+		night_vision3 = 1
+		support_weapons4 = 1
+		support_weapons5 = 1
+		
+		### Support ###
+		tech_engineers3 = 1
+		tech_recon3 = 1
+		tech_military_police3 = 1
+		tech_maintenance_company3 = 1
+		tech_field_hospital3 = 1
+		tech_logistics_company3 = 1
+		tech_signal_company3 = 1
+		tech_engineers4 = 1
+		tech_recon4 = 1
+		tech_military_police4 = 1
+		tech_maintenance_company4 = 1
+		tech_field_hospital4 = 1
+		tech_logistics_company4 = 1
+		tech_signal_company4 = 1
+		
+		### Artillery ###
+		artillery3 = 1
+		antiair2 = 1
+		antitank3 = 1
+
+		### Self Propelled Platforms ###
+		self_propelled_artillery_3 = 1
+		self_propelled_aa_3 = 1
+
+		### Engineering ###
+		affordable_radio = 1
+		compact_radio = 1
+		improved_compact_radio = 1
+		unified_radar = 1
+	}
+	set_technology = {
+		#Light Tanks
+		basic_light_tank_chassis_3 = 1
+		
+		#Medium Tanks
+		basic_medium_tank_chassis_3 = 1
+		
+		#Amphibious Tank
+		amphibious_drive = 1
+		
+		#Infantry Fighting Vehicles
+		infantry_fighting_vehicle_1 = 1
+		infantry_fighting_vehicle_2 = 1
+		
+		#Upgrades
+		armor_tech_3 = 1
+		engine_tech_3 = 1
+	}
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_5 = 1
+		basic_small_airframe_6 = 1
+		
+		#Medium Airframe
+		basic_medium_airframe_5 = 1
+		basic_medium_airframe_6 = 1
+		
+		#Large Airframe
+		basic_large_airframe_5 = 1
+		basic_large_airframe_6 = 1
+		
+		#Transport Plane
+		bba_strategic_airlifter = 1
+		
+		#Helicopters
+		helicopter_prototype = 1
+		basic_helicopter_airframe_1 = 1
+		
+		#Upgrades
+		air_to_ground_missile_1 = 1
+		air_to_ground_missile_2 = 1
+		air_to_air_missile_1 = 1
+		air_to_air_missile_2 = 1
+		sp_centrifugal_jet_tech = 1
+	}
+	set_technology = {
+		#Destroyers
+		advanced_ship_hull_light = 1
+		
+		#Cruisers
+		advanced_ship_hull_cruiser = 1
+		
+		#Battleships
+		advanced_ship_hull_heavy = 1
+		
+		#Submarines
+		advanced_ship_hull_submarine = 1
+		
+		#Carriers
+		advanced_ship_hull_carrier = 1
+		
+		#Upgrades
+		modern_sonar = 1
+		modern_depth_charges = 1
+		improved_submarine_snorkel = 1
+		
+		#Naval Support
+		advanced_light_battery = 1
+		advanced_dp_light_battery = 1
+		advanced_heavy_battery = 1
+		modern_ship_torpedo_launcher = 1
+		mtg_tank_landing_craft = 1
+	}
+	set_popularities = {
+		democratic = 55 #Social Conservatism
+		market_liberal = 0
+		social_liberal = 45
+		social_democrat = 0
+		communism = 0 #Communism
+		left_wing_radical = 0
+		neutrality = 0 #Paternal Autocracy
+		fascism = 0 #Nationalism
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1952.11.4"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	retire_character = USA_harry_truman
+	promote_character = USA_dwight_d_eisenhower
+	# National Focuses
+	complete_national_focus = USA_rearmament_response_against_korea
+	complete_national_focus = USA_begin_the_atoms_for_peace_program
+	complete_national_focus = USA_open_the_pennsylvania_shipping_port
+	complete_national_focus = USA_nuclear_powered_ships
+	complete_national_focus = USA_look_towards_the_energy_sector
+	complete_national_focus = USA_coal_mining_in_the_cascades
+	complete_national_focus = USA_develop_the_interstate_highway
+	complete_national_focus = USA_allocate_funds
+	complete_national_focus = USA_invite_turkey
+	complete_national_focus = USA_invite_greece
+	complete_national_focus = USA_invite_west_germany
+	complete_national_focus = USA_towards_asian_security
+	complete_national_focus = USA_formation_of_seato
+	complete_national_focus = USA_global_trade_cooperation
+	complete_national_focus = USA_the_american_sphere
+	complete_national_focus = USA_break_into_the_eastern_market
+	complete_national_focus = USA_end_the_japanese_occupation
+	complete_national_focus = USA_desegregate_the_army
+	complete_national_focus = USA_brown_v_board_of_education
+	complete_national_focus = USA_condemn_communism
+	complete_national_focus = USA_the_mccarthy_trials
+	complete_national_focus = USA_end_mccarthyism
+	complete_national_focus = USA_legal_consequences
+	complete_national_focus = USA_discredit_joseph_mccarthy
+	complete_national_focus = USA_the_mccarthy_army_hearings
+	complete_national_focus = USA_research_the_hydrogen_bomb
+	complete_national_focus = USA_estimate_soviet_arsenal
+	complete_national_focus = USA_establish_radio_free_europe
+	complete_national_focus = USA_crush_the_puerto_rican_rebellion
+	complete_national_focus = USA_initiate_operation_pbsuccess
+	complete_national_focus = USA_the_african_theater
+	complete_national_focus = USA_funding_the_french
+	complete_national_focus = USA_the_expected_outcome
+	complete_national_focus = USA_provide_aid_to_ngo_dinh_diem
+	complete_national_focus = USA_legitimize_the_southern_government
+	complete_national_focus = USA_reject_sukarnos_leadership
+	complete_national_focus = USA_intervene_in_the_1955_elections
+	complete_national_focus = USA_operation_tpajax
+	complete_national_focus = USA_the_korean_war
+	complete_national_focus = USA_call_the_un
+	complete_national_focus = USA_send_military_aid
+	complete_national_focus = USA_launch_operation_chromite
+	complete_national_focus = USA_respond_to_the_chinese_intervention
+	complete_national_focus = USA_roc_defeat
+	complete_national_focus = USA_increase_trade_with_the_roc
+	complete_national_focus = USA_guarantee_the_roc_independence
+	complete_national_focus = USA_respond_to_the_one_china_policy
+	complete_national_focus = USA_arm_the_government
+	complete_national_focus = USA_the_chinese_strait_stand_off
+	complete_national_focus = USA_intervene_in_burma
+	complete_national_focus = USA_weapons_to_the_anti_communists
+	# Decisions
+	activate_decision = USA_send_fleet_to_blockade_taiwan
+	activate_decision = USA_operation_ajax_in_iran
+	activate_decision = USA_bribe_iranian_officials
+	activate_decision = USA_spread_anti_mosaddegh_propaganda
+	activate_decision = USA_organize_protests_in_iran
+	activate_decision = USA_shah_sign_royal_decree
+	# Wars
+	diplomatic_relation = {
+		country = DPK
+		relation = war_relation
+		active = no
+	}
+}
+
+set_grand_doctrine = superior_firepower
+set_sub_doctrine = commandos
+set_sub_doctrine = mobile_recon_and_assault
+set_sub_doctrine = armored_infantry_support
+set_sub_doctrine = mission_type_tactics
+set_grand_doctrine = new_base_strike
+set_grand_doctrine = new_battlefield_support
+#set_grand_doctrine = special_forces_quality
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	infantry_weapons_2 = 1
+	infantry_weapons_3 = 1
+	infantry_at = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	
+	### Special Forces ###
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	rangers_tech = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	wartime_train = 1
+	armored_train = 1
+	railway_gun = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+	interwar_artillery = 1
+	interwar_antiair = 1
+	interwar_antitank = 1
+	
+	### Self Propelled Platforms ###
+	self_propelled_vehicles_platform = 1
+	self_propelled_artillery_1 = 1
+	self_propelled_aa_1 = 1
+	
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	mechanical_computing = 1
+	computing_machine = 1
+	basic_fire_control_system = 1
+	improved_fire_control_system = 1
+	radio = 1
+	improved_radio = 1
+	basic_fortification_tech = 1
+	atomic_research = 1
+	experimental_rockets = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+	improved_machine_tools = 1
+	advanced_machine_tools = 1
+	assembly_line_production = 1
+	construction1 = 1
+	excavation1 = 1
+	fuel_silos = 1
+	synth_oil_experiments = 1
+	fuel_refining = 1
+}
+
+# COUNTRY CHARACTERS
+recruit_character = USA_harry_truman
+recruit_character = USA_thomas_dewey
+recruit_character = USA_dwight_d_eisenhower
+recruit_character = USA_adlai_stevenson
+recruit_character = USA_john_f_kennedy
+recruit_character = USA_richard_nixon
+recruit_character = USA_strom_thurmond
+recruit_character = USA_william_z_foster
+recruit_character = USA_milton_wolff
+recruit_character = USA_nimrod_workman
+recruit_character = USA_robert_g_thomas
+recruit_character = USA_earl_browder
+recruit_character = USA_william_dudley_pelley
+recruit_character = USA_george_s_patton
+recruit_character = USA_geoffrey_keyes
+recruit_character = USA_lucian_truscott
+recruit_character = USA_mark_clark
+recruit_character = USA_douglas_macarthur
+recruit_character = USA_walter_krueger
+recruit_character = USA_lloyd_fredendall
+recruit_character = USA_jonathan_wainwright
+recruit_character = USA_russell_hartle
+recruit_character = USA_leonard_gerow
+recruit_character = USA_edward_brooks
+recruit_character = USA_clarence_huebner
+recruit_character = USA_alexander_patch
+recruit_character = USA_william_simpson
+recruit_character = USA_j_lawton_collins
+recruit_character = USA_courtney_hodges
+recruit_character = USA_oscar_griswold
+recruit_character = USA_alexander_vandegrift
+recruit_character = USA_chester_w_nimitz
+recruit_character = USA_william_halsey_jr
+recruit_character = USA_frank_jack_fletcher
+recruit_character = USA_harold_rainsford_stark
+recruit_character = USA_arleigh_burke
+recruit_character = USA_charles_m_cooke_jr
+recruit_character = USA_carnot_wheeler
+recruit_character = USA_robert_goddard
+recruit_character = USA_curtis_lemay
+recruit_character = USA_dewitt_clinton_ramsey
+recruit_character = USA_harold_mcclelland
+recruit_character = USA_charles_lindbergh
+recruit_character = USA_george_kenney
+recruit_character = USA_john_cannon
+recruit_character = USA_carl_spaatz
+recruit_character = USA_marc_mitscher
+recruit_character = USA_jimmy_doolittle
+recruit_character = USA_claire_lee_chennault
+recruit_character = USA_john_winant
+recruit_character = USA_henry_morgenthau
+recruit_character = USA_whittaker_chambers
+recruit_character = USA_robert_taft
+recruit_character = USA_donald_nelson
+recruit_character = USA_joseph_mccarthy
+recruit_character = USA_cordell_hull
+recruit_character = USA_william_regnery
+recruit_character = USA_joseph_patterson
+recruit_character = USA_henry_stimson
+recruit_character = USA_victor_perlo
+recruit_character = USA_charles_coughlin
+recruit_character = USA_harry_white
+recruit_character = USA_native_american_council
+
+set_popularities = {
+	democratic = 15 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 83 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 2 #Nationalism
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1944.11.8"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_operative_leader = {
+		name = "Josephine Baker"
+		GFX = GFX_portrait_josephine_baker
+		traits = { operative_well_groomed }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		female = yes
+		nationalities = { USA }
+	}
+
+	create_operative_leader = {
+		name = "Virginia Hall"
+		GFX = GFX_portrait_virginia_hall
+		traits = { operative_demolition_expert }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		female = yes
+		nationalities = { USA }
+	}
+}
+
+##########################
+# Starting tech and OOBS #
+##########################
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_oob = "USA_1945_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+		
+		#Light Tanks
+		basic_light_tank_chassis_1 = 1
+		
+		#Medium Tanks
+		basic_medium_tank_chassis_1 = 1
+		
+		#Amphibious Tank
+		amphibious_tank_chassis = 1
+		
+		#Upgrades
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+	else = {
+		set_oob = "USA_1945"
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+			improved_light_tank = 1
+			basic_medium_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "USA_1945_naval"
+	set_technology = {
+		#Destroyers
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		
+		#Cruisers
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		
+		#Battleships
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		improved_ship_hull_heavy = 1
+		
+		#Carriers
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		improved_ship_hull_carrier = 1
+		
+		#Submarines
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		improved_ship_hull_submarine = 1
+		
+		#Coastal Defence Ships
+		coastal_defense_ships = 1
+		
+		#Upgrades
+		sonar = 1
+		improved_sonar = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		
+		#Armor Scheme
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		improved_heavy_armor_scheme = 1
+		
+		#Naval Support
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_light_shell = 1
+		improved_light_battery = 1
+		basic_dp_light_battery = 1
+		basic_heavy_battery = 1
+		basic_heavy_shell = 1
+		improved_heavy_battery = 1
+		basic_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		magnetic_detonator = 1
+		damage_control_1 = 1
+		damage_control_2 = 1
+		fire_control_methods_1 = 1
+		fire_control_methods_2 = 1
+		mtg_transport = 1
+		mtg_landing_craft = 1
+		sp_multi_product_supply_ships = 1
+		basic_naval_mines = 1
+		improved_naval_mines = 1
+		degaussing = 1
+		submarine_mine_laying = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_air_oob = "USA_1945_air_bba"
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_1 = 1
+		basic_small_airframe_2 = 1
+		basic_small_airframe_3 = 1
+		
+		#Medium Airframe
+		basic_medium_airframe_1 = 1
+		basic_medium_airframe_2 = 1
+		basic_medium_airframe_3 = 1
+		
+		#Large Airframe
+		basic_large_airframe_1 = 1
+		basic_large_airframe_2 = 1
+		basic_large_airframe_3 = 1
+		
+		#Transport Plane
+		bba_early_transport_plane = 1
+		
+		#Upgrades
+		early_bombs = 1
+		heavy_bombs = 1
+		armor_piercing_bombs = 1
+		aa_lmg = 1
+		photo_reconnaisance = 1
+		air_torpedoe_1 = 1
+		aircraft_construction = 1
+		range_improvements = 1
+		engines_1 = 1
+		engines_2 = 1
+		engines_3 = 1
+	}
+	else = {
+		set_air_oob = "USA_1945_air_legacy"
+		set_technology = {
+			# Fighters
+			early_fighter = 1
+			fighter1 = 1
+			fighter2 = 1
+			heavy_fighter1 = 1
+			
+			# Tactical Bombers
+			early_bomber = 1
+			tactical_bomber1 = 1
+			tactical_bomber2 = 1
+			
+			# Strategic Bombers
+			strategic_bomber1 = 1
+			strategic_bomber2 = 1
+			
+			# Naval / CAS
+			naval_bomber1 = 1
+			CAS1 = 1
+			
+			# Carrier aircraft
+			cv_fighter1 = 1
+			cv_fighter2 = 1
+			cv_naval_bomber1 = 1
+			cv_CAS1 = 1
+			
+			# Transport Planes
+			early_transport_plane = 1
+		}
+	}
+}
+
+### VARIANTS ###
+# 1945 Start #
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	# 1945 Start Equipment Variants
+	create_equipment_variant = {
+		name = "LVTP-5"
+		type = amphibious_tank_chassis_1
+		design_team = mio:USA_fmc_corporation_organization
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_USA_amphibious_tank_chassis_medium"
+	}
+	
+	### Infantry Fighting Vehicle Chassis ###
+	create_equipment_variant = {
+		name = "M113 Armored Personnel Carrier"
+		type = ifv_chassis_0
+		design_team = mio:USA_fmc_corporation_organization
+		modules = {
+			ifv_turret_type_slot = ifv_weapon_cupola
+			ifv_main_armament_slot = ifv_heavy_machine_gun
+			ifv_suspension_type_slot = ifv_tracked_suspension
+			ifv_armor_type_slot = ifv_aluminum_armor
+			ifv_engine_type_slot = ifv_gasoline_engine
+			special_type_slot_1 = ifv_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_USA_infantry_fighting_vehicle_1_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "XM734 Infantry Fighting Vehicle"
+		type = ifv_chassis_1
+		design_team = mio:USA_fmc_corporation_organization
+		modules = {
+			ifv_turret_type_slot = ifv_one_man_turret
+			ifv_main_armament_slot = ifv_20mm_autocannon
+			ifv_suspension_type_slot = ifv_tracked_suspension
+			ifv_armor_type_slot = ifv_aluminum_armor
+			ifv_engine_type_slot = ifv_diesel_engine
+			special_type_slot_1 = ifv_radio_1
+			special_type_slot_2 = ifv_firing_ports
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_USA_infantry_fighting_vehicle_2_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "XM800 Infantry Fighting Vehicle"
+		type = ifv_chassis_2
+		design_team = mio:USA_fmc_corporation_organization
+		modules = {
+			ifv_turret_type_slot = ifv_two_man_turret
+			ifv_main_armament_slot = ifv_improved_autocannon
+			ifv_suspension_type_slot = ifv_tracked_suspension
+			ifv_armor_type_slot = ifv_aluminum_armor
+			ifv_engine_type_slot = ifv_high_output_diesel_engine
+			special_type_slot_1 = ifv_radio_1
+			special_type_slot_2 = ifv_night_sights
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_infantry_fighting_vehicle_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M2 Bradley Infantry Fighting Vehicle"
+		type = ifv_chassis_3
+		design_team = mio:USA_fmc_corporation_organization
+		modules = {
+			ifv_turret_type_slot = ifv_stabilized_turret
+			ifv_main_armament_slot = ifv_improved_autocannon
+			ifv_suspension_type_slot = ifv_tracked_suspension
+			ifv_armor_type_slot = ifv_spaced_applique_armor
+			ifv_engine_type_slot = ifv_high_output_diesel_engine
+			special_type_slot_1 = ifv_radio_2
+			special_type_slot_2 = ifv_smoke_launchers
+			special_type_slot_3 = ifv_night_sights
+			special_type_slot_4 = ifv_atgm_launcher
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_infantry_fighting_vehicle_4_medium"
+	}
+	
+	# 1940 Light Tank Chassis
+	create_equipment_variant = {
+		name = "M3 Stuart"
+		type = light_tank_chassis_0
+		design_team = mio:USA_cadillac_massey_harris_organization
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_0_medium"
+	}
+	
+	# 1944 Light Tank Chassis
+	create_equipment_variant = {
+		name = "M24 Chaffee"
+		type = light_tank_chassis_1
+		design_team = mio:USA_cadillac_massey_harris_organization
+		modules = {
+			main_armament_slot = tank_small_cannon_2
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+	}
+	
+	# 1950 Light Tank Chassis
+	create_equipment_variant = {
+		name = "M41 Walker Bulldog"
+		type = light_tank_chassis_2
+		design_team = mio:USA_cadillac_massey_harris_organization
+		modules = {
+			main_armament_slot = tank_small_cannon_2
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 6
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_2_medium"
+	}
+	
+	# 1954 Light Tank Chassis
+	create_equipment_variant = {
+		name = "M41A1 Walker Bulldog"
+		type = light_tank_chassis_3
+		design_team = mio:USA_cadillac_massey_harris_organization
+		modules = {
+			main_armament_slot = tank_small_cannon_2
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 5
+			tank_nsb_engine_upgrade = 7
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_3_medium"
+	}
+	
+	# 1958 Light Tank Chassis
+	create_equipment_variant = {
+		name = "M551 Sheridan"
+		type = light_tank_chassis_4
+		design_team = mio:USA_detroit_arsenal_organization
+		modules = {
+			main_armament_slot = tank_high_velocity_cannon
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+			special_type_slot_1 = tank_radio_3
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 6
+			tank_nsb_engine_upgrade = 8
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_4_medium"
+	}
+	
+	# Light Tank Custom Variants
+	create_equipment_variant = {
+		name = "M18 Hellcat"
+		type = light_tank_destroyer_chassis_1
+		design_team = mio:USA_cadillac_massey_harris_organization
+		modules = {
+			main_armament_slot = tank_high_velocity_cannon
+			turret_type_slot = tank_light_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+	}
+	
+	# 1940 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M4 Sherman"
+		type = medium_tank_chassis_0
+		design_team = mio:USA_fisher_body_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_0_medium"
+	}
+	
+	# 1944 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M26 Pershing"
+		type = medium_tank_chassis_1
+		design_team = mio:USA_detroit_arsenal_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+	}
+	
+	# 1950 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M46 Patton"
+		type = medium_tank_chassis_2
+		design_team = mio:USA_detroit_arsenal_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_2_medium"
+	}
+	
+	# 1954 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M47 Patton"
+		type = medium_tank_chassis_3
+		design_team = mio:USA_detroit_arsenal_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 5
+			tank_nsb_engine_upgrade = 6
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_3_medium"
+	}
+	
+	# 1958 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M48 Patton"
+		type = medium_tank_chassis_4
+		design_team = mio:USA_chrysler_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_3
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 6
+			tank_nsb_engine_upgrade = 7
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_4_medium"
+	}
+	
+	# 1965 Medium Tank Chassis
+	create_equipment_variant = {
+		name = "M60 Patton"
+		type = medium_tank_chassis_5
+		design_team = mio:USA_chrysler_organization
+		modules = {
+			main_armament_slot = tank_medium_cannon_2
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_diesel_engine
+			special_type_slot_1 = tank_radio_3
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 7
+			tank_nsb_engine_upgrade = 8
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_5_medium"
+	}
+	
+	# Medium Tank Custom Variants
+	create_equipment_variant = {
+		name = "M10 Wolverine"
+		type = medium_tank_destroyer_chassis_1
+		design_team = mio:USA_fisher_body_organization
+		modules = {
+			main_armament_slot = tank_high_velocity_cannon_2
+			turret_type_slot = tank_medium_fixed_superstructure_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M4A3R3 Zippo"
+		type = medium_tank_flame_chassis_1
+		design_team = mio:USA_detroit_arsenal_organization
+		modules = {
+			main_armament_slot = advanced_flamethrower
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_2
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 4
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M67 Zippo"
+		type = medium_tank_flame_chassis_4
+		design_team = mio:USA_chrysler_organization
+		modules = {
+			main_armament_slot = advanced_flamethrower
+			turret_type_slot = tank_medium_three_man_tank_turret
+			suspension_type_slot = tank_torsion_bar_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_3
+			special_type_slot_2 = stabilizer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 7
+			tank_nsb_engine_upgrade = 8
+		}
+		icon = "GFX_USA_basic_medium_tank_chassis_4_medium"
+	}
+	
+	### Purpose-Built Self-Propelled Artillery ###
+	create_equipment_variant = {
+		name = "M12 Gun Motor Carriage"
+		type = sp_artillery_chassis_0
+		design_team = mio:USA_pressed_steel_car_company_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_open_fighting_compartment
+			sp_artillery_main_armament_slot = sp_155mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_USA_self_propelled_artillery_0_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "M37 Howitzer Motor Carriage"
+		type = sp_artillery_chassis_1
+		design_team = mio:USA_cadillac_motor_car_division_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_open_fighting_compartment
+			sp_artillery_main_armament_slot = sp_105mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+			special_type_slot_1 = sp_extra_ammo_storage
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_USA_self_propelled_artillery_1_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M44 Howitzer Motor Carriage"
+		type = sp_artillery_chassis_2
+		design_team = mio:USA_massey_harris_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_open_fighting_compartment
+			sp_artillery_main_armament_slot = sp_155mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_self_propelled_artillery_2_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M53 Self-Propelled Gun"
+		type = sp_artillery_chassis_3
+		design_team = mio:USA_pacific_car_foundry_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_turreted_fighting_compartment
+			sp_artillery_main_armament_slot = sp_improved_155mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_self_propelled_artillery_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M109 Howitzer"
+		type = sp_artillery_chassis_4
+		design_team = mio:USA_cadillac_motor_car_division_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_turreted_fighting_compartment
+			sp_artillery_main_armament_slot = sp_improved_155mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_light_alloy_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_hydraulic_laying_gear
+			special_type_slot_2 = sp_fire_direction_radio
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_artillery_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M107 Self-Propelled Gun"
+		type = sp_artillery_chassis_5
+		design_team = mio:USA_pacific_car_foundry_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_open_fighting_compartment
+			sp_artillery_main_armament_slot = sp_175mm_gun
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_power_rammer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_artillery_5_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M110 Howitzer"
+		type = sp_artillery_chassis_5
+		design_team = mio:USA_pacific_car_foundry_organization
+		modules = {
+			sp_artillery_compartment_slot = sp_open_fighting_compartment
+			sp_artillery_main_armament_slot = sp_203mm_howitzer
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_power_rammer
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_artillery_5_medium"
+	}
+	
+	### Purpose-Built Self-Propelled Anti-Air ###
+	create_equipment_variant = {
+		name = "M16 Multiple Gun Motor Carriage"
+		type = sp_anti_air_chassis_0
+		design_team = mio:USA_white_motor_company_organization
+		modules = {
+			sp_aa_mount_slot = sp_open_aa_mount
+			sp_aa_main_armament_slot = sp_quad_hmg_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+			special_type_slot_1 = sp_optical_aa_sight
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_USA_self_propelled_aa_0_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "M19 Multiple Gun Motor Carriage"
+		type = sp_anti_air_chassis_1
+		design_team = mio:USA_cadillac_motor_car_division_organization
+		modules = {
+			sp_aa_mount_slot = sp_open_aa_mount
+			sp_aa_main_armament_slot = sp_twin_40mm_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+			special_type_slot_1 = sp_optical_aa_sight
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 3
+		}
+		icon = "GFX_USA_self_propelled_aa_1_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M42 Duster"
+		type = sp_anti_air_chassis_2
+		design_team = mio:USA_general_motors_tank_division_organization
+		modules = {
+			sp_aa_mount_slot = sp_powered_aa_turret
+			sp_aa_main_armament_slot = sp_twin_40mm_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+			special_type_slot_1 = sp_lead_computing_sight
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_self_propelled_aa_2_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M42A1 Duster"
+		type = sp_anti_air_chassis_3
+		design_team = mio:USA_general_motors_tank_division_organization
+		modules = {
+			sp_aa_mount_slot = sp_powered_aa_turret
+			sp_aa_main_armament_slot = sp_twin_40mm_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_welded_steel_armor
+			sp_engine_type_slot = sp_gasoline_engine
+			special_type_slot_1 = sp_lead_computing_sight
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 4
+		}
+		icon = "GFX_USA_self_propelled_aa_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "T249 Vigilante"
+		type = sp_anti_air_chassis_4
+		design_team = mio:USA_sperry_utah_engineering_laboratory_organization
+		modules = {
+			sp_aa_mount_slot = sp_stabilized_aa_turret
+			sp_aa_main_armament_slot = sp_twin_37mm_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_light_alloy_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_tracking_radar
+			special_type_slot_2 = sp_lead_computing_sight
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_aa_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "M163 VADS"
+		type = sp_anti_air_chassis_4
+		design_team = mio:USA_general_electric_organization
+		modules = {
+			sp_aa_mount_slot = sp_stabilized_aa_turret
+			sp_aa_main_armament_slot = sp_rotary_20mm_aa
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_light_alloy_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_lead_computing_sight
+			special_type_slot_2 = sp_night_sights
+			special_type_slot_3 = sp_search_radar
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_aa_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "MIM-46 Mauler"
+		type = sp_anti_air_chassis_4
+		design_team = mio:USA_general_dynamics_pomona_organization
+		modules = {
+			sp_aa_mount_slot = sp_stabilized_aa_turret
+			sp_aa_main_armament_slot = sp_early_sam_launcher
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_light_alloy_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_integrated_fire_control_radar
+			special_type_slot_2 = sp_tracking_radar
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_aa_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "MIM-72 Chaparral"
+		type = sp_anti_air_chassis_5
+		design_team = mio:USA_philco_ford_organization
+		modules = {
+			sp_aa_mount_slot = sp_stabilized_aa_turret
+			sp_aa_main_armament_slot = sp_short_range_sam_launcher
+			sp_suspension_type_slot = sp_tracked_suspension
+			sp_armor_type_slot = sp_light_alloy_armor
+			sp_engine_type_slot = sp_high_output_diesel_engine
+			special_type_slot_1 = sp_optical_aa_sight
+			special_type_slot_2 = sp_night_sights
+			special_type_slot_3 = sp_nbc_protection
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 5
+		}
+		icon = "GFX_USA_self_propelled_aa_5_medium"
+	}
+	
+	### US Tank Destroyers & Medium Flame Tanks ###
+	# All TD variants commented out to reduce equipment variant spam.
+	#create_equipment_variant = {
+		#name = "M41 TD"
+		#type = light_tank_destroyer_chassis_2
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_2
+			#turret_type_slot = tank_light_three_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = tank_radio_2
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 4
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M41A1 TD"
+		#type = light_tank_destroyer_chassis_3
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_2
+			#turret_type_slot = tank_light_three_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = tank_radio_2
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 7
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M551 TD"
+		#type = light_tank_destroyer_chassis_4
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon
+			#turret_type_slot = tank_light_three_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = tank_radio_3
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 8
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M36 Jackson"
+		#type = medium_tank_destroyer_chassis_2
+		#design_team = mio:USA_fisher_body_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_3
+			#turret_type_slot = tank_medium_three_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = tank_radio_2
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M47 TD"
+		#type = medium_tank_destroyer_chassis_3
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_3
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = tank_radio_2
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 7
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M48 TD"
+		#type = medium_tank_destroyer_chassis_4
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_3
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = tank_radio_3
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 7
+			#tank_nsb_engine_upgrade = 8
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M60 TD"
+		#type = medium_tank_destroyer_chassis_5
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_high_velocity_cannon_3
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = tank_radio_3
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 8
+			#tank_nsb_engine_upgrade = 9
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_5_medium"
+	#}
+	
+	### Light SPA Chassis ###
+	# All SPA variants commented out to reduce equipment variant spam
+	#create_equipment_variant = {
+		#name = "M8 Scott"
+		#type = light_tank_artillery_chassis_0
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_close_support_gun
+			#turret_type_slot = tank_light_fixed_superstructure_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 2
+			#tank_nsb_engine_upgrade = 2
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "M37 HMC"
+		#type = light_tank_artillery_chassis_1
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer
+			#turret_type_slot = tank_light_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 3
+			#tank_nsb_engine_upgrade = 3
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M52 HMC"
+		#type = light_tank_artillery_chassis_2
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer
+			#turret_type_slot = tank_light_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 4
+			#tank_nsb_engine_upgrade = 4
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M52A1 HMC"
+		#type = light_tank_artillery_chassis_3
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer_2
+			#turret_type_slot = tank_light_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+			#special_type_slot_1 = extra_ammo_storage
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 5
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M109"
+		#type = light_tank_artillery_chassis_4
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer_2
+			#turret_type_slot = tank_light_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = extra_ammo_storage
+			#special_type_slot_2 = tank_radio_2
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_4_medium"
+	#}
+	
+	### Medium SPA Chassis ###
+	# All SPA variants commented out to reduce equipment variant spam
+	#create_equipment_variant = {
+		#name = "M7 Priest"
+		#type = medium_tank_artillery_chassis_0
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 3
+			#tank_nsb_engine_upgrade = 3
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "M44 HMC"
+		#type = medium_tank_artillery_chassis_1
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 4
+			#tank_nsb_engine_upgrade = 4
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M109A1"
+		#type = medium_tank_artillery_chassis_2
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_medium_howitzer_2
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 5
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M109A2"
+		#type = medium_tank_artillery_chassis_3
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_heavy_howitzer
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = extra_ammo_storage
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M109A3"
+		#type = medium_tank_artillery_chassis_4
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_heavy_howitzer
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = extra_ammo_storage
+			#special_type_slot_2 = tank_radio_3
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 7
+			#tank_nsb_engine_upgrade = 7
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M109A4"
+		#type = medium_tank_artillery_chassis_5
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_heavy_howitzer
+			#turret_type_slot = tank_medium_fixed_superstructure_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = extra_ammo_storage
+			#special_type_slot_2 = tank_radio_3
+			#special_type_slot_3 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 8
+			#tank_nsb_engine_upgrade = 8
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_5_medium"
+	#}
+	
+	### Light SPAAG Chassis ###
+	# All SPAAG variants commented out to reduce equipment variant spam
+	#create_equipment_variant = {
+		#name = "M16 Quad AA"
+		#type = light_tank_aa_chassis_0
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon
+			#turret_type_slot = tank_light_one_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 2
+			#tank_nsb_engine_upgrade = 2
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "M19 MGMC"
+		#type = light_tank_aa_chassis_1
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_2
+			#turret_type_slot = tank_light_two_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 3
+			#tank_nsb_engine_upgrade = 3
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_1_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M42 Duster"
+		#type = light_tank_aa_chassis_2
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_2
+			#turret_type_slot = tank_light_two_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 4
+			#tank_nsb_engine_upgrade = 4
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M42A1 Duster"
+		#type = light_tank_aa_chassis_3
+		#design_team = mio:USA_cadillac_massey_harris_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_2
+			#turret_type_slot = tank_light_two_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_gasoline_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 5
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M163 VADS"
+		#type = light_tank_aa_chassis_4
+		#design_team = mio:USA_fmc_corporation_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_3
+			#turret_type_slot = tank_light_three_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = tank_radio_2
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_light_tank_chassis_4_medium"
+	#}
+	
+	### Medium SPAAG Chassis ###
+	# All SPAAG variants commented out to reduce equipment variant spam
+	#create_equipment_variant = {
+		#name = "M15 Special"
+		#type = medium_tank_aa_chassis_0
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon
+			#turret_type_slot = tank_medium_one_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_diesel_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 3
+			#tank_nsb_engine_upgrade = 3
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "M19A1"
+		#type = medium_tank_aa_chassis_1
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_2
+			#turret_type_slot = tank_medium_two_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_diesel_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 4
+			#tank_nsb_engine_upgrade = 4
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_1_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M42 Duster"
+		#type = medium_tank_aa_chassis_2
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_2
+			#turret_type_slot = tank_medium_two_man_tank_turret
+			#suspension_type_slot = tank_bogie_suspension
+			#armor_type_slot = tank_riveted_armor
+			#engine_type_slot = tank_diesel_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 5
+			#tank_nsb_engine_upgrade = 5
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "T249 Vigilante"
+		#type = medium_tank_aa_chassis_3
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_3
+			#turret_type_slot = tank_medium_two_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = tank_radio_3
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 6
+			#tank_nsb_engine_upgrade = 6
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M247 Sergeant York"
+		#type = medium_tank_aa_chassis_4
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_3
+			#turret_type_slot = tank_medium_two_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 7
+			#tank_nsb_engine_upgrade = 7
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "M168 VADS"
+		#type = medium_tank_aa_chassis_5
+		#design_team = mio:USA_detroit_arsenal_organization
+		#modules = {
+			#main_armament_slot = tank_anti_air_cannon_3
+			#turret_type_slot = tank_medium_three_man_tank_turret
+			#suspension_type_slot = tank_torsion_bar_suspension
+			#armor_type_slot = tank_welded_armor
+			#engine_type_slot = tank_diesel_engine
+			#special_type_slot_1 = tank_radio_3
+			#special_type_slot_2 = stabilizer
+		#}
+		#upgrades = {
+			#tank_nsb_armor_upgrade = 8
+			#tank_nsb_engine_upgrade = 8
+		#}
+		#icon = "GFX_USA_basic_medium_tank_chassis_5_medium"
+	#}
+}
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	# 1945 Start Naval Variants
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Clemson Class"
+		type = ship_hull_light_1
+		name_group = USA_DD_HISTORICAL
+		design_team = mio:USA_bath_iron_works_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Fletcher Class"
+		type = ship_hull_light_2
+		name_group = USA_DD_HISTORICAL
+		design_team = mio:USA_bath_iron_works_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_2
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_torpedo_2
+			rear_1_custom_slot = ship_depth_charge_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Gearing Class"
+		type = ship_hull_light_3
+		name_group = USA_DD_HISTORICAL
+		design_team = mio:USA_bath_iron_works_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_2
+			fixed_ship_engine_slot = light_ship_engine_3
+			fixed_ship_torpedo_slot = ship_torpedo_2
+			mid_1_custom_slot = ship_torpedo_2
+			rear_1_custom_slot = ship_depth_charge_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Forrest Sherman Class"
+		type = ship_hull_light_4
+		name_group = USA_DD_HISTORICAL
+		design_team = mio:USA_bath_iron_works_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_3
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_2
+			fixed_ship_engine_slot = light_ship_engine_4
+			fixed_ship_torpedo_slot = ship_torpedo_3
+			mid_1_custom_slot = ship_torpedo_3
+			rear_1_custom_slot = ship_depth_charge_3
+		}
+	}
+
+	# Cruisers #
+	create_equipment_variant = {
+		name = "Omaha Class"
+		type = ship_hull_cruiser_1
+		name_group = USA_CL_HISTORICAL
+		design_team = mio:USA_todd_shipyards_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			front_1_custom_slot = ship_light_medium_battery_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Cleveland Class"
+		type = ship_hull_cruiser_2
+		name_group = USA_CL_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_3
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			front_1_custom_slot = ship_light_medium_battery_2
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = ship_anti_air_2
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Baltimore Class"
+		type = ship_hull_cruiser_3
+		name_group = USA_CL_HISTORICAL
+		design_team = mio:USA_bethlehem_fore_river_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_3
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_engine_slot = cruiser_ship_engine_3
+			fixed_ship_armor_slot = ship_armor_cruiser_4
+			fixed_ship_secondaries_slot = dp_ship_secondaries_3
+			front_1_custom_slot = ship_light_medium_battery_3
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = ship_anti_air_3
+			rear_1_custom_slot = ship_light_medium_battery_3
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Des Moines Class"
+		type = ship_hull_cruiser_4
+		name_group = USA_CL_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_4
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_engine_slot = cruiser_ship_engine_4
+			fixed_ship_armor_slot = ship_armor_cruiser_4
+			fixed_ship_secondaries_slot = dp_ship_secondaries_3
+			front_1_custom_slot = ship_light_medium_battery_4
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = ship_anti_air_3
+			rear_1_custom_slot = ship_light_medium_battery_4
+		}
+	}
+	
+	# Submarines #
+	create_equipment_variant = {
+		name = "Porpoise Class"
+		type = ship_hull_submarine_1
+		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Gato Class"
+		type = ship_hull_submarine_2
+		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_2
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = ship_torpedo_sub_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Balao Class"
+		type = ship_hull_submarine_3
+		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_3
+			fixed_ship_engine_slot = sub_ship_engine_3
+			rear_1_custom_slot = ship_torpedo_sub_3
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Tang Class"
+		type = ship_hull_submarine_4
+		name_group = USA_SS_HISTORICAL
+		design_team = mio:USA_electric_boat_company_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_4
+			fixed_ship_engine_slot = sub_ship_engine_4
+			rear_1_custom_slot = ship_torpedo_sub_4
+		}
+	}
+
+	# Battleships #
+	create_equipment_variant = {
+		name = "Colorado Class"
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = ship_heavy_battery_2
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = dp_ship_secondaries_1
+			rear_1_custom_slot = ship_anti_air_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "South Dakota Class"
+		type = ship_hull_heavy_2
+		name_group = USA_BB_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_3
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bb_2
+			front_1_custom_slot = ship_heavy_battery_3
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = dp_ship_secondaries_2
+			rear_1_custom_slot = ship_anti_air_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Iowa Class"
+		type = ship_hull_heavy_3
+		name_group = USA_BB_HISTORICAL
+		design_team = mio:USA_brooklyn_naval_yard_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_4
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = heavy_ship_engine_3
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bb_3
+			front_1_custom_slot = ship_heavy_battery_4
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = dp_ship_secondaries_2
+			mid_3_custom_slot = ship_anti_air_2
+			rear_1_custom_slot = ship_anti_air_2
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Montana Class"
+		type = ship_hull_heavy_4
+		name_group = USA_BB_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_4
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_engine_slot = heavy_ship_engine_4
+			fixed_ship_secondaries_slot = dp_ship_secondaries_3
+			fixed_ship_armor_slot = ship_armor_bb_3
+			front_1_custom_slot = ship_heavy_battery_4
+			mid_1_custom_slot = ship_airplane_launcher_2
+			mid_2_custom_slot = dp_ship_secondaries_3
+			mid_3_custom_slot = ship_anti_air_3
+			rear_1_custom_slot = ship_anti_air_3
+		}
+	}
+
+	# Aircraft Carriers #
+	create_equipment_variant = {
+		name = "Langley Class"
+		type = ship_hull_carrier_conversion_bb
+		name_group = USA_CV_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Lexington Class"
+		type = ship_hull_carrier_conversion_ca
+		name_group = USA_CV_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = ship_radar_1
+			fixed_ship_engine_slot = carrier_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Essex Class"
+		type = ship_hull_carrier_1
+		name_group = USA_CV_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = carrier_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			front_1_custom_slot = ship_deck_space
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Midway Class"
+		type = ship_hull_carrier_2
+		name_group = USA_CV_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_radar_slot = ship_radar_2
+			fixed_ship_engine_slot = carrier_ship_engine_3
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			front_1_custom_slot = ship_deck_space
+			mid_1_custom_slot = ship_deck_space
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Forrestal Class"
+		type = ship_hull_carrier_3
+		name_group = USA_CV_HISTORICAL
+		design_team = mio:USA_newport_news_shipbuilding_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_3
+			fixed_ship_radar_slot = ship_radar_3
+			fixed_ship_engine_slot = carrier_ship_engine_4
+			fixed_ship_secondaries_slot = dp_ship_secondaries_3
+			front_1_custom_slot = ship_deck_space
+			mid_1_custom_slot = ship_deck_space
+			rear_1_custom_slot = ship_deck_space
+		}
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	# 1945 Start Aircraft Variants
+	# Small Airframes (Fighters/CAS)
+	create_equipment_variant = {
+		name = "P-40 Warhawk"
+		type = small_plane_airframe_0
+		design_team = mio:USA_curtiss_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			engine_type_slot = engine_2_1x
+		}
+		icon = "GFX_USA_basic_small_airframe_1_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "P-47 Thunderbolt"
+		type = small_plane_airframe_1
+		design_team = mio:USA_republic_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			engine_type_slot = engine_3_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_2_medium"
+		obsolete = yes # used for oob
+	}
+	
+	create_equipment_variant = {
+		name = "P-51 Mustang"
+		type = small_plane_airframe_1
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+			engine_type_slot = engine_3_1x
+			special_type_slot_1 = fuel_tanks_small
+		}
+		icon = "GFX_USA_basic_small_airframe_2_medium"
+		obsolete = yes # used for oob
+	}
+	
+	create_equipment_variant = {
+		name = "P-80 Shooting Star"
+		type = small_plane_airframe_2
+		design_team = mio:USA_skunk_works_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+			engine_type_slot = jet_engine_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F-86 Sabre"
+		type = small_plane_airframe_3
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+			engine_type_slot = jet_engine_axial_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F-100 Super Sabre"
+		type = small_plane_airframe_4
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_2_2x
+			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			engine_type_slot = jet_engine_axial_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_5_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F-100D Super Sabre"
+		type = small_plane_airframe_5
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_2_2x
+			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+			fixed_auxiliary_weapon_slot_2 = air_to_air_missile_1
+			engine_type_slot = jet_engine_axial_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_6_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F-4 Phantom"
+		type = small_plane_airframe_6
+		design_team = mio:USA_mcdonnell_organization
+		modules = {
+			fixed_main_weapon_slot = air_to_air_missile_2
+			fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			engine_type_slot = jet_engine_axial_2x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_small_airframe_7_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F-111 Aardvark"
+		type = small_plane_airframe_7
+		design_team = mio:USA_convair_organization
+		modules = {
+			fixed_main_weapon_slot = air_to_air_missile_2
+			fixed_auxiliary_weapon_slot_1 = large_aircraft_cannon_1x
+			fixed_auxiliary_weapon_slot_2 = air_to_ground_missile_1
+			fixed_auxiliary_weapon_slot_3 = bomb_locks
+			engine_type_slot = jet_engine_axial_2x
+			special_type_slot_1 = air_ground_radar_2
+			special_type_slot_2 = drop_tanks
+			special_type_slot_3 = fuel_tanks_small
+			special_type_slot_4 = fuel_tanks_small
+		}
+		icon = "GFX_USA_basic_small_airframe_8_medium"
+	}
+
+	# Medium Airframes (Tactical Bombers)
+	create_equipment_variant = {
+		name = "B-25 Mitchell"
+		type = medium_plane_airframe_0
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_2 = lmg_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_1_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "A-20 Havoc"
+		type = medium_plane_airframe_1
+		design_team = mio:USA_douglas_aircraft_company_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = hmg_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_2_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "B-26 Marauder"
+		type = medium_plane_airframe_1
+		design_team = mio:USA_martin_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			engine_type_slot = engine_3_2x
+			special_type_slot_1 = hmg_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_2_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "A-26 Invader"
+		type = medium_plane_airframe_2
+		design_team = mio:USA_douglas_aircraft_company_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_2 = heavy_mg_2x
+			engine_type_slot = engine_3_2x
+			special_type_slot_1 = hmg_defense_turret_2x
+		}
+		icon = "GFX_USA_basic_medium_airframe_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-45 Tornado"
+		type = medium_plane_airframe_3
+		design_team = mio:USA_north_american_aviation_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			engine_type_slot = jet_engine_axial_4x
+			special_type_slot_1 = hmg_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-57 Canberra"
+		type = medium_plane_airframe_4
+		design_team = mio:USA_martin_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			engine_type_slot = jet_engine_axial_2x
+		}
+		icon = "GFX_USA_basic_medium_airframe_5_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-66 Destroyer"
+		type = medium_plane_airframe_5
+		design_team = mio:USA_douglas_aircraft_company_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_2 = bomb_locks
+			engine_type_slot = jet_engine_axial_2x
+			special_type_slot_1 = hmg_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_6_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-58 Hustler"
+		type = medium_plane_airframe_6
+		design_team = mio:USA_convair_organization
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_2 = bomb_locks
+			engine_type_slot = jet_engine_axial_4x
+			special_type_slot_1 = bomb_sights_2
+			special_type_slot_2 = cannon_defense_turret
+		}
+		icon = "GFX_USA_basic_medium_airframe_7_medium"
+	}
+	
+	# Large Airframes (Strategic Bombers)
+	create_equipment_variant = {
+		name = "B-17 Flying Fortress"
+		type = large_plane_airframe_0
+		design_team = mio:USA_boeing_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			engine_type_slot = engine_3_4x
+			special_type_slot_1 = hmg_defense_turret_2x
+			special_type_slot_2 = hmg_defense_turret_2x
+			special_type_slot_3 = bomb_sights_1
+		}
+		icon = "GFX_USA_basic_large_airframe_1_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "B-24 Liberator"
+		type = large_plane_airframe_1
+		design_team = mio:USA_convair_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			engine_type_slot = engine_3_4x
+			special_type_slot_1 = hmg_defense_turret_2x
+			special_type_slot_2 = hmg_defense_turret_2x
+			special_type_slot_3 = bomb_sights_1
+		}
+		icon = "GFX_USA_basic_large_airframe_2_medium"
+		obsolete = yes
+	}
+	
+	create_equipment_variant = {
+		name = "B-29 Superfortress"
+		type = large_plane_airframe_2
+		design_team = mio:USA_boeing_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			engine_type_slot = engine_3_4x
+			special_type_slot_1 = hmg_defense_turret_2x
+			special_type_slot_2 = hmg_defense_turret_2x
+			special_type_slot_3 = bomb_sights_2
+		}
+		icon = "GFX_USA_basic_large_airframe_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-36 Peacemaker"
+		type = large_plane_airframe_3
+		design_team = mio:USA_convair_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			engine_type_slot = engine_3_6x
+			special_type_slot_1 = cannon_defense_turret_2x
+			special_type_slot_2 = cannon_defense_turret_2x
+			special_type_slot_3 = bomb_sights_2
+			special_type_slot_4 = fuel_tanks_large
+			special_type_slot_5 = fuel_tanks_large
+			special_type_slot_6 = fuel_tanks_large
+		}
+		icon = "GFX_USA_basic_large_airframe_4_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-47 Stratojet"
+		type = large_plane_airframe_4
+		design_team = mio:USA_boeing_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			engine_type_slot = jet_engine_axial_6x
+			special_type_slot_1 = cannon_defense_turret
+			special_type_slot_2 = bomb_sights_2
+			special_type_slot_3 = fuel_tanks_large
+		}
+		icon = "GFX_USA_basic_large_airframe_5_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-52 Stratofortress"
+		type = large_plane_airframe_5
+		design_team = mio:USA_boeing_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			fixed_auxiliary_weapon_slot_2 = large_bomb_bay
+			engine_type_slot = jet_engine_axial_8x
+			special_type_slot_1 = cannon_defense_turret_2x
+			special_type_slot_2 = cannon_defense_turret
+			special_type_slot_3 = bomb_sights_2
+			special_type_slot_4 = fuel_tanks_large
+			special_type_slot_5 = fuel_tanks_large
+		}
+		icon = "GFX_USA_basic_large_airframe_6_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "B-52H Stratofortress"
+		type = large_plane_airframe_6
+		design_team = mio:USA_boeing_organization
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+			fixed_auxiliary_weapon_slot_2 = large_bomb_bay
+			engine_type_slot = jet_engine_axial_8x
+			special_type_slot_1 = cannon_defense_turret_2x
+			special_type_slot_2 = cannon_defense_turret
+			special_type_slot_3 = bomb_sights_2
+			special_type_slot_4 = radio_navigation_1
+			special_type_slot_5 = fuel_tanks_large
+			special_type_slot_6 = fuel_tanks_large
+		}
+		icon = "GFX_USA_basic_large_airframe_7_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "F8F Bearcat"
+		type = cv_small_plane_airframe_2
+		design_team = mio:USA_grumman_organization
+		modules = {
+			fixed_main_weapon_slot = heavy_mg_4x
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_3_1x
+			special_type_slot_1 = drop_tanks
+		}
+		icon = "GFX_USA_basic_cv_small_airframe_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "AM Mauler"
+		type = cv_small_plane_cas_airframe_2
+		design_team = mio:USA_martin_organization
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_3_1x
+			special_type_slot_1 = dive_brakes_small
+		}
+		icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "AF Guardian"
+		type = cv_small_plane_naval_bomber_airframe_2
+		design_team = mio:USA_grumman_organization
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_3_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "P2V Neptune"
+		type = large_plane_maritime_patrol_plane_airframe_2
+		design_team = mio:USA_lockheed_organization
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			fixed_auxiliary_weapon_slot_2 = bomb_locks
+			engine_type_slot = engine_4_2x
+			special_type_slot_1 = hmg_defense_turret
+			special_type_slot_2 = fuel_tanks_large
+			special_type_slot_3 = air_ground_radar_1
+		}
+		icon = "GFX_USA_basic_large_airframe_3_medium"
+	}
+	
+	#create_equipment_variant = {
+		#name = "U-2 Dragon Lady"
+		#type = medium_plane_scout_plane_airframe_5
+		#design_team = mio:USA_lockheed_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = jet_engine_axial_1x
+			#special_type_slot_1 = radio_navigation_2
+			#special_type_slot_2 = air_ground_radar_2
+			#special_type_slot_3 = fuel_tanks_medium
+			#special_type_slot_4 = fuel_tanks_medium
+			#special_type_slot_5 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_6_medium"
+	#}
+
+	# Specialized medium / large airframe variants commented out to reduce equipment variant spam.
+	#create_equipment_variant = {
+		#name = "P-61 Black Widow"
+		#type = medium_plane_fighter_airframe_0
+		#design_team = mio:USA_northrop_organization
+		#modules = {
+			#fixed_main_weapon_slot = heavy_mg_4x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_3_2x
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "P-82 Twin Mustang"
+		#type = medium_plane_fighter_airframe_1
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = heavy_mg_4x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_3_2x
+			#special_type_slot_1 = armor_plate_small
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_2_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "F-82 Twin Mustang"
+		#type = medium_plane_fighter_airframe_2
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_4_2x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_3_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "F-89 Scorpion"
+		#type = medium_plane_fighter_airframe_3
+		#design_team = mio:USA_northrop_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_2_2x
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = armor_plate_small
+			#special_type_slot_2 = air_ground_radar_1
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-101 Voodoo"
+		#type = medium_plane_fighter_airframe_4
+		#design_team = mio:USA_mcdonnell_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_2_2x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = armor_plate_small
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-101B Voodoo"
+		#type = medium_plane_fighter_airframe_5
+		#design_team = mio:USA_mcdonnell_organization
+		#modules = {
+			#fixed_main_weapon_slot = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = armor_plate_small
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-4 Phantom II"
+		#type = medium_plane_fighter_airframe_6
+		#design_team = mio:USA_mcdonnell_organization
+		#modules = {
+			#fixed_main_weapon_slot = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = air_ground_radar_2
+			#special_type_slot_2 = armor_plate_small
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_7_medium"
+	#}
+	# medium_plane_scout_plane — all tiers commented
+	#create_equipment_variant = {
+		#name = "O-47 Observation"
+		#type = medium_plane_scout_plane_airframe_0
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_1_2x
+			#special_type_slot_1 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "L-4 Grasshopper"
+		#type = medium_plane_scout_plane_airframe_1
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_1_1x
+			#special_type_slot_1 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_2_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "O-2 Skymaster"
+		#type = medium_plane_scout_plane_airframe_2
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_2_2x
+			#special_type_slot_1 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_3_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "U-6 Beaver"
+		#type = medium_plane_scout_plane_airframe_3
+		#design_team = mio:USA_lockheed_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_4_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "RF-84F Thunderflash"
+		#type = medium_plane_scout_plane_airframe_4
+		#design_team = mio:USA_republic_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "OV-1 Mohawk"
+		#type = medium_plane_scout_plane_airframe_5
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_4_2x
+			#special_type_slot_1 = air_ground_radar_2
+			#special_type_slot_2 = fuel_tanks_medium
+			#special_type_slot_3 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "RF-101C Voodoo"
+		#type = medium_plane_scout_plane_airframe_6
+		#design_team = mio:USA_mcdonnell_organization
+		#modules = {
+			#fixed_main_weapon_slot = recon_camera
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = air_ground_radar_1
+			#special_type_slot_2 = fuel_tanks_medium
+			#special_type_slot_3 = fuel_tanks_medium
+		#}
+		#icon = "GFX_USA_basic_medium_airframe_7_medium"
+	#}
+	# large_plane_maritime_patrol_plane — all tiers commented
+	#create_equipment_variant = {
+		#name = "PBY Catalina"
+		#type = large_plane_maritime_patrol_plane_airframe_0
+		#design_team = mio:USA_convair_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = empty
+			#engine_type_slot = engine_2_2x
+			#special_type_slot_1 = lmg_defense_turret_2x
+			#special_type_slot_2 = fuel_tanks_large
+			#special_type_slot_3 = flying_boat_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "PBM Mariner"
+		#type = large_plane_maritime_patrol_plane_airframe_1
+		#design_team = mio:USA_martin_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = bomb_locks
+			#engine_type_slot = engine_3_2x
+			#special_type_slot_1 = lmg_defense_turret_2x
+			#special_type_slot_2 = fuel_tanks_large
+			#special_type_slot_3 = flying_boat_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_2_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "P5M Marlin"
+		#type = large_plane_maritime_patrol_plane_airframe_3
+		#design_team = mio:USA_martin_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = bomb_locks
+			#engine_type_slot = engine_4_4x
+			#special_type_slot_1 = hmg_defense_turret_2x
+			#special_type_slot_2 = air_ground_radar_1
+			#special_type_slot_3 = fuel_tanks_large
+			#special_type_slot_4 = flying_boat_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_4_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "P2V-7 Neptune"
+		#type = large_plane_maritime_patrol_plane_airframe_4
+		#design_team = mio:USA_lockheed_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = bomb_locks
+			#engine_type_slot = engine_4_4x
+			#special_type_slot_1 = hmg_defense_turret_2x
+			#special_type_slot_2 = air_ground_radar_1
+			#special_type_slot_3 = fuel_tanks_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "P-3 Orion"
+		#type = large_plane_maritime_patrol_plane_airframe_5
+		#design_team = mio:USA_lockheed_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+			#engine_type_slot = engine_4_4x
+			#special_type_slot_1 = air_ground_radar_2
+			#special_type_slot_2 = cannon_defense_turret
+			#special_type_slot_3 = fuel_tanks_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "P-3A Orion"
+		#type = large_plane_maritime_patrol_plane_airframe_6
+		#design_team = mio:USA_lockheed_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+			#engine_type_slot = engine_4_4x
+			#special_type_slot_1 = air_ground_radar_2
+			#special_type_slot_2 = cannon_defense_turret
+			#special_type_slot_3 = fuel_tanks_large
+		#}
+		#icon = "GFX_USA_basic_large_airframe_7_medium"
+	#}
+
+	# Small airframe roles — CAS & naval bomber variants commented out to reduce equipment variant spam.
+	#create_equipment_variant = {
+		#name = "A-36 Apache"
+		#type = small_plane_cas_airframe_0
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = bomb_locks
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = armor_plate_small
+			#special_type_slot_2 = fuel_tanks_small
+		#}
+		#icon = "GFX_USA_basic_small_airframe_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "P-47 Thunderbolt"
+		#type = small_plane_cas_airframe_1
+		#design_team = mio:USA_republic_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = bomb_locks
+			#fixed_auxiliary_weapon_slot_1 = heavy_mg_4x
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = armor_plate_small
+			#special_type_slot_2 = fuel_tanks_small
+		#}
+		#icon = "GFX_USA_basic_small_airframe_2_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "A-26 Invader (CAS)"
+		#type = small_plane_cas_airframe_2
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = engine_3_2x
+			#special_type_slot_1 = hmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-84 Thunderjet"
+		#type = small_plane_cas_airframe_3
+		#design_team = mio:USA_republic_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-84F Thunderstreak"
+		#type = small_plane_cas_airframe_4
+		#design_team = mio:USA_republic_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-105 Thunderchief"
+		#type = small_plane_cas_airframe_5
+		#design_team = mio:USA_republic_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = air_to_ground_missile_2
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-4 Skyhawk"
+		#type = small_plane_cas_airframe_6
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_7_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-7 Corsair II"
+		#type = small_plane_cas_airframe_7
+		#design_team = mio:USA_vought_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = air_to_ground_missile_2
+			#fixed_auxiliary_weapon_slot_2 = bomb_locks
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = air_ground_radar_1
+			#special_type_slot_2 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_8_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "TBD Devastator"
+		#type = small_plane_naval_bomber_airframe_0
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+		#}
+		#icon = "GFX_USA_basic_small_airframe_1_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "TBF Avenger"
+		#type = small_plane_naval_bomber_airframe_1
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_2_medium"
+		#obsolete = yes
+	#}
+	#create_equipment_variant = {
+		#name = "AD-1 Skyraider"
+		#type = small_plane_naval_bomber_airframe_2
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "AD-4 Skyraider"
+		#type = small_plane_naval_bomber_airframe_3
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_4_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A2D Skyshark"
+		#type = small_plane_naval_bomber_airframe_4
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F9F-8 Cougar (Strike)"
+		#type = small_plane_naval_bomber_airframe_5
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_5_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-3 Skywarrior"
+		#type = small_plane_naval_bomber_airframe_6
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_small_airframe_7_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-6 Intruder"
+		#type = small_plane_naval_bomber_airframe_7
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#fixed_auxiliary_weapon_slot_2 = air_to_ground_missile_1
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = air_ground_radar_1
+			#special_type_slot_2 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_8_medium"
+	#}
+
+	# Carrier Aircraft variants commented out to reduce equipment variant spam.
+	# Small Carrier Airframes (Carrier Fighters)
+	#create_equipment_variant = {
+		#name = "F4F Wildcat"
+		#type = cv_small_plane_airframe_0
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = heavy_mg_4x
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#engine_type_slot = engine_1_1x
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_1_medium"
+		#obsolete = yes
+	#}
+
+	#create_equipment_variant = {
+		#name = "F6F Hellcat"
+		#type = cv_small_plane_airframe_1
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = heavy_mg_4x
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_2_medium"
+		#obsolete = yes
+	#}
+
+	#create_equipment_variant = {
+		#name = "F4U Corsair"
+		#type = cv_small_plane_airframe_1
+		#design_team = mio:USA_vought_organization
+		#modules = {
+			#fixed_main_weapon_slot = heavy_mg_4x
+			#fixed_auxiliary_weapon_slot_1 = empty
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_2_medium"
+		#obsolete = yes
+	#}
+
+	#create_equipment_variant = {
+		#name = "F9F Panther"
+		#type = cv_small_plane_airframe_3
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_1_2x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "FJ-3 Fury"
+		#type = cv_small_plane_airframe_4
+		#design_team = mio:USA_north_american_aviation_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_2_2x
+			#fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = armor_plate_small
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "F4D Skyray"
+		#type = cv_small_plane_airframe_5
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = aircraft_cannon_2_2x
+			#fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "F-4 Phantom"
+		#type = cv_small_plane_airframe_6
+		#design_team = mio:USA_mcdonnell_organization
+		#modules = {
+			#fixed_main_weapon_slot = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_airframe_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "F-14 Tomcat"
+		#type = cv_small_plane_airframe_7
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_1 = air_to_air_missile_2
+			#fixed_auxiliary_weapon_slot_2 = aircraft_cannon_2_2x
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = air_ground_radar_2
+			#special_type_slot_2 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_8_medium"
+	#}
+	
+	# Small Carrier CAS Airframes (Dive Bombers)
+	# COMMENTED OUT because obsolete = yes does not work for CV planes(??)
+	#create_equipment_variant = {
+		#name = "SBD Dauntless"
+		#type = cv_small_plane_cas_airframe_0
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_cv_small_plane_cas_airframe_0_medium"
+		#obsolete = yes
+	#}
+
+	#create_equipment_variant = {
+		#name = "SB2C Helldiver"
+		#type = cv_small_plane_cas_airframe_1
+		#design_team = mio:USA_curtiss_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "AD-4 Skyraider (CAS)"
+		#type = cv_small_plane_cas_airframe_3
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = dive_brakes_small
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "AD-5 Skyraider"
+		#type = cv_small_plane_cas_airframe_4
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = dive_brakes_small
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "F9F-8 Cougar"
+		#type = cv_small_plane_cas_airframe_5
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = dive_brakes_small
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "A-4 Skyhawk"
+		#type = cv_small_plane_cas_airframe_6
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = dive_brakes_small
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_cas_airframe_2_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-7E Corsair II"
+		#type = cv_small_plane_cas_airframe_7
+		#design_team = mio:USA_vought_organization
+		#modules = {
+			#fixed_main_weapon_slot = small_bomb_bay
+			#fixed_auxiliary_weapon_slot_1 = air_to_ground_missile_2
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = dive_brakes_small
+			#special_type_slot_2 = air_ground_radar_1
+		#}
+		#icon = "GFX_USA_basic_small_airframe_8_medium"
+	#}
+	
+	# Small Carrier Naval Bomber Airframes (Torpedo Bombers)
+	# COMMENTED OUT because obsolete = yes does not work for CV planes(??)
+	#create_equipment_variant = {
+		#name = "TBD Devastator"
+		#type = cv_small_plane_naval_bomber_airframe_0
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_1_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_cv_small_plane_naval_bomber_airframe_0_medium"
+		#obsolete = yes
+	#}
+
+	#create_equipment_variant = {
+		#name = "TBF Avenger"
+		#type = cv_small_plane_naval_bomber_airframe_1
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = light_mg_2x
+			#engine_type_slot = engine_2_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "AD-4 Skyraider"
+		#type = cv_small_plane_naval_bomber_airframe_3
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = engine_3_1x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "A2D Skyshark"
+		#type = cv_small_plane_naval_bomber_airframe_4
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "F9F-8 Cougar (Strike)"
+		#type = cv_small_plane_naval_bomber_airframe_5
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = rocket_rails
+			#engine_type_slot = jet_engine_1x
+			#special_type_slot_1 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	#}
+
+	#create_equipment_variant = {
+		#name = "A-3 Skywarrior"
+		#type = cv_small_plane_naval_bomber_airframe_6
+		#design_team = mio:USA_douglas_aircraft_company_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = lmg_defense_turret
+		#}
+		#icon = "GFX_USA_basic_cv_small_plane_naval_bomber_airframe_3_medium"
+	#}
+	#create_equipment_variant = {
+		#name = "A-6E Intruder"
+		#type = cv_small_plane_naval_bomber_airframe_7
+		#design_team = mio:USA_grumman_organization
+		#modules = {
+			#fixed_main_weapon_slot = torpedo_mounting
+			#fixed_auxiliary_weapon_slot_1 = bomb_locks
+			#fixed_auxiliary_weapon_slot_2 = air_to_ground_missile_1
+			#engine_type_slot = jet_engine_2x
+			#special_type_slot_1 = air_ground_radar_1
+			#special_type_slot_2 = drop_tanks
+		#}
+		#icon = "GFX_USA_basic_small_airframe_8_medium"
+	#}
+
+	# Orbital Satellites
+	create_equipment_variant = {
+		name = "Explorer 1"
+		type = satellite_airframe_0
+		design_team = mio:USA_jet_propulsion_laboratory_organization
+		modules = {
+			fixed_satellite_payload_slot = satellite_early_scientific_package
+			fixed_satellite_power_slot = satellite_primary_batteries
+			fixed_satellite_communications_slot = satellite_vhf_telemetry
+			fixed_satellite_data_handling_slot = satellite_direct_telemetry
+			fixed_satellite_attitude_control_slot = satellite_spin_stabilization
+			satellite_orbit_control_slot = satellite_passive_orbit
+			satellite_bus_slot = satellite_lightweight_unpressurized_bus
+			satellite_support_slot_1 = empty
+			satellite_support_slot_2 = empty
+		}
+		icon = "GFX_satellite_airframe_0_medium"
+	}
+	
+	create_equipment_variant = {
+		name = "CORONA KH-1"
+		type = satellite_airframe_1
+		design_team = mio:USA_lockheed_missile_systems_division_organization
+		modules = {
+			fixed_satellite_payload_slot = satellite_film_return_camera
+			fixed_satellite_power_slot = satellite_primary_batteries
+			fixed_satellite_communications_slot = satellite_vhf_telemetry
+			fixed_satellite_data_handling_slot = satellite_direct_telemetry
+			fixed_satellite_attitude_control_slot = satellite_three_axis_stabilization
+			satellite_orbit_control_slot = satellite_cold_gas_thrusters
+			satellite_bus_slot = satellite_pressurized_aluminium_bus
+			satellite_support_slot_1 = empty
+			satellite_support_slot_2 = empty
+		}
+		icon = "GFX_satellite_airframe_1_medium"
+	}
+	
+	# Helicopter Variants
+	### 1954 Helicopter Airframe (Bell/Sikorsky) ###
+	create_equipment_variant = {
+		name = "Bell UH-1A Gunship"
+		type = helicopter_airframe_0
+		design_team = mio:USA_bell_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_attack_package_1
+			fixed_helicopter_gun_sensor_slot = helicopter_door_guns
+			fixed_helicopter_ordnance_slot = helicopter_rocket_pods_1
+			helicopter_powerplant_slot = helicopter_early_turboshaft
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_armored_cockpit
+		}
+	}
+	
+	### 1965 Helicopter Airframe (Bell/Sikorsky/Boeing) ###
+	create_equipment_variant = {
+		name = "Bell AH-1G Cobra"
+		type = helicopter_airframe_1
+		design_team = mio:USA_bell_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_attack_package_2
+			fixed_helicopter_gun_sensor_slot = helicopter_chin_turret
+			fixed_helicopter_ordnance_slot = helicopter_rocket_pods_2
+			helicopter_powerplant_slot = helicopter_improved_turboshaft
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_armored_cockpit
+			helicopter_special_slot_2 = helicopter_crashworthy_systems
+		}
+	}
+	
+	### Carrier Helicopter Variants ###
+	create_equipment_variant = {
+		name = "CV Bell UH-1A Gunship"
+		type = cv_helicopter_airframe_0
+		design_team = mio:USA_bell_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_attack_package_1
+			fixed_helicopter_gun_sensor_slot = helicopter_door_guns
+			fixed_helicopter_ordnance_slot = helicopter_rocket_pods_1
+			helicopter_powerplant_slot = helicopter_early_turboshaft
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_armored_cockpit
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "CV Bell AH-1G Cobra"
+		type = cv_helicopter_airframe_1
+		design_team = mio:USA_bell_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_attack_package_2
+			fixed_helicopter_gun_sensor_slot = helicopter_chin_turret
+			fixed_helicopter_ordnance_slot = helicopter_rocket_pods_2
+			helicopter_powerplant_slot = helicopter_improved_turboshaft
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_armored_cockpit
+			helicopter_special_slot_2 = helicopter_crashworthy_systems
+		}
+	}
+	
+	### 1954 Role Variants ###
+	create_equipment_variant = {
+		name = "Bell OH-13 Sioux"
+		type = helicopter_recon_airframe_0
+		design_team = mio:USA_bell_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_observation_package_1
+			fixed_helicopter_gun_sensor_slot = helicopter_optical_observer_suite
+			helicopter_powerplant_slot = helicopter_piston_engine
+			helicopter_rotor_slot = helicopter_single_rotor
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Sikorsky HSS-1 Seabat"
+		type = helicopter_naval_airframe_0
+		design_team = mio:USA_sikorsky_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_naval_attack_package_1
+			fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			helicopter_powerplant_slot = helicopter_piston_engine
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_radio_navigation
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Sikorsky H-34 Seabat"
+		type = helicopter_maritime_airframe_0
+		design_team = mio:USA_sikorsky_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_maritime_patrol_package_1
+			fixed_helicopter_gun_sensor_slot = helicopter_maritime_sensor_suite_1
+			fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			helicopter_powerplant_slot = helicopter_piston_engine
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_radio_navigation
+		}
+	}
+	
+	create_equipment_variant = {
+		name = "Sikorsky H-37 Mojave"
+		type = helicopter_strategic_airframe_0
+		design_team = mio:USA_sikorsky_organization
+		modules = {
+			fixed_helicopter_mission_package_slot = helicopter_bombardment_package_1
+			fixed_helicopter_ordnance_slot = helicopter_external_bomb_racks
+			helicopter_powerplant_slot = helicopter_piston_engine
+			helicopter_rotor_slot = helicopter_single_rotor
+			helicopter_special_slot_1 = helicopter_external_fuel_tanks
+		}
+	}
+	
+	### 1965 Role Variants ###
+	#create_equipment_variant = {
+		#name = "Hughes OH-6A Cayuse"
+		#type = helicopter_recon_airframe_1
+		#design_team = mio:USA_bell_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_observation_package_2
+			#fixed_helicopter_gun_sensor_slot = helicopter_eoir_turret
+			#helicopter_powerplant_slot = helicopter_early_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_crashworthy_systems
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "Kaman SH-2 Seasprite"
+		#type = helicopter_naval_airframe_1
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_naval_attack_package_2
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_early_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "Sikorsky SH-3 Sea King"
+		#type = helicopter_maritime_airframe_1
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_maritime_patrol_package_2
+			#fixed_helicopter_gun_sensor_slot = helicopter_asw_suite_2
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_twin_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_all_weather_avionics
+			#helicopter_special_slot_2 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "Boeing Vertol CH-47 Chinook"
+		#type = helicopter_strategic_airframe_1
+		#design_team = mio:USA_boeing_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_bombardment_package_2
+			#fixed_helicopter_ordnance_slot = helicopter_cratering_ordnance
+			#helicopter_powerplant_slot = helicopter_twin_turboshaft
+			#helicopter_rotor_slot = helicopter_tandem_rotor
+			#helicopter_special_slot_1 = helicopter_improved_transmission
+			#helicopter_special_slot_2 = helicopter_crashworthy_systems
+		#}
+	#}
+	
+	### Carrier Role Variants ###
+	#create_equipment_variant = {
+		#name = "CV Bell OH-13 Sioux"
+		#type = cv_helicopter_recon_airframe_0
+		#design_team = mio:USA_bell_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_observation_package_1
+			#fixed_helicopter_gun_sensor_slot = helicopter_optical_observer_suite
+			#helicopter_powerplant_slot = helicopter_piston_engine
+			#helicopter_rotor_slot = helicopter_single_rotor
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Sikorsky HSS-1 Seabat"
+		#type = cv_helicopter_naval_airframe_0
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_naval_attack_package_1
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_piston_engine
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Sikorsky H-34 Seabat"
+		#type = cv_helicopter_maritime_airframe_0
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_maritime_patrol_package_1
+			#fixed_helicopter_gun_sensor_slot = helicopter_maritime_sensor_suite_1
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_piston_engine
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Sikorsky H-37 Mojave"
+		#type = cv_helicopter_strategic_airframe_0
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_bombardment_package_1
+			#fixed_helicopter_ordnance_slot = helicopter_external_bomb_racks
+			#helicopter_powerplant_slot = helicopter_piston_engine
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_external_fuel_tanks
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Hughes OH-6A Cayuse"
+		#type = cv_helicopter_recon_airframe_1
+		#design_team = mio:USA_bell_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_observation_package_2
+			#fixed_helicopter_gun_sensor_slot = helicopter_eoir_turret
+			#helicopter_powerplant_slot = helicopter_early_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_crashworthy_systems
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Kaman SH-2 Seasprite"
+		#type = cv_helicopter_naval_airframe_1
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_naval_attack_package_2
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_early_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Sikorsky SH-3 Sea King"
+		#type = cv_helicopter_maritime_airframe_1
+		#design_team = mio:USA_sikorsky_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_maritime_patrol_package_2
+			#fixed_helicopter_gun_sensor_slot = helicopter_asw_suite_2
+			#fixed_helicopter_ordnance_slot = helicopter_torpedo_depth_charges
+			#helicopter_powerplant_slot = helicopter_twin_turboshaft
+			#helicopter_rotor_slot = helicopter_single_rotor
+			#helicopter_special_slot_1 = helicopter_all_weather_avionics
+			#helicopter_special_slot_2 = helicopter_radio_navigation
+		#}
+	#}
+	
+	#create_equipment_variant = {
+		#name = "CV Boeing Vertol CH-47 Chinook"
+		#type = cv_helicopter_strategic_airframe_1
+		#design_team = mio:USA_boeing_organization
+		#modules = {
+			#fixed_helicopter_mission_package_slot = helicopter_bombardment_package_2
+			#fixed_helicopter_ordnance_slot = helicopter_cratering_ordnance
+			#helicopter_powerplant_slot = helicopter_twin_turboshaft
+			#helicopter_rotor_slot = helicopter_tandem_rotor
+			#helicopter_special_slot_1 = helicopter_improved_transmission
+			#helicopter_special_slot_2 = helicopter_crashworthy_systems
+		#}
+	#}
+	
+	else = {
+		# Legacy Aircraft Variants (Non-BBA)
+		# Small Aircraft (Fighters)
+		create_equipment_variant = {
+			name = "P-40 Warhawk"
+			type = fighter_equipment_0
+			upgrades = {
+				plane_gun_upgrade = 2
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "P-51 Mustang"
+			type = fighter_equipment_1
+			upgrades = {
+				plane_gun_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "P-47 Thunderbolt"
+			type = fighter_equipment_1
+			upgrades = {
+				plane_gun_upgrade = 4
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "P-80 Shooting Star"
+			type = fighter_equipment_2
+			upgrades = {
+				plane_gun_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F-86 Sabre"
+			type = fighter_equipment_3
+			upgrades = {
+				plane_gun_upgrade = 4
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F-100 Super Sabre"
+			type = fighter_equipment_4
+			upgrades = {
+				plane_gun_upgrade = 4
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F-100D Super Sabre"
+			type = fighter_equipment_5
+			upgrades = {
+				plane_gun_upgrade = 4
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F-4 Phantom"
+			type = fighter_equipment_6
+			upgrades = {
+				plane_gun_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F-111 Aardvark"
+			type = fighter_equipment_7
+			upgrades = {
+				plane_gun_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		# Medium Aircraft (Tactical Bombers)
+		create_equipment_variant = {
+			name = "B-25 Mitchell"
+			type = tac_bomber_equipment_0
+			upgrades = {
+				plane_tac_bomb_upgrade = 2
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "A-20 Havoc"
+			type = tac_bomber_equipment_1
+			upgrades = {
+				plane_tac_bomb_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-26 Marauder"
+			type = tac_bomber_equipment_1
+			upgrades = {
+				plane_tac_bomb_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "A-26 Invader"
+			type = tac_bomber_equipment_2
+			upgrades = {
+				plane_tac_bomb_upgrade = 4
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-45 Tornado"
+			type = tac_bomber_equipment_3
+			upgrades = {
+				plane_tac_bomb_upgrade = 4
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-57 Canberra"
+			type = tac_bomber_equipment_4
+			upgrades = {
+				plane_tac_bomb_upgrade = 4
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-66 Destroyer"
+			type = tac_bomber_equipment_5
+			upgrades = {
+				plane_tac_bomb_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-58 Hustler"
+			type = tac_bomber_equipment_6
+			upgrades = {
+				plane_tac_bomb_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		# Large Aircraft (Strategic Bombers)
+		create_equipment_variant = {
+			name = "B-17 Flying Fortress"
+			type = strat_bomber_equipment_0
+			upgrades = {
+				plane_bomb_upgrade = 2
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-24 Liberator"
+			type = strat_bomber_equipment_1
+			upgrades = {
+				plane_bomb_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-29 Superfortress"
+			type = strat_bomber_equipment_2
+			upgrades = {
+				plane_bomb_upgrade = 4
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-36 Peacemaker"
+			type = strat_bomber_equipment_3
+			upgrades = {
+				plane_bomb_upgrade = 4
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 4
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-47 Stratojet"
+			type = strat_bomber_equipment_4
+			upgrades = {
+				plane_bomb_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-52 Stratofortress"
+			type = strat_bomber_equipment_5
+			upgrades = {
+				plane_bomb_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "B-52H Stratofortress"
+			type = strat_bomber_equipment_6
+			upgrades = {
+				plane_bomb_upgrade = 5
+				plane_range_upgrade = 3
+				plane_engine_upgrade = 5
+				plane_reliability_upgrade = 5
+			}
+		}
+
+		# CAS Aircraft
+		create_equipment_variant = {
+			name = "A-26 Invader"
+			type = CAS_equipment_1
+			upgrades = {
+				plane_cas_upgrade = 3
+				plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		# Naval Bombers
+		create_equipment_variant = {
+			name = "PBY Catalina"
+			type = nav_bomber_equipment_1
+			upgrades = {
+				plane_naval_upgrade = 3
+				plane_range_upgrade = 2
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		# Carrier Aircraft
+		create_equipment_variant = {
+			name = "F4F Wildcat"
+			type = cv_fighter_equipment_0
+			upgrades = {
+				cv_plane_gun_upgrade = 2
+				cv_plane_range_upgrade = 1
+				plane_engine_upgrade = 2
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F6F Hellcat"
+			type = cv_fighter_equipment_1
+			upgrades = {
+				cv_plane_gun_upgrade = 4
+				cv_plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F4U Corsair"
+			type = cv_fighter_equipment_1
+			upgrades = {
+				cv_plane_gun_upgrade = 4
+				cv_plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "F8F Bearcat"
+			type = cv_fighter_equipment_2
+			upgrades = {
+				cv_plane_gun_upgrade = 4
+				cv_plane_range_upgrade = 2
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+
+		#create_equipment_variant = {
+			#name = "SBD Dauntless"
+			#type = cv_CAS_equipment_0
+			#upgrades = {
+				#cv_plane_cas_upgrade = 2
+				#cv_plane_range_upgrade = 1
+				#plane_engine_upgrade = 2
+				#plane_reliability_upgrade = 3
+			#}
+		#}
+
+		create_equipment_variant = {
+			name = "SB2C Helldiver"
+			type = cv_CAS_equipment_1
+			upgrades = {
+				plane_cas_upgrade = 3
+				cv_plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 3
+			}
+		}
+
+		create_equipment_variant = {
+			name = "TBF Avenger"
+			type = cv_nav_bomber_equipment_1
+			upgrades = {
+				cv_plane_naval_upgrade = 3
+				cv_plane_range_upgrade = 1
+				plane_engine_upgrade = 3
+				plane_reliability_upgrade = 4
+			}
+		}
+	}
+}

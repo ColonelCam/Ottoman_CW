@@ -1,0 +1,42 @@
+state={
+	id=1016
+	name="STATE_1016"
+	
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+			arms_factory = 1
+			air_base = 1	
+			4075 = {
+				bunker = 1
+			}
+		}
+		victory_points = {
+			4075 25 #HaNoi
+		}
+	}
+	provinces={
+		4075 
+	}
+	manpower=159114
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=0.000
+}
