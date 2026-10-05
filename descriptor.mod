@@ -6,4 +6,4 @@ tags={
 	"Alternative History"
 }
 name="OttomanPt3"
-supported_version="1.19.3.0"
+supported_version="1.19.*"
