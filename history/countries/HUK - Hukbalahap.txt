@@ -1,0 +1,77 @@
+﻿capital = 623 # Luzon
+
+set_oob = "HUK_1945"
+
+set_convoys = 5
+
+set_stability = 0.4
+
+set_war_support = 0.9
+
+add_command_power = 5
+
+set_research_slots = 2
+
+add_political_power = 49
+
+# Experience
+army_experience = 5
+
+add_ideas = {
+	#National Spirits
+	HUK_hukbalahap
+	
+	#National Laws
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = peoples_war
+set_sub_doctrine = guerilla_war
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_military_police = 1
+	tech_recon = 1
+	tech_engineers = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+	fuel_silos = 1
+	fuel_refining = 1
+}
+
+recruit_character = HUK_luis_taruc
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 5
+	communism = 65 #Communism
+	left_wing_radical = 20
+	neutrality = 0 #Paternal Autocracy
+	fascism = 10 #Nationalism
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

@@ -1,0 +1,99 @@
+political_actions = {
+	PHI_demand_independence = {
+		allowed = {
+			original_tag = PHI
+		}
+		
+		available = {
+			is_subject = yes
+			has_stability > 0.7
+			has_war_support > 0.6
+		}
+		
+		visible = {
+			has_war = no
+			is_subject_of = USA
+		}
+		
+		cost = 50
+		
+		fire_only_once = yes
+		
+		icon = eng_trade_unions_support
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = PHI
+				}
+			}
+		}
+		
+		complete_effect = {
+			USA = { country_event = { id = AtM_USA.11 days = 5 } }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.6.1
+			}
+		}
+	}
+	
+#	PHI_ban_hukbalahap = {
+#		allowed = {
+#			original_tag = PHI
+#		}
+#		
+#		available = {
+#			is_subject = no
+#			has_stability > 0.6
+#			OR = {
+#				is_democratic = yes
+#				is_autocratic = yes
+#			}
+#		}
+#		
+#		visible = {
+#			has_war = no
+#			is_subject = no
+#			NOT = {
+#				is_communist = yes
+#			}
+#		}
+#		
+#		cost = 75
+#		
+#		fire_only_once = yes
+#		
+#		icon = generic_political_discourse
+#		
+#		highlight_states = {
+#			highlight_states_trigger = {
+#				is_capital = yes
+#				CONTROLLER = {
+#					original_tag = PHI
+#				}
+#			}
+#		}
+#		
+#		complete_effect = {
+#			country_event = { id = AtM_PHI.4 }
+#		}
+#		
+#		ai_will_do = {
+#			base = 100
+#			modifier = {
+#				factor = 0
+#				has_army_manpower = { size < 5000 }
+#			}
+#			modifier = {
+#				factor = 2
+#				communism > 0.15
+#			}
+#		}
+#	}
+}

@@ -1,0 +1,195 @@
+##########################
+###   Malayan Events   ###
+##########################
+
+add_namespace = AtM_MAL
+
+# MAL Event 01: Malayan National Liberation Army Uprising
+country_event = {
+	
+	id = AtM_MAL.1
+	title = AtM_MAL.1.t
+	desc = AtM_MAL.1.desc
+	picture = GFX_report_event_ast_troops_landing
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			original_tag = BMA
+		}
+		#date > 1948.6.1
+	}
+	
+	immediate = {
+		every_owned_state = {
+			add_core_of = MLA
+		}
+		
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.60
+				days = 1
+			}
+		}
+	}
+	
+	option = {
+		# Response option
+		name = AtM_MAL.1.a
+		add_stability = -0.1
+		
+		MLA = {
+			transfer_state = 1199
+			transfer_state = 1200
+			transfer_state = 1204
+			transfer_state = 1206
+			every_core_state = {
+				limit = {
+					CONTROLLER = {
+						NOT = {
+							original_tag = MLA
+						}
+					}
+					NOT = {
+						impassable = yes
+					}
+				}
+				if = {
+					limit = {
+						has_resistance = no
+					}
+					force_enable_resistance = {
+						occupied = MLA
+					}
+					start_resistance = MLA
+					set_resistance = 20
+					set_compliance = 70
+				}
+				else = {
+					add_resistance = 20
+					add_compliance = -30
+				}
+			}
+			hidden_effect = {
+				load_oob = "MLA_1948"
+			}
+			add_threat = 10
+		}
+		BMA = {
+			declare_war_on = {
+				target = MLA
+				type = annex_everything
+			}
+			add_manpower = 10000
+		}
+		##1204 = {
+		#	set_border_war = yes
+		#}
+		##1206 = {
+		#	set_border_war = yes
+		#}
+		#ai_chance = {
+		#	base = 100
+		#}
+	}
+	
+	option = {
+		# Play as the MNLA
+		name = AtM_MAL.1.b
+		add_stability = -0.1
+		
+		MLA = {
+			transfer_state = 1198
+			transfer_state = 1199
+			transfer_state = 1200
+			transfer_state = 1204
+			transfer_state = 1206
+			set_province_controller = 14590
+			every_core_state = {
+				limit = {
+					CONTROLLER = {
+						NOT = {
+							original_tag = MLA
+						}
+					}
+					NOT = {
+						impassable = yes
+					}
+				}
+				if = {
+					limit = {
+						has_resistance = no
+					}
+					force_enable_resistance = {
+						occupied = MLA
+					}
+					start_resistance = MLA
+					set_resistance = 20
+					set_compliance = 70
+				}
+				else = {
+					add_resistance = 20
+					add_compliance = -30
+				}
+			}
+			hidden_effect = {
+				load_oob = "MLA_1948"
+			}
+			add_threat = 2
+			change_tag_from = ROOT
+		}
+		BMA = {
+			declare_war_on = {
+				target = MLA
+				type = annex_everything
+			}
+			add_manpower = 10000
+		}
+		
+		
+		##1204 = {
+		#	set_border_war = yes
+		#}
+		##1206 = {
+		#	set_border_war = yes
+		#}
+		#ai_chance = {
+		#	base = 0
+		#}
+	}
+}
+
+# MAL Event 02: Singapore Leaves Malaysia
+country_event = {
+	
+	id = AtM_MAL.2
+	title = AtM_MAL.2.t
+	desc = AtM_MAL.2.desc
+	picture = GFX_report_event_gathering_protest
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			original_tag = BMA
+			original_tag = MAL
+		}
+		date > 1965.6.1
+		owns_state = 1203 # Singapore
+	}
+	
+	option = {
+		# Response event
+		name = AtM_MAL.2.a
+		add_political_power = -50
+		SNG = {
+			transfer_state = 1203 # Singapore
+			set_social_democrat = yes
+			promote_character = SNG_lee_kuan_yew
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}

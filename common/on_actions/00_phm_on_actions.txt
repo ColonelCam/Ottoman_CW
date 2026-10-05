@@ -1,0 +1,18 @@
+on_actions = {
+    on_startup = {
+        effect = {
+            BMA = {
+                country_event = {
+                    id = AtM_MAL.1
+                    days = 7
+                }
+            }
+            PHI = {
+                country_event = {
+                    id = AtM_PHI.4
+                    days = 10
+                }
+            }
+        }
+    }
+}

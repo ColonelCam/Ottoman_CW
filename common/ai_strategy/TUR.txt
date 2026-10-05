@@ -1,0 +1,39 @@
+
+TUR_support_bma = {
+
+	allowed = {
+		original_tag = TUR
+
+	}
+	
+	enable = {
+		always = yes
+	}
+
+	abort = {
+		MLA = {
+			OR = {
+				is_democratic = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = BMA
+		value = 100
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = BMA
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = BMA
+		value = 25
+	}
+	
+}

@@ -1,0 +1,35 @@
+
+state = {
+	id = 1197
+	name = "STATE_1197"
+	manpower = 70000
+	
+	state_category = pastoral
+	
+	resources = {
+	}
+
+	history = {
+		owner = BMA
+		add_core_of = MAL
+		1948.6.1 = {
+			owner = MAL
+			add_core_of = MAL
+		}
+		buildings = {
+			infrastructure = 2
+			12144 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12144 1 
+		}
+	}
+
+	provinces = {
+		12144 
+	}
+
+	local_supplies = 0.0 
+}

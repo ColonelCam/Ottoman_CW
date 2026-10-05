@@ -1,0 +1,36 @@
+
+state = {
+	id = 1201
+	name = "STATE_1201"
+	manpower = 800000
+	
+	state_category = rural
+	
+	resources = {
+		rubber = 16
+	}
+
+	history = {
+		owner = BMA
+		add_core_of = MAL
+		1948.6.1 = {
+			owner = MAL
+			add_core_of = MAL
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			4424 2
+		}
+		victory_points = {
+			14565 5
+		}
+	}
+
+	provinces={
+		4367 4424 10313 14564 14565 14566 14567 
+	}
+
+	local_supplies = 0.0 
+}

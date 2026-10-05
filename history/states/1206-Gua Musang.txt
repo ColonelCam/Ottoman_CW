@@ -1,0 +1,33 @@
+
+state = {
+	id = 1206
+	name = "STATE_1206"
+	manpower = 45000
+	
+	state_category = wasteland
+
+	history = {
+		owner = BMA
+		add_core_of = MAL
+		1948.6.1 = {
+			owner = MAL
+			add_core_of = MAL
+		}
+		1950.6.1 = {
+			owner = MLA
+			add_core_of = MLA
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			10227 1
+		}
+	}
+
+	provinces={
+		10227 14583 
+	}
+	
+	local_supplies = 0.0 
+}

@@ -1,0 +1,401 @@
+USA_the_army_limits = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		always = yes
+	}
+
+	abort = {
+		has_completed_focus = USA_cold_war_mobilization
+	}
+	
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = 12
+	}
+	ai_strategy = {
+		type = build_army
+		id = national_guard
+		value = 5
+	}
+	ai_strategy = {
+		type = build_army
+		id = artillery_brigade
+		value = 4
+	}
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = 4
+	}
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = 3
+	}
+	ai_strategy = {
+		type = build_army
+		id = mot_artillery_brigade
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = self_propelled_artillery
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = self_propelled_anti_air
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = ifv
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = 1
+	}
+	ai_strategy = {
+		type = build_army
+		id = marine
+		value = 4
+	}
+	ai_strategy = {
+		type = build_army
+		id = marine_commando
+		value = 1
+	}
+	ai_strategy = {
+		type = build_army
+		id = paratrooper
+		value = 2
+	}
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = 1
+	}
+	ai_strategy = {
+		type = build_army
+		id = ranger_battalion
+		value = 1
+	}
+}
+
+USA_prepare_for_the_east = {
+
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = FRA
+			original_tag = ENG
+		}
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+	}
+
+	abort = {
+		SOV = {
+			is_democratic = yes
+		}
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 100
+	}
+	ai_strategy = {
+		type = protect
+		id = AGR
+		value = 50
+	}
+	#Avoid directly messing with the USSR
+	ai_strategy = {
+		type = contain
+		id = SOV
+		value = -25
+	}
+}
+
+USA_support_chi_and_twn = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { is_communist = yes }
+		NOT = { is_left_wing_radical = yes }
+	}
+
+	abort = {
+		if = {
+			limit = {
+				OR = {
+					original_tag = TWN
+					original_tag = CHI
+				}
+			}
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = CHI
+		value = 200
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = TWN
+		value = 200
+	}
+	ai_strategy = {
+		type = support
+		id = CHI
+		value = 25
+	}
+	ai_strategy = {
+		type = support
+		id = TWN
+		value = 25
+	}
+}
+
+USA_support_rok = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { is_communist = yes }
+		NOT = { is_left_wing_radical = yes }
+	}
+
+	abort = {
+		ROK = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = ROK
+		value = 200
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = ROK
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = ROK
+		value = 25
+	}
+	#Reluctant to support Korea directly
+	ai_strategy = {
+		type = protect
+		id = ROK
+		value = -25
+	}
+}
+
+USA_support_vin = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { is_communist = yes }
+		NOT = { is_left_wing_radical = yes }
+	}
+
+	abort = {
+		ROK = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN
+		value = 100
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = VIN
+		value = 25
+	}
+	#Reluctant to support Korea directly
+	ai_strategy = {
+		type = protect
+		id = VIN
+		value = -25
+	}
+}
+## Test
+SOV_support_mla = {
+
+	allowed = {
+		original_tag = SOV
+	}
+	
+	enable = {
+		always = yes
+	}
+
+	abort = {
+		MLA = {
+			OR = {
+				is_democratic = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = MLA
+		value = 100
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = MLA
+		value = 50
+	}
+	ai_strategy = {
+		type = support
+		id = MLA
+		value = 25
+	}
+	
+}
+## End Test
+USA_influence_afghanistan = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		AFG = {
+			has_war_with = SOV
+		}
+	}
+
+	abort = {
+		AFG = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = AFG
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = AFG
+		value = 25
+	}
+}
+
+USA_influence_sweden = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		SWE = {
+			has_war_with = SOV
+		}
+	}
+
+	abort = {
+		SWE = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = SWE
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = SWE
+		value = 25
+	}
+}
+
+USA_world_police = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+	}
+
+	abort = {
+		has_civil_war = yes
+	}
+	
+	ai_strategy = {
+		type = become_spymaster
+		value = 250
+	}
+}
