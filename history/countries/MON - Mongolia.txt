@@ -7,14 +7,6 @@ add_command_power = 5
 set_research_slots = 2
 add_political_power = 49
 
-SOV = {
-	set_autonomy = {
-		target = MON
-		autonomous_state = autonomy_satellite
-		freedom_level = 0.2
-	}
-}
-
 add_ideas = {
 	limited_conscription
 }

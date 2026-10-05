@@ -8,20 +8,6 @@ set_research_slots = 4
 add_political_power = 149
 starting_train_buffer = 5
 
-add_nuclear_bombs = 1
-
-create_faction_from_template = faction_template_allies
-add_to_faction = FRA
-add_to_faction = ENG
-add_to_faction = BEL
-add_to_faction = HOL
-add_to_faction = LUX
-add_to_faction = ITA
-#add_to_faction = GRE # Was part of the Allies too. Has a civil war though so(?)
-add_to_faction = NOR
-add_to_faction = DEN
-add_to_faction = ICE
-
 # Experience
 army_experience = 20
 air_experience = 20

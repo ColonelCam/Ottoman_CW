@@ -10,11 +10,6 @@ starting_train_buffer = 3
 
 add_to_tech_sharing_group = commonwealth_research
 
-give_military_access = EGY
-give_guarantee = NEP
-give_guarantee = BHU
-give_guarantee = SKK
-
 # Experience
 army_experience = 20
 air_experience = 20

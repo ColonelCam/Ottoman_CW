@@ -24,9 +24,6 @@ set_major = yes
 	}
 }
 
-# Faction
-#create_faction_from_template = faction_template_chinese_united_front
-
 add_ideas = {
 	#National Spirits
 	CHI_civil_war

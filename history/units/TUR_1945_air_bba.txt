@@ -1,0 +1,16 @@
+﻿
+
+
+### Air Wings ###
+air_wings = {
+	##### Türk Hava Kuvvetleri #####
+	49 = { 
+		small_plane_airframe_0 = { owner = "TUR" amount = 100 creator = "ENG" version_name = "Hawker Hurricane Mk I"}	# I/Corlu Havacilik Alay -- Hurricane I, MS.406 fighters
+		medium_plane_airframe_0 = { owner = "TUR"  amount = 100 creator = "USA" version_name = "B-25 Mitchell"}	# II/Corlu Havacilik Alay -- Martin 139T (U.S. B-10 Bolo) bombers
+		small_plane_airframe_0 = { owner = "TUR" amount = 100 creator = "ENG" version_name = "Hawker Hurricane Mk I"}	# I/Corlu Havacilik Alay -- Hurricane I, MS.406 fighters
+		small_plane_airframe_0 = { owner = "TUR" amount = 100 creator = "ENG" version_name = "Hawker Hurricane Mk I"}	# I/Corlu Havacilik Alay -- Hurricane I, MS.406 fighters
+		medium_plane_airframe_0 = { owner = "TUR"  amount = 100 creator = "USA" version_name = "B-25 Mitchell"}	# II/Corlu Havacilik Alay -- Martin 139T (U.S. B-10 Bolo) bombers
+		medium_plane_airframe_0 = { owner = "TUR"  amount = 100 creator = "USA" version_name = "B-25 Mitchell"}	# II/Corlu Havacilik Alay -- Martin 139T (U.S. B-10 Bolo) bombers
+	}
+}
+
