@@ -1,0 +1,29 @@
+characters={
+	IRN_Reza_Khan = {
+		name="Reza Khan"
+		portraits={
+			civilian={
+				large="gfx/leaders/IRN/hi4311_portrait_reza_khan.png"
+			}
+		}
+		country_leader = {
+			ideology = populism
+			traits = { rearmer }
+			expire = "1965.1.1.1"
+		}
+	}
+	
+	IRN_khomeini = {
+		name="Ayatollah Khomeini"
+		portraits={
+			civilian={
+				large="gfx/leaders/IRN/hi4311_portrait_khomeini.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { religious_leader }
+			expire = "1965.1.1.1"
+		}
+	}
+}

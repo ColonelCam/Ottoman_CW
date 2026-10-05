@@ -1,0 +1,31 @@
+state={
+	id=1036
+	name="STATE_1036"
+	resources = {
+		tungsten = 6
+	}
+	history = {
+		owner = TUR
+		add_core_of = IRN
+		add_core_of = KUR
+		1948.6.1 = {
+			owner = IRN
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			13481 3
+		}
+		victory_points = {
+			1822 4
+		}
+	}
+	provinces={
+		1636 1822 7604 13478 13481 13484 16161
+	}
+	manpower=550780
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category=pastoral
+}

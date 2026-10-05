@@ -1,0 +1,20 @@
+state={
+	id=1029
+	name="STATE_1029"
+	history = {
+		owner = PER
+		add_core_of = IRN
+		add_core_of = PER
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = { 7990 5 }
+	}
+	provinces={
+		7990 10759 10890 12739 12809 12852 
+	}
+	manpower=580320
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category = pastoral
+}

@@ -1,0 +1,27 @@
+focus_tree = {
+	id = iran_focus
+
+	country = {
+		base = 0
+
+		modifier = {
+			add = 20
+			tag = IRN
+		}
+	}
+	continuous_focus_position = { x = 3000 y = 1600 }
+	default = no
+	
+	focus = {
+		id = IRN_reza_shah_passes
+		icon = GFX_focus_unknown
+		x = 2 y = 1
+
+		cost = 10
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			
+		}
+	}
+}

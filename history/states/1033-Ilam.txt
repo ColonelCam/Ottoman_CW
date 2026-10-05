@@ -1,0 +1,25 @@
+state={
+	id=1033
+	name="STATE_1033"
+	
+	history = {
+		owner = IRN
+		add_core_of = IRN
+		1948.6.1 = {
+			owner = IRN
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			2065 5
+		}
+	}
+	provinces={
+		2065 5050 13468 16141 16144 16145 16146 16147 16148
+	}
+	manpower=650880
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category = pastoral
+}

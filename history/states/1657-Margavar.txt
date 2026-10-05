@@ -1,0 +1,27 @@
+
+state={
+	id=1657
+	name="STATE_1657"
+
+	history={
+		owner = TUR
+		add_core_of = KUR
+		add_core_of = IRN
+		1948.6.1 = {
+			owner = IRN
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			15649 1 #Margavar
+		}
+	}
+
+	provinces={
+		15649 
+	}
+	manpower = 30000
+	state_category = pastoral
+	local_supplies=0.0 
+}

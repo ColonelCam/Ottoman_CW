@@ -1,0 +1,26 @@
+state={
+	id=414
+	name="STATE_414"
+
+	history={
+		owner = PER
+		add_core_of = IRN
+		add_core_of = PER
+		set_demilitarized_zone = no
+		1948.6.1 = {
+			set_demilitarized_zone = no
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			16076 6
+		}
+	}
+	provinces={
+		1986 10913 11249 12780 12863 16076 16087 16096 16098 16105 16107 16111 16112 16114 16115 16116 16118 16133
+	}
+	manpower = 886013
+	state_category = rural
+	local_supplies=0.0 
+}

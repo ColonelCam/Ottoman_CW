@@ -11,6 +11,7 @@ add_political_power = 49
 
 # Shahanshah, the King of Kings
 recruit_character = IRN_mohammad_reza_shah
+recruit_character = IRN_Reza_Khan
 
 # Prime Minister
 recruit_character = IRN_mohsen_sadr
@@ -23,43 +24,10 @@ recruit_character = IRN_mohammad_mosaddegh
 
 add_ideas = {
 	#National Spirits
-	IRN_the_shah
 	IRN_anglo_iranian_oil_company
-	IRN_anglo_soviet_occupation
-	IRN_hatred_british
 	
 	#Cabinet
 	IRN_mohammad_reza_shah
-}
-
-419 = { #East Azerbayjan
-	add_dynamic_modifier = { modifier = kurdish_agitation }
-}
-
-421 = { #Kurdestan
-	add_dynamic_modifier = { modifier = kurdish_agitation }
-}
-
-1036 = { #West Azerbayjan
-	add_dynamic_modifier = { modifier = kurdish_agitation }
-}
-
-# Kurdistan
-KUR = {
-	every_core_state = {
-		limit = {
-			is_controlled_by = IRN
-			NOT = {
-				impassable = yes
-			}
-		}
-		force_enable_resistance = {
-			occupied = KUR
-		}
-		start_resistance = KUR
-		set_resistance = 10
-		set_compliance = 70
-	}
 }
 
 1948.6.1 = {

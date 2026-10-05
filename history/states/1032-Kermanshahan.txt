@@ -1,0 +1,28 @@
+state={
+	id=1032
+	name="STATE_1032"
+	history = {
+		owner = TUR
+		add_core_of = IRN
+		add_core_of = KUR
+		1948.6.1 = {
+			owner = IRN
+		}
+		victory_points = {
+			5098 7
+		}
+		victory_points = {
+			829 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+	}
+	provinces={
+		829 5098 10774 12773 16136 16142 16151 16152
+	}
+	manpower=753890
+	buildings_max_level_factor=1.000
+	local_supplies=2.000
+	state_category=town
+}
