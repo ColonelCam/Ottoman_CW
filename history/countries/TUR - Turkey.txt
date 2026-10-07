@@ -147,6 +147,7 @@ if = {
 		basic_torpedo = 1
 		coastal_defense_ships = 1
 		mtg_transport = 1
+		early_ship_hull_carrier = 1
 	}
 }
 
@@ -312,4 +313,32 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
+	create_equipment_variant = {
+		name = "Cruiser"					
+		type = ship_hull_cruiser_1
+		name_group = TUR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			mid_1_custom_slot = ship_light_battery_1
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Converted Cruiser"
+		type = ship_hull_carrier_conversion_ca
+		name_group = TUR_CV_HISTORICAL
+		parent_version = 0
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = empty
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = cruiser_ship_engine_1
+				fixed_ship_secondaries_slot = ship_secondaries_1
+			}
+}
 }
