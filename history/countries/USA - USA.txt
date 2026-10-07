@@ -13,8 +13,6 @@ army_experience = 20
 air_experience = 20
 navy_experience = 20
 
-activate_mission = USA_form_the_unsc
-
 activate_mission = USA_kkk_attack_imminent
 
 #set_power_balance = {
@@ -119,9 +117,7 @@ recruit_character = USA_joseph_stilwell
 
 add_ideas = {
 	#National Spirits
-	victors_of_wwii
 	USA_department_of_war_ns
-	USA_segregation
 	USA_industrial_strikes
 	
 	#National Laws
@@ -148,36 +144,6 @@ add_ideas = {
 	#Companies
 	USA_general_motors
 	#ford_motor_company
-}
-
-add_opinion_modifier = {
-	target = CHI
-	modifier = huge_increase
-}
-
-add_opinion_modifier = {
-	target = ENG
-	modifier = huge_increase
-}
-
-add_opinion_modifier = {
-	target = ITA
-	modifier = medium_increase
-}
-
-add_opinion_modifier = {
-	target = FRA
-	modifier = medium_increase
-}
-
-add_opinion_modifier = {
-	target = UNC
-	modifier = huge_increase
-}
-
-add_opinion_modifier = {
-	target = SAU
-	modifier = trade_deals
 }
 
 create_dynamic_country = {

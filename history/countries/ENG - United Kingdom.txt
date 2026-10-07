@@ -119,21 +119,6 @@ add_ideas = {
 	#Companies
 }
 
-add_opinion_modifier = {
-	target = USA
-	modifier = huge_increase
-}
-
-add_opinion_modifier = {
-	target = BHU
-	modifier = medium_increase
-}
-
-add_opinion_modifier = {
-	target = NEP
-	modifier = medium_increase
-}
-
 # Special Projects
 recruit_character = ENG_william_penney
 recruit_character = ENG_james_chadwick
@@ -191,36 +176,6 @@ if = {
 	}
 	complete_special_project = {
 		project = sp:sp_naval_escort_carrier
-	}
-}
-
-1948.6.1 = {
-	# Decisions
-	activate_decision = ENG_withdraw_from_dire_dawa
-	activate_decision = ENG_withdraw_from_iran
-	activate_decision = ENG_treaty_of_london
-	activate_decision = ENG_treaty_of_friendship
-	activate_decision = ENG_form_the_federation_of_malaya
-	activate_decision = ENG_release_india
-	activate_decision = ENG_release_burma
-	activate_decision = ENG_release_ceylon
-	activate_decision = ENG_release_israel
-	activate_decision = ENG_release_sarawak
-	activate_decision = ENG_release_north_borneo
-	diplomatic_relation = {
-    	country = SKK
-    	relation = guarantee
-    	active = no
-	}
-	diplomatic_relation = {
-    	country = NEP
-    	relation = guarantee
-    	active = no
-	}
-	diplomatic_relation = {
-    	country = BHU
-    	relation = guarantee
-    	active = no
 	}
 }
 

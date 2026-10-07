@@ -17,59 +17,6 @@ navy_experience = 20
 UKR = { set_occupation_law = secret_police_oversight }
 
 ### "Forest Brothers" ###
-# Estonia
-EST = {
-	every_core_state = {
-		limit = {
-			is_controlled_by = SOV
-			NOT = {
-				impassable = yes
-			}
-		}
-		force_enable_resistance = {
-			occupied = EST
-		}
-		start_resistance = EST
-		set_resistance = 10
-		set_compliance = 70
-	}
-}
-
-# Latvia
-LAT = {
-	every_core_state = {
-		limit = {
-			is_controlled_by = SOV
-			NOT = {
-				impassable = yes
-			}
-		}
-		force_enable_resistance = {
-			occupied = LAT
-		}
-		start_resistance = LAT
-		set_resistance = 10
-		set_compliance = 70
-	}
-}
-
-# Lithuainia
-LIT = {
-	every_core_state = {
-		limit = {
-			is_controlled_by = SOV
-			NOT = {
-				impassable = yes
-			}
-		}
-		force_enable_resistance = {
-			occupied = LIT
-		}
-		start_resistance = LIT
-		set_resistance = 10
-		set_compliance = 70
-	}
-}
 
 #####################
 # Balance of Poweer #
@@ -78,10 +25,6 @@ LIT = {
 set_power_balance = {
 	id = SOV_power_balance
 	set_value = 0.3
-}
-
-1390 = { # Porkkala
-	add_dynamic_modifier = { modifier = porkkala_naval_base }
 }
 
 # General Secretary of the CPSU
@@ -154,15 +97,6 @@ add_ideas = {
 	#SOV_tula_arms_plant
 }
 
-add_opinion_modifier = {
-	target = YUG
-	modifier = medium_increase
-}
-
-add_opinion_modifier = {
-	target = PRC
-	modifier = red_comrades
-}
 
 # Special Projects
 recruit_character = SOV_igor_kurchatov #Opportunistic, eventually turned against Beriya

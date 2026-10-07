@@ -38,16 +38,6 @@ add_ideas = {
 	#Companies
 }
 
-add_opinion_modifier = {
-	target = PRC
-	modifier = hostile_status
-}
-
-add_opinion_modifier = {
-	target = USA
-	modifier = huge_increase
-}
-
 if = {
 	limit = {
 		has_dlc = "No Step Back"

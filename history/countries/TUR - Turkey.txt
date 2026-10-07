@@ -1,4 +1,4 @@
-﻿capital = 49 # Ankara
+﻿capital = 797 # Istanbul
 
 oob = "TUR_1945"
 
@@ -16,7 +16,6 @@ add_political_power = 149
 
 add_ideas = {
 	#National Spirits
-	TUR_legacy_of_ataturk
 	
 	#National Laws
 }
