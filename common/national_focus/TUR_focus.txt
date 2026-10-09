@@ -17,7 +17,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_healthy_uncle_of_europe
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_TUR_pivot_to_the_past
 		x = 20
 		y = 1
 		cost = 10
@@ -31,7 +31,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_status_of_central_arabia
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_GER_align_middle_east
 		prerequisite = { focus = TUR_healthy_uncle_of_europe }
 		relative_position_id = TUR_healthy_uncle_of_europe
 		x = 0
@@ -47,7 +47,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_invest_in_Rydiah
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_industry_investment
 		prerequisite = { focus = TUR_status_of_central_arabia }
 		relative_position_id = TUR_status_of_central_arabia
 		x = 1
@@ -63,7 +63,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_build_arabian_infrastructure
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = TUR_status_of_central_arabia }
 		relative_position_id = TUR_status_of_central_arabia
 		x = -1
@@ -79,7 +79,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_integrate_arabia
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_befriend_saudi_arabia
 		prerequisite = { focus = TUR_build_arabian_infrastructure }
 		prerequisite = { focus = TUR_invest_in_Rydiah }
 		relative_position_id = TUR_status_of_central_arabia
@@ -96,7 +96,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_1946_elections
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_election
 		prerequisite = { focus = TUR_integrate_arabia }
 		relative_position_id = TUR_integrate_arabia
 		x = 0
@@ -112,7 +112,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_CHP_victory
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_AFG_parliamentary_democracy
 		prerequisite = { focus = TUR_1946_elections }
 		mutually_exclusive = { focus = TUR_DP_victory }
 		relative_position_id = TUR_1946_elections
@@ -129,7 +129,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_DP_victory
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_ARG_defense_and_democracy
 		prerequisite = { focus = TUR_1946_elections }
 		mutually_exclusive = { focus = TUR_CHP_victory }
 		relative_position_id = TUR_1946_elections
@@ -146,7 +146,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_champion_decolonisation
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_eng_decolonization
 		prerequisite = { focus = TUR_CHP_victory focus = TUR_DP_victory }
 		relative_position_id = TUR_DP_victory
 		x = 2
@@ -162,7 +162,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_stablize_the_balkans
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_BUL_free_balkan_states
 		prerequisite = { focus = TUR_champion_decolonisation }
 		relative_position_id = TUR_champion_decolonisation
 		x = 0
@@ -178,7 +178,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_protect_european_muslims
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_YUG_divide_bosnia
 		prerequisite = { focus = TUR_stablize_the_balkans }
 		relative_position_id = TUR_stablize_the_balkans
 		x = 0
@@ -195,7 +195,7 @@ focus_tree = {
 ########Foriegn Policy##############
 	focus = {
 		id = TUR_the_new_middle_east
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_GER_align_middle_east
 		available = { has_completed_focus = TUR_champion_decolonisation } 
 		x = 30
 		y = 1
@@ -210,7 +210,7 @@ focus_tree = {
 ###
 	focus = {
 		id = TUR_the_kuwait_question
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_IRQ_liberate_levant
 		prerequisite = { focus = TUR_the_new_middle_east }
 		relative_position_id = TUR_the_new_middle_east
 		x = -3
@@ -226,7 +226,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_prepare_operation_desert_dawn
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_IRQ_protector_of_the_gulf
 		prerequisite = { focus = TUR_the_kuwait_question }
 		relative_position_id = TUR_the_kuwait_question
 		x = 0
@@ -242,7 +242,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_ultimatum_to_britain
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_attack_britain
 		prerequisite = { focus = TUR_prepare_operation_desert_dawn }
 		relative_position_id = TUR_prepare_operation_desert_dawn
 		x = 0
@@ -275,7 +275,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_aid_the_FLN
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_IRQ_liberate_north_africa
 		prerequisite = { focus = TUR_reach_out_to_algerian_activists }
 		relative_position_id = TUR_reach_out_to_algerian_activists
 		x = 0
@@ -291,7 +291,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_spark_the_algerian_revolution
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_attack_france
 		prerequisite = { focus = TUR_aid_the_FLN }
 		relative_position_id = TUR_aid_the_FLN
 		x = 0
@@ -324,7 +324,7 @@ focus_tree = {
 ###
 	focus = {
 		id = TUR_conspiricy_in_egypt
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_PRC_army_command
 		prerequisite = { focus = TUR_the_new_middle_east }
 		relative_position_id = TUR_the_new_middle_east
 		x = 3
@@ -340,7 +340,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_contact_free_officers
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_phone
 		prerequisite = { focus = TUR_conspiricy_in_egypt }
 		relative_position_id = TUR_conspiricy_in_egypt
 		x = 0
@@ -356,7 +356,7 @@ focus_tree = {
 
 	focus = {
 		id = TUR_the_free_officer_coup
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_the_suez
 		prerequisite = { focus = TUR_contact_free_officers }
 		relative_position_id = TUR_contact_free_officers
 		x = 0
@@ -388,7 +388,7 @@ focus_tree = {
 ###Spain
 	focus = {
 		id = TUR_condemn_spain
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_ARG_invite_spanish_nationalists
 		prerequisite = { focus = TUR_the_new_middle_east }
 		relative_position_id = TUR_the_new_middle_east
 		x = -5
@@ -404,7 +404,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_invade_spain
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_attack_nationalist_spain
 		prerequisite = { focus = TUR_condemn_spain }
 		relative_position_id = TUR_condemn_spain
 		x = 0
@@ -421,7 +421,7 @@ focus_tree = {
 ### Economy
 	focus = {
 		id = TUR_post_war_reconstruction
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_industry_investment
 		x = 40
 		y = 1
 		cost = 10
@@ -435,7 +435,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_rebuild_mesopotamia
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = TUR_post_war_reconstruction }
 		relative_position_id = TUR_post_war_reconstruction
 		x = 1
@@ -451,7 +451,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_rebuild_balkans
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_TUR_reform_the_balkan_pact
 		prerequisite = { focus = TUR_post_war_reconstruction }
 		relative_position_id = TUR_post_war_reconstruction
 		x = -1
@@ -467,7 +467,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_izmir_automotive
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_goal_generic_army_motorized
 		prerequisite = { focus = TUR_rebuild_mesopotamia }
 		relative_position_id = TUR_rebuild_mesopotamia
 		x = 1
@@ -483,7 +483,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_develop_Konstantinyye
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = TUR_rebuild_mesopotamia }
 		prerequisite = { focus = TUR_rebuild_balkans }
 		relative_position_id = TUR_rebuild_mesopotamia
@@ -500,7 +500,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_open_up_european_trade
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_arms_trade
 		prerequisite = { focus = TUR_rebuild_balkans }
 		relative_position_id = TUR_rebuild_balkans
 		x = -1
@@ -516,7 +516,7 @@ focus_tree = {
 ### Italy
 	focus = {
 		id = TUR_encourage_democracy_in_Italy
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_ETH_invite_italian_settlers
 		x = 45
 		y = 1
 		cost = 10
@@ -530,7 +530,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_Italian_autonomy
-		icon = GFX_focus_generic_crush_the_military
+		icon = GFX_focus_generic_italy_propaganda
 		prerequisite = { focus = TUR_encourage_democracy_in_Italy }
 		relative_position_id = TUR_encourage_democracy_in_Italy
 		x = 0
