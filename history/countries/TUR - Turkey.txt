@@ -10,14 +10,15 @@ set_war_support = 0.7
 
 add_command_power = 20
 
-set_research_slots = 3
+set_research_slots = 4
 
-add_political_power = 149
+add_political_power = 99
 
 add_ideas = {
-	#National Spirits
-	
-	#National Laws
+	victors_of_wwii
+	TUR_slavic_seperatism
+	TUR_post_war_economy
+	TUR_subsidised_oil_companies
 }
 
 350 = { #Diyarbakir

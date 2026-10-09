@@ -1,0 +1,45 @@
+ideas = {
+	country = {
+	
+		TUR_slavic_seperatism = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+			
+			picture = chi_war_of_resistance
+			
+			modifier = {
+				resistance_growth = 0.1
+				political_power_factor = -0.25
+			}
+		}
+		TUR_post_war_economy = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+			
+			picture = generic_economic_crash
+			
+			modifier = {
+				production_speed_buildings_factor = -0.25
+				industrial_capacity_factory = -0.15
+				industrial_capacity_dockyard = -0.15				
+			}
+		}
+		TUR_subsidised_oil_companies = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+			
+			picture = generic_stockpile_fuel
+			
+			modifier = {
+				consumer_goods_factor = 0.3
+				political_power_factor = -0.1
+			}
+		}
+	}
+}
