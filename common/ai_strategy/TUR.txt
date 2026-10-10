@@ -37,3 +37,24 @@ TUR_support_bma = {
 	}
 	
 }
+
+TUR_support_IRN = {
+	allowed = { original_tag = TUR }
+	enable = { always = yes }
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = IRN
+		value = 420
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = IRN
+		value = 420
+	}
+	ai_strategy = {
+		type = support
+		id = IRN
+		value = 420
+	}
+}

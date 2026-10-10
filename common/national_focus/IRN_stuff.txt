@@ -2,26 +2,389 @@ focus_tree = {
 	id = iran_focus
 
 	country = {
-		base = 0
+		base = 1
 
 		modifier = {
-			add = 20
+			add = 150
 			tag = IRN
 		}
 	}
 	continuous_focus_position = { x = 3000 y = 1600 }
 	default = no
+	shared_focus = IRN_TUR_form_alliance
 	
 	focus = {
 		id = IRN_reza_shah_passes
-		icon = GFX_focus_unknown
+		icon = GFX_focus_generic_advisors
 		x = 2 y = 1
 
 		cost = 10
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
-			
+			retire_country_leader = yes
+			IRN_mohammad_reza_shah = {
+				add_country_leader_role = {
+					country_leader = {
+						ideology = populism
+						traits = { rearmer }
+					}
+					promote_leader = yes
+				}
+			}
+			TUR = { country_event = hi4311_event.1 }
 		}
 	}
+
+	focus = {
+		id = IRN_unite_against_islamists
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_reza_shah_passes
+		x = -1 y = 1
+
+		cost = 3
+		prerequisite = { focus = IRN_reza_shah_passes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_ideas = fascism_banned
+		}
+	}
+	focus = {
+		id = IRN_request_ottoman_recognition
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_reza_shah_passes
+		x = 1 y = 1
+
+		cost = 3
+		prerequisite = { focus = IRN_reza_shah_passes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			TUR = {
+				country_event = hi4311_event.2
+			}
+		}
+	}
+	
+	focus = {
+		id = IRN_prepare_army
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_request_ottoman_recognition
+		x = 0 y = 1
+
+		cost = 3
+		prerequisite = { focus = IRN_request_ottoman_recognition }
+		prerequisite = { focus = IRN_unite_against_islamists }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_ideas = why_we_fight_focus
+			add_ideas = bold_attack_spirit
+		}
+	}
+	
+	focus = {
+		id = IRN_civilian_factories_1
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_reza_shah_passes
+		x = 6 y = 1
+
+		cost = 3
+		prerequisite = { focus = IRN_reza_shah_passes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+	
+					is_owned_and_controlled_by = ROOT
+				}
+	
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = IRN_civilian_factories_2
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_civilian_factories_1
+		x = 0 y = 1
+
+		cost = 3
+		prerequisite = { focus = IRN_civilian_factories_1 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+	
+					is_owned_and_controlled_by = ROOT
+				}
+	
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IRN_military_factories_1
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_civilian_factories_1
+		x = 2 y = 0
+
+		cost = 4
+		prerequisite = { focus = IRN_reza_shah_passes }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+	
+					is_owned_and_controlled_by = ROOT
+				}
+	
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = IRN_military_factories_2
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_military_factories_1
+		x = 0 y = 1
+
+		cost = 4
+		prerequisite = { focus = IRN_military_factories_1 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+	
+					is_owned_and_controlled_by = ROOT
+				}
+	
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = IRN_deploy_divisions
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_military_factories_2
+		x = -2 y = 1
+
+		cost = 4
+		prerequisite = { focus = IRN_military_factories_2 }
+		prerequisite = { focus = IRN_civilian_factories_2 }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_ideas = looking_forward_idea_no_cancel
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Infantry Units\" division_template = \"Infantry Group\" start_experience_factor = 0.7"
+					owner = IRN
+					count = 10
+				}
+			}
+			add_manpower = 250000
+		}
+	}
+	
+	focus = {
+		id = IRN_ottoman_volunteers
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_prepare_army
+		x = 3 y = 1
+
+		cost = 6
+		prerequisite = { focus = IRN_prepare_army }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			TUR = { country_event = hi4311_event.3 }
+		}
+	}
+	
+	focus = {
+		id = IRN_strike_mashhad
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_ottoman_volunteers
+		x = 1 y = 1
+
+		cost = 5
+		prerequisite = { focus = IRN_ottoman_volunteers }
+		prerequisite = { focus = IRN_deploy_divisions }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			declare_war_on = {
+				target = PER
+				type = civil_war
+			}
+			add_ai_strategy = {
+				type = conquer
+				id = PER
+				value = 720
+			}
+			PER = {
+				capital_scope = {
+					create_unit = {
+						division = "name = \"Infantry Units\" division_template = \"Infantry Group\" start_experience_factor = 0.7"
+						owner = IRN
+						count = 32
+					}
+				}
+				add_manpower = 300000
+			}
+		}
+	}
+	
+	focus = {
+		id = IRN_mashhad_victory
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_strike_mashhad
+		x = 0 y = 1
+		
+		available = {
+			PER = { exists = no }
+		}
+
+		cost = 5
+		prerequisite = { focus = IRN_strike_mashhad }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			news_event = hi4311_news_event.1
+
+			every_core_state = {
+				remove_core_of = PER
+			}
+			set_country_leader_name = {
+				name = IRN_mohammad_reza_new_name
+			}
+		}
+	}
+	
+	focus = {
+		id = IRN_get_back_russian_states
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_mashhad_victory
+		x = -4 y = 1
+
+		cost = 5
+		prerequisite = { focus = IRN_mashhad_victory }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			every_core_state = {
+				limit = { is_owned_by = SOV }
+				transfer_state_to = IRN
+			}
+		}
+	}
+	focus = {
+		id = IRN_strike_baluchistan
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_mashhad_victory
+		x = -2 y = 1
+		
+		available = {
+			410 = { is_owned_by = BLC }
+		}
+		bypass = {
+			410 = {
+				OR = {
+					NOT = { is_owned_by = BLC }
+					is_owned_by = IRN
+				}
+			}
+		}
+		bypass_effect = {
+			410 = { transfer_state_to = IRN }
+		}
+
+		cost = 5
+		prerequisite = { focus = IRN_mashhad_victory }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			declare_war_on = {
+				target = BLC
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = IRN_request_ottoman_state_return
+		icon = GFX_focus_generic_advisors
+		relative_position_id = IRN_mashhad_victory
+		x = 0 y = 1
+
+		cost = 4
+		prerequisite = { focus = IRN_mashhad_victory }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			TUR = { country_event = hi4311_event.4 }
+		}
+	}
+#	focus = {
+#		id = IRN_defend_against_afghanistan
+#		icon = GFX_focus_generic_advisors
+#		relative_position_id = IRN_mashhad_victory
+#		x = 2 y = 1
+#
+#		cost = 4
+#		available = { has_war_with = AFG }
+#		prerequisite = { focus = IRN_mashhad_victory }
+#
+#		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+#		completion_reward = {
+#			
+#		}
+#	}
 }

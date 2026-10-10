@@ -1,0 +1,7047 @@
+###########################
+###   American Events   ###
+###########################
+
+add_namespace = AtM_USA
+add_namespace = AtM_USA_austria
+add_namespace = AtM_USA_election
+add_namespace = AtM_USA_nato
+add_namespace = AtM_USA_austrian_border_skirmishes
+
+# USA Event 01: MacArthur or Eisenhower
+country_event = {
+	id = AtM_USA.1
+	title = AtM_USA.1.t
+	desc = AtM_USA.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Send MacArthur
+		name = AtM_USA.1.a
+		custom_effect_tooltip = historical_option_tt
+		set_country_flag = macarthur_chosen
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		# Send Eisenhower.
+		name = AtM_USA.1.b
+		set_country_flag = eisenhower_chosen
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 02: MacArthur Taiwan
+country_event = {
+	id = AtM_USA.2
+	title = AtM_USA.2.t
+	desc = AtM_USA.2.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Transfer to the China (HISTORICAL)
+		custom_effect_tooltip = historical_option_tt
+		name = AtM_USA.2.a
+		if = {
+			limit = {
+				CHI = {
+					exists = yes
+				}
+			}
+		}
+		CHI = {
+			set_country_flag = CHI_taiwan
+			TWN = {
+				set_autonomy_chinese_warlord = yes
+			}
+		}
+		TWN = {
+			if = {
+				limit = {
+					CHI = { has_cosmetic_tag = CHI_KMT }
+				}
+				set_cosmetic_tag = TWN_CHI_KMT
+			}
+			else = { set_cosmetic_tag = TWN_CHI }
+			transfer_state = 524
+			transfer_state = 991
+			transfer_state = 992
+			transfer_state = 993
+			transfer_state = 1306
+			hidden_effect = { #puppeting countries mess up pie chart so we're adding it again
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 30
+					social_democrat = 5
+					communism = 5 #Communism
+					left_wing_radical = 0
+					neutrality = 60 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				country_event = {
+					id = AtM_taiwan.1 days = 400 #2-28 Incident
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.3
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		# UN Mandate
+		name = AtM_USA.2.b
+		UNC = {
+			transfer_state = 524
+			transfer_state = 991
+			transfer_state = 993
+			transfer_state = 992
+			transfer_state = 1306
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.3
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 03: McArthur Pacific Islands
+country_event = {
+	id = AtM_USA.3
+	title = AtM_USA.3.t
+	desc = AtM_USA.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Under UN occupation. (HISTORICAL)
+		name = AtM_USA.3.a
+		custom_effect_tooltip = historical_option_tt
+		UNC = {
+			transfer_state = 633
+			transfer_state = 646
+			transfer_state = 647
+			transfer_state = 684
+		}
+		646 = {
+			remove_core_of = JAP
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.4
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		# Free as small countries
+		name = AtM_USA.3.b
+		JAP = {
+			release = GUM
+			release = FSM
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.4
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 04: McArthur Japanese Occupation
+country_event = {
+	id = AtM_USA.4
+	title = AtM_USA.4.t
+	desc = AtM_USA.4.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Under US occupation. (HISTORICAL)
+		name = AtM_USA.4.a
+		custom_effect_tooltip = historical_option_tt
+		add_political_power = 50
+		JAP = {
+			set_cosmetic_tag = JAP_allied_occupation
+			add_stability = -0.1
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		# Leave them as a democracy (no occupation)
+		name = AtM_USA.7.b
+		USA = {
+			set_autonomy_free = yes
+		}
+		JAP = {
+			set_conservative = yes
+			leave_faction = yes
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 05: Eisenhower Taiwan Event
+country_event = {
+	id = AtM_USA.5
+	title = AtM_USA.5.t
+	desc = AtM_USA.5.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Make it a US state
+		name = AtM_USA.5.a
+		USA = {
+			transfer_state = 524
+			transfer_state = 991
+			transfer_state = 993
+			transfer_state = 992
+			transfer_state = 1306
+		}		
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.6
+			}
+		}
+	}
+
+	option = {
+		# UN mandate (like Jerusalem is now)
+		UNC = {
+			transfer_state = 524
+			transfer_state = 991
+			transfer_state = 993
+			transfer_state = 992
+			transfer_state = 1306
+		}
+		
+		name = AtM_USA.5.b
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.6
+			}
+		}
+	}
+}
+
+# USA Event 06: Eisenhower Pacific Islands Event
+country_event = {
+	id = AtM_USA.6
+	title = AtM_USA.6.t
+	desc = AtM_USA.6.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Make them US states
+		name = AtM_USA.6.a
+		USA = {
+			transfer_state = 684
+			transfer_state = 633
+			transfer_state = 646
+		}
+		646 = {
+			remove_core_of = JAP
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.7
+			}
+		}
+	}
+
+	option = {
+		# Free it as 1 massive country.
+		name = AtM_USA.6.b
+		FSM = {
+			transfer_state = 645
+			transfer_state = 526
+			transfer_state = 684
+			transfer_state = 633
+			transfer_state = 646		
+		}
+		hidden_effect = {
+			country_event = {
+				id = AtM_USA.7
+			}
+		}
+	}
+}
+
+# USA Event 07: Eisenhower Japanese Occupation
+country_event = {
+	id = AtM_USA.7
+	title = AtM_USA.7.t
+	desc = AtM_USA.7.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		# Leave them as a monarchy (no occupation)
+		name = AtM_USA.7.a
+		USA = {
+			end_puppet = JAP
+		}
+		JAP = {
+			set_politics = {
+				ruling_party = neutrality
+				last_election = "1944.1.1"
+				election_frequency = 48
+				elections_allowed = no
+			}
+			set_popularities = {
+				democratic = 11 #Social Conservatism
+				market_liberal = 0
+				social_liberal = 0
+				social_democrat = 0
+				communism = 10 #Communism
+				left_wing_radical = 0
+				neutrality = 68 #Paternal Autocracy
+				fascism = 11 #Nationalism
+			}
+			leave_faction = yes
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		# North and South Japan
+		name = AtM_USA.7.b
+		hidden_effect = {
+			JAP = {
+				every_core_state = {
+					add_core_of = SJP
+				}
+			}
+		}
+		SJP = {
+			transfer_state = 536
+			transfer_state = 533
+		}
+		SOV = {
+			SJP = {
+				set_autonomy_integrated_puppet_no_elections = yes
+			}
+		}
+		JAP = {
+			JAP_sanzo_nosaka = {
+				set_nationality = SJP
+			}
+		}
+		hidden_effect = {
+			SJP = {
+				add_country_leader_role = {
+				    character = JAP_sanzo_nosaka
+				    promote_leader = yes
+				    country_leader = {
+				        ideology = marxism_leninism
+				        traits = { JAP_first_secretary_of_the_jcp_trait JAP_chairman_of_the_jcp_trait }
+				    }
+				}
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Korean War Intervention Decision
+country_event = {
+	id = AtM_USA.8
+	title = AtM_USA.8.t
+	desc = AtM_USA.8.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = AtM_USA.8.a
+		set_global_flag = korean_war_us_intervention
+		add_political_power = 50
+		add_war_support = 0.025
+		add_named_threat = { threat = 8.0 name = USA_korean_war_intervention }
+		ROK = {
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 500
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 50
+				producer = USA
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		name = AtM_USA.8.b
+		add_political_power = -100
+		add_war_support = -0.1
+		ROK = {
+			clear_usa_influence = yes
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Berlin Crisis
+country_event = {
+	id = AtM_USA.9
+	title = AtM_USA.9.t
+	desc = AtM_USA.9.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+
+	option = {
+		name = AtM_USA.9.a
+		add_political_power = 25
+		add_war_support = 0.025
+		add_named_threat = { threat = 3.0 name = USA_berlin_airlift }
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.15
+				days = 2
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	option = {
+		name = AtM_USA.9.b
+		add_political_power = -50
+		add_stability = 0.025
+		add_war_support = -0.05
+		DDR = {
+			transfer_state = 970
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_increase
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.9.c
+		add_stability = -0.1
+		add_war_support = 0.15
+		add_named_threat = { threat = 25.0 name = threat_world_war_three }
+		declare_war_on = {
+			target = SOV
+			type = topple_government
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Fate of Philippines Decision Event
+country_event = {
+	id = AtM_USA.10
+	title = AtM_USA.10.t
+	desc = AtM_USA.10.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.10.a
+		add_stability = 0.025
+		add_war_support = 0.025
+		add_manpower = 25000
+		give_guarantee = PHI
+		PHI = {
+			set_autonomy_free = yes
+		}
+		remove_from_faction = PHI
+		PHI = { country_event = { id = AtM_PHI.1 days = 1 } }
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.10.b
+		give_guarantee = PHI
+		PHI = {
+			set_autonomy_free = yes
+			diplomatic_relation = {
+				country = USA
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = USA
+				relation = docking_rights
+				active = yes
+			}
+			diplomatic_relation = {
+				country = USA
+				relation = air_base_access
+				active = yes
+			}
+			set_temp_variable = { influence_change = 10 }
+			set_temp_variable = { influence_target = USA }
+			add_influence_direct = yes
+		}
+		remove_from_faction = PHI
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1000
+			producer = USA
+		}
+		PHI = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = USA
+			}
+			country_event = { id = AtM_PHI.2 days = 1 }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.10.c
+		add_stability = -0.05
+		add_war_support = -0.025
+		add_opinion_modifier = {
+			target = PHI
+			modifier = large_decrease
+		}
+		PHI = { country_event = { id = AtM_PHI.3 days = 1 } }
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Philippines Demands Independence
+country_event = {
+	id = AtM_USA.11
+	title = AtM_USA.11.t
+	desc = AtM_USA.11.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.11.a
+		add_stability = 0.025
+		add_war_support = 0.025
+		add_manpower = 25000
+		give_guarantee = PHI
+		PHI = {
+			set_autonomy_free = yes
+		}
+		if = {
+			limit = {
+				PHI = {
+					is_ally_with = ROOT
+				}
+			}
+			remove_from_faction = PHI
+		}
+		PHI = { country_event = { id = AtM_PHI.1 days = 1 } }
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.11.b
+		add_stability = -0.05
+		add_war_support = -0.025
+		add_opinion_modifier = {
+			target = PHI
+			modifier = large_decrease
+		}
+		PHI = { country_event = { id = AtM_PHI.3 days = 1 } }
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Intervention in Philippines
+country_event = {
+	id = AtM_USA.12
+	title = AtM_USA.12.t
+	desc = AtM_USA.12.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.12.a
+		add_fuel = -500
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1000
+			producer = USA
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = -200
+			producer = USA
+		}
+		PHI = {
+			add_fuel = 500
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 200
+				producer = USA
+			}
+		}
+		add_opinion_modifier = {
+			target = PHI
+			modifier = medium_increase
+		}
+		PHI = { country_event = { id = AtM_PHI.6 } }
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.12.b
+		add_political_power = -25
+		PHI = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA 1948 Recession Hits
+country_event = {
+	id = AtM_USA.13
+	title = AtM_USA.13.t
+	desc = AtM_USA.13.desc
+	picture = GFX_report_event_generic_strike
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = USA
+		date > 1948.11.01
+	}
+	
+	option = {
+		name = AtM_USA.13.a
+		ai_chance = { base = 100 }
+		complete_national_focus = USA_the_1948_recession
+		set_country_flag = american_1948_recession
+	}
+}
+
+# USA Mission to Country
+country_event = {
+	id = AtM_USA.14
+	title = AtM_USA.14.t
+	desc = AtM_USA.14.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.14.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		add_timed_idea = {
+			idea = USA_investments_low
+			days = 30
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		USA = {
+			add_timed_idea = {
+				idea = USA_investments_low
+				days = 30
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.14.b
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		USA = {
+			country_event = AtM_USA.15
+		}
+	}
+}
+	
+# Country refused cooperation
+country_event = {
+	id = AtM_USA.15
+	title = AtM_USA.15.t
+	desc = AtM_USA.15.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.15.a
+		add_political_power = -10
+	}
+}
+
+# US offers to buy Greenland (Recipient)
+country_event = {
+	id = AtM_USA.16
+	title = AtM_USA.16.t
+	desc = AtM_USA.16.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.16.a
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = small_decrease
+			}
+			country_event = AtM_USA.68
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.16.b
+		add_political_power = 25
+		USA = {
+			transfer_state = 101
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_increase
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# US condemns Suez operations (Recipient)
+country_event = {
+	id = AtM_USA.17
+	title = AtM_USA.17.t
+	desc = AtM_USA.17.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.17.a
+		add_political_power = -25
+		EGY = {
+			set_temp_variable = { influence_change = -20 }
+			set_temp_variable = { influence_target = ENG }
+			add_influence_direct = yes
+		}
+		if = {
+			limit = {
+				ENG = { has_war_with = EGY }
+			}
+			EGY = {
+				white_peace = { tag = ENG }
+			}
+		}
+		if = {
+			limit = {
+				FRA = { has_war_with = EGY }
+			}
+			EGY = {
+				white_peace = { tag = FRA }
+			}
+		}
+		if = {
+			limit = {
+				ISR = { has_war_with = EGY }
+			}
+			if = {
+				limit = {
+					ISR = { controls_state = 453 }
+				}
+				ISR = { transfer_state = 453 }
+			}
+			if = {
+				limit = {
+					ISR = { controls_state = 996 }
+				}
+				ISR = { transfer_state = 996 }
+			}
+			EGY = {
+				white_peace = { tag = ISR }
+			}
+		}
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.69
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.17.b
+		add_political_power = -150
+		add_stability = -0.05
+		add_war_support = 0.05
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# British Withdrawal from Iran (Recipient)
+country_event = {
+	id = AtM_USA.18
+	title = AtM_USA.18.t
+	desc = AtM_USA.18.desc
+	picture = GFX_report_event_ast_troops_landing
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the withdrawal
+		name = AtM_USA.18.a
+		add_stability = 0.025
+		IRN = {
+			set_autonomy_free = yes
+			leave_faction = yes
+			transfer_state = 413
+			transfer_state = 1024
+			transfer_state = 1025
+			transfer_state = 1032
+			transfer_state = 1033
+			remove_ideas = IRN_hatred_british
+		}
+		hidden_effect = {
+			411 = { set_demilitarized_zone = no }
+			412 = { set_demilitarized_zone = no }
+			414 = { set_demilitarized_zone = no }
+			417 = { set_demilitarized_zone = no }
+			1028 = { set_demilitarized_zone = no }
+			news_event = {
+				id = AtM_news.32
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+	# Stay in Iran
+	option = {
+		name = AtM_USA.18.b
+		add_political_power = -50
+		add_stability = -0.05
+		add_war_support = 0.025
+		IRN = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_decrease
+			}
+		}
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = small_decrease
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# Invitation to join NATO (Recipient)
+country_event = {
+	id = AtM_USA.19
+	title = AtM_USA.19.t
+	desc = AtM_USA.19.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	# Accept Joining NATO upon creation
+	option = {
+		name = AtM_USA.19.a
+		set_country_flag = accepted_joining_nato
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+				OR = {
+					original_tag = POR
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = DEN
+					original_tag = NOR
+					original_tag = HOL
+					original_tag = LUX
+					original_tag = BEL
+					original_tag = ITA
+					original_tag = ICE
+					original_tag = CAN
+				}
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				OR = {
+					original_tag = IRE
+					original_tag = SPR
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_communist = yes
+					is_left_wing_radical = yes
+				}
+			}
+		}
+	}
+	
+	# Reject Joining NATO upon creation
+	option = {
+		name = AtM_USA.19.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				NOT = {
+					OR = {
+						original_tag = IRE
+						original_tag = SPR
+					}
+				}
+			}
+		}
+	}
+}
+
+# KKK Attack
+country_event = {
+	id = AtM_USA.20
+	title = AtM_USA.20.t
+	desc = AtM_USA.20.desc
+	picture = GFX_KKK_attacks
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.20.a
+		add_political_power = -10
+		add_stability = -0.02
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+	}
+}
+
+# Reaction to Hungarian Revolution
+country_event = {
+	id = AtM_USA.21
+	title = AtM_USA.21.t
+	desc = AtM_USA.21.desc
+	picture = GFX_1956_Hungarian_Revolution
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.21.a
+		complete_national_focus = USA_criticize_the_soviets
+	}
+	
+	option = {
+		name = AtM_USA.21.b
+		complete_national_focus = USA_establish_the_hungarian_volunteer_corps
+	}
+}
+
+# Reaction to Chinese Intervention
+country_event = {
+	id = AtM_USA.22
+	title = AtM_USA.22.t
+	desc = AtM_USA.22.desc
+	picture = GFX_korean_war_3
+	
+	is_triggered_only = yes
+	
+	option = { # Kick this idiot out
+		name = AtM_USA.22.a
+		add_political_power = 25
+		add_stability = 0.025
+		add_war_support = -0.025
+		retire_character = USA_douglas_macarthur
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.78
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # Manchuria go boom boom
+		name = AtM_USA.22.b
+		add_political_power = -150
+		add_stability = -0.1
+		add_war_support = -0.05
+		custom_effect_tooltip = debug_mcarthur_doctrine_tt
+		SOV = {
+			country_event = AtM_SOV.7
+		}
+		hidden_effect = {
+			#goto_province = 9843 # Beijing
+			USA = {
+				#launch_nuke = { # Probably too extreme
+					#province = 9843 # Beijing
+				#}
+				#launch_nuke = { # Probably too extreme
+					#province = 7014 # Shanghai
+				#}
+				launch_nuke = {
+					province = 1150 # Dalian
+				}
+				launch_nuke = {
+					province = 11771 # Shenyang
+				}
+				launch_nuke = {
+					province = 6860 # Andong
+				}
+				launch_nuke = {
+					province = 6981 # Andong-NK Railway
+				}
+				launch_nuke = {
+					province = 9928 # Jilin-NK Railway
+				}
+				launch_nuke = {
+					province = 9897 # Yanji-NK Railway
+				}
+				launch_nuke = {
+					province = 800 # MAN-NK Border
+				}
+				launch_nuke = {
+					province = 9803 # MAN-NK Border
+				}
+				launch_nuke = {
+					province = 14333 # MAN-NK Border
+				}
+				launch_nuke = {
+					province = 987 # Anshan
+				}
+				launch_nuke = {
+					province = 964 # Yingkou
+				}
+				launch_nuke = {
+					province = 9873 # Chengde
+				}
+				launch_nuke = {
+					province = 3900 # Qinhuangdao
+				}
+				launch_nuke = {
+					province = 9835 # Jinzhou
+				}
+				launch_nuke = {
+					province = 3895 # Benxi
+				}
+				launch_nuke = {
+					province = 9927 # Fuxin
+				}
+				launch_nuke = {
+					province = 7663 # Jilin
+				}
+				launch_nuke = {
+					province = 4572 # Changchung
+				}
+				launch_nuke = {
+					province = 9766 # Mudanjiang
+				}
+				launch_nuke = {
+					province = 14334 # Liaoyuan
+				}
+				launch_nuke = {
+					province = 10433 # Harbin
+				}
+				launch_nuke = {
+					province = 7582 # Daqing
+				}
+				launch_nuke = {
+					province = 4506 # Qiqihar
+				}
+				launch_nuke = {
+					province = 930 # Tongliao
+				}
+				launch_nuke = {
+					province = 944 # Yanji
+				}
+				launch_nuke = {
+					province = 945 # Tonghua
+				}
+			}
+			every_state = {
+				limit = {
+					# States that contain the launch_nuke provinces
+					OR = {
+						state = 12 # Changchun — 4572
+						state = 191 # Harbin — 10433, 7582
+						state = 328 # Jilin — 7663
+						state = 609 # Yongping — 3900
+						state = 610 # Rehe — 9873, 9927
+						state = 715 # Liaobei — 930, 14334
+						state = 716 # Shenyang — 11771
+						state = 717 # Songjiang — 9766
+						state = 745 # Port Arthur — 1150
+						state = 1189 # Liaodong — 964
+						state = 1192 # Liaoning — 987, 3895
+						state = 1416 # Andong — 6860, 6981, 800, 9803, 945
+						state = 1417 # Liaoxi — 9835
+						state = 1418 # Nenjiang — 4506
+						state = 1537 # Yanbian — 944, 9897, 9928, 14333
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = fallout_atomic
+					days = 180
+				}
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# America Intervention in Turkey
+country_event = {
+	id = AtM_USA.23
+	title = AtM_USA.23.t
+	desc = AtM_USA.23.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	option = { # Send the USS Missouri
+		name = AtM_USA.23.a
+		give_guarantee = TUR
+		SOV = {
+			add_war_support = -0.05
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # Let's stay out of this
+		name = AtM_USA.23.b
+		add_stability = 0.05
+		add_war_support = -0.05
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# American Response to Yugoslav
+country_event = {
+	id = AtM_USA.24
+	title = AtM_USA.24.t
+	desc = AtM_USA.24.desc
+	picture = GFX_1946_American_Plane_Shot_Down
+	
+	is_triggered_only = yes
+	
+	option = { # Strong Diplomatic Condemnation
+		name = AtM_USA.24.a
+		add_stability = 0.03
+		
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # Give them freedom
+		name = AtM_USA.24.b
+		add_stability = -0.02
+		add_war_support = 0.05
+        create_wargoal = {
+            target = YUG
+            type = topple_government
+        }
+		
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# The issue of Rhodesia
+country_event = {
+	id = AtM_USA.25
+	title = AtM_USA.25.t
+	desc = AtM_USA.25.desc
+	picture = GFX_rhodesia_1
+	
+	is_triggered_only = yes
+	
+	option = { # Ignore it
+		name = AtM_USA.25.a
+		add_political_power = 20
+		add_opinion_modifier = {
+			target = RHO
+			modifier = medium_increase
+		}
+		reverse_add_opinion_modifier = {
+			target = RHO
+			modifier = medium_increase
+		}
+		RHO = {
+			add_political_power = 20
+		}
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # Support Resistance
+		name = AtM_USA.25.b
+		RHO = {
+			add_stability = -0.04
+		}
+		add_opinion_modifier = {
+			target = RHO
+			modifier = medium_decrease
+		}
+		reverse_add_opinion_modifier = {
+			target = RHO
+			modifier = medium_decrease
+		}
+		1185 = {
+			remove_core_of = RHO
+			set_demilitarized_zone = yes
+		}
+		1186 = {
+			remove_core_of = RHO
+			set_demilitarized_zone = yes
+		}
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# The response to Iran
+country_event = {
+	id = AtM_USA.26
+	title = AtM_USA.26.t
+	desc = AtM_USA.26.desc
+	picture = GFX_rhodesia_1
+	
+	is_triggered_only = yes
+	
+	option = { # Sanction the Soviets
+		name = AtM_USA.26.a
+		send_embargo = SOV
+		every_other_country = {
+			limit = {
+				NOT = {
+					is_subject_of = SOV
+				}
+			}
+			country_event = AtM_generic.1
+		}
+
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # There is nothing we can do
+		name = AtM_USA.26.b
+		add_political_power = -50
+		add_stability = 0.01
+		
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# The One China Policy
+country_event = {
+	id = AtM_USA.27
+	title = AtM_USA.27.t
+	desc = AtM_USA.27.desc
+	picture = GFX_report_event_china_chiang_kai_shek
+	
+	is_triggered_only = yes
+	
+	option = { # Recognise the ROC
+		name = AtM_USA.27.a
+		
+		add_opinion_modifier = {
+			target = PRC
+			modifier = medium_decrease
+		}
+		reverse_add_opinion_modifier = {
+			target = PRC
+			modifier = medium_decrease
+		}
+		
+		add_opinion_modifier = {
+			target = CHI
+			modifier = medium_increase
+		}
+		reverse_add_opinion_modifier = {
+			target = CHI
+			modifier = medium_increase
+		}
+
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = { # Recognise the PRC
+		name = AtM_USA.27.b
+		add_opinion_modifier = {
+			target = CHI
+			modifier = medium_decrease
+		}
+		reverse_add_opinion_modifier = {
+			target = CHI
+			modifier = medium_decrease
+		}
+		
+		add_opinion_modifier = {
+			target = PRC
+			modifier = medium_increase
+		}
+		reverse_add_opinion_modifier = {
+			target = PRC
+			modifier = medium_increase
+		}
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Help From The Soviets
+country_event = {
+	id = AtM_USA.28
+	title = AtM_USA.28.t
+	desc = AtM_USA.28.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Send aid
+		name = AtM_USA.28.a
+		
+		USA = {
+			country_event = AtM_USA.29
+		}
+
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 1
+				USA = {
+					has_opinion = { target = SOV value > 50 }
+				}
+			}
+		}
+	}
+	
+	option = { # Ignore this fake plead
+		name = AtM_USA.28.b
+		
+		USA = {
+			country_event = AtM_USA.30
+		}	
+		
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				USA = {
+					has_opinion = { target = SOV value > 50 }
+				}
+			}
+		}
+	}
+}
+
+# Soviets Accept!
+country_event = {
+	id = AtM_USA.29
+	title = AtM_USA.29.t
+	desc = AtM_USA.29.desc
+	picture = GFX_generic_aid_received_water
+	
+	is_triggered_only = yes
+	
+	option = { # Send aid
+		name = AtM_USA.29.a
+		
+		add_political_power = 10
+		set_country_flag = soviets_aid_communists
+		custom_effect_tooltip = USA_civil_war_soviet_weapons_give_tt
+
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Shame on them!
+country_event = {
+	id = AtM_USA.30
+	title = AtM_USA.30.t
+	desc = AtM_USA.30.desc
+	picture = GFX_report_event_stalin_02
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.30.a
+		
+		add_opinion_modifier = {
+			target = SOV
+			modifier = refused_cooperation
+		}
+		reverse_add_opinion_modifier = {
+			target = SOV
+			modifier = refused_cooperation
+		}
+
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 31: Missile Equipment found in Cuba 
+country_event = {
+	id = AtM_USA.31
+	title = AtM_USA.31.t
+	desc = AtM_USA.31.desc
+	picture = GFX_cuban_missile_crisis_picture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		CUB = {
+			exists = yes
+			is_eastern = yes
+			NOT = {
+				is_ally_with = USA
+			}
+		}
+		SOV = {
+			exists = yes
+			is_eastern = yes
+			NOT = {
+				is_ally_with = USA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.31.a
+		complete_national_focus = USA_the_cuban_missile_crisis
+		set_global_flag = cuban_missile_crisis
+		effect_tooltip = { 
+			add_threat = 50
+		}
+		hidden_effect = {
+			add_named_threat = {
+				threat = 25
+				name = USA_cub_missile_crisis_tension
+			}
+			SOV = {
+				add_named_threat = {
+					threat = 25
+					name = USA_cub_missile_crisis_tension
+				}
+			}
+		}
+		hidden_effect = {
+			set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+			set_global_flag = SE_CUBAN_MISSILE_CRISIS
+			play_song = atom_bomb_baby_SE
+			news_event = {
+				id = AtM_news.83
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# USA Event 32: USA asks for participation in WW3
+country_event = {
+	id = AtM_USA.32
+	title = AtM_USA.32.t
+	desc = AtM_USA.32.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = { # HELL YEAH, WAR!
+		name = AtM_USA.32.a
+		
+		declare_war_on = {
+			target = SOV
+			type = topple_government
+		}
+		
+		USA = {
+			add_to_faction = ROOT
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 20
+				ROOT = {
+					has_opinion = { target = SOV value > 40 }
+				}
+			}
+		}
+	}
+	
+	option = { # EEERM, ACTUALLY, WE PREFER PEACE :nerd_emoji:
+		name = AtM_USA.32.b
+		
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+			reverse_add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 80
+				ROOT = {
+					has_opinion = { target = SOV value > 40 }
+				}
+			}
+		}
+	}
+}
+
+# USA Event 33: The Future of Elections
+country_event = {
+	id = AtM_USA.33
+	title = AtM_USA.33.t
+	desc = AtM_USA.33.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Rigged Elections
+		name = AtM_USA.33.a
+		
+		swap_ideas = {
+			remove_idea = USA_cancelled_elections
+			add_idea = USA_rigged_elections
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	option = { # Suspend Elections
+		name = AtM_USA.33.b
+		
+		swap_ideas = {
+			remove_idea = USA_cancelled_elections
+			add_idea = USA_suspended_elections
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+# USA Event 34: USA Demands Return of Lands
+country_event = {
+	id = AtM_USA.34
+	title = AtM_USA.34.t
+	desc = AtM_USA.34.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Okay, sorry
+		name = AtM_USA.34.a
+		
+		every_state = {
+			limit = {
+				is_core_of = USA
+				is_owned_by = MEX
+				is_controlled_by = MEX
+			}
+			transfer_state_to = USA
+		}
+		
+		ai_chance = {
+			base = 75
+		}
+	}
+	
+	option = { # We resist
+		name = AtM_USA.34.b
+		
+		USA = {
+			create_wargoal = {
+				target = MEX
+				type = take_core_state
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+# USA Event 35: USA Demands Return of Hawaii
+country_event = {
+	id = AtM_USA.35
+	title = AtM_USA.35.t
+	desc = AtM_USA.35.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Sure
+		name = AtM_USA.35.a
+		
+		every_state = {
+			limit = {
+				is_core_of = HAW
+				is_owned_by = ROOT
+				is_controlled_by = ROOT
+			}
+			transfer_state_to = USA
+		}
+		
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # We resist
+		name = AtM_USA.35.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = take_core_state
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# USA Event 36: USA Demands Reintegration of Alaska
+country_event = {
+	id = AtM_USA.36
+	title = AtM_USA.36.t
+	desc = AtM_USA.36.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Okay, sorry
+		name = AtM_USA.36.a
+		
+		every_state = {
+			limit = {
+				is_core_of = ALS
+				is_owned_by = ROOT
+				is_controlled_by = ROOT
+			}
+			transfer_state_to = USA
+		}
+		
+		ai_chance = {
+			base = 75
+		}
+	}
+	
+	option = { # We resist
+		name = AtM_USA.36.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = take_core_state
+			}
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+# USA Event 37: USA Demands All Europeans to Leave The Americas
+country_event = {
+	id = AtM_USA.37
+	title = AtM_USA.37.t
+	desc = AtM_USA.37.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Okay, sorry
+		name = AtM_USA.37.a
+		# Cede American states with no cores at all to the United States.
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+				NOT = {
+					any_country_with_core = {
+						always = yes
+					}
+				}
+			}
+			transfer_state_to = USA
+		}
+		# Release dormant core holders from the remaining American states.
+		every_possible_country = {
+			limit = {
+				exists = no
+				any_core_state = {
+					is_owned_by = ROOT
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+				}
+			}
+			ROOT = { release = PREV }
+		}
+		# Free American subjects, except Canada.
+		every_subject_country = {
+			limit = {
+				NOT = { original_tag = CAN }
+				capital_scope = {
+					OR = {
+						is_on_continent = north_america
+						is_on_continent = south_america
+					}
+				}
+			}
+			set_autonomy_free = yes
+		}
+		# Give any remaining American states to a random existing core holder.
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+			if = {
+				limit = {
+					any_country_with_core = {
+						exists = yes
+						NOT = { tag = ROOT }
+					}
+				}
+				random_country = {
+					limit = {
+						exists = yes
+						NOT = { tag = ROOT }
+						PREV = { is_core_of = PREV }
+					}
+					transfer_state = PREV
+				}
+			}
+		}
+		ai_chance = {
+			base = 80
+		}
+	}
+	
+	option = { # We resist
+		name = AtM_USA.37.b
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = take_state_focus
+			}
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+}
+
+# USA Event 38: USA Asks For Concessions For Protection
+country_event = {
+	id = AtM_USA.38
+	title = AtM_USA.38.t
+	desc = AtM_USA.38.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Okay, sorry
+		name = AtM_USA.38.a
+		
+		if = {
+			limit = {
+				original_tag = MEX
+				MEX = {
+					owns_state = 484
+					owns_state = 483
+					owns_state = 482
+					owns_state = 480
+					owns_state = 479
+				}
+			}
+			USA = {
+				transfer_state = 484
+				transfer_state = 483
+				transfer_state = 482
+				transfer_state = 480
+				transfer_state = 479
+				give_guarantee = MEX
+			}
+		}
+		
+		if = {
+			limit = {
+				original_tag = CUB
+				CUB = {
+					owns_state = 1009
+				}
+			}
+			USA = {
+				transfer_state = 1009
+				give_guarantee = CUB
+			}
+		}
+		
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # No thank you
+		name = AtM_USA.38.b
+		
+		USA = { country_event = AtM_USA.39 }
+
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# USA Event 39: USA Rejected
+country_event = {
+	id = AtM_USA.39
+	title = AtM_USA.39.t
+	desc = AtM_USA.39.desc
+	picture = GFX_news_event_journalists_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Okay, sorry
+		name = AtM_USA.39.a
+		
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 40: USA Demands UK to not love Belize
+country_event = {
+	id = AtM_USA.40
+	title = AtM_USA.40.t
+	desc = AtM_USA.40.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # FINE!!!
+		name = AtM_USA.40.a
+		
+		ENG = {
+			release = BLZ
+		}
+		
+		ai_chance = {
+			base = 90
+		}
+	}
+	
+	option = { # NOOOO!!!
+		name = AtM_USA.40.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = take_state_focus
+			}
+		}
+		
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# USA Event 41: USA invites us to the Mutual Defence League
+country_event = {
+	id = AtM_USA.41
+	title = AtM_USA.41.t
+	desc = AtM_USA.41.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Hell yeah
+		name = AtM_USA.41.a
+		
+		USA = {
+			add_to_faction = ROOT
+		}
+		
+		ai_chance = {
+			base = 85
+		}
+	}
+	
+	option = { # NOOOO!!!
+		name = AtM_USA.41.b
+		
+		USA = { country_event = AtM_USA.42 }
+		
+		ai_chance = {
+			base = 15
+		}
+	}
+}
+
+# USA Event 42: Country refused to join
+country_event = {
+	id = AtM_USA.42
+	title = AtM_USA.42.t
+	desc = AtM_USA.42.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = { # FINE!!!
+		name = AtM_USA.42.a
+		
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 43: Canada Or War
+country_event = {
+	id = AtM_USA.43
+	title = AtM_USA.43.t
+	desc = AtM_USA.43.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # FINE!!!
+		name = AtM_USA.43.a
+		
+		USA = {
+			annex_country = {
+				target = CAN
+				transfer_troops = no
+			}
+			transfer_state = 1224
+			transfer_state = 332
+			transfer_state = 331
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { # Hell nah
+		name = AtM_USA.43.b
+		
+		USA = {
+			create_wargoal = {
+				target = CAN
+				type = annex_everything
+			}
+		}	
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 44: US subjugation of South America
+country_event = {
+	id = AtM_USA.44
+	title = AtM_USA.44.t
+	desc = AtM_USA.44.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Oh hell nah
+		name = AtM_USA.44.a
+		
+		USA = {
+			ROOT = {
+				set_autonomy_integrated_puppet_no_elections = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 39
+		}
+	}
+	
+	option = { # Hell nah
+		name = AtM_USA.44.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = annex_everything
+			}
+		}	
+		
+		ai_chance = {
+			base = 61
+		}
+	}
+}
+
+# USA Event 45: US subjugation of the Caribbean
+country_event = {
+	id = AtM_USA.45
+	title = AtM_USA.45.t
+	desc = AtM_USA.45.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Oh hell nah
+		name = AtM_USA.45.a
+		
+		USA = {
+			ROOT = {
+				set_autonomy_integrated_puppet_no_elections = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 20
+		}
+	}
+	
+	option = { # Hell nah
+		name = AtM_USA.45.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = annex_everything
+			}
+		}	
+		
+		ai_chance = {
+			base = 80
+		}
+	}
+}
+
+# USA Event 46: US subjugation of the Caribbean
+country_event = {
+	id = AtM_USA.46
+	title = AtM_USA.46.t
+	desc = AtM_USA.46.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Have this "useless" island
+		name = AtM_USA.46.a
+		
+		299 = {
+			transfer_state_to = USA
+		}
+		
+		ai_chance = {
+			base = 20
+		}
+	}
+	
+	option = { # HAHAHA, what an idiot. Lmao, imagine they declare war or something. HAHAHA
+		name = AtM_USA.46.b
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = annex_everything
+			}
+		}	
+		
+		ai_chance = {
+			base = 80
+		}
+	}
+}
+
+# USA Event 47: US subjugation of the Caribbean
+country_event = {
+	id = AtM_USA.47
+	title = AtM_USA.47.t
+	desc = AtM_USA.47.desc
+	picture = GFX_second_american_civil_war_strom_thurmond_speech
+	
+	is_triggered_only = yes
+	
+	option = { # We side with the Americans
+		name = AtM_USA.47.a
+		
+		USA = {
+			add_to_faction = ROOT
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = { # We side with the Soviets
+		name = AtM_USA.47.b
+		
+		SOV = {
+			add_to_faction = ROOT
+			give_guarantee = ROOT
+		}
+		
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = { # We side with the Soviets
+		name = AtM_USA.47.c
+		
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = puppet_wargoal_focus
+			}
+		}
+		
+		YUG = {
+			set_country_flag = prefered_neutrality
+		}
+		
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+# USA Event 48: The American Promise
+country_event = {
+	id = AtM_USA.48
+	title = AtM_USA.48.t
+	desc = AtM_USA.48.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	option = { # We side with the Americans
+		name = AtM_USA.48.a
+		
+		ROOT = {
+			add_state_core = 213
+			add_state_core = 215
+			add_state_core = 216
+			
+			set_country_flag = will_participate_against_soviets
+		}
+		
+		ai_chance = {
+			base = 92
+		}
+	}
+	
+	option = { # We will remain neutral
+		name = AtM_USA.48.b
+		
+		USA = { country_event = AtM_USA.49 }
+
+		ai_chance = {
+			base = 8
+		}
+	}
+}
+
+# USA Event 49: Finland Rejects
+country_event = {
+	id = AtM_USA.49
+	title = AtM_USA.49.t
+	desc = AtM_USA.49.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.49.a
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 50: Meeting with MLK
+country_event = {
+	id = AtM_USA.50
+	title = AtM_USA.50.t
+	desc = AtM_USA.50.desc
+	picture = GFX_william_foster_meets_with_mlk
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.50.a
+		add_stability = 0.02
+		add_political_power = 10
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA detects the first Soviet atomic bomb test
+country_event = {
+	id = AtM_USA.51
+	title = AtM_USA.51.t
+	desc = AtM_USA.51.desc
+	picture = GFX_nuke_1
+
+	is_triggered_only = yes
+
+	option = {
+		name = AtM_USA.51.a
+		custom_effect_tooltip = historical_option_tt
+		set_country_flag = USA_announced_soviet_atomic_test
+		# Truman announced the discovery two days after receiving the conclusive assessment.
+		news_event = { id = AtM_news.94 days = 2 }
+
+		ai_chance = { base = 95 }
+	}
+
+	option = {
+		name = AtM_USA.51.b
+		set_country_flag = USA_concealed_soviet_atomic_test
+
+		ai_chance = { base = 5 }
+	}
+}
+
+# USA Event 52: The American Proposal
+country_event = {
+	id = AtM_USA.52
+	title = AtM_USA.52.t
+	desc = AtM_USA.52.desc
+	picture = GFX_report_event_generic_sign_treaty3
+	
+	is_triggered_only = yes
+	
+	option = { # We side with the Americans
+		name = AtM_USA.52.a
+		
+		set_country_flag = will_help_in_western_europe
+		add_political_power = 50
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { # We will stick out of this
+		name = AtM_USA.52.b
+		
+		USA = { country_event = AtM_USA.53 }
+
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+
+# USA Event 53: USSR refuses
+country_event = {
+	id = AtM_USA.53
+	title = AtM_USA.53.t
+	desc = AtM_USA.53.desc
+	picture = GFX_report_event_stalin_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.53.a
+		add_stability = 0.02
+		add_political_power = 10
+
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 54: The American Proposal
+country_event = {
+	id = AtM_USA.54
+	title = AtM_USA.54.t
+	desc = AtM_USA.54.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # We will allow them in
+		name = AtM_USA.54.a
+		
+		USA = {
+			add_to_faction = ROOT
+		}
+		
+		ai_chance = {
+			base = 94
+		}
+	}
+	
+	option = { # he-he hell nah
+		name = AtM_USA.54.b
+
+		ai_chance = {
+			base = 6
+		}
+	}
+}
+
+# USA Event 55: A Joint Invasion of China?
+country_event = {
+	id = AtM_USA.55
+	title = AtM_USA.55.t
+	desc = AtM_USA.55.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # We will allow them in
+		name = AtM_USA.55.a
+		
+		if = {
+			limit = {
+				PRC = { exists = yes }
+			}
+			USA = {
+				declare_war_on = {
+					target = PRC
+					type = puppet_wargoal_focus
+				}
+			}
+			SOV = {
+				declare_war_on = {
+					target = PRC
+					type = puppet_wargoal_focus
+				}
+				add_state_claim = 1419
+				add_state_claim = 717
+				add_state_claim = 1537
+				add_state_claim = 328
+				add_state_claim = 1416
+				add_state_claim = 191
+				add_state_claim = 1418
+				add_state_claim = 714
+				add_state_claim = 815
+				add_state_claim = 761
+				add_state_claim = 1097
+				add_state_claim = 12
+				add_state_claim = 715
+				add_state_claim = 1192
+				add_state_claim = 716
+				add_state_claim = 1189
+				add_state_claim = 745
+				add_state_claim = 1417
+				add_state_claim = 610
+				add_state_claim = 611
+				
+			}
+		}
+		
+		if = {
+			limit = {
+				CHI = { exists = yes }
+			}
+			USA = {
+				declare_war_on = {
+					target = CHI
+					type = puppet_wargoal_focus
+				}
+			}
+			SOV = {
+				declare_war_on = {
+					target = CHI
+					type = puppet_wargoal_focus
+				}
+				add_state_claim = 1419
+				add_state_claim = 717
+				add_state_claim = 1537
+				add_state_claim = 328
+				add_state_claim = 1416
+				add_state_claim = 191
+				add_state_claim = 1418
+				add_state_claim = 714
+				add_state_claim = 815
+				add_state_claim = 761
+				add_state_claim = 1097
+				add_state_claim = 12
+				add_state_claim = 715
+				add_state_claim = 1192
+				add_state_claim = 716
+				add_state_claim = 1189
+				add_state_claim = 745
+				add_state_claim = 1417
+				add_state_claim = 610
+				add_state_claim = 611
+			}
+		}
+		
+		ai_chance = {
+			base = 97
+		}
+	}
+	
+	option = { # No thank you :)
+		name = AtM_USA.55.b
+
+		USA = { country_event = AtM_USA.56 }
+
+		ai_chance = {
+			base = 3
+		}
+	}
+}
+
+# USA Event 56: The American Proposal
+country_event = {
+	id = AtM_USA.56
+	title = AtM_USA.56.t
+	desc = AtM_USA.56.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # We back down
+		name = AtM_USA.56.a
+		
+		add_political_power = -50
+		
+		ai_chance = {
+			base = 68
+		}
+	}
+	
+	option = { # We go in alone
+		name = AtM_USA.56.b
+
+		declare_war_on = {
+			target = PRC
+			type = puppet_wargoal_focus
+		}
+
+		ai_chance = {
+			base = 32
+		}
+	}
+}
+
+# USA Event 57: Mexico Demands
+country_event = {
+	id = AtM_USA.57
+	title = AtM_USA.57.t
+	desc = AtM_USA.57.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # Comply
+		name = AtM_USA.57.a
+		
+		effect_tooltip = {	
+			USA = {
+				ROOT = {
+					set_autonomy_puppet = yes
+				}
+			}
+			
+			USA = {
+				every_core_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					transfer_state_to = USA
+				}
+			}
+		}
+		
+		USA = {
+			country_event = {
+				id = AtM_USA.58
+				hours = 10
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 1
+				}
+			}
+		}
+	}
+	
+	option = { # We will fight
+		name = AtM_USA.57.b
+
+		USA = {
+			country_event = {
+				id = AtM_USA.59
+				hours = 10
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 0.65
+				}
+			}
+		}
+	}
+}
+
+# USA Event 58: Mexico Complies
+country_event = {
+	id = AtM_USA.58
+	title = AtM_USA.58.t
+	desc = AtM_USA.58.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.58.a
+		
+		MEX = {
+			set_autonomy_puppet_no_elections = yes
+		}
+		
+		every_core_state = {
+			limit = {
+				is_owned_by = MEX
+			}
+			transfer_state_to = ROOT
+		}
+		
+		hidden_effect = {
+			MEX = {
+				set_popularities = {
+					communism = 50
+					left_wing_radical = 20
+					neutrality = 25
+					democratic = 5
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 59: Mexico Refuses
+country_event = {
+	id = AtM_USA.59
+	title = AtM_USA.59.t
+	desc = AtM_USA.59.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.59.a
+		
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = MEX
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 60: US Coups in America
+country_event = {
+	id = AtM_USA.60
+	title = AtM_USA.60.t
+	desc = AtM_USA.60.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # Comply
+		name = AtM_USA.60.a
+		
+		effect_tooltip = {	
+			USA = {
+				ROOT = {
+					set_autonomy_puppet = yes
+				}
+			}
+			
+			USA = {
+				every_core_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					transfer_state_to = USA
+				}
+			}
+		}
+		
+		USA = {
+			country_event = {
+				id = AtM_USA.62
+				hours = 10
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 1
+				}
+			}
+		}
+	}
+	
+	option = { # We will fight
+		name = AtM_USA.60.b
+
+		USA = {
+			country_event = {
+				id = AtM_USA.63
+				hours = 10
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 0.65
+				}
+			}
+		}
+	}
+}
+
+# USA Event 61: US Demands we return to their administration
+country_event = {
+	id = AtM_USA.61
+	title = AtM_USA.61.t
+	desc = AtM_USA.61.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = { # Comply
+		name = AtM_USA.61.a
+		
+		effect_tooltip = {	
+			USA = {
+				ROOT = {
+					set_autonomy_puppet = yes
+				}
+			}
+			
+			USA = {
+				every_core_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					transfer_state_to = USA
+				}
+			}
+		}
+		
+		USA = {
+			country_event = {
+				id = AtM_USA.61
+				hours = 10
+			}
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 2
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 1
+				}
+			}
+		}
+	}
+	
+	option = { # We will fight
+		name = AtM_USA.61.b
+
+		USA = {
+			country_event = {
+				id = AtM_USA.59
+				hours = 10
+			}
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				fighting_army_strength_ratio = {
+					tag = USA
+					ratio < 0.65
+				}
+			}
+		}
+	}
+}
+
+# USA Event 62: COUNTRY Complies
+country_event = {
+	id = AtM_USA.62
+	title = AtM_USA.62.t
+	desc = AtM_USA.62.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.62.a
+			
+		FROM = {
+			set_autonomy_puppet_no_elections = yes
+		}
+		
+		if = {
+			limit = {
+				has_completed_focus = USA_a_communist_opposition
+			}
+			random = {
+				chance = 45
+				FROM = {
+					set_left_wing_radical_no_elections = yes
+				}
+			}
+		}
+		
+		every_core_state = {
+			limit = {
+				is_owned_by = FROM
+			}
+			transfer_state_to = ROOT
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 63: COUNTRY Refuses
+country_event = {
+	id = AtM_USA.63
+	title = AtM_USA.63.t
+	desc = AtM_USA.63.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.63.a
+		
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FROM
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 64: Invite to USA Faction
+country_event = {
+	id = AtM_USA.64
+	title = AtM_USA.64.t
+	desc = AtM_USA.64.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.64.a
+		
+		effect_tooltip = {
+			USA = {
+				add_to_faction = ROOT
+			}
+		}
+		
+		hidden_effect = {
+			country_event = { 
+				id = AtM_USA.65
+				hours = 10
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = {
+		name = AtM_USA.64.b
+		
+		effect_tooltip = {
+			USA = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ROOT
+				}
+			}
+		}
+		
+		hidden_effect = {
+			country_event = { 
+				id = AtM_USA.63
+				hours = 10
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 65: COUNTRY Accepts Faction Invitation
+country_event = {
+	id = AtM_USA.65
+	title = AtM_USA.65.t
+	desc = AtM_USA.65.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.65.a
+		
+		add_to_faction = FROM
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 66: Revolution in Eritrea
+country_event = {
+	id = AtM_USA.66
+	title = AtM_USA.66.t
+	desc = AtM_USA.66.desc
+	picture = GFX_wadiyan_revolution
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.66.a
+		
+		WAD = { change_tag_from = ROOT }
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = {
+		name = AtM_USA.66.b
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 67: Letter to Mao (AHAHAHHAHAH 67 67 67 67 67 67 67!!!!)
+country_event = {
+	id = AtM_USA.67
+	title = AtM_USA.67.t
+	desc = AtM_USA.67.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.67.a
+		
+		USA = { add_war_support = 0.02 }
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# USA Event 68: Denmark Refuses Offer for Greenland
+country_event = {
+	id = AtM_USA.68
+	title = AtM_USA.68.t
+	desc = AtM_USA.68.desc
+	picture = GFX_report_event_generic_usa_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.68.a
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Austrian Unification (United Kingdom)
+country_event = {
+	id = AtM_USA_austria.1
+	title = AtM_USA_austria.1.t
+	desc = AtM_USA_austria.1.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Unite Austria
+		name = AtM_USA_austria.1.a
+		add_stability = 0.03
+		
+        USA = {
+            set_country_flag = UK_approved_austria
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = FRA_approved_austria
+                        has_country_flag = FRA_declined_austria
+                    }
+                }
+                # Both have responded, trigger USSR event
+				SOV = {
+					country_event = {
+						id = AtM_USA_austria.3
+						days = 1
+					}
+				}
+            }
+        }		
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	# Remain Separate
+	option = {
+		name = AtM_USA_austria.1.b
+
+        USA = {
+            set_country_flag = UK_declined_austria
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = FRA_approved_austria
+                        has_country_flag = FRA_declined_austria
+                    }
+                }
+                # Both have responded, trigger USSR event
+				SOV = {
+					country_event = {
+						id = AtM_USA_austria.3
+						days = 1
+					}
+				}
+            }
+        }		
+
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification (France)
+country_event = {
+	id = AtM_USA_austria.2
+	title = AtM_USA_austria.2.t
+	desc = AtM_USA_austria.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Unite Austria
+		name = AtM_USA_austria.2.a
+		add_stability = 0.03
+		
+        USA = {
+            set_country_flag = FRA_approved_austria
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = UK_approved_austria
+                        has_country_flag = UK_declined_austria
+                    }
+                }
+                # Both have responded, trigger USSR event
+				SOV = {
+					country_event = {
+						id = AtM_USA_austria.3
+						days = 1
+					}
+				}
+            }
+        }		
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	# Remain Separate
+	option = {
+		name = AtM_USA_austria.2.b
+
+        USA = {
+            set_country_flag = FRA_declined_austria
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = UK_approved_austria
+                        has_country_flag = UK_declined_austria
+                    }
+                }
+                # Both have responded, trigger USSR event
+				SOV = {
+					country_event = {
+						id = AtM_USA_austria.3
+						days = 1
+					}
+				}
+            }
+        }		
+
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification (Soviets)
+country_event = {
+	id = AtM_USA_austria.3
+	title = AtM_USA_austria.3.t
+	desc = AtM_USA_austria.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Unite Austria
+		name = AtM_USA_austria.3.a
+		add_stability = 0.03
+
+        USA = {
+            country_event = {
+                id = AtM_USA_austria.4
+                days = 1
+            }
+            set_country_flag = USSR_approved_austria
+        }	
+
+		add_named_threat = {
+			threat = -5
+			name = AUS_reunified_peaceful
+		}		
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	# Remain Separate
+	option = {
+		name = AtM_USA_austria.3.b
+        USA = {
+            country_event = {
+                id = AtM_USA_austria.4
+                days = 1
+            }
+            set_country_flag = USSR_declined_austria
+        }
+		add_named_threat = {
+			threat = 5
+			name = AUS_divided
+		}
+
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification RESULTS
+country_event = {
+	id = AtM_USA_austria.4
+	title = AtM_USA_austria.4.t
+	desc = AtM_USA_austria.4.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA_austria.4.a
+		
+		AUS = {
+			transfer_state = 987
+			transfer_state = 988
+			remove_ideas = AUS_provisional_state
+			set_autonomy_free = yes
+			drop_cosmetic_tag = yes
+			clear_all_influence = yes
+			set_western_econsphere = yes
+			hidden_effect = { leave_faction = yes }
+			if = {
+				limit = {
+					AUS = { has_war = yes }
+				}
+				every_other_country = {
+					limit = {
+						has_war_with = AUS
+					}
+					white_peace = {
+						tag = AUS
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_country_flag = USSR_approved_austria
+			}
+			
+			AUS = {
+				transfer_state = 986
+				transfer_state = 988
+				load_oob = AUS_establish_historical
+			}
+		}
+		
+
+		if = {
+			limit = {
+				has_country_flag = FRA_approved_austria
+			}
+			AUS = {
+				transfer_state = 153
+				transfer_state = 848
+			}			
+		}
+		
+
+		if = {
+			limit = {
+				has_country_flag = UK_approved_austria
+			}
+			AUS = {
+				transfer_state = 152
+				transfer_state = 989
+			}			
+		}
+		
+
+		if = {
+			limit = {
+				has_country_flag = USSR_declined_austria
+			}
+
+			NAU = {
+				add_state_core = 4
+				add_state_core = 152
+				add_state_core = 153
+				add_state_core = 848
+				add_state_core = 985
+				add_state_core = 986
+				add_state_core = 987
+				add_state_core = 989
+				add_state_core = 988
+				add_state_core = 990
+			
+				transfer_state = 4
+				transfer_state = 985
+				transfer_state = 986
+				transfer_state = 990
+				
+				load_oob = NAU_establish
+
+				set_eastern_member = yes
+				set_temp_variable = { influence_change = 20 }
+				set_temp_variable = { influence_target = SOV }
+				add_influence_direct = yes
+			}
+			
+			USA = {
+				uncomplete_national_focus = {
+					focus = USA_propose_austrian_reunification
+				}
+				complete_national_focus = USA_retain_austrian_separation
+				
+				add_to_faction = AUS
+				add_named_threat = {
+					threat = 5
+					name = AUS_divided
+				}
+			}
+			
+			SOV = {
+				NAU = {
+					set_autonomy_puppet = yes
+				}
+				add_named_threat = {
+					threat = 5
+					name = AUS_divided
+				}
+			}
+			
+			AUS = {
+				load_oob = AUS_establish
+				set_capital = { state = 988 } # Salzburg
+			}
+			
+			if = {
+				limit = {
+					has_country_flag = UK_approved_austria
+				}
+				AUS = {
+					transfer_state = 152
+					transfer_state = 989
+				}
+			}
+			
+			if = {
+				limit = {
+					has_country_flag = FRA_approved_austria
+				}
+				AUS = {
+					transfer_state = 153
+					transfer_state = 848
+					
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_country_flag = UK_declined_austria
+				has_country_flag = USSR_approved_austria
+			}
+			ENG = {
+				add_timed_idea = {
+					idea = USA_sanctioned_economy
+					days = 1825
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = FRA_declined_austria
+				has_country_flag = USSR_approved_austria
+			}
+			FRA = {
+				add_timed_idea = {
+					idea = USA_sanctioned_economy
+					days = 1825
+				}
+			}
+		}
+		
+		clr_country_flag = UK_approved_austria
+		clr_country_flag = UK_declined_austria
+		clr_country_flag = FRA_approved_austria
+		clr_country_flag = FRA_declined_austria
+		clr_country_flag = USSR_approved_austria
+		clr_country_flag = USSR_declined_austria
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification (United Kingdom Separation)
+country_event = {
+	id = AtM_USA_austria.5
+	title = AtM_USA_austria.5.t
+	desc = AtM_USA_austria.5.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Unite Austria
+		name = AtM_USA_austria.5.a
+		add_stability = 0.03
+		
+        USA = {
+            set_country_flag = UK_approved_austria_alt
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = FRA_approved_austria_alt
+                        has_country_flag = FRA_declined_austria_alt
+                    }
+                }
+                # Both have responded, trigger USA event
+				USA = {
+					country_event = {
+						id = AtM_USA_austria.7
+						days = 1
+					}
+				}
+            }
+        }		
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	# Remain Separate
+	option = {
+		name = AtM_USA_austria.5.b
+
+        USA = {
+            set_country_flag = UK_declined_austria_alt
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = FRA_approved_austria_alt
+                        has_country_flag = FRA_declined_austria_alt
+                    }
+                }
+                # Both have responded, trigger USSR event
+				USA = {
+					country_event = {
+						id = AtM_USA_austria.7
+						days = 1
+					}
+				}
+            }
+        }		
+
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification (France Separation)
+country_event = {
+	id = AtM_USA_austria.6
+	title = AtM_USA_austria.6.t
+	desc = AtM_USA_austria.6.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Unite Austria
+		name = AtM_USA_austria.6.a
+		add_stability = 0.03
+		
+        USA = {
+            set_country_flag = FRA_approved_austria_alt
+        }
+        
+        # Check if UK already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = UK_approved_austria_alt
+                        has_country_flag = UK_declined_austria_alt
+                    }
+                }
+                # Both have responded, trigger USA event
+				USA = {
+					country_event = {
+						id = AtM_USA_austria.7
+						days = 1
+					}
+				}
+            }
+        }		
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	# Remain Separate
+	option = {
+		name = AtM_USA_austria.6.b
+
+        USA = {
+            set_country_flag = FRA_declined_austria_alt
+        }
+        
+        # Check if France already responded
+        USA = {
+            if = {
+                limit = {
+                    OR = {
+                        has_country_flag = UK_approved_austria_alt
+                        has_country_flag = UK_declined_austria_alt
+                    }
+                }
+                # Both have responded, trigger USSR event
+				USA = {
+					country_event = {
+						id = AtM_USA_austria.7
+						days = 1
+					}
+				}
+            }
+        }		
+
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Unification RESULTS (ALT)
+country_event = {
+	id = AtM_USA_austria.7
+	title = AtM_USA_austria.7.t
+	desc = AtM_USA_austria.7.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA_austria.7.a
+		
+		if = {
+			limit = {
+				AUS = { has_war = yes }
+			}
+			every_other_country = {
+				limit = {
+					has_war_with = AUS
+				}
+				white_peace = {
+					tag = AUS
+				}
+			}
+		}
+		
+		AUS = {
+			transfer_state = 987
+			transfer_state = 988
+			remove_ideas = AUS_provisional_state
+			set_autonomy_free = yes
+			drop_cosmetic_tag = yes
+			load_oob = AUS_establish
+			set_capital = { state = 988 } # Salzburg
+			clear_all_influence = yes
+			set_western_member = yes
+			hidden_effect = { leave_faction = yes }
+		}
+		
+		USA = {
+			add_to_faction = AUS
+			add_named_threat = {
+				threat = 5
+				name = AUS_divided
+			}
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = FRA_approved_austria_alt
+			}
+			AUS = {
+				transfer_state = 153
+				transfer_state = 848
+			}
+		}
+		
+
+		if = {
+			limit = {
+				has_country_flag = UK_approved_austria_alt
+			}
+			AUS = {
+				transfer_state = 152
+				transfer_state = 989
+			}			
+		}
+
+		hidden_effect = {
+			NAU = {
+				add_state_core = 4
+				add_state_core = 152
+				add_state_core = 153
+				add_state_core = 848
+				add_state_core = 985
+				add_state_core = 986
+				add_state_core = 987
+				add_state_core = 988
+				add_state_core = 989
+				add_state_core = 990
+				
+				transfer_state = 4
+				transfer_state = 985
+				transfer_state = 986
+				transfer_state = 990
+				
+				load_oob = NAU_establish
+
+				set_eastern_member = yes
+				set_temp_variable = { influence_change = 20 }
+				set_temp_variable = { influence_target = SOV }
+				add_influence_direct = yes
+				add_to_faction = SOV
+			}
+
+			SOV = {
+				NAU = {
+					set_autonomy_puppet = yes
+				}
+				add_to_faction = NAU
+			}
+		}
+		
+		clr_country_flag = UK_approved_austria_alt
+		clr_country_flag = UK_declined_austria_alt
+		clr_country_flag = FRA_approved_austria_alt
+		clr_country_flag = FRA_declined_austria_alt
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Austrian Border Skirmishes: US Victory
+country_event = {
+	id = AtM_USA_austrian_border_skirmishes.1
+	title = AtM_USA_austrian_border_skirmishes.1.t
+	desc = AtM_USA_austrian_border_skirmishes.1.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Stuff
+		name = AtM_USA_austrian_border_skirmishes.1.a
+		
+		USA = {
+			add_to_variable = {
+				var = AUS_total_border_skirmish_wins
+				value = 1
+				tooltip = revieve_one_victory
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Austrian Border Skirmishes: Losers
+country_event = {
+	id = AtM_USA_austrian_border_skirmishes.2
+	title = AtM_USA_austrian_border_skirmishes.2.t
+	desc = AtM_USA_austrian_border_skirmishes.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Stuff
+		name = AtM_USA_austrian_border_skirmishes.2.a
+		add_war_support = -0.02
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Austrian Border Skirmishes: Soviet Victory
+country_event = {
+	id = AtM_USA_austrian_border_skirmishes.3
+	title = AtM_USA_austrian_border_skirmishes.3.t
+	desc = AtM_USA_austrian_border_skirmishes.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Stuff
+		name = AtM_USA_austrian_border_skirmishes.3.a
+		SOV = {
+			add_stability = 0.01
+			add_war_support = 0.02
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# 1948 Election Results
+country_event = {
+	id = AtM_USA_election.1
+	title = AtM_USA_election.1.t
+	desc = AtM_USA_election.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1948.1.1
+		date < 1949.1.1
+	}
+
+	option = {
+		name = AtM_USA_election.1.a
+		trigger = {
+			check_variable = { USA_dem_score > USA_rep_score }
+			check_variable = { USA_dem_score > USA_soc_score }
+			check_variable = { USA_dem_score > USA_nat_score }
+		}
+
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		set_ruling_social_liberal = yes
+		promote_character = USA_harry_truman
+	}
+
+	option = {
+		name = AtM_USA_election.1.b
+		trigger = {
+			check_variable = { USA_rep_score > USA_dem_score }
+			check_variable = { USA_rep_score > USA_soc_score }
+			check_variable = { USA_rep_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_ruling_conservative = yes
+		promote_character = USA_thomas_dewey
+	}
+	
+	option = {
+		name = AtM_USA_election.1.c
+		trigger = {
+			check_variable = { USA_nat_score > USA_dem_score }
+			check_variable = { USA_nat_score > USA_soc_score }
+			check_variable = { USA_nat_score > USA_rep_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		set_ruling_nationalist = yes
+		promote_character = USA_strom_thurmond
+	}
+	
+	option = {
+		name = AtM_USA_election.1.d
+		trigger = {
+			check_variable = { USA_soc_score > USA_dem_score }
+			check_variable = { USA_soc_score > USA_rep_score }
+			check_variable = { USA_soc_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		set_ruling_communist = yes
+		promote_character = USA_william_z_foster
+	}
+}
+
+# 1952 Election Results
+country_event = {
+	id = AtM_USA_election.2
+	title = AtM_USA_election.2.t
+	desc = AtM_USA_election.2.desc
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1952.1.1
+		date < 1953.1.1
+		NOT = {
+			OR = {
+				is_nationalist = yes
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+
+	option = {
+		name = AtM_USA_election.2.a
+		trigger = {
+			check_variable = { USA_rep_score > USA_dem_score }
+			check_variable = { USA_rep_score > USA_soc_score }
+			check_variable = { USA_rep_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_ruling_conservative = yes
+		promote_character = USA_dwight_d_eisenhower
+	}
+
+	option = {
+		name = AtM_USA_election.2.b
+		trigger = {
+			check_variable = { USA_dem_score > USA_rep_score }
+			check_variable = { USA_dem_score > USA_soc_score }
+			check_variable = { USA_dem_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		set_ruling_social_liberal = yes
+		promote_character = USA_adlai_stevenson
+	}
+}
+
+# 1956 Election Results
+country_event = {
+	id = AtM_USA_election.3
+	title = AtM_USA_election.3.t
+	desc = AtM_USA_election.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1956.1.1
+		date < 1957.1.1
+		NOT = {
+			OR = {
+				is_nationalist = yes
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA_election.3.a
+		trigger = {
+			check_variable = { USA_rep_score > USA_dem_score }
+			check_variable = { USA_rep_score > USA_soc_score }
+			check_variable = { USA_rep_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		set_ruling_conservative = yes
+		promote_character = USA_dwight_d_eisenhower
+	}
+	
+	option = {
+		name = AtM_USA_election.3.b
+		trigger = {
+			check_variable = { USA_dem_score > USA_rep_score }
+			check_variable = { USA_dem_score > USA_soc_score }
+			check_variable = { USA_dem_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		set_ruling_social_liberal = yes
+		promote_character = USA_adlai_stevenson
+	}
+}
+
+# 1960 Election Results
+country_event = {
+	id = AtM_USA_election.4
+	title = AtM_USA_election.4.t
+	desc = AtM_USA_election.4.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA
+		date > 1960.1.1
+		date < 1961.1.1
+		NOT = {
+			OR = {
+				is_nationalist = yes
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA_election.4.a
+		trigger = {
+			check_variable = { USA_dem_score > USA_rep_score }
+			check_variable = { USA_dem_score > USA_soc_score }
+			check_variable = { USA_dem_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.05
+		}
+		set_ruling_social_liberal = yes
+		promote_character = USA_john_f_kennedy
+	}
+	
+	option = {
+		name = AtM_USA_election.4.b
+		trigger = {
+			check_variable = { USA_rep_score > USA_dem_score }
+			check_variable = { USA_rep_score > USA_soc_score }
+			check_variable = { USA_rep_score > USA_nat_score }
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		set_ruling_conservative = yes
+		promote_character = USA_richard_nixon
+	}
+}
+
+# Election starting
+country_event = {
+	id = AtM_USA_election.5
+	title = AtM_USA_election.5.t
+	desc = AtM_USA_election.5.desc
+	picture = GFX_report_event_usa_election_generic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA_election.5.a
+		set_country_flag = american_elections_starting
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Generic (Founding Members)
+country_event = {
+	id = AtM_USA_nato.1
+	title = AtM_USA_nato.1.t
+	desc = AtM_USA_nato.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.1.a
+		add_ideas = nato_member
+		FROM = {
+			add_to_faction = ROOT
+		}
+		every_subject_country = {
+			limit = {
+				OR = {
+					NOT = {
+						has_country_flag = accepted_joining_nato
+					}
+					is_communist = yes
+					is_left_wing_radical = yes
+				}
+			}
+			leave_faction = yes
+			clr_country_flag = accepted_joining_nato
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.1.b
+		add_political_power = -25
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		clr_country_flag = accepted_joining_nato
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Greece (Recipient)
+country_event = {
+	id = AtM_USA_nato.2
+	title = AtM_USA_nato.2.t
+	desc = AtM_USA_nato.2.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.2.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.2.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Turkey (Recipient)
+country_event = {
+	id = AtM_USA_nato.3
+	title = AtM_USA_nato.3.t
+	desc = AtM_USA_nato.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.3.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.3.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - West Germany (Recipient)
+country_event = {
+	id = AtM_USA_nato.4
+	title = AtM_USA_nato.4.t
+	desc = AtM_USA_nato.4.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.4.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.4.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Czechoslovakia (Recipient)
+country_event = {
+	id = AtM_USA_nato.5
+	title = AtM_USA_nato.5.t
+	desc = AtM_USA_nato.5.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.5.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.5.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Poland (Recipient)
+country_event = {
+	id = AtM_USA_nato.6
+	title = AtM_USA_nato.6.t
+	desc = AtM_USA_nato.6.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.6.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.6.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Hungary (Recipient)
+country_event = {
+	id = AtM_USA_nato.7
+	title = AtM_USA_nato.7.t
+	desc = AtM_USA_nato.7.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.7.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.7.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Romania (Recipient)
+country_event = {
+	id = AtM_USA_nato.8
+	title = AtM_USA_nato.8.t
+	desc = AtM_USA_nato.8.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.8.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.8.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Estonia (Recipient)
+country_event = {
+	id = AtM_USA_nato.9
+	title = AtM_USA_nato.9.t
+	desc = AtM_USA_nato.9.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.9.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.9.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Latvia (Recipient)
+country_event = {
+	id = AtM_USA_nato.10
+	title = AtM_USA_nato.10.t
+	desc = AtM_USA_nato.10.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.10.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.10.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# NATO Invitation - Lithuania (Recipient)
+country_event = {
+	id = AtM_USA_nato.11
+	title = AtM_USA_nato.11.t
+	desc = AtM_USA_nato.11.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		# Accept the invitation
+		name = AtM_USA_nato.11.a
+		add_ideas = nato_member
+		USA = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		# Decline the invitation
+		name = AtM_USA_nato.11.b
+		add_political_power = -25
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# USA Event 100: Second American Civil War
+country_event = {
+	id = AtM_USA.100
+	title = AtM_USA.100.t
+	desc = AtM_USA.100.desc
+	picture = GFX_1948_america_state_of_emergency
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		set_global_flag = second_american_civil_war
+		mark_focus_tree_layout_dirty = yes # Reloads focus tree visible checks, shows Civil War focuses
+		leave_faction = yes
+		hidden_effect = {
+			NVJ = {
+				transfer_state = 1248
+				transfer_state = 1249
+				transfer_state = 1250
+				load_oob = NVJ_Civil_War
+			}
+			
+			OGN = {
+				transfer_state = 385
+				transfer_state = 1395
+				load_oob = OGN_Civil_War
+			}
+			
+			WSH = {
+				transfer_state = 386
+				transfer_state = 1396
+				transfer_state = 1397
+				load_oob = WSH_Civil_War
+			}
+			
+			ALS = {
+				transfer_state = 463
+				transfer_state = 650
+			}
+			
+			TXS = {
+				transfer_state = 375
+				transfer_state = 1234
+				transfer_state = 1235
+				transfer_state = 1236
+				transfer_state = 1237
+				transfer_state = 1238
+				transfer_state = 1239
+				transfer_state = 1648
+			}
+			
+			CLF = {
+				transfer_state = 378
+				transfer_state = 1241
+				transfer_state = 1242
+				transfer_state = 1659
+				load_oob = CLF_Civil_War
+			}
+			
+			FT1 = {
+				add_state_core = 1245
+				transfer_state = 1245
+				add_state_core = 1246
+				load_oob = FT1_Civil_War
+			}
+			
+			NDC = {
+				add_state_core = 379
+				transfer_state = 379
+				add_state_core = 1538
+				transfer_state = 1538
+				add_state_core = 1539
+				transfer_state = 1539
+				add_state_core = 1540
+				transfer_state = 1540
+				add_state_core = 1541
+				transfer_state = 1541
+				transfer_state = 1246
+				load_oob = NDC_civil_war
+			}
+			
+			MMS = {
+				add_state_core = 380
+				transfer_state = 380
+				add_state_core = 1541
+				add_state_core = 1542
+				transfer_state = 1542
+				add_state_core = 1660
+			}
+			
+			CSC = {
+				add_state_core = 387
+				transfer_state = 387
+				add_state_core = 1543
+				transfer_state = 1543
+				add_state_core = 1644
+				transfer_state = 1644
+				add_state_core = 1645
+				add_state_core = 1395
+				add_state_core = 1396
+				add_state_core = 1397
+				add_state_claim = 385
+				add_state_claim = 386
+				add_state_claim = 471
+				add_state_claim = 473
+				add_state_claim = 739
+				add_state_claim = 740
+			}
+			
+			US1 = {
+				add_state_core = 381
+				transfer_state = 381
+				add_state_core = 382
+				transfer_state = 382
+				add_state_core = 383
+				transfer_state = 383
+				add_state_core = 384
+				transfer_state = 384
+				add_state_core = 388
+				transfer_state = 388
+				add_state_core = 389
+				transfer_state = 389
+				add_state_core = 390
+				transfer_state = 390
+				add_state_core = 1252
+				transfer_state = 1252
+				add_state_core = 1253
+				transfer_state = 1253
+				transfer_state = 1645
+				add_state_core = 1647
+				transfer_state = 1647
+				add_state_core = 1660
+				transfer_state = 1660
+			}
+			
+			US2 = {
+				add_state_core = 376
+				transfer_state = 376
+				add_state_core = 377
+				transfer_state = 377
+				add_state_core = 1544
+				transfer_state = 1544
+				add_state_core = 1247
+				transfer_state = 1247
+				add_state_core = 1251
+				transfer_state = 1251
+			}
+			
+			every_state = {	
+				limit = { 
+					NOT = { 
+						is_core_of = USA 
+					}
+					is_owned_by = USA
+				}
+				transfer_state_to = UNC
+			}
+			
+			# Cored by USA
+			UNC = {
+				transfer_state = 629 # Hawaii
+				transfer_state = 686 # Puerto Rico
+				transfer_state = 631 # Midway
+			}
+			
+			1246 = {
+				set_demilitarized_zone = yes
+			}
+			
+			1395 = {
+				set_demilitarized_zone = yes
+			}
+			
+			1396 = {
+				set_demilitarized_zone = yes
+			}
+			
+			1397 = {
+				set_demilitarized_zone = yes
+			}
+			
+			1645 = {
+				set_border_war = yes
+			}
+			
+			### Professional Army ###
+			
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army
+				}
+				set_country_flag = professional_army
+				remove_ideas = USA_professional_american_army
+			}
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army_1
+				}
+				set_country_flag = professional_army_1
+				remove_ideas = USA_professional_american_army_1
+			}
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army_2
+				}
+				set_country_flag = professional_army_2
+				remove_ideas = USA_professional_american_army_2
+			}
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army_3
+				}
+				set_country_flag = professional_army_3
+				remove_ideas = USA_professional_american_army_3
+			}
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army_4
+				}
+				set_country_flag = professional_army_4
+				remove_ideas = USA_professional_american_army_4
+			}
+			if = {
+				limit = {
+					has_idea = USA_professional_american_army_5
+				}
+				set_country_flag = professional_army_5
+				remove_ideas = USA_professional_american_army_5
+			}
+
+			### Vast Army ###
+			
+			if = {
+				limit = {
+					has_idea = USA_the_vast_american_army
+				}
+				set_country_flag = vast_army
+				remove_ideas = USA_the_vast_american_army
+			}
+			if = {
+				limit = {
+					has_idea = USA_the_vast_american_army_1
+				}
+				set_country_flag = vast_army_1
+				remove_ideas = USA_the_vast_american_army_1
+			}
+			if = {
+				limit = {
+					has_idea = USA_the_vast_american_army_2
+				}
+				set_country_flag = vast_army_2
+				remove_ideas = USA_the_vast_american_army_2
+			}
+			if = {
+				limit = {
+					has_idea = USA_the_vast_american_army_3
+				}
+				set_country_flag = vast_army_3
+				remove_ideas = USA_the_vast_american_army_3
+			}
+			if = {
+				limit = {
+					has_idea = USA_the_vast_american_army_4
+				}
+				set_country_flag = vast_army_4
+				remove_ideas = USA_the_vast_american_army_4
+			}
+		}
+	}
+
+	option = {
+		name = AtM_USA.100.a
+		trigger = {
+			OR = {
+				has_completed_focus = USA_american_nationalism
+				has_country_flag = DEBUG_2acw_start
+			}
+		}
+		ai_chance = { base = 100 }
+		hidden_effect = {
+			remove_mission = USA_kkk_attack_imminent
+			every_core_state = {
+				limit = {
+					NOT = {
+						is_core_of = CCA
+					}
+				}
+				add_core_of = CCA
+			}
+			
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 1244
+						state = 1243
+					}
+				}
+				CCA = {
+					add_state_core = PREV
+					transfer_state = PREV
+				}
+			}
+			
+			every_core_state = {
+				limit = {
+					NOT = {
+						is_core_of = UOA
+					}
+				}
+				add_core_of = UOA
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 261
+						state = 357
+						state = 358
+						state = 359
+						state = 360
+						state = 361
+						state = 362
+						state = 368
+						state = 369
+						state = 372
+						state = 373
+						state = 374
+						state = 391
+						state = 392
+						state = 393
+						state = 394
+						state = 395
+						state = 396
+						state = 816
+						state = 1069
+						state = 1177
+						state = 1178
+						state = 1179
+						state = 1180
+						state = 1181
+						state = 1182
+						state = 1240
+						state = 1258
+						state = 1557
+						state = 1559
+						state = 1560
+					}
+				}
+				UOA = {
+					add_state_core = PREV
+					transfer_state = PREV
+				}
+			}
+			
+			CCA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			UOA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			USA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			
+			USA_william_z_foster = { set_nationality = CCA }
+			
+			CCA = {
+				set_capital = { state = 1244 remember_old_capital = no } # San Francisco
+				set_cosmetic_tag = USA_communist_provisional_council
+				add_ideas = USA_the_american_red_army
+				inherit_technology = USA
+				promote_character = USA_william_z_foster
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 64 #Communism
+					left_wing_radical = 31
+					neutrality = 5 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				declare_war_on = {
+					target = CLF
+					type = annex_everything
+				}
+				load_oob = CCA_Civil_War
+			}
+			
+			set_capital = {
+			  state = 364
+			  remember_old_capital = yes
+			}
+			
+			TXS = {
+				start_civil_war = {
+					ideology = fascism
+					save_global_event_target_as = TXS_nationalist
+					size = 0.4
+					navy_ratio = 0.1
+					states = { 1234 1235 1236 1237 } # Southern Texas
+				}
+				set_capital = { state = 375 } # Dallas
+				set_country_flag = TXS_union_faction
+				set_popularities = {
+					democratic = 45 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 55
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 0 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				load_oob = TXS_Civil_War_UOA
+			}
+			
+			event_target:TXS_nationalist = {
+				set_capital = { state = 1237 } # Houston
+				set_nationalist = yes
+				set_cosmetic_tag = TXS_union
+				load_oob = TXS_Civil_War_NSA
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 19 #Paternal Autocracy
+					fascism = 81 #Nationalism
+				}
+			}
+			
+			USA_harry_truman = { set_nationality = UOA }
+			
+			UOA = {
+				set_capital = { state = 1069 } # Washington D.C.
+				set_country_flag = USA_union_of_america
+				set_cosmetic_tag = USA_default
+				leave_faction = yes
+				promote_character = USA_harry_truman
+				set_popularities = {
+					democratic = 45 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 55
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 0 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				TXS = {
+					set_autonomy_puppet = yes
+					declare_war_on = {
+						target = event_target:TXS_nationalist
+						type = civil_war
+					}
+				}
+				US1 = {
+					set_autonomy_integrated_puppet_no_elections = yes
+					set_autocratic = yes
+				}
+				#US2 = {
+				#	set_autonomy_integrated_puppet_no_elections = yes
+				#	set_autocratic = yes
+				#}
+				USA = {
+					every_subject_country = {
+						limit = {
+							NOT = {
+								original_tag = TXS
+							}
+						}
+						UOA = {
+							set_autonomy = {
+								target = PREV
+								autonomous_state = autonomy_puppet
+							}
+						}
+					}
+				}
+			}
+			
+			USA = {
+				set_cosmetic_tag = USA_nationalism
+				promote_character = USA_strom_thurmond
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 16 #Communism
+					left_wing_radical = 6
+					neutrality = 0 #Paternal Autocracy
+					fascism = 78 #Nationalism
+				}
+				set_politics = {
+					ruling_party = fascism
+					last_election = "1948.11.2"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+				event_target:TXS_nationalist = {
+					set_autonomy_integrated_puppet_no_elections = yes
+					declare_war_on = {
+						target = TXS
+						type = civil_war
+					}
+				}
+				declare_war_on = {
+					target = TXS
+					type = civil_war
+				}
+			}
+			
+			CSC = {
+				set_capital = { state = 1644 } # Helena
+				set_country_flag = cascadia_seperatist_flag
+				start_civil_war = {
+					ideology = democratic
+					save_global_event_target_as = CSC_idaho_government
+					size = 0.3
+					states = { 1543 } # Southern Idaho
+				}
+				IDO_charles_armington = { set_nationality = event_target:CSC_idaho_government }
+				load_oob = CSC_Civil_War_SEP
+			}
+			
+			event_target:CSC_idaho_government = {
+				set_capital = { state = 1543 } # Boise
+				set_conservative_no_elections = yes
+				set_cosmetic_tag = CSC_idaho_gov
+				promote_character = IDO_charles_armington
+				load_oob = CSC_Civil_War_GOV
+				set_popularities = {
+					democratic = 65 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 5
+					neutrality = 20 #Paternal Autocracy
+					fascism = 10 #Nationalism
+				}
+			}
+			
+			MMS = {
+				set_capital = { state = 1542 } # Cedar City
+				set_country_flag = mormon_separatist_flag
+				start_civil_war = {
+					ideology = democratic
+					save_global_event_target_as = MMS_utah_government
+					size = 0.3
+					states = { 380 } # Salt Lake City
+				}
+				UTA_herbert_b_maw = { set_nationality = event_target:MMS_utah_government }
+				load_oob = MMS_deseret_Civil_War
+			}
+			
+			event_target:MMS_utah_government = {
+				set_capital = { state = 380 } # Salt Lake City
+				set_social_liberal_no_elections = yes
+				set_cosmetic_tag = MMS_utah_gov
+				promote_character = UTA_herbert_b_maw
+				load_oob = MMS_gov_Civil_War
+				set_popularities = {
+					democratic = 65 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 5
+					neutrality = 20 #Paternal Autocracy
+					fascism = 10 #Nationalism
+				}
+			}
+			
+			CLF = {
+				declare_war_on = {
+					target = FT1
+					type = annex_everything
+				}
+			}
+			
+			USA = {
+				every_state = {
+					limit = {
+						NOT = { is_fully_controlled_by = ROOT }
+					}
+					teleport_armies = {
+						limit = { tag = USA }
+						to_state_array = owned_controlled_states
+					}
+				}
+			}
+
+			teleport_railway_guns_to_deploy_province = ROOT
+			teleport_railway_guns_to_deploy_province = UNC
+			
+			USA = {
+				transfer_units_fraction= {
+					target = UOA
+					stockpile_ratio = 0.5
+					army_ratio = 0.5
+					navy_ratio = 0.9
+					air_ratio = 0.8
+					keep_unit_leaders_trigger = {
+						always = yes #UNIT LEADERS WILL BE MANUALLY TRANSFERRED LATER
+					}
+				}
+				USA_milton_wolff = {
+					set_nationality = CCA
+				}
+				USA_nimrod_workman = {
+					set_nationality = CCA
+				}
+				USA_robert_g_thomas = {
+					set_nationality = CCA
+				}
+				USA_dwight_d_eisenhower = {
+					set_nationality = UOA
+				}
+				USA_omar_bradley = {
+					set_nationality = UOA
+				}
+				USA_george_marshall = {
+					set_nationality = UOA
+				}
+				USA_douglas_macarthur = {
+					set_nationality = UOA
+				}
+				USA_jonathan_wainwright = {
+					set_nationality = UOA
+				}
+				USA_edward_brooks = {
+					set_nationality = UOA
+				}
+				USA_clarence_huebner = {
+					set_nationality = UOA
+				}
+				load_oob = USA_nat_civil_war
+			}
+			
+			# I was so fucking stupid, there was a "hidden_effect" statement in a "hidden_effect" statement :facepalm:
+			
+			if = {
+				limit = {
+					has_completed_focus = USA_call_for_veterans
+				}
+				add_manpower = 500000
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_prepare_for_the_upcoming_war
+				}
+				add_timed_idea = {
+					idea = USA_initial_shock_advantage
+					days = 100
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_unite_southern_patriots
+				}
+				add_manpower = 500000
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_organize_the_southern_army
+				}
+				add_ideas = USA_segregated_national_army
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_raid_northern_stockpiles
+				}
+				UOA = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 2000
+						target = USA
+					}
+					send_equipment = {
+						equipment = support_equipment
+						amount = 100
+						target = USA
+					}
+					send_equipment = {
+						equipment = artillery_equipment
+						amount = 50
+						target = USA
+					}
+				}
+			}
+			
+			UOA = {
+				load_oob = USA_uoa_civil_war
+				load_focus_tree = {
+				  tree = united_states_focus
+				  keep_completed = yes
+				  copy_completed_from = USA
+				}
+			}
+			
+			mark_focus_tree_layout_dirty = yes # Focus tree didn't reset with immediate, idk why
+			
+			every_country = {
+				set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+				set_global_flag = SE_USA_CWR
+				play_song = american_civil_war_SE
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_USA.100.b
+		trigger = {
+			OR = {
+				has_completed_focus = USA_the_unlikely_option
+				has_country_flag = DEBUG_2acw_start
+			}
+		}
+		ai_chance = { base = 100 }
+		hidden_effect = {
+			remove_mission = USA_kkk_attack_imminent
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = second_american_civil_war
+					}
+				}
+				set_global_flag = second_american_civil_war
+			}
+			every_core_state = {
+				limit = {
+					NOT = {
+						is_core_of = NSA
+					}
+				}
+				add_core_of = NSA
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 363
+						state = 364
+						state = 365
+						state = 366
+						state = 367
+						state = 370
+						state = 371
+						state = 1254
+						state = 1255
+						state = 1256
+						state = 1257
+						state = 1259
+						state = 1556
+						state = 1558
+						state = 1561
+						state = 1642
+						state = 1643
+					}
+				}
+				NSA = {
+					add_state_core = PREV
+					transfer_state = PREV
+					set_capital = {
+					  state = 364
+					  remember_old_capital = yes
+					}
+				}
+			}
+			every_core_state = {
+				limit = {
+					NOT = {
+						is_core_of = UOA
+					}
+				}
+				add_core_of = UOA
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 261
+						state = 357
+						state = 358
+						state = 359
+						state = 360
+						state = 361
+						state = 362
+						state = 368
+						state = 369
+						state = 372
+						state = 373
+						state = 374
+						state = 391
+						state = 392
+						state = 393
+						state = 394
+						state = 395
+						state = 396
+						state = 816
+						state = 1069
+						state = 1177
+						state = 1178
+						state = 1179
+						state = 1180
+						state = 1181
+						state = 1182
+						state = 1240
+						state = 1258
+						state = 1557
+						state = 1559
+						state = 1560
+					}
+				}
+				UOA = {
+					add_state_core = PREV
+					transfer_state = PREV
+				}
+			}
+			
+			NSA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			UOA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			USA = {
+				add_ideas = USA_the_second_american_civil_war
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation
+				}
+				remove_ideas = USA_segregation
+				UOA = {
+					add_ideas = USA_segregation
+				}
+				NSA = {
+					add_ideas = USA_segregation
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_1
+				}
+				remove_ideas = USA_segregation_1
+				UOA = {
+					add_ideas = USA_segregation_1
+				}
+				NSA = {
+					add_ideas = USA_segregation_1
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_2_a
+				}
+				remove_ideas = USA_segregation_2_a
+				UOA = {
+					add_ideas = USA_segregation_2_a
+				}
+				NSA = {
+					add_ideas = USA_segregation_2_a
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_2_b
+				}
+				remove_ideas = USA_segregation_2_b
+				UOA = {
+					add_ideas = USA_segregation_2_b
+				}
+				NSA = {
+					add_ideas = USA_segregation_2_b
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_2_c
+				}
+				remove_ideas = USA_segregation_2_c
+				UOA = {
+					add_ideas = USA_segregation_2_c
+				}
+				NSA = {
+					add_ideas = USA_segregation_2_c
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_3
+				}
+				remove_ideas = USA_segregation_3
+				UOA = {
+					add_ideas = USA_segregation_3
+				}
+				NSA = {
+					add_ideas = USA_segregation_3
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_4
+				}
+				remove_ideas = USA_segregation_4
+				UOA = {
+					add_ideas = USA_segregation_4
+				}
+				NSA = {
+					add_ideas = USA_segregation_4
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = USA_segregation_5
+				}
+				remove_ideas = USA_segregation_5
+				UOA = {
+					add_ideas = USA_segregation_5
+				}
+				NSA = {
+					add_ideas = USA_segregation_5
+				}
+			}
+			
+			CSC = {
+				set_capital = { state = 1644 } # Helena
+				set_country_flag = cascadia_seperatist_flag
+				start_civil_war = {
+					ideology = democratic
+					save_global_event_target_as = CSC_idaho_government
+					size = 0.3
+					states = { 1543 } # Southern Idaho
+				}
+				IDO_charles_armington = { set_nationality = event_target:CSC_idaho_government }
+				load_oob = CSC_Civil_War_SEP
+			}
+			
+			event_target:CSC_idaho_government = {
+				set_capital = { state = 1543 } # Boise
+				set_conservative_no_elections = yes
+				set_cosmetic_tag = CSC_idaho_gov
+				promote_character = IDO_charles_armington
+				load_oob = CSC_Civil_War_GOV
+				set_popularities = {
+					democratic = 65 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 5
+					neutrality = 20 #Paternal Autocracy
+					fascism = 10 #Nationalism
+				}
+			}
+			
+			TXS = {
+				start_civil_war = {
+					ideology = fascism
+					save_global_event_target_as = TXS_nationalist
+					size = 0.4
+					navy_ratio = 0.1
+					states = { 1234 1235 1236 1237 } # Southern Texas
+				}
+				set_capital = { state = 375 } # Dallas
+				set_country_flag = TXS_union_faction
+				set_popularities = {
+					democratic = 45 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 55
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 0 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				load_oob = TXS_Civil_War_UOA
+			}
+			
+			event_target:TXS_nationalist = {
+				set_capital = { state = 1237 } # Houston
+				set_nationalist = yes
+				set_cosmetic_tag = TXS_union
+				load_oob = TXS_Civil_War_NSA
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 19 #Paternal Autocracy
+					fascism = 81 #Nationalism
+				}
+			}
+			
+			CLF = {
+				declare_war_on = {
+					target = FT1
+					type = annex_everything
+				}
+			}
+			
+			USA = {
+				set_capital = { state = 1244 remember_old_capital = no } # San Francisco
+				set_cosmetic_tag = USA_communist_provisional_council
+				promote_character = USA_william_z_foster
+				set_politics = {
+					ruling_party = communism
+					last_election = "1948.11.2"
+					election_frequency = 48
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 64 #Communism
+					left_wing_radical = 31
+					neutrality = 5 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				declare_war_on = {
+					target = CLF
+					type = annex_everything
+				}
+			}
+			
+			USA_strom_thurmond = { set_nationality = NSA }
+			
+			NSA = {
+				set_cosmetic_tag = USA_nationalism
+				promote_character = USA_strom_thurmond
+				set_politics = {
+					ruling_party = fascism
+					last_election = "1948.11.2"
+					election_frequency = 48
+					elections_allowed = yes
+				}
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 16 #Communism
+					left_wing_radical = 6
+					neutrality = 0 #Paternal Autocracy
+					fascism = 78 #Nationalism
+				}
+				event_target:TXS_nationalist = {
+					set_autonomy_integrated_puppet_no_elections = yes
+					declare_war_on = {
+						target = UOA
+						type = civil_war
+					}
+					declare_war_on = {
+						target = TXS
+						type = civil_war
+					}
+				}
+				declare_war_on = {
+					target = UOA
+					type = civil_war
+				}
+				declare_war_on = {
+					target = TXS
+					type = civil_war
+				}
+				load_oob = USA_nat_civil_war
+			}
+			
+			USA_harry_truman = { set_nationality = UOA }
+			
+			UOA = {
+				promote_character = USA_harry_truman
+				set_popularities = {
+					democratic = 45 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 55
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 0
+					neutrality = 0 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				TXS = {
+					set_autonomy_integrated_puppet_no_elections = yes
+				}
+				US1 = {
+					set_autonomy_integrated_puppet_no_elections = yes
+					set_autocratic = yes
+				}
+				# Federal government get it's puppets back
+				USA = {
+					every_subject_country = {
+						limit = {
+							NOT = {
+								original_tag = TXS
+							}
+						}
+						UOA = {
+							set_autonomy = {
+								target = PREV
+								autonomous_state = autonomy_puppet
+							}
+						}
+					}
+				}
+				load_oob = USA_uoa_civil_war
+			}
+			
+			MMS = {
+				set_capital = { state = 1542 } # Cedar City
+				set_country_flag = mormon_separatist_flag
+				start_civil_war = {
+					ideology = democratic
+					save_global_event_target_as = MMS_utah_government
+					size = 0.3
+					states = { 380 } # Salt Lake City
+				}
+				UTA_herbert_b_maw = { set_nationality = event_target:MMS_utah_government }
+				load_oob = MMS_deseret_Civil_War
+			}
+			
+			event_target:MMS_utah_government = {
+				set_capital = { state = 380 } # Salt Lake City
+				set_social_liberal_no_elections = yes
+				set_cosmetic_tag = MMS_utah_gov
+				promote_character = UTA_herbert_b_maw
+				load_oob = MMS_gov_Civil_War
+				set_popularities = {
+					democratic = 65 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 0
+					communism = 0 #Communism
+					left_wing_radical = 5
+					neutrality = 20 #Paternal Autocracy
+					fascism = 10 #Nationalism
+				}
+			}
+			
+			USA = {
+				transfer_units_fraction= {
+					target = NSA
+					stockpile_ratio = 0.5
+					army_ratio = 0.6
+					navy_ratio = 0.2
+					air_ratio = 0.5
+					keep_unit_leaders_trigger = {
+						always = yes #UNIT LEADERS WILL BE MANUALLY TRANSFERRED LATER
+					}
+				}
+				USA_oscar_griswold = {
+					set_nationality = NSA
+				}
+				USA_courtney_hodges = {
+					set_nationality = NSA
+				}
+				USA_j_lawton_collins = {
+					set_nationality = NSA
+				}
+				USA_william_simpson = {
+					set_nationality = NSA
+				}
+				USA_alexander_patch = {
+					set_nationality = NSA
+				}
+				USA_russell_hartle = {
+					set_nationality = NSA
+				}
+				USA_lucian_truscott = {
+					set_nationality = NSA
+				}
+				USA_geoffrey_keyes = {
+					set_nationality = NSA
+				}
+				USA_george_s_patton = {
+					set_nationality = NSA
+				}
+				USA_joseph_stilwell = {
+					set_nationality = NSA
+				}
+				USA_curtis_lemay = {
+					set_nationality = NSA
+				}
+				transfer_units_fraction= {
+					target = UOA
+					stockpile_ratio = 0.8
+					army_ratio = 1
+					navy_ratio = 1
+					air_ratio = 0.9
+					keep_unit_leaders_trigger = {
+						always = yes #UNIT LEADERS WILL BE MANUALLY TRANSFERRED LATER
+					}
+				}
+				USA_dwight_d_eisenhower = {
+					set_nationality = UOA
+				}
+				USA_omar_bradley = {
+					set_nationality = UOA
+				}
+				USA_george_marshall = {
+					set_nationality = UOA
+				}
+				USA_douglas_macarthur = {
+					set_nationality = UOA
+				}
+				USA_jonathan_wainwright = {
+					set_nationality = UOA
+				}
+				USA_edward_brooks = {
+					set_nationality = UOA
+				}
+				USA_clarence_huebner = {
+					set_nationality = UOA
+				}
+				load_oob = CCA_Civil_War
+				if = {
+					limit = {
+						has_completed_focus = USA_form_the_american_red_army
+					}
+					add_ideas = USA_the_american_red_army
+				}
+				if = {
+					limit = {
+						has_completed_focus = USA_arm_militias
+					}
+					load_oob = CCA_Civil_War_extra
+				}
+				if = {
+					limit = {
+						has_country_flag = soviets_aid_communists
+					}
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 5000
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment_1
+						amount = 1000
+						producer = SOV
+					}
+					clr_country_flag = soviets_aid_communists
+				}
+				if = {
+					limit = {
+						has_completed_focus = USA_work_with_the_workers
+					}
+					add_ideas = USA_worker_conscription
+					remove_ideas = USA_worker_support
+				}
+				mark_focus_tree_layout_dirty = yes # Focus tree didn't reset with immediate, idk why
+			}
+		}
+	}
+}
+
+# CCA - Rebels ask for cooperation
+country_event = {
+	id = AtM_USA.101
+	title = AtM_USA.101.t
+	desc = AtM_USA.101.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.101.a
+		ai_chance = { base = 100 }
+		annex_country = {
+			target = FT1
+			transfer_troops = yes
+		}
+		
+		# Later add a small debuff
+		
+	}
+	
+	option = {
+		name = AtM_USA.101.b
+		ai_chance = { base = 100 }
+		create_wargoal = {
+			target = FT1
+			type = annex_everything
+		}		
+		diplomatic_relation = { 
+			country = FT1
+			relation = non_aggression_pact # I noticed CCA just always sign a non-aggression pact with ft1
+			active = no
+		}
+	}
+}
+
+# White Supremacists Support Segregation
+country_event = {
+	id = AtM_USA.102
+	title = AtM_USA.102.t
+	desc = AtM_USA.102.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = { # It is a free country, after all
+		name = AtM_USA.102.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+	}
+	
+	option = { # Suppress them
+		name = AtM_USA.102.b
+		ai_chance = { 
+			base = 100 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_stability = -0.02
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.02
+		}
+		set_country_flag = USA_suppressed_nationalist
+		custom_effect_tooltip = USA_there_will_be_consequences
+	}
+}
+
+# Dixiecrats organize march in opposition
+country_event = {
+	id = AtM_USA.103
+	title = AtM_USA.103.t
+	desc = AtM_USA.103.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.103.a
+		ai_chance = { base = 100 }
+		add_stability = -0.02
+		clr_country_flag = USA_suppressed_nationalist
+	}
+	
+	option = { # Suppress them
+		name = AtM_USA.103.b
+		ai_chance = { 
+			base = 100 
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_political_power = -50
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
+		custom_effect_tooltip = USA_there_will_be_consequences
+	}
+}
+
+# Support for KKK rises in the South
+country_event = {
+	id = AtM_USA.104
+	title = AtM_USA.104.t
+	desc = AtM_USA.104.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.104.a
+		ai_chance = { base = 100 }
+		add_political_power = -75
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+	}
+}
+
+# Communists Clash with Fascists in Alabama
+country_event = {
+	id = AtM_USA.105
+	title = AtM_USA.105.t
+	desc = AtM_USA.105.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.105.a
+		ai_chance = { base = 100 }
+		add_political_power = -75
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		add_stability = -0.05
+	}
+}
+
+# Communist Party retreats to California
+country_event = {
+	id = AtM_USA.106
+	title = AtM_USA.106.t
+	desc = AtM_USA.106.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.106.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+	}
+}
+
+# Communists organize collectives in the East coast
+country_event = {
+	id = AtM_USA.107
+	title = AtM_USA.107.t
+	desc = AtM_USA.107.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.107.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_stability = -0.05
+	}
+}
+
+# Nationalists Attempt to March on Washington
+country_event = {
+	id = AtM_USA.108
+	title = AtM_USA.108.t
+	desc = AtM_USA.108.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.108.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.15
+		}
+		add_stability = -0.15
+	}
+}
+
+# President Declares Martial Law
+country_event = {
+	id = AtM_USA.109
+	title = AtM_USA.109.t
+	desc = AtM_USA.109.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.109.a
+		ai_chance = { base = 100 }
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		add_stability = -0.15
+	}
+}
+
+# Nationalist Secede in the South
+country_event = {
+	id = AtM_USA.110
+	title = AtM_USA.110.t
+	desc = AtM_USA.110.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.110.a
+		ai_chance = { base = 100 }
+		add_political_power = -75
+		every_state = {
+			limit = {
+				OR  = {
+					state = 366
+					state = 1254
+					state = 1255
+					state = 365
+					state = 367
+					state = 1259
+					state = 370
+					state = 371
+					state = 1256
+					state = 1257
+					state = 364
+					state = 363
+					state = 1558
+					state = 1561
+				}
+			}
+			set_demilitarized_zone = yes
+		}
+	}
+}
+
+# Formation of the American Red Army
+country_event = {
+	id = AtM_USA.111
+	title = AtM_USA.111.t
+	desc = AtM_USA.111.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.111.a
+		ai_chance = { base = 100 }
+		add_political_power = -75
+		every_state = {
+			limit = {
+				OR  = {
+					state = 1243
+					state = 1244
+				}
+			}
+			set_demilitarized_zone = yes
+		}
+	}
+}
+
+# Central Government loses control over states
+country_event = {
+	id = AtM_USA.112
+	title = AtM_USA.112.t
+	desc = AtM_USA.112.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.112.a
+		ai_chance = { base = 100 }
+		add_political_power = -150
+		every_state = {
+			limit = {
+				OR  = {
+					is_core_of = OGN
+					is_core_of = CLF
+					is_core_of = WSH
+					is_core_of = ALS
+					is_core_of = TXS
+				}
+			}
+			set_demilitarized_zone = yes
+		}
+	}
+}
+
+# Terror Attack in California
+country_event = {
+	id = AtM_USA.113
+	title = AtM_USA.113.t
+	desc = AtM_USA.113.desc
+	picture = GFX_second_american_civil_war_california_attack
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.113.a
+		ai_chance = { base = 100 }
+		
+		add_stability = -0.05
+		set_country_flag = terror_attack_in_california
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.75
+				days = 1
+			}
+		}
+	}
+}
+
+# Harry Truman's National Address
+country_event = {
+	id = AtM_USA.114
+	title = AtM_USA.114.t
+	desc = AtM_USA.114.desc
+	picture = GFX_second_american_civil_war_truman_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.114.a
+		ai_chance = { base = 100 }
+		
+		add_stability = -0.05
+		set_country_flag = trumans_anti_nationalist_speech
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.86
+				days = 1
+			}
+		}
+	}
+}
+
+# The End of the Civil War
+country_event = {
+	id = AtM_USA.115
+	title = AtM_USA.115.t
+	desc = AtM_USA.115.desc
+	picture = GFX_second_american_civil_war_ending
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	immediate = {
+		### Professional Army ###
+		if = {
+			limit = {
+				has_country_flag = professional_army
+			}
+			clr_country_flag = professional_army
+			add_ideas = USA_professional_american_army
+		}
+
+		if = {
+			limit = {
+				has_country_flag = professional_army_1
+			}
+			clr_country_flag = professional_army_1
+			add_ideas = USA_professional_american_army_1
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = professional_army_2
+			}
+			clr_country_flag = professional_army_2
+			add_ideas = USA_professional_american_army_2
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = professional_army_3
+			}
+			clr_country_flag = professional_army_3
+			add_ideas = USA_professional_american_army_3
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = professional_army_4
+			}
+			clr_country_flag = professional_army_4
+			add_ideas = USA_professional_american_army_4
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = professional_army_5
+			}
+			clr_country_flag = professional_army_5
+			add_ideas = USA_professional_american_army_5
+		}
+		
+		### Vast Army ###
+		
+		if = {
+			limit = {
+				has_country_flag = vast_army
+			}
+			clr_country_flag = vast_army
+			add_ideas = USA_the_vast_american_army
+		}
+
+		if = {
+			limit = {
+				has_country_flag = vast_army_1
+			}
+			clr_country_flag = vast_army_1
+			add_ideas = USA_the_vast_american_army_1
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = vast_army_2
+			}
+			clr_country_flag = vast_army_2
+			add_ideas = USA_the_vast_american_army_2
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = vast_army_3
+			}
+			clr_country_flag = vast_army_3
+			add_ideas = USA_the_vast_american_army_3
+		}
+		
+		if = {
+			limit = {
+				has_country_flag = vast_army_4
+			}
+			clr_country_flag = vast_army_4
+			add_ideas = USA_the_vast_american_army_4
+		}
+	}
+	
+	option = {
+		name = AtM_USA.115.a
+		trigger = {
+			OR = {
+				has_completed_focus = USA_american_nationalism
+				has_country_flag = DEBUG_2acw_start
+			}
+		}
+		
+		every_possible_country = {
+			limit = {
+				exists = yes
+				OR = {
+					original_tag = MMS
+					original_tag = WSH
+					original_tag = OGN
+					original_tag = CSC
+					original_tag = NDC
+					original_tag = CLF
+					original_tag = FT1
+					original_tag = NVJ
+					original_tag = TXS
+					original_tag = US1
+					original_tag = US2
+					original_tag = BSA
+				}
+			}
+			country_event = AtM_USA.116
+		}
+		
+		remove_ideas = USA_the_second_american_civil_war
+		set_global_flag = second_american_civil_war_ended
+		add_ideas = USA_cabinet_crisis
+		add_ideas = USA_cancelled_elections
+		add_ideas = USA_corruption_in_the_cia
+		add_ideas = USA_low_legitimacy
+		
+		ai_chance = { base = 100 }
+	}
+	
+	option = {
+		name = AtM_USA.115.b
+		trigger = {
+			OR = {
+				has_completed_focus = USA_the_unlikely_option
+				has_country_flag = DEBUG_2acw_start
+			}
+		}
+		
+		every_possible_country = {
+			limit = {
+				exists = yes
+				OR = {
+					original_tag = MMS
+					original_tag = WSH
+					original_tag = OGN
+					original_tag = CSC
+					original_tag = NDC
+					original_tag = CLF
+					original_tag = FT1
+					original_tag = NVJ
+					original_tag = TXS
+					original_tag = US1
+					original_tag = US2
+					original_tag = BSA
+				}
+			}
+			country_event = AtM_USA.116
+		}
+		
+		remove_ideas = USA_the_second_american_civil_war
+		set_global_flag = second_american_civil_war_ended
+		
+		add_ideas = USA_foreign_opposition
+		
+		USA_add_or_modify_splinters_of_revolution = yes
+
+		add_to_variable = { USA_splinters_of_the_revolution_stability_factor = -0.1 tooltip = stability_factor_tt }
+		add_to_variable = { USA_splinters_of_the_revolution_war_support_factor = -0.1 tooltip = war_support_factor_tt }
+		add_to_variable = { USA_splinters_of_the_revolution_resistance_activity = 0.25 tooltip = resistance_activity_tt }
+		add_to_variable = { USA_splinters_of_the_revolution_social_liberal_drift = 0.02 tooltip = social_liberal_drift_tt }
+		add_to_variable = { USA_splinters_of_the_revolution_fascism_drift = 0.02 tooltip = fascism_drift_tt }
+			
+		add_ideas = USA_government_opposition
+		add_ideas = USA_weak_cult_of_personality
+		
+		ai_chance = { base = 100 }
+		
+		every_state = {
+			limit = {
+				OR = {
+					state = 1178
+					state = 1179
+					state = 1180
+					state = 357
+					state = 1181
+					state = 1182
+					state = 358
+					state = 1061
+					state = 359
+					state = 360
+				}
+			}
+			add_dynamic_modifier = { modifier = USA_active_protests_modifier }
+		}
+	}
+	
+	option = {
+		name = AtM_USA.115.c
+		trigger = {
+			tag = UOA
+		}
+		
+		every_possible_country = {
+			limit = {
+				exists = yes
+				OR = {
+					original_tag = MMS
+					original_tag = WSH
+					original_tag = OGN
+					original_tag = CSC
+					original_tag = NDC
+					original_tag = CLF
+					original_tag = FT1
+					original_tag = NVJ
+					original_tag = TXS
+					original_tag = US1
+					original_tag = US2
+					original_tag = BSA
+				}
+			}
+			country_event = AtM_USA.116
+		}
+		
+		remove_ideas = USA_the_second_american_civil_war
+		set_global_flag = second_american_civil_war_ended
+		
+		hidden_effect = {
+			USA_harry_truman = { set_nationality = ROOT }
+			USA_william_z_foster = { set_nationality = ROOT }
+		}
+		
+		ai_chance = { base = 100 }
+	}
+}
+
+# US Demands Reintegration
+country_event = {
+	id = AtM_USA.116
+	title = AtM_USA.116.t
+	desc = AtM_USA.116.desc
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.116.a
+		USA = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = no
+			}
+		}
+		
+		ai_chance = { base = 100 }
+	}
+	
+	option = {
+		name = AtM_USA.116.b
+		
+		ai_chance = { base = 0 }
+		USA = {
+			create_wargoal = {
+				target = ROOT
+				type = annex_everything
+			}
+		}
+	}
+}
+
+# Communists Requests Arms
+country_event = {
+	id = AtM_USA.117
+	title = AtM_USA.117.t
+	desc = AtM_USA.117.desc
+	picture = GFX_generic_aid_received_water
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.117.a
+		FROM = {
+			country_event = AtM_USA.118
+		}
+		add_timed_idea = {
+			idea = USA_successful_weapons_payment
+			days = 70
+		}
+		
+		ai_chance = { base = 75 }
+	}
+	
+	option = {
+		name = AtM_USA.117.b
+		
+		ai_chance = { base = 25 }
+		FROM = {
+			country_event = AtM_USA.119
+		}
+	}
+}
+
+# Country Gives Weapons
+country_event = {
+	id = AtM_USA.118
+	title = AtM_USA.118.t
+	desc = AtM_USA.118.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.118.a
+		FROM = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1000
+				target = ROOT
+			}
+		}
+		add_timed_idea = {
+			idea = USA_paying_off_weapons
+			days = 70
+		}
+		
+		ai_chance = { base = 100 }
+	}
+}
+
+# Country Refuses to Give Weapons
+country_event = {
+	id = AtM_USA.119
+	title = AtM_USA.119.t
+	desc = AtM_USA.119.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.119.a
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = refused_to_send_arms
+			}
+			reverse_add_opinion_modifier = {
+				target = ROOT
+				modifier = refused_to_send_arms
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# CCA requests generals
+country_event = {
+	id = AtM_USA.120
+	title = AtM_USA.120.t
+	desc = AtM_USA.120.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.120.a
+		if = {
+			limit = {
+				USA = {
+					has_completed_focus = USA_the_unlikely_option
+				}
+			}
+			PRC = {
+				PRC_chen_yi = { set_nationality = USA }
+				PRC_lin_biao = { set_nationality = USA }
+			}
+		}
+		else = {
+			PRC = {
+				PRC_chen_yi = { set_nationality = CCA }
+				PRC_lin_biao = { set_nationality = CCA }
+			}
+		}
+		
+		FROM = {
+			country_event = AtM_USA.121
+		}
+		
+		ai_chance = { base = 98 }
+	}
+	
+	option = {
+		name = AtM_USA.120.b
+		FROM = {
+			country_event = AtM_USA.122
+		}
+		
+		ai_chance = { base = 2 }
+	}
+}
+
+# PRC says: YAY, SURE
+country_event = {
+	id = AtM_USA.121
+	title = AtM_USA.121.t
+	desc = AtM_USA.121.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.121.a
+		
+		ai_chance = { base = 100 }
+	}
+}
+
+# PRC says: Fuck you
+country_event = {
+	id = AtM_USA.122
+	title = AtM_USA.122.t
+	desc = AtM_USA.122.desc
+	picture = GFX_second_american_civil_war_foster_speech
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_USA.122.a
+		add_opinion_modifier = {
+			target = PRC
+			modifier = refused_to_send_aid
+		}
+		
+		ai_chance = { base = 98 }
+	}
+}

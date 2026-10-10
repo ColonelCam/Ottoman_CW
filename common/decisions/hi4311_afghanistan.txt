@@ -1,0 +1,57 @@
+operations = {
+	AFG_border_war_territory = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		state_target = yes
+		visible = {
+			tag = AFG
+			FROM = { NOT = { is_owned_by = AFG } }
+		}
+		available = {
+			has_border_war = no
+		}
+		target_trigger = {
+			FROM = {
+				OR = {
+					state = 442
+					state = 1808
+					state = 1487
+					state = 1486
+					state = 1228
+				}
+			}
+		}
+		
+		cost = 25
+		fire_only_once = no
+		ai_will_do = { factor = 2 }
+		complete_effect = {
+			FROM = {
+				add_claim_by = AFG
+				
+				set_variable = { AFG.contested_state = THIS }
+				var:AFG.contested_state = {
+					random_neighbor_state = {
+						limit = { is_owned_by = AFG }
+						set_variable = { AFG.defender_state = THIS }
+					}
+				}
+				log = "set variable [?AFG.contested_state]"
+				
+				AFG = {
+					start_border_war = {
+						change_state_after_war = yes
+						attacker = {
+							state = var:defender_state
+							modifier = 0.5
+						}
+						defender = {
+							state = var:contested_state
+							modifier = -0.1
+						}
+					}
+				}
+			}
+		}
+	}
+}

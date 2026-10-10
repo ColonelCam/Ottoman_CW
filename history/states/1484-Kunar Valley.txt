@@ -1,0 +1,30 @@
+
+state={
+	id=1484
+	name="STATE_1484" # Asadabad
+	
+	history={
+		owner = AFG
+		add_core_of = AFG
+		add_core_of = PSH
+		1948.6.1 = {
+			owner = AFG
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			15076 2
+		}
+		victory_points = {
+			15075 1
+		}
+	}
+
+	provinces={
+		15075 15076 
+	}
+	manpower = 450000
+	state_category = pastoral
+	local_supplies=0.0 
+}

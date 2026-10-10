@@ -10,7 +10,8 @@ add_political_power = 49
 
 add_ideas = {
 	#National Spirits
-	
+	PER_islamic_fanaticism
+
 	#Cabinet
 }
 

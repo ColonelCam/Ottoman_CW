@@ -1,0 +1,5206 @@
+#######################
+###   News Events   ###
+#######################
+
+add_namespace = AtM_news
+add_namespace = news_aftermath
+
+news_event = { # Nukes dropped on Japan
+	id = news_aftermath.1
+	title = news_aftermath.1.t
+	desc = news_aftermath.1.desc
+	picture = GFX_news_event_nuke
+	
+	major = yes
+	trigger = {
+		always = no
+	}
+	is_triggered_only = yes
+	
+	option = {
+		name = news_aftermath.1.a
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+					original_tag = JAP
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = news_aftermath.1.b
+		trigger = {
+			original_tag = JAP
+		}
+	}
+	
+	option = {
+		name = news_aftermath.1.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = SOV
+			}
+		}
+	}
+}
+
+### News Event 00: MTTH Example
+#news_event = {
+#	id = AtM_news.0
+#	title = AtM_news.0.t
+#	desc = AtM_news.0.desc
+#	picture = GFX_1947_French_enter_Hanoi
+#
+#	major = yes
+#
+#	trigger = {
+#		original_tag = SOV
+#		date > 1945.10.5
+#	}
+#
+#	mean_time_to_happen = {
+#		days = 2
+#	}
+#
+#	immediate = {
+#		add_stability = 0.5
+#	}
+#
+#	option = {
+#		name = AtM_news.0.a
+#		trigger = {
+#			original_tag = SOV
+#		}
+#	}
+#}
+
+### News Event 01: French Indochinese War
+news_event = {
+	id = AtM_news.1
+	title = AtM_news.1.t
+	desc = AtM_news.1.desc
+	picture = GFX_1947_French_enter_Hanoi
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.1.a
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.1.b
+		trigger = {
+			original_tag = DRV
+		}
+	}
+	
+	option = {
+		name = AtM_news.1.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = FRA
+					original_tag = DRV
+				}
+			}
+		}
+	}
+}
+
+### News Event 02: DPRK Founded
+news_event = {
+	id = AtM_news.2
+	title = AtM_news.2.t
+	desc = AtM_news.2.desc
+	picture = GFX_1948_DPRK_established
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.2.a
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.2.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.2.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = DPK
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 03: Tibet Annexed
+news_event = {
+	id = AtM_news.3
+	title = AtM_news.3.t
+	desc = AtM_news.3.desc
+	picture = GFX_1950_china_crosses_tibet
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.3.a
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.3.b
+		trigger = {
+			original_tag = TIB
+		}
+	}
+	
+	option = {
+		name = AtM_news.3.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = TIB
+				}
+			}
+		}
+	}
+}
+
+### News Event 04: The Iron Curtain Falls
+news_event = {
+	id = AtM_news.4
+	title = AtM_news.4.t
+	desc = AtM_news.4.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.4.a
+		trigger = {
+			is_communist = yes
+		}
+	}
+	
+	option = {
+		name = AtM_news.4.b
+		trigger = {
+			NOT = {
+				is_communist = yes
+			}
+		}
+	}
+}
+
+### News Event 05: Forming of the COMECON
+news_event = {
+	id = AtM_news.5
+	title = AtM_news.5.t
+	desc = AtM_news.5.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.5.a
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = POL
+				original_tag = CZE
+				original_tag = HUN
+				original_tag = ROM
+				original_tag = BUL
+				original_tag = DDR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.5.b
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+					original_tag = CZE
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = BUL
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 06: Berlin Blockade
+news_event = {
+	id = AtM_news.6
+	title = AtM_news.6.t
+	desc = AtM_news.6.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.6.a
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = POL
+				original_tag = CZE
+				original_tag = HUN
+				original_tag = ROM
+				original_tag = BUL
+				original_tag = DDR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.6.b
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+					original_tag = CZE
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = BUL
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 07: DDR Formed
+news_event = {
+	id = AtM_news.7
+	title = AtM_news.7.t
+	desc = AtM_news.7.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.7.a
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = POL
+				original_tag = CZE
+				original_tag = HUN
+				original_tag = ROM
+				original_tag = BUL
+				original_tag = DDR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.7.b
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+					original_tag = CZE
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = BUL
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 08: Cominform Formed
+news_event = {
+	id = AtM_news.8
+	title = AtM_news.8.t
+	desc = AtM_news.8.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.8.a
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = POL
+				original_tag = CZE
+				original_tag = HUN
+				original_tag = ROM
+				original_tag = BUL
+				original_tag = YUG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.8.b
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+					original_tag = CZE
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = BUL
+					original_tag = YUG
+				}
+			}
+		}
+	}
+}
+
+### News Event 09: Formation of the NATO
+news_event = {
+	id = AtM_news.9
+	title = AtM_news.9.t
+	desc = AtM_news.9.desc
+	picture = GFX_1949_formation_of_the_nato
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.9.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.9.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = CAN
+				original_tag = ITA
+				original_tag = POR
+				original_tag = NOR
+				original_tag = DEN
+				original_tag = ICE
+				original_tag = BEL
+				original_tag = HOL
+				original_tag = LUX
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.9.c
+		trigger = {
+			OR = {
+				is_communist = yes
+				original_tag = SOV
+				original_tag = PRC
+				original_tag = DDR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.9.d
+		trigger = {
+			NOT = {
+				original_tag = USA
+				OR = {
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = CAN
+					original_tag = ITA
+					original_tag = POR
+					original_tag = NOR
+					original_tag = DEN
+					original_tag = ICE
+					original_tag = BEL
+					original_tag = HOL
+					original_tag = LUX
+				}
+				OR = {
+					is_communist = yes
+					original_tag = SOV
+					original_tag = PRC
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 10: Sino-Soviet Treaty Signed
+news_event = {
+	id = AtM_news.10
+	title = AtM_news.10.t
+	desc = AtM_news.10.desc
+	picture = GFX_1945_Sino-Soviet_Treaty
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.10.a
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = PRC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.10.b
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.10.c
+		trigger = {
+			NOT = {
+				is_communist = yes
+			}
+		}
+	}
+}
+
+### News Event 11: Greek Civil War
+news_event = {
+	id = AtM_news.11
+	title = AtM_news.11.t
+	desc = AtM_news.11.desc
+	picture = GFX_greek_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.11.a
+		trigger = {
+			NOT = { is_communist = yes }
+			NOT = { original_tag = GRE }
+		}
+	}
+	option = {
+		name = AtM_news.11.b
+		trigger = {
+			original_tag = GRE
+		}
+	}
+	option = {
+		name = AtM_news.11.c
+		trigger = {
+			NOT = { original_tag = GRE }
+			is_communist = yes
+		}
+	}
+}
+
+### News Event 12: North Korean Independence War
+news_event = {
+	id = AtM_news.12
+	title = AtM_news.12.t
+	desc = AtM_news.12.desc
+	picture = GFX_north_korean_independence_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.12.a
+		trigger = {
+			NOT = { is_communist = yes }
+		}
+	}
+	option = {
+		name = AtM_news.12.b
+		trigger = {
+			is_communist = yes
+			NOT = {
+				tag = DPK
+			}
+		}
+	}
+	option = {
+		name = AtM_news.12.c
+		trigger = {
+			tag = DPK
+		}
+	}
+}
+
+### News Event 13: Flight 19 Mystery
+news_event = {
+	id = AtM_news.13
+	title = AtM_news.13.t
+	desc = AtM_news.13.desc
+	picture = GFX_flight_19_disappear
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.13.a
+	}
+}
+
+
+### News Event 14: Marshall Plan Announced
+news_event = {
+	id = AtM_news.14
+	title = AtM_news.14.t
+	desc = AtM_news.14.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.14.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.14.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = ITA
+				original_tag = BEL
+				original_tag = HOL
+				original_tag = LUX
+				original_tag = DEN
+				original_tag = NOR
+				original_tag = GRE
+				original_tag = TUR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.14.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.14.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = ITA
+					original_tag = BEL
+					original_tag = HOL
+					original_tag = LUX
+					original_tag = DEN
+					original_tag = NOR
+					original_tag = GRE
+					original_tag = TUR
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 15: Berlin Airlift
+news_event = {
+	id = AtM_news.15
+	title = AtM_news.15.t
+	desc = AtM_news.15.desc
+	picture = GFX_news_event_generic_bombers
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.15.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.15.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.15.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.15.d
+		trigger = {
+			original_tag = DDR
+		}
+	}
+	
+	option = {
+		name = AtM_news.15.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 16: SEATO Formation
+news_event = {
+	id = AtM_news.16
+	title = AtM_news.16.t
+	desc = AtM_news.16.desc
+	picture = GFX_1954_formation_of_the_seato
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.16.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.16.b
+		trigger = {
+			OR = {
+				original_tag = PHI
+				original_tag = THA
+				original_tag = PAK
+				original_tag = AST
+				original_tag = NZL
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.16.c
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = PRC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.16.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = PHI
+					original_tag = THA
+					original_tag = PAK
+					original_tag = AST
+					original_tag = NZL
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+### News Event 17: Bizone Formation
+news_event = {
+	id = AtM_news.17
+	title = AtM_news.17.t
+	desc = AtM_news.17.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.17.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.17.b
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.17.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.17.d
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.17.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = SOV
+					original_tag = FRA
+				}
+			}
+		}
+	}
+}
+
+### News Event 18: Federal Republic of Germany Established
+news_event = {
+	id = AtM_news.18
+	title = AtM_news.18.t
+	desc = AtM_news.18.desc
+	picture = GFX_news_event_generic_parliament
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.18.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.18.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = BEL
+				original_tag = HOL
+				original_tag = LUX
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.18.c
+		trigger = {
+			original_tag = WGR
+		}
+	}
+	
+	option = {
+		name = AtM_news.18.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.18.e
+		trigger = {
+			original_tag = DDR
+		}
+	}
+	
+	option = {
+		name = AtM_news.18.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = BEL
+					original_tag = HOL
+					original_tag = LUX
+					original_tag = WGR
+					original_tag = SOV
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 19: Republic of Korea Established
+news_event = {
+	id = AtM_news.19
+	title = AtM_news.19.t
+	desc = AtM_news.19.desc
+	picture = GFX_1948_South_Korea_established
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.19.a
+		trigger = {
+			original_tag = ROK
+		}
+	}
+	
+	option = {
+		name = AtM_news.19.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.19.c
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.19.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.19.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = USA
+					original_tag = DPK
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 20: South Korea Aligns with United States
+news_event = {
+	id = AtM_news.20
+	title = AtM_news.20.t
+	desc = AtM_news.20.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.20.a
+		trigger = {
+			original_tag = ROK
+		}
+	}
+	
+	option = {
+		name = AtM_news.20.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.20.c
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.20.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.20.e
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = USA
+					original_tag = DPK
+					original_tag = SOV
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.20.f
+		trigger = {
+			NOT = {
+				is_communist = yes
+				OR = {
+					original_tag = ROK
+					original_tag = USA
+					original_tag = DPK
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 21: Korean War Begins
+news_event = {
+	id = AtM_news.21
+	title = AtM_news.21.t
+	desc = AtM_news.21.desc
+	picture = GFX_1950_korean_war_begins
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.21.a
+		trigger = {
+			original_tag = ROK
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.b
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.e
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.f
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.g
+		trigger = {
+			is_democratic = yes
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.21.h
+		trigger = {
+			NOT = {
+				is_democratic = yes
+				is_communist = yes
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+### News Event 22: Korean War Armistice
+news_event = {
+	id = AtM_news.22
+	title = AtM_news.22.t
+	desc = AtM_news.22.desc
+	picture = GFX_1951_armistice_talks
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.22.a
+		trigger = {
+			original_tag = ROK
+		}
+	}
+	
+	option = {
+		name = AtM_news.22.b
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.22.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.22.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.22.e
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.22.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+news_event = { #Italian Peace Treaty Signed
+	id = AtM_news.23
+	title = AtM_news.23.t
+	desc = AtM_news.23.desc
+	picture = GFX_news_event_eng_churchill_sign_treaty
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.23.a
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.23.b
+		trigger = {
+			original_tag = GRE
+		}
+	}
+	
+	option = {
+		name = AtM_news.23.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ITA
+					original_tag = GRE
+				}
+			}
+		}
+	}
+}
+
+news_event = { #Double Tenth Agreement
+	id = AtM_news.24
+	title = AtM_news.24.t
+	desc = AtM_news.24.desc
+	picture = GFX_1945_double_tenth_agreement
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.24.a
+	}
+}
+
+
+### News Event 25: US Support for South Vietnam
+news_event = {
+	id = AtM_news.25
+	title = AtM_news.25.t
+	desc = AtM_news.25.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.25.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.25.b
+		trigger = {
+			original_tag = VIN
+		}
+	}
+	
+	option = {
+		name = AtM_news.25.c
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.25.d
+		trigger = {
+			OR = {
+				original_tag = DRV
+				original_tag = VCF
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.25.e
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = PRC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.25.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = VIN
+					original_tag = FRA
+					original_tag = DRV
+					original_tag = VCF
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+### News Event 26: Indonesian Peace Deal
+news_event = {
+	id = AtM_news.26
+	title = AtM_news.26.t
+	desc = AtM_news.26.desc
+	picture = GFX_1949_dutch_indonesian_round_table
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.26.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.26.b
+		trigger = {
+			original_tag = INS
+		}
+	}
+	
+	option = {
+		name = AtM_news.26.c
+		trigger = {
+			original_tag = HOL
+		}
+	}
+	
+	option = {
+		name = AtM_news.26.d
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = PRC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.26.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = INS
+					original_tag = HOL
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+### News Event 27: Civil Rights Act
+news_event = {
+	id = AtM_news.27
+	title = AtM_news.27.t
+	desc = AtM_news.27.desc
+	picture = GFX_news_event_gathering_protest
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.27.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.27.b
+		trigger = {
+			NOT = {
+				original_tag = USA
+			}
+		}
+	}
+}
+
+### News Event 28: Massive Retaliation Doctrine
+news_event = {
+	id = AtM_news.28
+	title = AtM_news.28.t
+	desc = AtM_news.28.desc
+	picture = GFX_news_event_nuke
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.28.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.28.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.28.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 29: Moon Landing
+news_event = {
+	id = AtM_news.29
+	title = AtM_news.29.t
+	desc = AtM_news.29.desc
+	picture = GFX_news_event_generic_research_lab
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.29.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.29.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.29.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+# News Event 30: Costa Rica Elections
+news_event = {
+	id = AtM_news.30
+	title = AtM_news.30.t
+	desc = AtM_news.30.desc
+	picture = GFX_1948_costa_rican_elections
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		original_tag = COS
+		date > 1948.01.01
+		date < 1949.01.01
+	}
+	
+	immediate = {
+		set_global_flag = event_costa_rican_elections
+		COS = {
+			set_country_flag = costa_rican_civil_war_starting
+		}
+	}
+	
+	option = {
+		name = AtM_news.30.a
+	}
+}
+
+### News Event 31: Soviet Withdrawal from Northern Iran
+news_event = {
+	id = AtM_news.31
+	title = AtM_news.31.t
+	desc = AtM_news.31.desc
+	picture = GFX_news_event_soldiers_marching
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.31.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.31.b
+		trigger = {
+			original_tag = IRN
+		}
+	}
+	
+	option = {
+		name = AtM_news.31.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.31.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = IRN
+					original_tag = USA
+					original_tag = ENG
+				}
+			}
+		}
+	}
+}
+
+### News Event 32: British Withdrawal from Southern Iran
+news_event = {
+	id = AtM_news.32
+	title = AtM_news.32.t
+	desc = AtM_news.32.desc
+	picture = GFX_news_event_soldiers_marching
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.32.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.32.b
+		trigger = {
+			original_tag = IRN
+		}
+	}
+	
+	option = {
+		name = AtM_news.32.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.32.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = IRN
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 33: Truman Doctrine Announced
+news_event = {
+	id = AtM_news.33
+	title = AtM_news.33.t
+	desc = AtM_news.33.desc
+	picture = GFX_news_event_journalists_speech
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.33.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.33.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = CAN
+				original_tag = AST
+				original_tag = SAF
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.33.c
+		trigger = {
+			OR = {
+				original_tag = SOV
+				original_tag = POL
+				original_tag = DDR
+				original_tag = HUN
+				original_tag = ROM
+				original_tag = BUL
+				original_tag = CZE
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.33.d
+		trigger = {
+			OR = {
+				original_tag = GRE
+				original_tag = TUR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.33.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = CAN
+					original_tag = AST
+					original_tag = SAF
+					original_tag = SOV
+					original_tag = POL
+					original_tag = DDR
+					original_tag = HUN
+					original_tag = ROM
+					original_tag = BUL
+					original_tag = CZE
+					original_tag = GRE
+					original_tag = TUR
+				}
+			}
+		}
+	}
+}
+
+### News Event 34: British Mandate Ends - Israel and Palestine Independence
+news_event = {
+	id = AtM_news.34
+	title = AtM_news.34.t
+	desc = AtM_news.34.desc
+	picture = GFX_1948_UN_vote_Palestine
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.34.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.34.b
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.34.c
+		trigger = {
+			original_tag = PAL
+		}
+	}
+	
+	option = {
+		name = AtM_news.34.d
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.34.e
+		trigger = {
+			is_communist = yes
+			NOT = {
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.34.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = ISR
+					original_tag = PAL
+					original_tag = USA
+					original_tag = SOV
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 35: Soviet-Backed Polish Elections
+news_event = {
+	id = AtM_news.35
+	title = AtM_news.35.t
+	desc = AtM_news.35.desc
+	picture = GFX_news_event_election_vote
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.35.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.35.b
+		trigger = {
+			original_tag = POL
+		}
+	}
+	
+	option = {
+		name = AtM_news.35.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.35.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.35.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = POL
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+
+
+### News Event 36: Fall of Nanjing
+news_event = {
+	id = AtM_news.36
+	title = AtM_news.36.t
+	desc = AtM_news.36.desc
+	picture = GFX_1949_mao_declares_prc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.36.a
+		trigger = {
+			original_tag = CHI
+		}
+	}
+	
+	option = {
+		name = AtM_news.36.b
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.36.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.36.d
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.36.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = CHI
+					original_tag = PRC
+					original_tag = SOV
+					original_tag = USA
+				}
+			}
+		}
+	}
+}
+
+### News Event 37: US Seventh Fleet Blockades Taiwan Strait
+news_event = {
+	id = AtM_news.37
+	title = AtM_news.37.t
+	desc = AtM_news.37.desc
+	picture = GFX_1952_taiwan_strait_crisis
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.37.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.37.b
+		trigger = {
+			original_tag = CHI
+		}
+	}
+	
+	option = {
+		name = AtM_news.37.c
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.37.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.37.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = CHI
+					original_tag = PRC
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 38: Country Leaves NATO
+news_event = {
+	id = AtM_news.38
+	title = AtM_news.38.t
+	desc = AtM_news.38.desc
+	picture = GFX_news_event_generic_parliament
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.38.a
+		trigger = {
+			tag = FROM
+		}
+	}
+	
+	option = {
+		name = AtM_news.38.b
+		trigger = {
+			has_idea = nato_member
+			NOT = { tag = FROM }
+		}
+	}
+	
+	option = {
+		name = AtM_news.38.c
+		trigger = {
+			OR = {
+				is_communist = yes
+				original_tag = SOV
+				original_tag = PRC
+				original_tag = DDR
+			}
+			NOT = { tag = FROM }
+		}
+	}
+	
+	option = {
+		name = AtM_news.38.d
+		trigger = {
+			NOT = { has_idea = nato_member }
+			NOT = {
+				OR = {
+					is_communist = yes
+					original_tag = SOV
+					original_tag = PRC
+					original_tag = DDR
+					tag = FROM
+				}
+			}
+		}
+	}
+}
+
+### News Event 39: Radio Free Europe Established
+news_event = {
+	id = AtM_news.39
+	title = AtM_news.39.t
+	desc = AtM_news.39.desc
+	picture = GFX_1947_Radio_Moscow
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.39.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.39.b
+		trigger = {
+			is_democratic = yes
+			NOT = { original_tag = USA }
+		}
+	}
+	
+	option = {
+		name = AtM_news.39.c
+		trigger = {
+			OR = {
+				is_communist = yes
+				original_tag = SOV
+				original_tag = PRC
+				original_tag = DDR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.39.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					is_democratic = yes
+					is_communist = yes
+					original_tag = SOV
+					original_tag = PRC
+					original_tag = DDR
+				}
+			}
+		}
+	}
+}
+
+### News Event 40: United Nations Security Council Formed
+news_event = {
+	id = AtM_news.40
+	title = AtM_news.40.t
+	desc = AtM_news.40.desc
+	picture = GFX_1946_First_session_UN_Security_council
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.40.a
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+				original_tag = SOV
+				original_tag = PRC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.40.b
+		trigger = {
+			is_democratic = yes
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.40.c
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.40.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+					original_tag = PRC
+					is_democratic = yes
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 41: France Withdraws from Syria
+news_event = {
+	id = AtM_news.41
+	title = AtM_news.41.t
+	desc = AtM_news.41.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.41.a
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.41.b
+		trigger = {
+			original_tag = SYR
+		}
+	}
+	
+	option = {
+		name = AtM_news.41.c
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = USA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.41.d
+		trigger = {
+			OR = {
+				original_tag = SOV
+				is_communist = yes
+			}
+			NOT = {
+				OR = {
+					original_tag = FRA
+					original_tag = SYR
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.41.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = FRA
+					original_tag = SYR
+					original_tag = ENG
+					original_tag = USA
+					original_tag = SOV
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 42: Britain Signs Treaty of Friendship with Iraq
+news_event = {
+	id = AtM_news.42
+	title = AtM_news.42.t
+	desc = AtM_news.42.desc
+	picture = GFX_news_event_eng_decolonization
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.42.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.42.b
+		trigger = {
+			original_tag = IRQ
+		}
+	}
+	
+	option = {
+		name = AtM_news.42.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.42.d
+		trigger = {
+			OR = {
+				original_tag = SOV
+				is_communist = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.42.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = IRQ
+					original_tag = USA
+					original_tag = FRA
+					original_tag = SOV
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 43: Treaty of London with Jordan
+news_event = {
+	id = AtM_news.43
+	title = AtM_news.43.t
+	desc = AtM_news.43.desc
+	picture = GFX_1946_jordan_independence
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.43.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.43.b
+		trigger = {
+			original_tag = JOR
+		}
+	}
+	
+	option = {
+		name = AtM_news.43.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = JOR
+				}
+			}
+		}
+	}
+}
+
+### News Event 44: Trizone Formation
+news_event = {
+	id = AtM_news.44
+	title = AtM_news.44.t
+	desc = AtM_news.44.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.44.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.44.b
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.44.c
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.44.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.44.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 45: Protests in Hungary
+news_event = {
+	id = AtM_news.45
+	title = AtM_news.45.t
+	desc = AtM_news.45.desc
+	picture = GFX_1956_Hungarian_revolution
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.45.a
+		trigger = {
+			NOT = {
+				original_tag = HUN
+				is_communist = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.45.b
+		trigger = {
+			NOT = {
+				original_tag = HUN
+			}
+			is_communist = yes
+		}
+	}
+	
+	option = {
+		name = AtM_news.45.c
+		trigger = {
+			original_tag = HUN
+		}
+	}
+}
+
+### News Event 46: Austrian Unification
+news_event = {
+	id = AtM_news.46
+	title = AtM_news.46.t
+	desc = AtM_news.46.desc
+	picture = GFX_news_event_generic_parliament
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.46.a
+		trigger = {
+			original_tag = AUS
+		}
+	}
+	
+	option = {
+		name = AtM_news.46.b
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.46.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.46.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = AUS
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 47: Treaty of Paris WIP
+news_event = {
+	id = AtM_news.47
+	title = AtM_news.47.t
+	desc = AtM_news.47.desc
+	picture = GFX_1951_treaty_of_paris
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.47.a
+		trigger = {
+			has_idea = EU_ECSC
+		}
+	}
+	
+	option = {
+		name = AtM_news.47.b
+		trigger = {
+			NOT = {
+				has_idea = EU_ECSC
+			}
+		}
+	}
+}
+
+### News Event 48: Romanian General Election
+news_event = {
+	id = AtM_news.48
+	title = AtM_news.48.t
+	desc = AtM_news.48.desc
+	picture = GFX_news_event_election_vote
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.48.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.48.b
+		trigger = {
+			original_tag = ROM
+		}
+	}
+	
+	option = {
+		name = AtM_news.48.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.48.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = ROM
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.48.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = ROM
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 49: Bulgarian Parliamentary Election
+news_event = {
+	id = AtM_news.49
+	title = AtM_news.49.t
+	desc = AtM_news.49.desc
+	picture = GFX_news_event_election_vote
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.49.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.49.b
+		trigger = {
+			original_tag = BUL
+		}
+	}
+	
+	option = {
+		name = AtM_news.49.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.49.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = BUL
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.49.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = BUL
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 50: Hungarian Parliamentary Election
+news_event = {
+	id = AtM_news.50
+	title = AtM_news.50.t
+	desc = AtM_news.50.desc
+	picture = GFX_news_event_election_vote
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.50.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.50.b
+		trigger = {
+			original_tag = HUN
+		}
+	}
+	
+	option = {
+		name = AtM_news.50.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.50.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = HUN
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.50.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = HUN
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 51: The February Coup in Czechoslovakia
+news_event = {
+	id = AtM_news.51
+	title = AtM_news.51.t
+	desc = AtM_news.51.desc
+	picture = GFX_news_event_election_vote
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.51.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.51.b
+		trigger = {
+			original_tag = CZE
+		}
+	}
+	
+	option = {
+		name = AtM_news.51.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.51.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = CZE
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.51.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = CZE
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 52: Italy attacks Yugoslavia
+news_event = {
+	id = AtM_news.52
+	title = AtM_news.52.t
+	desc = AtM_news.52.desc
+	picture = GFX_ITA_YUG_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.52.a
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.52.b
+		trigger = {
+			original_tag = YUG
+		}
+	}
+	
+	option = {
+		name = AtM_news.52.c
+		trigger = {
+			NOT = {
+				original_tag = ITA
+				original_tag = YUG
+			}
+		}
+	}
+}
+
+### News Event 53: Tito-Stalin Split
+news_event = {
+	id = AtM_news.53
+	title = AtM_news.53.t
+	desc = AtM_news.53.desc
+	picture = GFX_1948_tito_stalin_split
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.53.a
+		trigger = {
+			original_tag = YUG
+		}
+	}
+	
+	option = {
+		name = AtM_news.53.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.53.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.53.d
+		trigger = {
+			has_idea = SOV_cominform
+			NOT = {
+				OR = {
+					original_tag = YUG
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.53.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = YUG
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					has_idea = SOV_cominform
+				}
+			}
+		}
+	}
+}
+
+### News Event 54: Sino-Soviet Split
+news_event = {
+	id = AtM_news.54
+	title = AtM_news.54.t
+	desc = AtM_news.54.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.54.a
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.54.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.54.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.54.d
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.54.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 55: Arab-Israeli War Begins
+news_event = {
+	id = AtM_news.55
+	title = AtM_news.55.t
+	desc = AtM_news.55.desc
+	picture = GFX_news_event_generic_arab_revolt
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.55.a
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.55.b
+		trigger = {
+			OR = {
+				original_tag = EGY
+				original_tag = SYR
+				original_tag = JOR
+				original_tag = IRQ
+				original_tag = LEB
+				original_tag = SAU
+				original_tag = YEM
+				original_tag = PAL
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.55.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.55.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.55.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ISR
+					original_tag = EGY
+					original_tag = SYR
+					original_tag = JOR
+					original_tag = IRQ
+					original_tag = LEB
+					original_tag = SAU
+					original_tag = YEM
+					original_tag = PAL
+					original_tag = USA
+					original_tag = ENG
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 56: Costa Rican Civil War
+news_event = {
+	id = AtM_news.56
+	title = AtM_news.56.t
+	desc = AtM_news.56.desc
+	picture = GFX_news_event_spr_spanish_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.56.a
+		trigger = {
+			original_tag = COS
+		}
+	}
+	
+	option = {
+		name = AtM_news.56.b
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = NIC
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.56.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = COS
+					original_tag = USA
+					original_tag = NIC
+				}
+			}
+		}
+	}
+}
+
+### News Event 57: India-Pakistan War
+news_event = {
+	id = AtM_news.57
+	title = AtM_news.57.t
+	desc = AtM_news.57.desc
+	picture = GFX_news_event_indian_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.57.a
+		trigger = {
+			OR = {
+				original_tag = RAJ
+				original_tag = HND
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.57.b
+		trigger = {
+			original_tag = PAK
+		}
+	}
+	
+	option = {
+		name = AtM_news.57.c
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.57.d
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.57.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = RAJ
+					original_tag = HND
+					original_tag = PAK
+					original_tag = ENG
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 58: Paraguayan Civil War
+news_event = {
+	id = AtM_news.58
+	title = AtM_news.58.t
+	desc = AtM_news.58.desc
+	picture = GFX_news_event_spr_spanish_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.58.a
+		trigger = {
+			original_tag = PAR
+		}
+	}
+	
+	option = {
+		name = AtM_news.58.b
+		trigger = {
+			NOT = {
+				original_tag = PAR
+			}
+		}
+	}
+}
+
+### News Event 59: Chinese Annexation of Xinjiang
+news_event = {
+	id = AtM_news.59
+	title = AtM_news.59.t
+	desc = AtM_news.59.desc
+	picture = GFX_news_event_004
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.59.a
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.59.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.59.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.59.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+				}
+			}
+		}
+	}
+}
+
+### News Event 60: Malayan Emergency
+news_event = {
+	id = AtM_news.60
+	title = AtM_news.60.t
+	desc = AtM_news.60.desc
+	picture = GFX_news_event_HUN_leninist_gathering
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.60.a
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = BMA
+				original_tag = MAL
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.60.b
+		trigger = {
+			is_communist = yes
+		}
+	}
+	
+	option = {
+		name = AtM_news.60.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = BMA
+					original_tag = MAL
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 61: Italian Trusteeship of Somaliland
+news_event = {
+	id = AtM_news.61
+	title = AtM_news.61.t
+	desc = AtM_news.61.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.61.a
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.61.b
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.61.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ITA
+					original_tag = ENG
+				}
+			}
+		}
+	}
+}
+
+### News Event 62: Formation of Libya
+news_event = {
+	id = AtM_news.62
+	title = AtM_news.62.t
+	desc = AtM_news.62.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.62.a
+		trigger = {
+			original_tag = LBA
+		}
+	}
+	
+	option = {
+		name = AtM_news.62.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.62.c
+		trigger = {
+			OR = {
+				original_tag = EGY
+				original_tag = ITA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.62.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = LBA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = EGY
+					original_tag = ITA
+				}
+			}
+		}
+	}
+}
+
+### News Event 63: Free Officers Seize Power in Egypt
+news_event = {
+	id = AtM_news.63
+	title = AtM_news.63.t
+	desc = AtM_news.63.desc
+	picture = GFX_news_event_073
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.63.a
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.63.b
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.63.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.63.d
+		trigger = {
+			OR = {
+				original_tag = ISR
+				original_tag = SAU
+				original_tag = IRQ
+				original_tag = SYR
+				original_tag = JOR
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.63.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = USA
+					original_tag = ENG
+					original_tag = SOV
+					original_tag = ISR
+					original_tag = SAU
+					original_tag = IRQ
+					original_tag = SYR
+					original_tag = JOR
+				}
+			}
+		}
+	}
+}
+
+### News Event 64: Soviet Demand to Revise the Montreux Convention
+news_event = {
+	id = AtM_news.64
+	title = AtM_news.64.t
+	desc = AtM_news.64.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.64.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.64.b
+		trigger = {
+			original_tag = TUR
+		}
+	}
+	
+	option = {
+		name = AtM_news.64.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.64.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = TUR
+					original_tag = USA
+					original_tag = ENG
+				}
+			}
+		}
+	}
+}
+
+### News Event 65: Formation of Malaysia
+news_event = {
+	id = AtM_news.65
+	title = AtM_news.65.t
+	desc = AtM_news.65.desc
+	picture = GFX_news_event_HUN_leninist_gathering
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.65.a
+		trigger = {
+			original_tag = MAL
+		}
+	}
+	
+	option = {
+		name = AtM_news.65.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = SNG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.65.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = MAL
+					original_tag = ENG
+					original_tag = SNG
+				}
+			}
+		}
+	}
+}
+
+### News Event 66: 1953 Iranian Coup - Reza Shah Seizes Power
+news_event = {
+	id = AtM_news.66
+	title = AtM_news.66.t
+	desc = AtM_news.66.desc
+	picture = GFX_news_event_generic_riot
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.66.a
+		trigger = {
+			original_tag = IRN
+		}
+	}
+	
+	option = {
+		name = AtM_news.66.b
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.66.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.66.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = IRN
+					original_tag = USA
+					original_tag = ENG
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 67: Egypt Nationalizes the Suez Canal
+news_event = {
+	id = AtM_news.67
+	title = AtM_news.67.t
+	desc = AtM_news.67.desc
+	picture = GFX_1956_Egypt_nationalizes_Suez_Canal
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.67.a
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.67.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.67.c
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.67.d
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.67.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = ISR
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 68: Britain, France, and Israel Invade Egypt
+news_event = {
+	id = AtM_news.68
+	title = AtM_news.68.t
+	desc = AtM_news.68.desc
+	picture = GFX_news_event_generic_arab_revolt
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.68.a
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.68.b
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.68.c
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.68.d
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = SOV
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.68.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = ISR
+					original_tag = EGY
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 69: Suez Crisis Ceasefire
+news_event = {
+	id = AtM_news.69
+	title = AtM_news.69.t
+	desc = AtM_news.69.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.69.a
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.69.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.69.c
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.69.d
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.69.e
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.69.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = ISR
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 70: People's Republic of China Established
+news_event = {
+	id = AtM_news.70
+	title = AtM_news.70.t
+	desc = AtM_news.70.desc
+	picture = GFX_1949_mao_declares_prc
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.70.a
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.70.b
+		trigger = {
+			original_tag = CHI
+		}
+	}
+	
+	option = {
+		name = AtM_news.70.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.70.d
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.70.e
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = CHI
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.70.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = PRC
+					original_tag = CHI
+					original_tag = SOV
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### Assassination of Jorge Eliécer Gaitán
+news_event = {
+	id = AtM_news.71
+	title = AtM_news.71.t
+	desc = AtM_news.71.desc
+	picture = GFX_1948_assassination_of_jorge_eliecer
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.71.a
+		trigger = {
+			NOT = {
+				original_tag = COL
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.71.b
+		trigger = {
+			original_tag = COL
+		}
+	}
+	
+	immediate = {
+		hidden_effect =  {
+			COL = {
+				add_timed_idea = {
+					idea = COL_la_violencia
+					days = 3850
+				}
+			}
+		}
+	}
+}
+
+### News Event 72: Porkkala Naval Base Returned to Finland
+news_event = {
+	id = AtM_news.72
+	title = AtM_news.72.t
+	desc = AtM_news.72.desc
+	picture = GFX_1956_porkkala_naval_base
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.72.a
+		trigger = {
+			original_tag = FIN
+		}
+	}
+	
+	option = {
+		name = AtM_news.72.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.72.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = FIN
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 73: United Arab Republic Formed
+news_event = {
+	id = AtM_news.73
+	title = AtM_news.73.t
+	desc = AtM_news.73.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.73.a
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.73.b
+		trigger = {
+			OR = {
+				original_tag = SYR
+				original_tag = JOR
+				original_tag = IRQ
+				original_tag = LEB
+				original_tag = SAU
+				original_tag = YEM
+				original_tag = PAL
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.73.c
+		trigger = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.73.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.73.e
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = SYR
+					original_tag = JOR
+					original_tag = IRQ
+					original_tag = LEB
+					original_tag = SAU
+					original_tag = YEM
+					original_tag = PAL
+					original_tag = USA
+					original_tag = ENG
+					original_tag = FRA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 74: American Aircraft Shot Down
+news_event = {
+	id = AtM_news.74
+	title = AtM_news.74.t
+	desc = AtM_news.74.desc
+	picture = GFX_c_47_shot_down
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.74.a
+		trigger = {
+			AND = {
+				NOT = {
+					has_government = communism
+					original_tag = YUG
+					original_tag = USA
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.74.b
+		trigger = {
+			AND = {
+				has_government = communism
+				NOT = {
+					original_tag = YUG
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.74.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.74.d
+		trigger = {
+			original_tag = YUG
+		}
+	}
+}
+
+### News Event 75: Terror Attack in California
+news_event = {
+	id = AtM_news.75
+	title = AtM_news.75.t
+	desc = AtM_news.75.desc
+	picture = GFX_californian_terrorist_attack
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.75.a
+		trigger = {
+			NOT = {
+				has_government = communism
+				original_tag = USA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.75.b
+		trigger = {
+			has_government = communism
+		}
+	}
+	
+	option = {
+		name = AtM_news.75.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+}
+
+### News Event 76: 1947 Paris Peace Treaty
+news_event = {
+	id = AtM_news.76
+	title = AtM_news.76.t
+	desc = AtM_news.76.desc
+	picture = GFX_news_event_eng_churchill_sign_treaty
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.76.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.76.b
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.76.c
+		trigger = {
+			original_tag = FIN
+		}
+	}
+	
+	option = {
+		name = AtM_news.76.d
+		trigger = {
+			original_tag = GRE
+		}
+	}
+	
+	option = {
+		name = AtM_news.76.e
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.76.f
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = ITA
+					original_tag = FIN
+					original_tag = GRE
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 77: Soviet Union Invades Turkey
+news_event = {
+	id = AtM_news.77
+	title = AtM_news.77.t
+	desc = AtM_news.77.desc
+	picture = GFX_news_event_soldiers_marching
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.77.a
+		trigger = {
+			original_tag = TUR
+		}
+	}
+	
+	option = {
+		name = AtM_news.77.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.77.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.77.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = TUR
+					original_tag = SOV
+					original_tag = USA
+				}
+			}
+		}
+	}
+}
+
+### News Event 78: Truman Relieves General MacArthur
+news_event = {
+	id = AtM_news.78
+	title = AtM_news.78.t
+	desc = AtM_news.78.desc
+	picture = GFX_news_event_journalists_speech
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.78.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.78.b
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.78.c
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.78.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = PRC
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 79: British India Becomes Independent
+news_event = {
+	id = AtM_news.79
+	title = AtM_news.79.t
+	desc = AtM_news.79.desc
+	picture = GFX_news_event_indian_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.79.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.79.b
+		trigger = {
+			original_tag = RAJ
+		}
+	}
+	
+	option = {
+		name = AtM_news.79.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = RAJ
+				}
+			}
+		}
+	}
+}
+
+### News Event 80: Coup in Guatemala (TODO)
+news_event = {
+	id = AtM_news.80
+	title = AtM_news.80.t
+	desc = AtM_news.80.desc
+	#picture = GFX_news_event_indian_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.80.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.80.b
+		trigger = {
+			NOT = {
+				original_tag = USA
+			}
+		}
+	}
+}
+
+### News Event 81: Nikita Khrushchev Becomes Soviet Leader
+news_event = {
+	id = AtM_news.81
+	title = AtM_news.81.t
+	desc = AtM_news.81.desc
+	picture = GFX_1945_Soviet_art
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.81.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.81.b
+		trigger = {
+			is_communist = yes
+			NOT = { original_tag = SOV }
+		}
+	}
+	
+	option = {
+		name = AtM_news.81.c
+		trigger = {
+			NOT = { is_communist = yes }
+		}
+	}
+}
+
+### News Event 82: Syria Leaves the UAR
+news_event = {
+	id = AtM_news.82
+	title = AtM_news.82.t
+	desc = AtM_news.82.desc
+	picture = GFX_news_event_HUN_leninist_gathering
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.82.a
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.82.b
+		trigger = {
+			original_tag = SYR
+		}
+	}
+	
+	option = {
+		name = AtM_news.82.c
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = SYR
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.82.d
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = EGY
+					original_tag = SYR
+					is_communist = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 83: Cuban Missile Crisis
+news_event = {
+	id = AtM_news.83
+	title = AtM_news.83.t
+	desc = AtM_news.83.desc
+	picture = GFX_1962_Cuban_Missile_Crisis
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.83.a
+		trigger = {
+			original_tag = USA
+		}
+		effect_tooltip = {
+			add_threat = 50
+		}
+	}
+	
+	option = {
+		name = AtM_news.83.b
+		trigger = {
+			original_tag = SOV
+		}
+		effect_tooltip = {
+			add_threat = 50
+		}
+	}
+	
+	option = {
+		name = AtM_news.83.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+		effect_tooltip = {
+			add_threat = 50
+		}
+	}
+}
+
+### News Event 84: Cuban Missile Crisis Averted
+news_event = {
+	id = AtM_news.84
+	title = AtM_news.84.t
+	desc = AtM_news.84.desc
+	picture = GFX_1962_Cuban_Missile_Crisis
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.84.a
+	}
+}
+
+### News Event 85: Bay of Pigs Invasion
+news_event = {
+	id = AtM_news.85
+	title = AtM_news.85.t
+	desc = AtM_news.85.desc
+	picture = GFX_1961_Bay_of_Pigs
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.85.a
+		trigger = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.85.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.85.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					is_communist = yes
+					is_left_wing_radical = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 86: Harry Truman's National Address
+news_event = {
+	id = AtM_news.86
+	title = AtM_news.86.t
+	desc = AtM_news.86.desc
+	picture = GFX_truman_national_address
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.86.a
+		trigger = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.86.b
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.86.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					is_communist = yes
+					is_left_wing_radical = yes
+				}
+			}
+		}
+	}
+}
+
+### News Event 87: Burma Gains Independence
+news_event = {
+	id = AtM_news.87
+	title = AtM_news.87.t
+	desc = AtM_news.87.desc
+	picture = GFX_news_event_eng_decolonization
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.87.a
+		trigger = {
+			original_tag = ENG
+		}
+	}
+	
+	option = {
+		name = AtM_news.87.b
+		trigger = {
+			original_tag = BRM
+		}
+	}
+	
+	option = {
+		name = AtM_news.87.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ENG
+					original_tag = BRM
+				}
+			}
+		}
+	}
+}
+
+### News Event 88: Rhineland-Palatinate Established
+news_event = {
+	id = AtM_news.88
+	title = AtM_news.88.t
+	desc = AtM_news.88.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.88.a
+		trigger = {
+			original_tag = FRA
+		}
+	}
+	
+	option = {
+		name = AtM_news.88.b
+		trigger = {
+			original_tag = RHI
+		}
+	}
+	
+	option = {
+		name = AtM_news.88.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = FRA
+					original_tag = RHI
+				}
+			}
+		}
+	}
+}
+
+### News Event 89: Inchon Landing
+news_event = {
+	id = AtM_news.89
+	title = AtM_news.89.t
+	desc = AtM_news.89.desc
+	picture = GFX_1950_korea_task_force_arrives
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.89.a
+		trigger = {
+			original_tag = ROK
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.b
+		trigger = {
+			original_tag = DPK
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.c
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.d
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.e
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.f
+		trigger = {
+			is_communist = yes
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.g
+		trigger = {
+			is_democratic = yes
+			NOT = {
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.89.h
+		trigger = {
+			NOT = {
+				is_democratic = yes
+				is_communist = yes
+				OR = {
+					original_tag = ROK
+					original_tag = DPK
+					original_tag = USA
+					original_tag = SOV
+					original_tag = PRC
+				}
+			}
+		}
+	}
+}
+
+### News Event 90: Bornholm Returned to Denmark
+news_event = {
+	id = AtM_news.90
+	title = AtM_news.90.t
+	desc = AtM_news.90.desc
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.90.a
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.90.b
+		trigger = {
+			original_tag = DEN
+		}
+	}
+	
+	option = {
+		name = AtM_news.90.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SOV
+					original_tag = DEN
+				}
+			}
+		}
+	}
+}
+
+### News Event 91: Israel Withdraws from the Gaza Strip
+news_event = {
+	id = AtM_news.91
+	title = AtM_news.91.t
+	desc = AtM_news.91.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.91.a
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.91.b
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.91.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ISR
+					original_tag = EGY
+				}
+			}
+		}
+	}
+}
+
+### News Event 92: Israel Withdraws from the Sinai
+news_event = {
+	id = AtM_news.92
+	title = AtM_news.92.t
+	desc = AtM_news.92.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.92.a
+		trigger = {
+			original_tag = ISR
+		}
+	}
+	
+	option = {
+		name = AtM_news.92.b
+		trigger = {
+			original_tag = EGY
+		}
+	}
+	
+	option = {
+		name = AtM_news.92.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ISR
+					original_tag = EGY
+				}
+			}
+		}
+	}
+}
+
+### News Event 93: Sudan Gains Independence
+news_event = {
+	id = AtM_news.93
+	title = AtM_news.93.t
+	desc = AtM_news.93.desc
+	picture = GFX_news_event_eng_decolonization
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.93.a
+		trigger = {
+			original_tag = SUD
+		}
+	}
+	
+	option = {
+		name = AtM_news.93.b
+		trigger = {
+			OR = {
+				original_tag = ENG
+				original_tag = EGY
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.93.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = SUD
+					original_tag = ENG
+					original_tag = EGY
+				}
+			}
+		}
+	}
+}
+
+### News Event 94: The United States Announces the First Soviet Atomic Test
+news_event = {
+	id = AtM_news.94
+	title = AtM_news.94.t
+	desc = AtM_news.94.desc
+	picture = GFX_news_event_nuke
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.94.a
+		trigger = {
+			original_tag = USA
+		}
+	}
+	
+	option = {
+		name = AtM_news.94.b
+		trigger = {
+			original_tag = SOV
+		}
+	}
+	
+	option = {
+		name = AtM_news.94.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = USA
+					original_tag = SOV
+				}
+			}
+		}
+	}
+}
+
+### News Event 95: Second Spanish Civil War
+news_event = {
+	id = AtM_news.95
+	title = AtM_news.95.t
+	desc = AtM_news.95.desc
+	picture = GFX_news_event_spr_spanish_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.95.a
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.95.b
+		trigger = {
+			original_tag = SPR
+		}
+	}
+	
+	option = {
+		name = AtM_news.95.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ITA
+					original_tag = SPR
+				}
+			}
+		}
+	}
+}
+
+### News Event 96: Coup in Spain
+news_event = {
+	id = AtM_news.96
+	title = AtM_news.96.t
+	desc = AtM_news.96.desc
+	picture = GFX_spain_madrid_news
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.96.a
+		trigger = {
+			original_tag = ITA
+		}
+	}
+	
+	option = {
+		name = AtM_news.96.b
+		trigger = {
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+}
+
+### News Event 97: Proclamation of Independence
+news_event = {
+	id = AtM_news.97
+	title = AtM_news.97.t
+	desc = AtM_news.97.desc
+	picture = GFX_1945_proclamation_of_independence_DRV
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.97.a
+		trigger = {
+			original_tag = DRV
+		}
+	}
+	
+	option = {
+		name = AtM_news.97.b
+		trigger = {
+			NOT = {
+				original_tag = DRV
+			}
+		}
+	}
+}
+
+### News Event 98: Proclamation of Independence
+news_event = {
+	id = AtM_news.98
+	title = AtM_news.98.t
+	desc = AtM_news.98.desc
+	picture = GFX_1946_first_indochina_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.98.a
+		trigger = {
+			original_tag = DRV
+		}
+	}
+
+	option = {
+		name = AtM_news.98.b
+		trigger = {
+			OR = {
+				original_tag = FRA
+				is_subject_of = FRA
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_news.98.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = DRV
+					original_tag = FRA
+					is_subject_of = FRA
+				}
+			}
+		}
+	}
+}
+
+### News Event 99: Proclamation of Indochina
+news_event = {
+	id = AtM_news.99
+	title = AtM_news.99.t
+	desc = AtM_news.99.desc
+	picture = GFX_1946_first_indochina_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.99.a
+		trigger = {
+			original_tag = DRV
+		}
+	}
+
+	option = {
+		name = AtM_news.99.b
+		trigger = {
+			NOT = {
+				original_tag = DRV
+			}
+		}
+	}
+}
+
+### News Event 100: Ecuadorian Civil War
+news_event = {
+	id = AtM_news.100
+	title = AtM_news.100.t
+	desc = AtM_news.100.desc
+	#picture = 
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.100.a
+		trigger = {
+			original_tag = ECU
+		}
+	}
+
+	option = {
+		name = AtM_news.100.b
+		trigger = {
+			NOT = {
+				original_tag = ECU
+			}
+		}
+	}
+}
+
+### News Event 101: Second Ecuadorian–Peruvian War
+news_event = {
+	id = AtM_news.101
+	title = AtM_news.101.t
+	desc = AtM_news.101.desc
+	#picture = 
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.101.a
+		trigger = {
+			original_tag = ECU
+		}
+	}
+	option = {
+		name = AtM_news.101.b
+		trigger = {
+			original_tag = PRU
+		}
+	}
+
+	option = {
+		name = AtM_news.101.c
+		trigger = {
+			NOT = {
+				OR = {
+					original_tag = ECU
+					original_tag = PRU
+				}
+			}
+		}
+	}
+}
+
+### News Event 102: Argentinian Civil War
+news_event = {
+	id = AtM_news.102
+	title = AtM_news.102.t
+	desc = AtM_news.102.desc
+	#picture = 
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.102.a
+		trigger = {
+			original_tag = ARG
+			has_cosmetic_tag = ARG_avalos_faction
+		}
+	}
+	option = {
+		name = AtM_news.102.b
+		trigger = {
+			original_tag = ARG
+			has_cosmetic_tag = ARG_peronist_faction
+		}
+	}
+
+	option = {
+		name = AtM_news.102.c
+		trigger = {
+			NOT = {
+				original_tag = ARG
+			}
+		}
+	}
+}
+
+### News Event 103: Second Pacific-Chaco War
+news_event = {
+	id = AtM_news.103
+	title = AtM_news.103.t
+	desc = AtM_news.103.desc
+	#picture = 
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.103.a
+		trigger = {
+			OR = {
+				AND = {
+					original_tag = ARG
+					has_cosmetic_tag = ARG_avalos_faction
+				}
+				original_tag = BOL
+			}
+		}
+	}
+	option = {
+		name = AtM_news.103.b
+		trigger = {
+			OR = {
+				AND = {
+					original_tag = ARG
+					has_cosmetic_tag = ARG_peronist_faction
+				}
+				original_tag = CHL
+				original_tag = PAR
+			}
+		}
+	}
+
+	option = {
+		name = AtM_news.103.c
+		trigger = {
+			NOT = {
+				original_tag = ARG
+			}
+		}
+	}
+}
+
+### News Event 104: Albanian Coup Succedes
+news_event = {
+	id = AtM_news.104
+	title = AtM_news.104.t
+	desc = AtM_news.104.desc
+	picture = GFX_Albania_Tirana
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.104.a
+		trigger = {
+			original_tag = ITA
+		}
+		add_political_power = 50
+		effect_tooltip = {
+			ITA_albanian_puppet = yes
+		}
+	}
+	option = {
+		name = AtM_news.104.b
+		trigger = {
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+}
+
+### News Event 105: Albanian Coup Fails
+news_event = {
+	id = AtM_news.105
+	title = AtM_news.105.t
+	desc = AtM_news.105.desc
+	picture = GFX_Albania_Tirana
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.105.a
+		trigger = {
+			original_tag = ITA
+		}
+		unlock_decision_tooltip = ITA_ALB_whitepeace
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = ALB
+			expire = 0
+		}
+	}
+	option = {
+		name = AtM_news.105.b
+		trigger = {
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+}

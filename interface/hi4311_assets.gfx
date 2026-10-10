@@ -1,0 +1,42 @@
+SpriteTypes = {
+	SpriteType = {
+		name = "hi4311_iran_constitutional_monarchy"
+		texturefile = "gfx/event_pictures/hi4311_iran_constitutional_monarchy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_focus_TUR_IRN_strike_south"
+		texturefile = "gfx/goals/TUR_IRN_strike_south.dds"
+	}
+	SpriteType = {
+		name = "GFX_focus_TUR_IRN_strike_south_shine"
+		texturefile = "gfx/goals/TUR_IRN_strike_south.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/goals/TUR_IRN_strike_south.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+
+		animation = {
+			animationmaskfile = "gfx/goals/TUR_IRN_strike_south.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+		}
+		legacy_lazy_load = no
+	}
+}

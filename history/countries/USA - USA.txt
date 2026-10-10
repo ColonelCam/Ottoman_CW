@@ -146,6 +146,14 @@ add_ideas = {
 	#ford_motor_company
 }
 
+CUB = {
+	country_event = {
+		id = AtM_CUB.3
+		days = 128
+		random_days = 256
+	}
+}
+
 create_dynamic_country = {
 	original_tag = USA
 	set_country_flag = USA_provisional_council

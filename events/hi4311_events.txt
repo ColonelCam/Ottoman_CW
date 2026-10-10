@@ -1,0 +1,183 @@
+add_namespace = hi4311_event
+add_namespace = hi4311_news_event
+
+country_event = { # Reza Khan passes away
+	id = hi4311_event.1
+	title = hi4311_event.1.t
+	desc = hi4311_event.1.desc
+	picture = GFX_report_event_generic_funeral
+	
+	is_triggered_only = yes
+	
+	option = { # Send our condolences to the Iranians
+		name = hi4311_event.1.a
+	}
+}
+
+country_event = { # Iran Requests Recognition
+	id = hi4311_event.2
+	title = hi4311_event.2.t
+	desc = hi4311_event.2.desc
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hi4311_event.2.a
+		IRN = {
+			add_opinion_modifier = { target = TUR modifier = recognized_government }
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		PER = {
+			add_opinion_modifier = { target = TUR modifier = hostile_status }
+			reverse_add_opinion_modifier = { target = TUR modifier = hostile_status }
+		}
+	}
+}
+
+country_event = { # Sending Volunteers to Iran
+	id = hi4311_event.3
+	title = hi4311_event.3.t
+	desc = hi4311_event.3.desc
+	picture = GFX_report_event_generic_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = hi4311_event.3.a
+		custom_effect_tooltip = volunteer_cap_increase
+		add_ideas = TUR_volunteers_to_IRN
+	}
+}
+
+country_event = { # Iran requests return of states
+	id = hi4311_event.4
+	title = hi4311_event.4.t
+	desc = hi4311_event.4.desc
+	picture = GFX_report_event_generic_rally_3
+	
+	is_triggered_only = yes
+	after = {
+		hidden_effect = {
+			TUR = {
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+	
+	option = {
+		name = hi4311_event.4.a
+		custom_effect_tooltip = hi4311_event.4.a_tt
+		IRN = {
+			transfer_state = 1032
+			transfer_state = 421
+			transfer_state = 1033
+			transfer_state = 1036
+			transfer_state = 1657
+
+			add_ai_strategy = {
+				type = alliance
+				id = TUR
+				value = 420
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = TUR
+				value = 420
+			}
+		}
+		ai_chance = { base = 1 }
+	}
+	option = {
+		name = hi4311_event.4.b
+		custom_effect_tooltip = hi4311_event.4.b_tt
+		IRN = {
+			add_ai_strategy = {
+				type = alliance
+				id = TUR
+				value = -420
+			}
+			add_ai_strategy = {
+				type = befriend
+				id = TUR
+				value = -420
+			}
+			set_country_flag = IRN_antagonized_by_TUR
+			add_ai_strategy = {
+				type = antagonize
+				id = TUR
+				value = 420
+			}
+		}
+		ai_chance = { base = 0 }
+	}
+}
+
+country_event = { # Iran requests to join our faction
+	id = hi4311_event.5
+	title = hi4311_event.5.t
+	desc = hi4311_event.5.desc
+	picture = GFX_report_event_generic_handshake
+	
+	trigger = {
+		tag = TUR
+		TUR = { is_faction_leader = yes }
+		NOT = { IRN = { has_country_flag = IRN_antagonized_by_TUR } }
+	}
+	is_triggered_only = yes
+	
+	option = { # Sure thing dab me up fam
+		name = hi4311_event.5.a
+		add_to_faction = IRN
+		add_political_power = 10
+		IRN = { add_political_power = 10 }
+	}
+}
+
+news_event = { # NEWS: Constitutional Monarchy in Iran
+	id = hi4311_news_event.1
+	title = hi4311_news_event.1.t
+	desc = hi4311_news_event.1.desc
+	picture = hi4311_iran_constitutional_monarchy
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = hi4311_news_event.1.a
+		IRN = {
+			set_cosmetic_tag = IRN_shahdom
+		}
+	}
+}
+
+news_event = { # NEWS: Iran Retrieves States from Russia
+	id = hi4311_news_event.2
+	title = hi4311_news_event.2.t
+	desc = hi4311_news_event.2.desc
+	picture = GFX_news_event_generic_rally2
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = hi4311_news_event.2.a
+		IRN = {
+			set_cosmetic_tag = IRN_shahdom
+		}
+	}
+}
+
+news_event = { # NEWS: Japanese Civil War
+	id = hi4311_news_event.3
+	title = hi4311_news_event.3.t
+	desc = hi4311_news_event.3.desc
+	picture = GFX_news_event_generic_south_american_dreadnought_race
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = hi4311_news_event.3.a
+	}
+}

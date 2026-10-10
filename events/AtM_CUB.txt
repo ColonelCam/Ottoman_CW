@@ -1,0 +1,140 @@
+########################
+###   Cuban Events   ###
+########################
+
+add_namespace = AtM_CUB
+
+# CUB Event 03: Batista's Coup
+country_event = {
+	id = AtM_CUB.3
+	title = AtM_CUB.3.t
+	desc = AtM_CUB.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	after = {
+		country_event = { id = AtM_CUB.4 days = 64 random_days = 64 }
+	}
+	option = {
+		name = AtM_CUB.3.a
+		set_autocratic_no_elections = yes
+		promote_character = CUB_fulgencio_batista
+		add_stability = -0.1
+		hidden_effect = {
+			set_popularities = {
+				democratic = 5 #Social Conservatism
+				market_liberal = 4
+				social_liberal = 7
+				social_democrat = 13
+				communism = 25 #Communism
+				left_wing_radical = 0
+				neutrality = 46 #Paternal Autocracy
+				fascism = 0 #Nationalism
+			}
+			set_party_name = {
+				ideology = communism
+				long_name = CUB_July_26_party_long
+				name = CUB_July_26_party
+			}
+			country_event = {
+				id = AtM_CUB.4
+				days = 503
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# CUB Event 04: Revolution
+country_event = {
+	id = AtM_CUB.4
+	title = AtM_CUB.4.t
+	desc = AtM_CUB.4.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		start_civil_war = {
+			ideology = communism
+			ruling_party = ROOT
+			save_global_event_target_as = CUB_PCC
+			set_country_flag = CUB_M26_7
+			set_cosmetic_tag = PCC_M26_7
+			size = 0
+			capital = 1010
+			states = { 1010 }
+			set_party_name = {
+				ideology = left_wing_radical
+				long_name = CUB_July_26_party_long
+				name = CUB_July_26_party
+			}
+			set_party_name = {
+				ideology = social_democrat
+				long_name = CUB_July_26_party_long
+				name = CUB_July_26_party
+			}
+			hidden_effect = {
+				load_oob = PCC_1953
+				set_popularities = {
+					democratic = 0 #Social Conservatism
+					market_liberal = 0
+					social_liberal = 0
+					social_democrat = 5
+					communism = 60 #Communism
+					left_wing_radical = 10
+					neutrality = 25 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+				promote_character = CUB_fidel_castro
+				# promote = set as country leader
+				#promote_character = CUB_raul_castro
+				#promote_character = CUB_che_guevara
+			}
+			hidden_effect = {
+				add_popularity = {
+					ideology = communism 
+					popularity = -0.3
+				}
+				USA = { puppet = PREV }
+				PREV = {
+					declare_war_on = {
+						target = CUB
+						type = civil_war
+					}
+				}
+			}
+		}
+	}
+	
+	option = { #Play as the revolution
+		name = AtM_CUB.4.a
+		add_ideas = CUB_communist_rebellion
+		# PCC initialized in immediate
+		PCC = {
+			add_war_support = 0.2
+			set_eastern_aligned = yes
+			add_ideas = CUB_26th_movement
+		}
+		# Scoped separately for tooltip reasons
+		PCC = {
+			change_tag_from = ROOT
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = { #Play as the non-revolutionary government
+		name = AtM_CUB.4.b
+		trigger = { is_ai = no }
+		add_war_support = 0.05
+		add_ideas = CUB_communist_rebellion
+		# PCC initialized in immediate
+		PCC = {
+			add_war_support = 0.2
+			set_eastern_aligned = yes
+			add_ideas = CUB_26th_movement
+		}
+		ai_chance = { base = 100 }
+	}
+}

@@ -15,10 +15,7 @@ add_political_power = 49
 starting_train_buffer = 1
 
 add_ideas = {
-	AFG_mohammad_zahir_shah_ns
-	AFG_pashtunwali
-	AFG_countenance_shellshocked
-	AFG_tribal_revolts
+	
 }
 
 1270 = {

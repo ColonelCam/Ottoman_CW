@@ -1,0 +1,57 @@
+﻿l_english:
+    ## EVENTS
+    hi4311_event.1.t: "Leader of [IRN.GetNameDef] Passes Away"
+    hi4311_event.1.desc: "Reza Khan Mirpanj, founder and leader of the Iranian Constitutional Front, is dead. His son and designated successor, Mohammad Reza Mirpanj, has assumed leadership of the movement and begun preparing Iran for a decisive confrontation with the Islamist forces that oppose the front. The younger Mirpanj inherits a country still divided by the Second Great War and a movement that must now prove it can reunify Iran without its founding father.\n\nWe once defeated the Persians on the battlefield, and old suspicions remain, yet our true enemies have always been the British Empire, whose influence continues to suffocate the Middle East. A stable, friendly, and reunified Iran under Mohammad Reza Mirpanj would secure our eastern border, weaken London's grip on the region, and offer a valuable ally in the struggle for true Middle Eastern independence.\n\nIf we support the Constitutional Front, we can bury the hatchet and build a coalition of sovereign states against imperial interference."
+    hi4311_event.1.a: "Send our condolences to the Iranians."
+
+    hi4311_event.2.t: "[IRN.GetNameDefCap] Requests Recognition"
+    hi4311_event.2.desc: "[IRN.GetLeader] has formally petitioned the nations around the world, including the [TUR.GetAdjective] government- to grant official recognition to his administration as the primary governing authority in the Iranian War of Reunification. Many nations have either sided with or against [IRN.GetLeader], but on our terms, the choice is clear."
+    hi4311_event.2.a: "We Support The Constitutional Front."
+
+    hi4311_event.3.t: "Volunteer Corps to Iran"
+    hi4311_event.3.desc: "The Iranian War of Reunification will begin soon, as the militaries of both sides prepare for the coming conflict. If we are to emerge victorious, we must ensure our divisions are fully prepared for deployment to [IRN.GetName]. This struggle will decide the future of Iran and the balance of power in the region, and our readiness may prove decisive."
+    hi4311_event.3.a: "We'll be ready."
+
+    hi4311_event.4.t: "Iran Requests Return of States"
+    hi4311_event.4.desc: "The newly reunified [IRN.GetAdjective] government has approached [TUR.GetNameDefCap] with a formal proposal. In exchange for a twenty-year resource extraction agreement in the Iranian states currently under our administration, the annexed territories would be returned to the Iranian government in [IRN.capital.GetCapitalVictoryPointName], and allied relations between our two countries would be formalized. A strategic question that could reshape the balance of power in the region and determine whether Iran becomes our partner in the coming struggle against [ENG.GetNameDefCap].\n\nOur annexed Iranian territories have proven increasingly troublesome. Their people largely consider themselves Iranian and have sought reunification with Iran, causing persistent unrest and forcing us to devote scarce troops and administrators to their control. Many veterans of the Second Great War oppose any return of these lands, insisting that they were won at great cost and should be retained by oppressing force if necessary. Yet rejecting the Iranian proposal would alienate the newly reunified government, destroy any chance of a lasting alliance with Tehran, and sacrifice the prospect of a stronger, friendlier Iran standing beside us against [ENG.GetNameDefCap].\n\nIs it time to finally bury the hatchet? Have the Turko-Persian wars come to an end now that the country is known as Iran?"
+    hi4311_event.4.a: "The Turko-Persian Wars have ended. Sign the treaty."
+    hi4311_event.4.a_tt: "§GIran will be secured as an ally, seeking to join our faction if we have one.§!\n\n"
+    hi4311_event.4.b: "No. We will put down dissent by force."
+    hi4311_event.4.b_tt: "§RIran will be antagonized. The populace of the annexed states will continue to cause trouble.§!"
+    
+    hi4311_event.5.t: "Iran Requests to Join Our Faction"
+    hi4311_event.5.desc: "As a gesture of gratitude for [TUR.GetNameDefCap]'s support during the [IRN.GetAdjective] War of Reunification, the newly established government in [IRN.capital.GetCapitalVictoryPointName] under [IRN.GetLeader] has formally approached Constantinople. Tehran has requested full membership in our newly formed Middle Eastern faction, citing shared opposition to foreign interference and a common desire to secure the region's independence from outside powers. They are looking forward to writing a new chapter of [TUR.GetAdjective]-[IRN.GetAdjective] relations, one bound by cooperation instead of reckless rivalries."
+    hi4311_event.5.a: "Here's to writing a new chapter!"
+
+    hi4311_news_event.1.t: "Iran Reunified, Shahdom Proclaimed"
+    hi4311_news_event.1.desc: "After months of bitter and relentless fighting, the Constitutional Front has finally emerged victorious. The last organized resistance to its authority has collapsed, and the movement has moved swiftly to secure its triumph and proclaim a new order across Iran. In a solemn coronation ceremony, the Mirpanj family has crowned its new sovereign and formally adopted the name Pahlavi as the title of its dynasty. Mohammad Reza Pahlavi now sits upon the Peacock Throne as constitutional monarch of the newly proclaimed Shahdom of Iran.\n\nThe war of reunification is over and a new Iran has risen from the ashes, its government legitimized by victory as a new monarchy established at the helm. One that aims to fulfill the constitution this time around, unlike their Qajar predecessors."
+    hi4311_news_event.1.a: "Perhaps a Constitutional Monarchy is better for Iran."
+    
+    hi4311_news_event.2.t: "Iran Regains [SOV.GetAdjective]-Occupied Territories"
+    hi4311_news_event.2.desc: "After prolonged negotiations, the Iranian government has finally secured the return of its [SOV.GetAdjective]-occupied states from [SOV.GetNameDefCap]. The agreement, reached after weeks of quiet diplomacy, reportedly involved a series of political and economic concessions granted by Tehran, the full terms of which have not been made public.\n\nThe transfer marks a diplomatic victory for [IRN.GetLeader] and the newly reunified Iranian state, restoring a substantial portion of Iran's national territory and strengthening the government's claim to speak for the entire Iranian nation. Whether this agreement brings lasting stability or merely postpones future disputes remains to be seen."
+    hi4311_news_event.2.a: "The necessary compromises were made."
+    
+    hi4311_news_event.3.t: "Japanese Civil War"
+    hi4311_news_event.3.desc: "The long-standing division of Japan has erupted into open conflict. North and South Japan, the two states established after the Second Great War under the respective influence of [ENG.GetNameDefCap] and [SOV.GetNameDefCap], have formally entered a state of war, fighting along the demarcation line separating the two governments.\n\nThe origins of the conflict remain contested. Northern authorities accuse the South of provoking border incidents and harboring reactionary elements, while Southern officials claim the North is seeking to impose its will by force.\nFor the people of Japan, the outbreak of civil war marks the most serious crisis since the end of the Second Great War."
+    hi4311_news_event.3.a: "It was bound to happen."
+
+    ## IDEAS
+    volunteer_cap_increase: "§GVolunteer Cap Increase:§!\n"
+    TUR_volunteers_to_IRN: "Volunteers to [IRN.GetNameDefCap]"
+    
+    ## MISCELLANEOUS
+    IRN_shahdom: "Shahdom of Iran"
+    IRN_shahdom_DEF: "the Iranian Constitutional Kingdom"
+    IRN_shahdom_ADJ: "Iranian"
+    IRN_mohammad_reza_new_name: "Mohammad Reza Pahlavi"
+    
+    ## FOCUS
+    IRN_TUR_form_alliance: "Alliance with Iran"
+    IRN_TUR_form_alliance_desc: "The time has come to bury the hatchet with our old enemies and unite against the devilish entity that menaces the region. [ENG.GetNameDefCap]."
+    IRN_TUR_something_something_1: "Work With The Iranian Army"
+    IRN_TUR_something_something_1_desc: ""
+    IRN_TUR_ask_iran_to_hit_uk: "Ask Iran to Strike South"
+    IRN_TUR_ask_iran_to_hit_uk_desc: "Now that we are allies with Iran, we can leverage them in our war against [ENG.GetNameDefCap] and ask them to strike south with our support for a new front against the British empire."
+    
+    IRN_will_join_later_tt: "§Y[IRN.GetNameDefCap]§! may request to join §Y[TUR.GetNameDefCap]§! if relations remain §HFriendly§! and Iran is reunified under §H$IRN_democratic_party$§!\n"
+    IRN_will_be_more_prepared_tt: "£going_to_combat  §HIran will become more prepared to strike [ENG.GetNameDef] when the time comes.§!"

@@ -1,0 +1,27 @@
+
+state={
+	id=1485
+	name="STATE_1485" # Surkot
+
+	history={
+		owner = AFG
+		add_core_of = AFG
+		add_core_of = PSH
+		1948.6.1 = {
+			owner = AFG
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			15064 1
+		}
+	}
+
+	provinces={
+		15064 
+	}
+	manpower = 150000
+	state_category = pastoral
+	local_supplies=0.0 
+}

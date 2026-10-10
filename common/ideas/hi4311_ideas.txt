@@ -1,0 +1,51 @@
+ideas = {
+	country = {
+		looking_forward_idea_no_cancel = {
+			name = looking_forward_idea
+			picture = generic_victors_of_ww1
+			
+			allowed = {
+				always = yes
+			}
+			
+			allowed_civil_war = { always = yes }
+			
+			modifier = {
+				war_support_factor = 0.05
+				army_defence_factor = 0.15
+				army_attack_factor = 0.15
+			}
+		}
+		
+		PER_islamic_fanaticism = {
+			name = "Islamic Fanaticism"
+			picture = PER_islamic_traditions_ns
+			
+			allowed = {
+				always = yes
+			}
+			
+			allowed_civil_war = { always = yes }
+			
+			modifier = {
+				army_speed_factor = 0.1
+				attrition = -0.3
+			}
+			targeted_modifier = {
+				tag = IRN
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+	}
+	
+    hidden_ideas = {
+        TUR_volunteers_to_IRN = {
+			targeted_modifier = {
+                tag = IRN
+                send_volunteer_size = 3
+                send_volunteers_tension = -0.5
+            }
+		}
+    }
+}

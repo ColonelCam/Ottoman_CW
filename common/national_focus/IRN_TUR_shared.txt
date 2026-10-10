@@ -1,0 +1,152 @@
+### search_filters = { FOCUS_FILTER_POLITICAL} 
+### search_filters = { FOCUS_FILTER_RESEARCH }
+### search_filters = { FOCUS_FILTER_INDUSTRY }
+### search_filters = { FOCUS_FILTER_STABILITY }
+### search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+### search_filters = { FOCUS_FILTER_MANPOWER }
+### search_filters = { FOCUS_FILTER_ANNEXATION }
+
+shared_focus = {
+	id = IRN_TUR_form_alliance
+	icon = GFX_focus_IRN_end_the_foreign_occupation
+	prerequisite = { focus = TUR_the_new_middle_east focus = IRN_deploy_divisions }
+
+	x = 35 y = 2
+
+	offset = {
+		x = -25 y = 3
+		trigger = { has_focus_tree = iran_focus }
+	}
+	allow_branch = {
+		NOT = { IRN = { has_country_flag = IRN_antagonized_by_TUR } }
+	}
+
+	text_icon = SSB_PER_focus_style
+	joint_trigger = {
+  		SSB_basic_available_trigger = yes 
+	}
+
+	available = {
+		TUR = { is_faction_leader = yes }
+		custom_trigger_tooltip = {
+			tooltip = IRN_will_join_later_tt		
+			tag = IRN
+			IRN = {
+				every_core_state = { is_owned_by = PREV }
+				BLC = { exists = no }
+				PER = { exists = no }
+				NOT = { has_country_flag = IRN_antagonized_by_TUR }
+			}
+		}
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 7
+			tag = IRN
+		}
+	}
+	
+	cost = 4
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		TUR = {
+			country_event = hi4311_event.5
+		}
+	}
+}
+
+joint_focus = {
+	id = IRN_TUR_something_something_1
+	
+	icon = GFX_focus_IRN_remnants_of_the_army
+	
+	prerequisite = { focus = IRN_TUR_form_alliance }
+	
+	x = 0 y = 2
+	relative_position_id = IRN_TUR_form_alliance
+	cost = 4
+
+	text_icon = SSB_TUR_focus_style
+
+	available = {
+		tag = TUR
+		is_in_faction_with = IRN
+	}
+	offset = {
+		y = -1
+		trigger = { has_focus_tree = iran_focus }
+	}
+
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+
+	joint_trigger = {
+  		SSB_basic_available_trigger = yes 
+	}
+
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+		army_experience = 25
+		add_command_power = 25
+		custom_effect_tooltip = generic_skip_one_line_tt
+		IRN = {
+			air_experience = 25
+			navy_experience = 25
+			army_experience = 25
+			add_command_power = 25
+			custom_effect_tooltip = IRN_will_be_more_prepared_tt
+		}
+	}
+}
+
+joint_focus = {
+	id = IRN_TUR_ask_iran_to_hit_uk
+	
+	icon = GFX_focus_TUR_IRN_strike_south
+	
+	prerequisite = { focus = IRN_TUR_something_something_1 }
+	
+	x = 0 y = 1
+	relative_position_id = IRN_TUR_something_something_1
+	cost = 2
+
+	text_icon = SSB_TUR_focus_style
+
+	available = {
+		tag = TUR
+		is_in_faction_with = IRN
+		has_war_with = ENG
+	}
+
+	search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_AIR_XP }
+
+	joint_trigger = {
+  		SSB_basic_available_trigger = yes 
+	}
+
+	completion_reward = {
+		IF = {
+			limit = { has_war_with = ENG }
+			IRN = {
+				add_to_war = {
+					targeted_alliance = TUR
+					enemy = ENG
+					hostility_reason = asked_to_join
+				}
+			}
+			ELSE = {
+				effect_tooltip = {
+					IRN = {
+						declare_war_on = {
+							target = ENG
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+	}
+}
