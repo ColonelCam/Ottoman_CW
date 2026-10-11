@@ -7,7 +7,7 @@ characters={
 			}
 		}
 		country_leader={
-			ideology=kemalism
+			ideology=conservatism
 			traits={ milli_sef }
 			expire="1965.1.1.1"
 		}

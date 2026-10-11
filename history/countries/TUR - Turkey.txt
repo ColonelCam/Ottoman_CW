@@ -152,6 +152,7 @@ if = {
 }
 
 recruit_character = TUR_celal_bayar
+recruit_character = TUR_ismet_inonu
 
 set_popularities = {
 	democratic = 0 #Social Conservatism

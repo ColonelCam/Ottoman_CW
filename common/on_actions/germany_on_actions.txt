@@ -1,0 +1,26 @@
+on_actions = {
+
+    on_capitulation = {
+        effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = AUS }
+                    FROM = { original_tag = GER	}
+				}
+			FROM = {
+				white_peace = { tag = ROOT }
+				
+			annex_country = {
+				target = AUS
+				transfer_troops = no
+			}
+			release = SLO
+			release = CRO
+			release = HUN
+				
+				}
+			}
+        }
+    }
+
+}

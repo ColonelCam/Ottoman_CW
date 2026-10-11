@@ -14,7 +14,6 @@ focus_tree = {
 	default = no
 
 	continuous_focus_position = { x = 120 y = 200 }
-	shared_focus = IRN_TUR_form_alliance
 
 	focus = {
 		id = TUR_healthy_uncle_of_europe
@@ -26,7 +25,8 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_political_power = 50
+			add_stability = 0.1
 		}
 	}
 
@@ -42,7 +42,9 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			country_event = {
+				id = AtM_TUR.1
+			}
 		}
 	}
 
@@ -58,7 +60,14 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			292 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}			
 		}
 	}
 	
@@ -74,7 +83,20 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			856 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}				
+			}
+			292 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}				
+			}
 		}
 	}
 
@@ -91,7 +113,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			annex_country = {
+				target = SAU
+				transfer_troops = yes
+			}
 		}
 	}
 	
@@ -107,7 +132,9 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			country_event = {
+				id = AtM_TUR.2
+			}
 		}
 	}
 	
@@ -124,7 +151,13 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.20
+			}
+			country_event = {
+				id = AtM_TUR.3
+			}
 		}
 	}
 
@@ -141,7 +174,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
 		}
 	}
 
@@ -157,7 +193,18 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			ENG = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = denounced_colonisation
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = denounced_colonisation
+				}
+			}
 		}
 	}
 	
@@ -205,7 +252,8 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_war_support = 0.1
+			add_stability = 0.1
 		}
 	}
 ###
@@ -430,7 +478,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_timed_idea = {
+				idea = TUR_post_war_reconstruction
+				days = 365
+			}
 		}
 	}
 	
@@ -446,7 +497,18 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			291 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
 		}
 	}
 	
@@ -462,7 +524,18 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			107 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}	
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}				
+			}
 		}
 	}
 	
@@ -478,7 +551,14 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			339 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes					
+				}
+			}
 		}
 	}
 	
@@ -495,7 +575,14 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			797 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes					
+				}
+			}
 		}
 	}
 	
@@ -511,7 +598,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_ideas = free_trade
 		}
 	}
 ### Italy
@@ -544,5 +631,4 @@ focus_tree = {
 
 		}
 	}
-
 }

@@ -1,0 +1,210 @@
+﻿### West Germany - Bundeswehr Initial Formation (November 1955 - 1956)
+### Historical Context: Based on Army Structure 1 organization
+
+##### DIVISION TEMPLATES #####
+
+division_template = {
+	name = "Grenadierdivision"
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		
+		# Light artillery support
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+	}
+	
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }
+		anti_tank = { x = 0 y = 3 }
+	}
+	priority = 1
+}
+
+division_template = {
+	name = "Panzerdivision"
+	
+	regiments = {
+		# Panzer battalions
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+		
+		# Motorized infantry
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+	}
+	
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }
+		anti_tank = { x = 0 y = 3 }
+		maintenance_company = { x = 0 y = 4 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Panzergrenadierdivision"
+	
+	regiments = {
+		# Mixed panzer and motorized infantry
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+	}
+	
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 }
+		anti_tank = { x = 0 y = 3 }
+		maintenance_company = { x = 0 y = 4 }
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "Territorialdivision"
+	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	
+	support = {
+		engineer = { x = 0 y = 0 }
+		recon = { x = 0 y = 1 }
+	}
+	priority = 0
+}
+
+##### OOB #####
+
+units = {
+	##### HEER (ARMY) #####
+	
+	### I. Korps ###
+	division = {
+		name = "1. Grenadierdivision"
+		location = 9665 # Hannover
+		division_template = "Grenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	
+	division = {
+		name = "2. Grenadierdivision"
+		location = 9665 # Kassel
+		division_template = "Grenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	
+	division = {
+		name = "3. Grenadierdivision"
+		location = 9665 # Koblenz
+		division_template = "Grenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	### II. Korps ###
+	division = {
+		name = "4. Grenadierdivision"
+		location = 9665 # Regensburg
+		division_template = "Grenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	division = {
+		name = "5. Panzerdivision"
+		location = 9665 # Koblenz
+		division_template = "Panzerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	
+	division = {
+		name = "6. Panzergrenadierdivision"
+		location = 9665 # Neumünster
+		division_template = "Panzergrenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	### III. Korps ###
+	division = {
+		name = "7. Panzergrenadierdivision"
+		location = 9665 # Unna
+		division_template = "Panzergrenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	division = {
+		name = "10. Panzerdivision"
+		location = 9665 # Reutlingen
+		division_template = "Panzerdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	
+	division = {
+		name = "11. Panzergrenadierdivision"
+		location = 9665 # Oldenburg
+		division_template = "Panzergrenadierdivision"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	
+	### Territorial Army ###
+	division = {
+		name = "Territorialheer Nord"
+		location = 9665 # Hamburg
+		division_template = "Territorialdivision"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	
+	division = {
+		name = "Territorialheer Mitte"
+		location = 9665 # Frankfurt
+		division_template = "Territorialdivision"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	
+	division = {
+		name = "Territorialheer Süd"
+		location = 9665 # Munich
+		division_template = "Territorialdivision"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+}

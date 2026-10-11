@@ -1,0 +1,51 @@
+add_namespace = AtM_TUR
+
+country_event = {
+	id = AtM_TUR.1
+	title = AtM_TUR.1.t
+	desc = AtM_TUR.1.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.1.a
+		add_political_power = 20
+	}
+}
+
+country_event = {
+	id = AtM_TUR.2
+	title = AtM_TUR.2.t
+	desc = AtM_TUR.2.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.2.a
+		complete_national_focus = TUR_DP_victory
+	}
+	option = {
+		name = AtM_TUR.2.b
+		complete_national_focus = TUR_CHP_victory
+	}
+}
+
+country_event = {
+	id = AtM_TUR.3
+	title = AtM_TUR.3.t
+	desc = AtM_TUR.3.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.3.a
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+		promote_character = TUR_ismet_inonu
+	}
+}

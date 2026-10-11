@@ -1,0 +1,234 @@
+opinion_modifiers = {
+	
+	#opinion = {
+	#	value = 25
+	#	decay = 1 # per month
+	#	days = 7
+	#	trade = yes/no # default no
+	#}
+	
+	# Do not use in gameplay, used for a mechanic.
+	alignment_same_bloc = {
+		value = 10
+	}
+	
+	# Do not use in gameplay, used for a mechanic.
+	alignment_switched_bloc = {
+		value = -10
+	}
+	
+	# Do not use in gameplay, used for a mechanic.
+	alignment_economic_collaboration = {
+		trade = yes
+		value = 10
+	}
+	
+	trade_deals = {
+		trade = yes
+		value = 25
+	}
+	
+	economic_collaboration = {
+		trade = yes
+		value = 10
+	}
+	
+	nuclear_weapons = {
+		value = -15
+		decay = 1
+	}
+	
+	opened_embassy = {
+		value = 25
+	}
+	
+	paris_accord = {
+		value = 10
+		decay = 1
+	}
+	
+	red_comrades = {
+		value = 25
+		decay = 1
+	}
+	
+	hosts_american_brands = {
+		value = 15
+		decay = 1
+	}
+
+	asian_diplomacy = {
+		trade = yes
+		value = 20
+	}
+	
+	american_italian_relations = {
+		value = 50
+	}
+	
+	soviet_italian_relations = {
+		value = 50
+	}
+	
+	DRV_soviet_improve_relations_minor = {
+		value = 15
+	}
+	
+	DRV_soviet_improve_relations_mild = {
+		value = 35
+	}
+	
+	DRV_soviet_decrease_relations_mild = {
+		value = -35
+		decay = 5
+	}
+	
+	DRV_soviet_improve_relations_good = {
+		value = 65
+	}
+	
+	DRV_soviet_trade_improve_relations = {
+		value = 50
+		trade = yes
+	}
+	
+	DRV_usa_improve_relations = {
+		value = 25
+		days = 720
+	}
+	
+	WGR_collaboration = {
+		value = 25
+		days = 720
+	}
+	
+	WGR_give_up_claims = {
+		value = 20
+		days = 720
+	}
+	
+	WGR_anti_communist_policy = {
+		value = 100
+	}
+	
+	ITA_helped_hungary = {
+		value = 100
+	}
+	
+	ITA_betrayed_hungary = {
+		value = -25
+		days = 365
+	}
+	
+	korean_telephone = {
+		value = 10
+	}
+	
+	the_fallout = {
+		value = -15
+		days = 130
+	}
+	
+	reformed_relations = {
+		value = 10
+		days = 365
+	}
+
+	closer_cooperation = {
+		value = 15
+		days = 130
+	}
+	
+	refused_cooperation = {
+		value = -30
+		days = 365
+	}
+	
+	american_occupation = {
+		value = -30
+	}
+	
+	recognized_government = {
+		value = 15
+		days = 500
+	}
+	
+	soviet_american_cooperation = {
+		value = 20
+	}
+	
+	sino_american_cooperation = {
+		value = 20
+	}
+	
+	refused_to_send_arms = {
+		value = -10
+		decay = 1
+	}
+	
+	refused_to_send_aid = {
+		value = -30
+		decay = 1
+	}
+	
+	anti_russian_policy = {
+		value = -50
+		decay = 1
+	}
+	
+	the_protector_of_the_americas = {
+		value = 20
+		days = 1826
+	}
+	
+	the_oppressor_of_the_americas = {
+		value = -20
+		days = 1826
+	}
+	
+	USA_sworn_enemies = {
+		value = -100
+	}
+	
+	USA_the_two_red_giants = {
+		value = 15
+	}
+	
+	USA_anti_soviet_policy = {
+		value = -15
+	}
+	
+	USA_anti_prc_policy = {
+		value = -15
+	}
+	
+	USA_the_trust_broken = {
+		value = -50
+	}
+	
+	italian_san_marino_relations = {
+		value = 100
+	}
+	
+	italian_papacy_relations = {
+		value = 100
+	}
+	
+	WAD_denies_existence_of_israel = {
+		value = -50
+	}
+	
+	internationalism = {
+		value = 75
+		days = 365
+	}
+	
+	friendship = {
+		value = 25
+		days = 730
+	}
+	
+	denounced_colonisation = {
+		value = -50
+	}
+}
