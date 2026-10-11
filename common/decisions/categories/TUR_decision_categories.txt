@@ -4,9 +4,15 @@
 
 TUR_kuwait_war_category = {
 	icon = generic_foreign_policy
-	priority = 10
+	priority = 100
 	
 	allowed = {
 		original_tag = TUR
+	}
+	
+	visible_when_empty = no
+	
+	visible = {
+		has_completed_focus = TUR_ultimatum_to_britain
 	}
 }

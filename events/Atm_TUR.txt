@@ -101,11 +101,7 @@ country_event = {
 	
 	option = {
 		name = AtM_TUR.6.a
-		white_peace = ENG
-		annex_country = {
-            target = KUW
-            transfer_troops = no
-        }
+		activate_mission = TUR_hold_kuwait
 	}
 }
 
@@ -122,5 +118,23 @@ country_event = {
 		white_peace = ENG
 		add_stability = -0.2
 		add_war_support = -0.1
+	}
+}
+
+country_event = {
+	id = AtM_TUR.8
+	title = AtM_TUR.8.t
+	desc = AtM_TUR.8.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.8.a
+		white_peace = ENG
+		annex_country = {
+			target = KUW
+			transfer_troops = no
+		}
 	}
 }
