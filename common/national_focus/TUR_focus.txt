@@ -269,7 +269,9 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			country_event = {
+				id = AtM_TUR.4
+			}
 		}
 	}
 	
@@ -285,7 +287,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			add_timed_idea = {
+				idea = TUR_attack_britain
+				days = 270
+			}
 		}
 	}
 	
@@ -301,7 +306,9 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			country_event = {
+				id = AtM_TUR.5
+			}
 		}
 	}
 
@@ -453,7 +460,7 @@ focus_tree = {
 	
 	focus = {
 		id = TUR_invade_spain
-		icon = GFX_focus_generic_attack_nationalist_spain
+		icon = GFX_focus_generic_attack_nationalist_spain_focus
 		prerequisite = { focus = TUR_condemn_spain }
 		relative_position_id = TUR_condemn_spain
 		x = 0
@@ -463,7 +470,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			create_wargoal = {
+            type = annex_everything
+            target = SPR 
+			}			
 		}
 	}
 
@@ -612,7 +622,9 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			ITA = {
+				add_ideas = TUR_italy_democracy
+			}
 		}
 	}
 	
@@ -628,7 +640,10 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			set_autonomy = {
+            target = ITA
+            autonomous_state = autonomy_free
+			}
 		}
 	}
 }

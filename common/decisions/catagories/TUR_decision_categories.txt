@@ -1,0 +1,12 @@
+##################
+##### Ottomans ######
+##################
+
+TUR_kuwait_war_category = {
+	icon = generic_foreign_policy
+	priority = 10
+	
+	allowed = {
+		original_tag = TUR
+	}
+}

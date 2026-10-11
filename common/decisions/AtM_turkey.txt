@@ -1,0 +1,31 @@
+TUR_kuwait_war_category = {	
+	TUR_kuwait_war = {
+	
+		allowed = {
+			original_tag = TUR
+		}
+
+		available = {
+			TUR = {
+				has_war_with = ENG
+				controls_state = 656
+			}
+		}
+
+		icon = mission_icon
+
+		is_good = no
+
+		days_mission_timeout = 200
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			country_event = { id = AtM_TUR.7 }
+		}
+
+		timeout_effect = {
+			country_event = { id = AtM_TUR.6 }
+		}
+	}
+}

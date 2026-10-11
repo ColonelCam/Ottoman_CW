@@ -53,5 +53,32 @@ ideas = {
 				production_speed_buildings_factor = 0.15
 			}
 		}
+
+		TUR_italy_democracy = {
+		
+			allowed = {
+				original_tag = ITA
+			}
+			
+			picture = generic_stockpile_fuel
+			
+			modifier = {
+				democratic_drift = 0.1			
+			}
+		}
+
+		TUR_attack_britain = {
+		
+			allowed = {
+				original_tag = ITA
+			}
+			
+			picture = generic_stockpile_fuel
+			
+			modifier = {
+				army_attack_factor = 0.10
+				army_defence_factor = 0.10
+			}
+		}
 	}
 }
