@@ -1,0 +1,19 @@
+state={
+	id=1304 #Kinmen
+	name="STATE_1304"
+	history={
+		add_core_of = CHI
+		add_core_of = PRC
+		owner = PRC
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	provinces={
+		13748
+	}
+	manpower=5000
+	buildings_max_level_factor=1.000
+	state_category=tiny_island
+	local_supplies=0.000
+}

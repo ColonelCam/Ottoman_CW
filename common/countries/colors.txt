@@ -638,20 +638,20 @@ CIP = {
 	color_ui = rgb { 50 140 65 }
 }
 CHI = {
-	color = rgb { 255 222 114 }
-	color_ui = rgb { 255 222 114 }
+	color = rgb { 225 116 84 }
+	color_ui = rgb { 225 116 84 }
 }
 TWN = {
 	color = rgb { 173 24 46 }
 	color_ui = rgb { 173 24 46 }
 }
 SZC = {
-	color = rgb { 85 100 142 }
-	color_ui = rgb { 85 100 142 }
+	color = rgb { 255 185 135 }
+	color_ui = rgb { 255 185 135 }
 }
 XIK = {
-	color = rgb { 96 107 118 }
-	color_ui = rgb { 96 107 118 }
+	color = rgb { 255 185 135 }
+	color_ui = rgb { 255 185 135 }
 }
 SUI = {
 	color = rgb { 81 44 14 }

@@ -1,0 +1,41 @@
+state={
+	id=1615
+	name="STATE_1615"
+
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 1 #Cement Factory
+			4119 = {
+				naval_base = 3
+				bunker = 2
+			}		
+		}
+		victory_points = {
+			4119 8 #HaiPhong
+		}
+	}
+	provinces={
+		4119 15868 
+	}
+	manpower=302114
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

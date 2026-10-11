@@ -1,0 +1,22 @@
+state = {
+	id = 1306 #Penghu
+	name = "STATE_1306"
+	history = {
+		owner = PRC
+		add_claim_by = CHI
+		add_claim_by = PRC
+		buildings = {
+			infrastructure = 2
+		}
+		strategic_province_location = {
+			defensible_coastline = 13744
+		}
+	}
+	provinces = {
+		13744
+	}
+	manpower = 5000
+	buildings_max_level_factor = 1.000
+	state_category = tiny_island
+	local_supplies = 0.000
+}

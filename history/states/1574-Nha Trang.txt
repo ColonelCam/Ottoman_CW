@@ -1,0 +1,44 @@
+state={
+	id=1574
+	name="STATE_1574"
+	resources={
+		steel=1
+	}
+	history = {
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		owner = VIN
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 3
+			13562 = {
+				naval_base = 3
+			}
+			13561 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			13562 10 #Nha Trang
+		}
+		victory_points = {
+			13561 3 #Cam Ranh
+		}
+	}
+	provinces={
+		1285 13561 13562 15149 
+	}
+	manpower=352442
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

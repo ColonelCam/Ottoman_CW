@@ -1,0 +1,33 @@
+################
+##### PRC ######
+################
+
+PRC_the_peoples_republic = {
+	icon = generic_communism
+	priority = 200
+	
+	allowed = {
+		original_tag = PRC
+	}
+	visible = {
+		NOT = { has_cosmetic_tag = PRC_MAN }
+	}
+}
+
+PRC_seize_manchuria = {
+	icon = infiltration
+	picture = GFX_decision_cat_picture_chi_infiltration
+	
+	priority = 100
+	
+	allowed = {
+		original_tag = PRC
+		CHI = {
+			exists = no
+		}
+	}
+
+	visible = {
+		country_exists = MAN
+	}
+}

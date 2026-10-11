@@ -1,0 +1,42 @@
+state={
+	id=1523
+	name="STATE_1523"
+	resources={
+		coal = 22
+	}
+	history={
+		owner = VNT
+		add_core_of = VIN
+		add_claim_by = HNG
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 2
+			15183 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			15183 2 #Ha Long
+		}
+	}
+	provinces={
+		15183 
+	}
+	manpower=100000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=0.000
+}

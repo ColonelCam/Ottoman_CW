@@ -1,0 +1,35 @@
+state={
+	id=1575
+	name="STATE_1575"
+	resources={
+		steel=2
+	}
+	history = {
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		owner = VIN
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			4334 5 # Quy Nhon
+		}
+	}
+	provinces={
+		1300 4334 15155 
+	}
+	manpower=652442
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

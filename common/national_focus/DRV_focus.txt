@@ -1,0 +1,7612 @@
+focus_tree = {
+	id = drv_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 150
+			tag = DRV
+		}
+	}
+	default = no
+	continuous_focus_position = {
+		x = 1000
+		y = 1600
+	}
+	focus = {
+		id = DRV_addressing_the_problems
+		icon = GFX_focus_ETH_addressing_the_league_of_nations
+		x = 43
+		y = -5
+		cost = 0
+		
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = 5
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_feed_the_peasants
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		x = -2
+		y = 1
+		cost = 1
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		ai_will_do = {
+			factor = 75
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			ROOT = {
+				country_event = AtM_DRV.11
+			}
+			hidden_effect = {
+				country_event = {
+					id = "AtM_DRV.52"
+					days = 7
+				}
+			}
+		}
+		cancelable = no
+		relative_position_id = DRV_addressing_the_problems
+		prerequisite = {
+			focus = DRV_addressing_the_problems
+		}
+		select_effect = {
+			complete_national_focus = DRV_feed_the_peasants
+		}
+		available = {
+			has_country_flag = DRV_famine_flag_EVENT_CHAIN
+		}
+	}
+	focus = {
+		id = DRV_increase_production
+		icon = GFX_goal_generic_production2
+		x = 2
+		y = 1
+		cost = 2
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_lack_industry_tt
+				DRV_check_idic_if_yes = no
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_increase_production_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 40
+					compare = less_than
+				}
+			}
+		}
+		relative_position_id = DRV_addressing_the_problems
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.10.15
+			}
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+		prerequisite = {
+			focus = DRV_addressing_the_problems
+		}
+	}
+	focus = {
+		id = DRV_dissolve_foreign_businesses
+		icon = GFX_goal_generic_production
+		x = 1
+		y = 1
+		cost = 1
+		available = {}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_lack_industry_tt
+				DRV_check_idic_if_yes = no
+			}
+		}
+		prerequisite = {
+			focus = DRV_increase_production
+		}
+		relative_position_id = DRV_increase_production
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 75
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_form_the_industrial_ministries
+		icon = GFX_goal_generic_production
+		x = 72
+		y = 2
+		cost = 0
+		available = {
+			always = no
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 75
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = 5
+		}
+		prerequisite = {
+			focus = DRV_adequate_our_treasury
+		}
+	}
+	focus = {
+		id = DRV_establish_an_economy
+		icon = GFX_focus_RAJ_special_economic_zones
+		x = -1
+		y = 1
+		cost = 1
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_increase_production
+		}
+		relative_position_id = DRV_increase_production
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 75
+		}
+		completion_reward = {
+			ROOT = {
+				country_event = AtM_DRV.12
+			}
+			add_political_power = 5
+		}
+	}
+	focus = {
+		id = DRV_dai_tieng_noi_viet_nam
+		icon = GFX_focus_generic_radio_communication
+		x = 61
+		y = -4
+		cost = 2
+		available = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 40
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.3.1
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			add_political_power = -50
+			add_ideas = DRV_radio_national_idea
+			hidden_effect = {
+				country_event = {
+					id = AtM_DRV.50
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_peoples_army
+		}
+		select_effect = {
+			complete_national_focus = DRV_dai_tieng_noi_viet_nam
+		}
+	}
+	focus = {
+		id = DRV_anti_opposition_campaign
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 2
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_dai_tieng_noi_viet_nam
+		}
+		relative_position_id = DRV_dai_tieng_noi_viet_nam
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 25
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_tran_huy_lieu
+		}
+	}
+	focus = {
+		id = DRV_maximum_censorship
+		icon = GFX_goal_generic_propaganda
+		x = 1
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_anti_opposition_campaign
+		}
+		mutually_exclusive = {
+			focus = DRV_minimum_censorship
+		}
+		relative_position_id = DRV_anti_opposition_campaign
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = DRV_max_cen_idea
+		}
+	}
+	focus = {
+		id = DRV_minimum_censorship
+		icon = GFX_focus_ARG_defense_and_democracy
+		x = -1
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_anti_opposition_campaign
+		}
+		mutually_exclusive = {
+			focus = DRV_maximum_censorship
+		}
+		relative_position_id = DRV_anti_opposition_campaign
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = DRV_min_cen_idea
+		}
+	}
+	focus = {
+		id = DRV_the_media_industry
+		icon = GFX_focus_SWE_radiotjanst
+		x = -1
+		y = 1
+		cost = 7
+		available = {}
+		prerequisite = {
+			focus = DRV_dai_tieng_noi_viet_nam
+		}
+		relative_position_id = DRV_dai_tieng_noi_viet_nam
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DRV_radio_national_idea
+				}
+				swap_ideas = {
+					remove_idea = DRV_radio_national_idea
+					add_idea = DRV_state_media_idea
+				}
+			}
+			else = {
+				add_political_power = 125
+			}
+		}
+	}
+	focus = {
+		id = DRV_form_hang_phim_truyen_viet_nam
+		icon = GFX_focus_DRV_HPTVN
+		x = 0
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_the_media_industry
+		}
+		relative_position_id = DRV_the_media_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.02
+		}
+	}
+	focus = {
+		id = DRV_propaganda_campaigns
+		icon = GFX_goal_generic_propaganda
+		x = 2
+		y = 1
+		cost = 2
+		available = {}
+		prerequisite = {
+			focus = DRV_form_hang_phim_truyen_viet_nam
+		}
+		prerequisite = {
+			focus = DRV_minimum_censorship
+			focus = DRV_maximum_censorship
+		}
+		relative_position_id = DRV_form_hang_phim_truyen_viet_nam
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_war_support = 0.15
+		}
+	}
+	focus = {
+		id = DRV_underground_workshops
+		icon = GFX_focus_generic_military_industry
+		x = 55
+		y = -4
+		cost = 5
+		available = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.3.1
+			}
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		prerequisite = {
+			focus = DRV_peoples_army
+		}
+	}
+	focus = {
+		id = DRV_mass_production
+		icon = GFX_focus_generic_reorient_production
+		x = -1
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_underground_workshops
+		}
+		mutually_exclusive = {
+			focus = DRV_quality_over_quantity
+		}
+		relative_position_id = DRV_underground_workshops
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = DRV_mass_production_idea
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+	}
+	focus = {
+		id = DRV_quality_over_quantity
+		icon = GFX_focus_generic_combined_arms
+		x = 1
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_underground_workshops
+		}
+		mutually_exclusive = {
+			focus = DRV_mass_production
+		}
+		relative_position_id = DRV_underground_workshops
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_ideas = DRV_quality_over_quantity_idea
+			add_offsite_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+	}
+	focus = {
+		id = DRV_state_armaments
+		icon = GFX_focus_GER_demonstration_of_military_achievements
+		x = 1
+		y = 1
+		cost = 8
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_state_armaments_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 25
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_mass_production
+			focus = DRV_quality_over_quantity
+		}
+		relative_position_id = DRV_mass_production
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = arms_factory
+				level = -2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_quality_over_quantity_idea
+				}
+				swap_ideas = {
+					remove_idea = DRV_quality_over_quantity_idea
+					add_idea = DRV_quality_over_quantity_idea_2
+					days = 2130
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_mass_production_idea
+				}
+				swap_ideas = {
+					remove_idea = DRV_mass_production_idea
+					add_idea = DRV_mass_production_idea_2
+					days = 2130
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_equipment_standardization
+		icon = GFX_focus_generic_purchase_mechanized_equipment
+		x = 0
+		y = 1
+		cost = 8
+		available = {}
+		prerequisite = {
+			focus = DRV_state_armaments
+		}
+		relative_position_id = DRV_state_armaments
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = DRV_standard_equipment
+		}
+	}
+	focus = {
+		id = DRV_arm_the_people
+		icon = GFX_focus_GER_the_peoples_victory
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+			DRV_check_japanese_army_presence = yes
+		}
+		bypass = {
+			DRV_check_japanese_army_presence = no
+		}
+		prerequisite = {
+			focus = DRV_equipment_standardization
+		}
+		prerequisite = {
+			focus = DRV_propaganda_campaigns
+		}
+		prerequisite = {
+			focus = DRV_pva
+		}
+		relative_position_id = DRV_equipment_standardization
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DRV_standard_equipment
+				}
+				swap_ideas = {
+					remove_idea = DRV_standard_equipment
+					add_idea = DRV_arm_the_people_idea
+					days = 1200
+				}
+			}
+			else = {
+				add_ideas = DRV_arm_the_people_idea
+			}
+		}
+	}
+	focus = {
+		id = DRV_adequate_our_treasury
+		icon = GFX_focus_generic_monetary_union
+		x = 85
+		y = 1
+		cost = 5
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_establish_the_monetary_system_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 35
+					compare = less_than
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 55
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.6.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 50
+			DRV_reduce_economic_crisis = yes
+			ROOT = {
+				country_event = AtM_DRV.10
+			}
+		}
+	}
+	focus = {
+		id = DRV_social_reform
+		icon = GFX_focus_FIN_socialist_welfare
+		x = 2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_adequate_our_treasury
+		}
+		relative_position_id = DRV_adequate_our_treasury
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_electrification
+		icon = GFX_focus_generic_electrification
+		x = 0
+		y = 1
+		cost = 6
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_electrification_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 25
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_adequate_our_treasury
+		}
+		relative_position_id = DRV_adequate_our_treasury
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = DRV_electrification_idea
+				days = 200
+			}
+			custom_effect_tooltip = DRV_electrification_tt2
+		}
+	}
+	focus = {
+		id = DRV_siege_post_offices
+		icon = GFX_focus_generic_annex_country_2
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+			DRV_check_japanese_army_presence = yes
+		}
+		bypass = {
+			DRV_check_japanese_army_presence = no
+		}
+		prerequisite = {
+			focus = DRV_electrification
+		}
+		relative_position_id = DRV_electrification
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 120
+			subtract_from_variable = {
+				var = DRV_japanese_army_presence_urban
+				value = 5
+				tooltip = DRV_siege_post_offices_tt
+			}
+			DRV_round_variables_to_0_japr = yes
+		}
+	}
+	focus = {
+		id = DRV_new_telecommunications
+		icon = GFX_focus_generic_radio_communication
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_siege_post_offices
+		}
+		relative_position_id = DRV_siege_post_offices
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = DRV_telecommunications_idea
+		}
+	}
+	focus = {
+		id = DRV_radar_research
+		icon = GFX_goal_generic_radar
+		x = -1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_new_telecommunications
+		}
+		relative_position_id = DRV_new_telecommunications
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_air_vietnam
+		icon = GFX_focus_generic_long_range_aircraft
+		x = -3
+		y = 1
+		cost = 4
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_air_vietnam_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 1
+					compare = less_than
+				}
+				check_variable = {
+					var = DRV_japanese_army_presence_rural
+					value = 5
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_new_telecommunications
+		}
+		relative_position_id = DRV_new_telecommunications
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_massive_wheat_farming
+		icon = GFX_focus_generic_agricultural_subsidies
+		x = 0
+		y = 1
+		cost = 4
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_siege_post_offices
+		}
+		relative_position_id = DRV_siege_post_offices
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_political_power = -100
+			DRV_reduce_food_crisis_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_import_tractors
+		icon = GFX_focus_generic_improve_roads
+		x = -1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_massive_wheat_farming
+		}
+		relative_position_id = DRV_massive_wheat_farming
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_economic_direction
+		icon = GFX_focus_generic_soviet_politics
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_import_tractors
+		}
+		relative_position_id = DRV_import_tractors
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_the_socialist_way
+		icon = GFX_focus_prc_agrarian_socialism
+		x = -1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_economic_direction
+		}
+		mutually_exclusive = {
+			focus = DRV_the_capitalist_way
+		}
+		relative_position_id = DRV_economic_direction
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1956.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_the_three_year_plan
+		icon = GFX_focus_generic_central_planning
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_socialist_way
+		}
+		relative_position_id = DRV_the_socialist_way
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_establish_major_industrial_complex
+		icon = GFX_focus_generic_industry_3
+		x = -1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_three_year_plan
+		}
+		relative_position_id = DRV_the_three_year_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_invest_in_industries
+		icon = GFX_focus_generic_industry_2
+		x = 1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_three_year_plan
+		}
+		relative_position_id = DRV_the_three_year_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_the_first_five_year_plan
+		icon = GFX_goal_generic_soviet_construction
+		x = 1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_establish_major_industrial_complex
+		}
+		prerequisite = {
+			focus = DRV_invest_in_industries
+		}
+		relative_position_id = DRV_establish_major_industrial_complex
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_infrastructure_investments
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -3
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_first_five_year_plan
+		}
+		relative_position_id = DRV_the_first_five_year_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_heavy_industry_investments
+		icon = GFX_focus_generic_industry_1
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_first_five_year_plan
+		}
+		relative_position_id = DRV_the_first_five_year_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_agriculture_expansion
+		icon = GFX_focus_generic_farmland
+		x = 3
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_first_five_year_plan
+		}
+		relative_position_id = DRV_the_first_five_year_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_food_crisis_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_invest_in_local_industries
+		icon = GFX_focus_DEN_schleswigian_farmers
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_heavy_industry_investments
+			focus = DRV_infrastructure_investments
+			focus = DRV_agriculture_expansion
+		}
+		relative_position_id = DRV_heavy_industry_investments
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_expand_trading_sector
+		icon = GFX_goal_generic_trade
+		x = 2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_heavy_industry_investments
+			focus = DRV_infrastructure_investments
+			focus = DRV_agriculture_expansion
+		}
+		relative_position_id = DRV_heavy_industry_investments
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_new_education_programs
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_invest_in_local_industries
+			focus = DRV_expand_trading_sector
+		}
+		relative_position_id = DRV_invest_in_local_industries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_reduce_poverty
+		icon = GFX_focus_ARG_anti_corruption_policies
+		x = 2
+		y = 1
+		cost = 4
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_invest_in_local_industries
+			focus = DRV_expand_trading_sector
+		}
+		relative_position_id = DRV_invest_in_local_industries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_stability = 0.05
+			DRV_reduce_economic_crisis = yes
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_healthcare_development
+		icon = GFX_focus_generic_bad_medical
+		x = 6
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_invest_in_local_industries
+			focus = DRV_expand_trading_sector
+		}
+		relative_position_id = DRV_invest_in_local_industries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_finish_the_first_five_year_plan
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 4
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_new_education_programs
+			focus = DRV_healthcare_development
+			focus = DRV_reduce_poverty
+		}
+		relative_position_id = DRV_new_education_programs
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_the_capitalist_way
+		icon = GFX_focus_generic_economic_recovery
+		x = 1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_economic_direction
+		}
+		mutually_exclusive = {
+			focus = DRV_the_socialist_way
+		}
+		relative_position_id = DRV_economic_direction
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_international_cooperation
+		icon = GFX_goal_generic_military_deal
+		x = -1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_capitalist_way
+			focus = DRV_the_socialist_way
+		}
+		relative_position_id = DRV_the_capitalist_way
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_open_up_the_country
+		icon = GFX_goal_generic_major_alliance
+		x = 2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_capitalist_way
+		}
+		relative_position_id = DRV_the_capitalist_way
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = free_trade
+		}
+	}
+	focus = {
+		id = DRV_international_trading_expansion
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_open_up_the_country
+		}
+		relative_position_id = DRV_open_up_the_country
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+		}
+	}
+	focus = {
+		id = DRV_develop_danang_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_international_trading_expansion
+		}
+		relative_position_id = DRV_international_trading_expansion
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_develop_haiphong_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_international_trading_expansion
+		}
+		relative_position_id = DRV_international_trading_expansion
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_develop_saigon_port
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_international_trading_expansion
+		}
+		relative_position_id = DRV_international_trading_expansion
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_cam_ranh_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_develop_danang_port
+			focus = DRV_develop_haiphong_port
+			focus = DRV_develop_saigon_port
+		}
+		relative_position_id = DRV_develop_danang_port
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_allow_foreign_culture
+		icon = GFX_focus_PER_limit_foreign_influence
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_cam_ranh_expansion
+		}
+		relative_position_id = DRV_cam_ranh_expansion
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_join_united_nations
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_the_capitalist_way
+		}
+		relative_position_id = DRV_the_capitalist_way
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_international_loan
+		icon = GFX_goal_generic_dangerous_deal
+		x = 0
+		y = 1
+		cost = 4
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_join_united_nations
+		}
+		relative_position_id = DRV_join_united_nations
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+		}
+	}
+	focus = {
+		id = DRV_foreign_settlements
+		icon = GFX_focus_ETH_invite_italian_settlers
+		x = 2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_join_united_nations
+		}
+		relative_position_id = DRV_join_united_nations
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_invite_foreign_businesses
+		icon = GFX_focus_BRA_pro_business_taxes
+		x = 4
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_join_united_nations
+		}
+		relative_position_id = DRV_join_united_nations
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_sea_cooperation
+		icon = GFX_focus_generic_monetary_union
+		x = 1
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_invite_foreign_businesses
+			focus = DRV_foreign_settlements
+		}
+		relative_position_id = DRV_foreign_settlements
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_form_seaec
+		icon = GFX_focus_SOV_international_union_of_soviet_republics
+		x = -2
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_sea_cooperation
+		}
+		relative_position_id = DRV_sea_cooperation
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_boost_tourism
+		icon = GFX_focus_TUR_reconfigure_turkish_foreign_policy
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_sea_cooperation
+		}
+		relative_position_id = DRV_sea_cooperation
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_the_reformist_movement
+		icon = GFX_focus_RAJ_khadi_movement
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_boost_tourism
+			focus = DRV_form_seaec
+		}
+		relative_position_id = DRV_boost_tourism
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_compete_with_major_powers
+		icon = GFX_goal_generic_major_war
+		x = -3
+		y = 1
+		cost = 4
+		available = {}
+		prerequisite = {
+			focus = DRV_allow_foreign_culture
+			focus = DRV_the_reformist_movement
+		}
+		relative_position_id = DRV_the_reformist_movement
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_form_the_national_bank
+		icon = GFX_focus_PER_national_bank
+		x = 2
+		y = 1
+		cost = 5
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_form_the_national_bank_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 3
+					compare = less_than
+				}
+				check_variable = {
+					var = DRV_japanese_army_presence_rural
+					value = 10
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_siege_post_offices
+		}
+		relative_position_id = DRV_siege_post_offices
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+		}
+	}
+	focus = {
+		id = DRV_nationalization
+		icon = GFX_focus_DEN_heavy_regulations
+		x = -1
+		y = 1
+		cost = 10
+		available = {}
+		prerequisite = {
+			focus = DRV_form_the_national_bank
+		}
+		relative_position_id = DRV_form_the_national_bank
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_timed_idea = {
+				idea = DRV_assets_seized_idea
+				days = 180
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_establish_bidv
+		icon = GFX_focus_DRV_BIDV
+		x = 2
+		y = 0
+		cost = 8
+		available = {}
+		prerequisite = {
+			focus = DRV_form_the_national_bank
+		}
+		relative_position_id = DRV_nationalization
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 35
+		}
+	}
+	focus = {
+		id = DRV_create_the_dong
+		icon = GFX_focus_CHL_devalue_the_peso_export
+		x = -2
+		y = 1
+		cost = 7
+		available = {}
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		prerequisite = {
+			focus = DRV_adequate_our_treasury
+		}
+		relative_position_id = DRV_adequate_our_treasury
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1947.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+			add_timed_idea = {
+				idea = DRV_abolishing_indochina_piastre_idea
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = DRV_economic_stabilization
+		icon = GFX_focus_RAJ_special_economic_zones
+		x = 0
+		y = 1
+		cost = 7
+		available = {}
+		bypass = {
+			has_idea = DRV_developing_economy_2
+		}
+		prerequisite = {
+			focus = DRV_create_the_dong
+		}
+		relative_position_id = DRV_create_the_dong
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = 50
+			DRV_reduce_economic_crisis = yes
+		}
+	}
+	focus = {
+		id = DRV_ministry_of_industry
+		icon = GFX_focus_AFG_a_modern_economy
+		x = -11
+		y = 1
+		cost = 3
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_ministry_of_industry_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 30
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_form_the_industrial_ministries
+		}
+		relative_position_id = DRV_form_the_industrial_ministries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_pham_van_dong
+		}
+	}
+	focus = {
+		id = DRV_ministry_of_agriculture
+		icon = GFX_focus_prc_agrarian_socialism
+		x = -5
+		y = 1
+		cost = 3
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_ministry_of_agriculture_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_rural
+					value = 30
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_form_the_industrial_ministries
+		}
+		relative_position_id = DRV_form_the_industrial_ministries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_nguyen_manh_ha
+		}
+	}
+	focus = {
+		id = DRV_ministry_of_resources
+		icon = GFX_focus_generic_resource_extraction
+		x = 0
+		y = 1
+		cost = 3
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_ministry_of_resources_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_rural
+					value = 35
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_form_the_industrial_ministries
+		}
+		relative_position_id = DRV_form_the_industrial_ministries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_le_van_hien
+			show_ideas_tooltip = DRV_nguyen_van_xuan
+		}
+	}
+	focus = {
+		id = DRV_expand_coal_mining
+		icon = GFX_focus_generic_coal_mining
+		x = -2
+		y = 2
+		cost = 7
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_resources
+		}
+		relative_position_id = DRV_ministry_of_resources
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					has_resources_amount = {
+						resource = coal
+						amount > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = coal
+					amount = 8
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					has_resources_amount = {
+						resource = coal
+						amount > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = coal
+					amount = 8
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_iron_mining
+		icon = GFX_focus_generic_mining_industry
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+			has_war = no
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_resources
+		}
+		relative_position_id = DRV_ministry_of_resources
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					has_resources_amount = {
+						resource = steel
+						amount > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					has_resources_amount = {
+						resource = steel
+						amount > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_coffee_exports
+		icon = GFX_focus_generic_coffee
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+			has_war = no
+			OR = {
+				controls_state = 286
+				controls_state = 1078
+				controls_state = 1079
+			}
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_resources
+		}
+		relative_position_id = DRV_ministry_of_resources
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_increase_rubber_production
+		icon = GFX_focus_generic_rubber
+		x = 3
+		y = 1
+		cost = 7
+		available = {
+			has_war = no
+			OR = {
+				controls_state = 286
+				controls_state = 1078
+				controls_state = 1079
+			}
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_resources
+		}
+		relative_position_id = DRV_ministry_of_resources
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_utilize_french_rubber_plantations
+		icon = GFX_focus_generic_rubber_plantations
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+			has_war = no
+			OR = {
+				controls_state = 286
+				controls_state = 1078
+				controls_state = 1079
+			}
+		}
+		prerequisite = {
+			focus = DRV_increase_rubber_production
+		}
+		relative_position_id = DRV_increase_rubber_production
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_stability = -0.05
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_core_of = DGR
+					has_resources_amount = {
+						resource = rubber
+						amount > 1
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_achieve_resource_self_sufficiency
+		icon = GFX_focus_GER_autarky_achieved
+		x = -1
+		y = 2
+		cost = 8
+		available = {}
+		prerequisite = {
+			focus = DRV_utilize_french_rubber_plantations
+		}
+		prerequisite = {
+			focus = DRV_coffee_exports
+		}
+		prerequisite = {
+			focus = DRV_iron_mining
+		}
+		prerequisite = {
+			focus = DRV_expand_coal_mining
+		}
+		relative_position_id = DRV_iron_mining
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = DRV_ministry_of_healthcare
+		icon = GFX_focus_AUS_bring_phonix_insurance_from_the_ashes
+		x = 5
+		y = 1
+		cost = 3
+		available = {}
+		prerequisite = {
+			focus = DRV_form_the_industrial_ministries
+		}
+		relative_position_id = DRV_form_the_industrial_ministries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_pham_ngoc_thach
+		}
+	}
+	focus = {
+		id = DRV_form_hoi_chu_thap_do_viet_nam
+		icon = GFX_focus_generic_red_flags
+		x = 0
+		y = 1
+		cost = 3
+		available = {}
+		prerequisite = {
+			focus = DRV_ministry_of_healthcare
+		}
+		relative_position_id = DRV_ministry_of_healthcare
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.11.1
+			}
+		}
+		completion_reward = {
+			add_ideas = DRV_red_cross_idea
+		}
+	}
+	focus = {
+		id = DRV_field_hospitals
+		icon = GFX_focus_generic_field_hostpital
+		x = 0
+		y = 1
+		cost = 4
+		available = {}
+		bypass = {
+			has_tech = tech_field_hospital2
+		}
+		prerequisite = {
+			focus = DRV_form_hoi_chu_thap_do_viet_nam
+		}
+		relative_position_id = DRV_form_hoi_chu_thap_do_viet_nam
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			set_technology = {
+				tech_field_hospital2 = 1
+				popup = yes
+			}
+		}
+	}
+	focus = {
+		id = DRV_ministry_of_education_and_research
+		icon = GFX_focus_research
+		x = 7
+		y = 1
+		cost = 3
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_ministry_of_education_and_research_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_urban
+					value = 20
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_form_the_industrial_ministries
+		}
+		relative_position_id = DRV_form_the_industrial_ministries
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DRV_vu_dinh_hoe
+		}
+	}
+	focus = {
+		id = DRV_form_the_hanoi_university
+		icon = GFX_focus_generic_university_3
+		x = 0
+		y = 1
+		cost = 8
+		available = {}
+		prerequisite = {
+			focus = DRV_ministry_of_education_and_research
+		}
+		relative_position_id = DRV_ministry_of_education_and_research
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1957.1.1
+			}
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = DRV_industrialization_effort
+		icon = GFX_focus_generic_industry_3
+		x = -3
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_ministry_of_industry
+		}
+		relative_position_id = DRV_ministry_of_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	focus = {
+		id = DRV_repair_old_factories
+		icon = GFX_focus_generic_industry_2
+		x = -1
+		y = 1
+		cost = 3
+		available = {}
+		prerequisite = {
+			focus = DRV_ministry_of_industry
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_lack_industry_tt
+				DRV_check_idic_if_yes = no
+			}
+		}
+		relative_position_id = DRV_ministry_of_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_lack_of_industry_mod = yes
+			add_timed_idea = {
+				idea = DRV_repair_factories_idea
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = DRV_light_industry
+		icon = GFX_focus_generic_industry_1
+		x = 1
+		y = 1
+		cost = 3
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_lack_industry_tt
+				DRV_check_idic_if_yes = no
+			}
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_ministry_of_industry
+		}
+		relative_position_id = DRV_ministry_of_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = DRV_rural_development
+		icon = GFX_focus_generic_industry_2
+		x = -2
+		y = 1
+		cost = 6
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_rural_development_tt
+				check_variable = {
+					var = DRV_japanese_army_presence_rural
+					value = 15
+					compare = less_than
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_light_industry
+		}
+		prerequisite = {
+			focus = DRV_repair_old_factories
+		}
+		relative_position_id = DRV_light_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_tay_nguyen_industrialization
+		icon = GFX_focus_generic_industry_1
+		x = -3
+		y = 1
+		cost = 6
+		available = {
+			controls_state = 1079
+			controls_state = 286
+			controls_state = 1078
+			has_war = no
+		}
+		prerequisite = {
+			focus = DRV_rural_development
+		}
+		prerequisite = {
+			focus = DRV_industrialization_effort
+		}
+		relative_position_id = DRV_rural_development
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						state = 286
+						state = 1079
+						state = 1078
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						state = 286
+						state = 1079
+						state = 1078
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_clamp_down_separatists
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 0
+		y = 1
+		cost = 6
+		available = {}
+		prerequisite = {
+			focus = DRV_tay_nguyen_industrialization
+		}
+		relative_position_id = DRV_tay_nguyen_industrialization
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = DRV_ethnic_minority_state
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = DRV_ethnic_minority_state
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_central_development_plan
+		icon = GFX_focus_generic_industry_1
+		x = -1
+		y = 1
+		cost = 6
+		available = {
+			controls_state = 1080
+			controls_state = 1574
+			controls_state = 1576
+			controls_state = 1575
+			controls_state = 1577
+			controls_state = 1062
+			controls_state = 1014
+			controls_state = 1081
+			controls_state = 1578
+			controls_state = 1580
+			controls_state = 1017
+			controls_state = 1581
+		}
+		prerequisite = {
+			focus = DRV_rural_development
+		}
+		relative_position_id = DRV_rural_development
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						state = 1080
+						state = 1574
+						state = 1576
+						state = 1575
+						state = 1577
+						state = 1062
+						state = 1014
+						state = 1081
+						state = 1578
+						state = 1580
+						state = 1017
+						state = 1581
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						state = 1080
+						state = 1574
+						state = 1576
+						state = 1575
+						state = 1577
+						state = 1062
+						state = 1014
+						state = 1081
+						state = 1578
+						state = 1580
+						state = 1017
+						state = 1581
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_north_development_plan
+		icon = GFX_focus_generic_industry_3
+		x = 0
+		y = 1
+		cost = 6
+		available = {
+			controls_state = 1016
+		}
+		prerequisite = {
+			focus = DRV_light_industry
+		}
+		relative_position_id = DRV_light_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 1733
+						state = 1084
+						state = 1620
+						state = 1622
+						state = 671
+						state = 1621
+						state = 1521
+						state = 1083
+						state = 1082
+						state = 1734
+						state = 1522
+						state = 1619
+						state = 1015
+						state = 1617
+						state = 1618
+						state = 1616
+						state = 1736
+						state = 1612
+						state = 1613
+						state = 1614
+						state = 1615
+						state = 1523
+						state = 1016
+						state = 1524
+						state = 1731
+						state = 1730
+						state = 1581
+						state = 1017
+						state = 1580
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = DRV_establish_z1_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+		cost = 6
+		available = {
+			controls_state = 1612
+			1612 = {
+				free_building_slots = {
+					building = arms_factory
+					size > 2
+					include_locked = yes
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_north_development_plan
+		}
+		relative_position_id = DRV_north_development_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			1612 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_south_development_plan
+		icon = GFX_focus_generic_industry_2
+		x = 2
+		y = 1
+		cost = 6
+		available = {
+			controls_state = 1013
+		}
+		prerequisite = {
+			focus = DRV_light_industry
+		}
+		relative_position_id = DRV_light_industry
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						is_core_of = CCH
+						state = 1080
+						state = 1574
+						state = 1576
+						state = 1575
+						state = 1577
+						state = 1062
+						state = 1014
+						state = 1081
+						state = 1578
+						state = 1580
+						state = 1017
+						state = 1581
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = DRV_improve_irrigation_systems
+		icon = GFX_focus_BEL_dam_the_consequences
+		x = 65
+		y = 4
+		cost = 6
+		available = {}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_food_crisis_mod = yes
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_agriculture
+		}
+	}
+	focus = {
+		id = DRV_new_communal_farming
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		cost = 5
+		available = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = DRV_new_communal_farming_idea
+				days = 720
+			}
+			DRV_reduce_food_crisis_mod = yes
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_agriculture
+		}
+		relative_position_id = DRV_ministry_of_agriculture
+	}
+	focus = {
+		id = DRV_reduce_dependency_on_foreign_rice
+		icon = GFX_focus_generic_farmland
+		x = 69
+		y = 4
+		cost = 6
+		bypass = {
+			AND = {
+				has_idea = DRV_developing_economy_2
+				custom_trigger_tooltip = {
+					tooltip = DRV_has_idea_famine_tt
+					DRV_check_famine_if_yes = no
+				}
+			}
+		}
+		available = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+			DRV_reduce_food_crisis_mod = yes
+		}
+		prerequisite = {
+			focus = DRV_ministry_of_agriculture
+		}
+	}
+	focus = {
+		id = DRV_remove_risk_of_new_famine
+		icon = GFX_focus_generic_welfare
+		x = 2
+		y = 1
+		cost = 8
+		available = {
+			has_idea = DRV_aftermath_of_food_crisis
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		prerequisite = {
+			focus = DRV_improve_irrigation_systems
+		}
+		prerequisite = {
+			focus = DRV_new_communal_farming
+		}
+		prerequisite = {
+			focus = DRV_reduce_dependency_on_foreign_rice
+		}
+		relative_position_id = DRV_improve_irrigation_systems
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_food_crisis_mod = yes
+			add_stability = 0.05
+		}
+	}
+	focus = {
+		id = DRV_cai_cach_ruong_lua_mien_bac
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		x = 3
+		y = 1
+		cost = 6
+		available = {
+			DRV_check_famine_if_yes = no
+			has_completed_focus = DRV_promote_the_land_reform
+		}
+		prerequisite = {
+			focus = DRV_north_development_plan
+			focus = DRV_remove_risk_of_new_famine
+		}
+		relative_position_id = DRV_north_development_plan
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 150
+		}
+		completion_reward = {
+			add_political_power = 150
+			set_variable = {
+				var = DRV_ccrlmb_var
+				value = 0
+				tooltip = "e"
+			}
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+		}
+	}
+	focus = {
+		id = DRV_land_and_wealth_confiscation
+		icon = GFX_focus_generic_land_reclamation
+		x = -3
+		y = 1
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 12
+				compare = less_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_cai_cach_ruong_lua_mien_bac
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			custom_effect_tooltip = DRV_ccrlmb_var_a
+			add_to_variable = {
+				DRV_ccrlmb_var = 20
+			}
+		}
+	}
+	focus = {
+		id = DRV_chinese_advisors
+		icon = GFX_focus_chi_one_china_policy
+		x = -3
+		y = 2
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 12
+				compare = less_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_land_and_wealth_confiscation
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			custom_effect_tooltip = DRV_ccrlmb_var_a
+			add_to_variable = {
+				DRV_ccrlmb_var = 20
+			}
+		}
+	}
+	focus = {
+		id = DRV_force_laws
+		icon = GFX_focus_AUS_lawmaking_leniency
+		x = 3
+		y = 1
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 12
+				compare = less_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_cai_cach_ruong_lua_mien_bac
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			custom_effect_tooltip = DRV_ccrlmb_var_a
+			add_to_variable = {
+				DRV_ccrlmb_var = 20
+			}
+		}
+	}
+	focus = {
+		id = DRV_increase_land_reform_speed
+		icon = GFX_focus_SWE_socialist_reforms
+		x = 3
+		y = 2
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 12
+				compare = less_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_force_laws
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			custom_effect_tooltip = DRV_ccrlmb_var_a
+			add_to_variable = {
+				DRV_ccrlmb_var = 20
+			}
+		}
+	}
+	focus = {
+		id = DRV_nationalization_farms
+		icon = GFX_focus_generic_farmland
+		x = 0
+		y = 1
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 12
+				compare = less_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_cai_cach_ruong_lua_mien_bac
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			custom_effect_tooltip = DRV_ccrlmb_var_a
+			add_to_variable = {
+				DRV_ccrlmb_var = 20
+			}
+		}
+	}
+	focus = {
+		id = DRV_begin_the_land_reform
+		icon = GFX_focus_generic_land_reclamation
+		x = 0
+		y = 2
+		cost = 6
+		available = {
+			check_variable = {
+				var = DRV_ccrlmb_var
+				value = 100
+				compare = greater_than_or_equals
+			}
+		}
+		prerequisite = {
+			focus = DRV_nationalization_farms
+		}
+		relative_position_id = DRV_cai_cach_ruong_lua_mien_bac
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_ccrlmb_var_t
+			hidden_effect = {
+				country_event = AtM_DRV.71
+			}
+		}
+	}
+	focus = {
+		id = DRV_success_lrf
+		icon = GFX_focus_generic_economic_recovery
+		x = -1
+		y = 2
+		cost = 6
+		available = {}
+		prerequisite = {
+			focus = DRV_begin_the_land_reform
+		}
+		mutually_exclusive = {
+			focus = DRV_fail_lrf
+		}
+		relative_position_id = DRV_begin_the_land_reform
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			DRV_reduce_economic_crisis = yes
+		}
+	}
+	focus = {
+		id = DRV_fail_lrf
+		icon = GFX_focus_RAJ_a_private_military
+		x = 1
+		y = 2
+		cost = 6
+		available = {}
+		prerequisite = {
+			focus = DRV_begin_the_land_reform
+		}
+		mutually_exclusive = {
+			focus = DRV_success_lrf
+		}
+		relative_position_id = DRV_begin_the_land_reform
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {}
+	}
+	focus = {
+		id = DRV_binh_dan_hoc_vu_focus
+		icon = GFX_focus_DRV_bdhv
+		x = -6
+		y = 1
+		cost = 1
+		available = {
+			has_country_flag = DRV_iliteracy_flag_EVENT_CHAIN
+		}
+		relative_position_id = DRV_addressing_the_problems
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			if = {
+				limit = {
+					has_idea = DRV_illiteracy_2
+				}
+				swap_ideas = {
+					remove_idea = DRV_illiteracy_2
+					add_idea = DRV_illiteracy_3
+					days = 90
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_illiteracy_1
+				}
+				swap_ideas = {
+					remove_idea = DRV_illiteracy_1
+					add_idea = DRV_illiteracy_2
+					days = 90
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_illiteracy
+				}
+				swap_ideas = {
+					remove_idea = DRV_illiteracy
+					add_idea = DRV_illiteracy_1
+					days = 90
+				}
+			}
+			custom_effect_tooltip = DRV_binhdanhocvu_tt
+			hidden_effect = {
+				country_event = {
+					id = AtM_DRV.51
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_addressing_the_problems
+		}
+		select_effect = {
+			complete_national_focus = DRV_binh_dan_hoc_vu_focus
+		}
+		bypass = {
+			OR = {
+				has_idea = DRV_illiteracy_4
+				has_idea = DRV_illiteracy_5
+			}
+		}
+	}
+	focus = {
+		id = DRV_standardize_the_language
+		icon = GFX_focus_BEL_multi_language_courses
+		x = 1
+		y = 1
+		cost = 1
+		available = {
+			has_idea = DRV_illiteracy_3
+		}
+		relative_position_id = DRV_binh_dan_hoc_vu_focus
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			add_political_power = 10
+			add_stability = -0.03
+			if = {
+				limit = {
+					has_idea = DRV_illiteracy_3
+				}
+				swap_ideas = {
+					remove_idea = DRV_illiteracy_3
+					add_idea = DRV_illiteracy_4
+					days = 90
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_illiteracy_4
+				}
+				swap_ideas = {
+					remove_idea = DRV_illiteracy_4
+					add_idea = DRV_illiteracy_5
+					days = 90
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_binh_dan_hoc_vu_focus
+		}
+		bypass = {
+			has_idea = DRV_illiteracy_5
+		}
+	}
+	focus = {
+		id = DRV_reeducate_campaigns
+		icon = GFX_focus_NOR_moscows_education_centers
+		x = -1
+		y = 1
+		cost = 1
+		available = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+				is_nationalist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_binh_dan_hoc_vu_focus
+		}
+		relative_position_id = DRV_binh_dan_hoc_vu_focus
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			add_political_power = -25
+			if = {
+				limit = {
+					is_communist = yes
+				}
+				add_timed_idea = {
+					idea = DRV_reeducate_campaigns_c_idea
+					days = 180
+				}
+			}
+			if = {
+				limit = {
+					is_nationalist = yes
+				}
+				add_timed_idea = {
+					idea = DRV_reeducate_campaigns_f_idea
+					days = 180
+				}
+			}
+			if = {
+				limit = {
+					is_left_wing_radical = yes
+				}
+				add_timed_idea = {
+					idea = DRV_reeducate_campaigns_lwr_idea
+					days = 180
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_remove_unfair_taxes
+		icon = GFX_goal_continuous_boost_freedom
+		x = 5
+		y = 1
+		cost = 2
+		available = {
+			NOT = {
+				has_country_flag = unfair_taxes_removed_flag_DRV
+				OR = {
+					is_democratic = yes
+					is_autocratic = yes
+					is_market_liberal = yes
+				}
+			}
+			has_country_flag = DRV_taxes_flag_EVENT_CHAIN
+		}
+		relative_position_id = DRV_addressing_the_problems
+		search_filters = { FOCUS_FILTER_STABILITY }
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.10.1
+			}
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = DRV_unfair_taxes_removed_idea
+				days = 180
+			}
+			set_country_flag = unfair_taxes_removed_flag_DRV
+		}
+		prerequisite = {
+			focus = DRV_addressing_the_problems
+		}
+	}
+	focus = {
+		id = DRV_develop_our_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 0
+		y = 1
+		cost = 7
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_lack_industry_tt
+				DRV_check_idic_if_yes = no
+			}
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_industrialization_effort
+		}
+		relative_position_id = DRV_industrialization_effort
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		ai_will_do = {
+			factor = 7
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = DRV_industry_bonus
+				bonus = 0.5
+				ahead_reduction = 0.5
+				uses = 1
+				category = industry
+			}
+			DRV_reduce_lack_of_industry_mod = yes
+		}
+	}
+	focus = {
+		id = DRV_proclaim_the_republic
+		icon = GFX_focus_DRV_declaration_of_independence
+		x = 25
+		y = -5
+		cost = 0
+		available = {
+			always = no
+		}
+		bypass = {
+			always = yes
+		}
+		allow_branch = {
+			DRV = {
+				has_war = yes
+			}
+		}
+		bypass_effect = {
+			country_event = {
+				id = AtM_DRV.1
+				hours = 5
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 500
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = DRV_internal_enemies
+		icon = GFX_focus_generic_improve_the_administration
+		x = -3
+		y = 1
+		cost = 2
+		available = {
+			1016 = {
+				is_controlled_by = ROOT
+			}
+			has_country_flag = DRV_has_proclaimed_idp
+		}
+		prerequisite = {
+			focus = DRV_proclaim_the_republic
+		}
+		relative_position_id = DRV_proclaim_the_republic
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			add_political_power = 50
+			add_stability = 0.025
+		}
+		select_effect = {
+			ROOT = {
+				country_event = AtM_DRV.38
+			}
+		}
+	}
+	focus = {
+		id = DRV_external_enemies
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 3
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+		}
+		prerequisite = {
+			focus = DRV_proclaim_the_republic
+		}
+		relative_position_id = DRV_proclaim_the_republic
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			add_war_support = 0.05
+		}
+		select_effect = {
+			ROOT = {
+				country_event = AtM_DRV.37
+			}
+		}
+		bypass = {
+			has_global_flag = CCH_indochina_DRV_victory
+		}
+	}
+	focus = {
+		id = DRV_war_of_resistance
+		icon = GFX_focus_generic_total_war
+		x = 0
+		y = 1
+		cost = 1
+		available = {
+			has_defensive_war = yes
+		}
+		relative_position_id = DRV_external_enemies
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable
+			add_timed_idea = {
+				idea = DRV_kick_the_colonialists_out_idea
+				days = 100
+			}
+		}
+		prerequisite = {
+			focus = DRV_external_enemies
+		}
+		select_effect = {
+			ROOT = {
+				country_event = AtM_DRV.39
+			}
+		}
+	}
+	focus = {
+		id = DRV_negotiate_with_fra
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 1
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+			war_length_with = {
+				tag = FRA
+				months > 3
+			}
+		}
+		prerequisite = {
+			focus = DRV_war_of_resistance
+		}
+		relative_position_id = DRV_war_of_resistance
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.3.1
+			}
+		}
+		completion_reward = {
+			FRA = {
+				country_event = {
+					id = AtM_DRV.72
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				FRA = {
+					NOT = {
+						has_country_flag = FRA_fighting_the_DRV
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_siege_saigon_cholon
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 3
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+			1087 = {
+				is_controlled_by = ROOT
+			}
+			1013 = {
+				OR = {
+					is_controlled_by = FRA
+					is_controlled_by = IDC
+					is_controlled_by = VIN
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_war_of_resistance
+		}
+		mutually_exclusive = {
+			focus = DRV_isolate_saigon_cholon
+		}
+		relative_position_id = DRV_war_of_resistance
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 75
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			1013 = {
+				add_dynamic_modifier = {
+					modifier = DRV_siege_saigon_dynamic_modifier
+					scope = DRV
+					days = 120
+				}
+			}
+			1732 = {
+				add_dynamic_modifier = {
+					modifier = DRV_siege_saigon_dynamic_modifier
+					scope = DRV
+					days = 120
+				}
+			}
+			1504 = {
+				add_dynamic_modifier = {
+					modifier = DRV_siege_saigon_dynamic_modifier
+					scope = DRV
+					days = 120
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				FRA = {
+					NOT = {
+						has_country_flag = FRA_fighting_the_DRV
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_isolate_saigon_cholon
+		icon = GFX_goal_generic_defence
+		x = 5
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+			any_core_state = {
+				OR = {
+					state = 1078
+					state = 1504
+					state = 1658
+					state = 1505
+					state = 1503
+					state = 1506
+				}
+				is_controlled_by = ROOT
+			}
+			1013 = {
+				OR = {
+					is_controlled_by = FRA
+					is_controlled_by = IDC
+					is_controlled_by = VIN
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_war_of_resistance
+		}
+		mutually_exclusive = {
+			focus = DRV_siege_saigon_cholon
+		}
+		relative_position_id = DRV_war_of_resistance
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+		ai_will_do = {
+			factor = 75
+		}
+		completion_reward = {
+			1087 = {
+				add_dynamic_modifier = {
+					modifier = DRV_encircle_saigon_dynamic_modifier
+					scope = DRV
+					days = 90
+				}
+			}
+			1504 = {
+				add_dynamic_modifier = {
+					modifier = DRV_encircle_saigon_dynamic_modifier
+					scope = DRV
+					days = 90
+				}
+			}
+			1658 = {
+				add_dynamic_modifier = {
+					modifier = DRV_encircle_saigon_dynamic_modifier
+					scope = DRV
+					days = 90
+				}
+			}
+			1505 = {
+				add_dynamic_modifier = {
+					modifier = DRV_encircle_saigon_dynamic_modifier
+					scope = DRV
+					days = 90
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				FRA = {
+					NOT = {
+						has_country_flag = FRA_fighting_the_DRV
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_aid_the_southern_resistance_government
+		icon = GFX_focus_generic_support_drv_communism
+		x = -1
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+			country_exists = CCH
+			CCH = {
+				has_war_with = FRA
+				is_subject_of = ROOT
+			}
+		}
+		prerequisite = {
+			focus = DRV_war_of_resistance
+		}
+		relative_position_id = DRV_war_of_resistance
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_manpower = -50000
+			CCH = {
+				add_manpower = 50000
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 500
+					producer = DRV
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 50
+					producer = DRV
+				}
+			}
+			add_opinion_modifier = {
+				target = CCH
+				modifier = huge_increase
+			}
+		}
+		bypass = {
+			OR = {
+				AND = {
+					CCH = {
+						is_subject_of = FRA
+						has_war_with = ROOT
+					}
+					FRA = {
+						NOT = {
+							has_country_flag = FRA_fighting_the_DRV
+						}
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_trung_bo_khang_chien
+		icon = GFX_goal_generic_war_with_comintern
+		x = -3
+		y = 1
+		cost = 1
+		available = {
+			has_war_with = FRA
+			any_state = {
+				OR = {
+					state = 1078
+					state = 1080
+					state = 1574
+					state = 286
+					state = 1576
+					state = 1079
+					state = 1575
+					state = 1062
+					state = 1577
+					state = 1014
+					state = 1081
+				}
+				is_controlled_by = DRV
+			}
+		}
+		prerequisite = {
+			focus = DRV_war_of_resistance
+		}
+		relative_position_id = DRV_war_of_resistance
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 1078
+						state = 1080
+						state = 1574
+						state = 286
+						state = 1576
+						state = 1079
+						state = 1575
+						state = 1062
+						state = 1577
+						state = 1014
+						state = 1081
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = DRV_resistance_modifier_state
+					days = 360
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						any_core_state = {
+							OR = {
+								state = 1078
+								state = 1080
+								state = 1574
+								state = 286
+								state = 1576
+								state = 1079
+								state = 1575
+								state = 1062
+								state = 1577
+								state = 1014
+								state = 1081
+							}
+							is_controlled_by = DRV
+						}
+					}
+					FRA = {
+						NOT = {
+							has_country_flag = FRA_fighting_the_DRV
+						}
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_the_spark_of_a_long_term_conflict
+		icon = GFX_focus_PRC_stoke_the_flames
+		x = 2
+		y = 2
+		cost = 0
+		available = {
+			always = no
+		}
+		bypass_effect = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+		prerequisite = {
+			focus = DRV_trung_bo_khang_chien
+			focus = DRV_aid_the_southern_resistance_government
+		}
+		relative_position_id = DRV_trung_bo_khang_chien
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+		bypass = {
+			OR = {
+				AND = {
+					has_war_with = FRA
+					FRA = {
+						NOT = {
+							has_country_flag = FRA_fighting_the_DRV
+						}
+					}
+					any_country = {
+						OR = {
+							original_tag = FRA
+							is_subject_of = FRA
+						}
+						controls_state = 1615
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_toan_quoc_khang_chien
+		icon = GFX_focus_CHL_union_of_hispanic_republics
+		x = -4
+		y = 1
+		cost = 2
+		available = {
+			has_war_with = FRA
+		}
+		prerequisite = {
+			focus = DRV_the_spark_of_a_long_term_conflict
+		}
+		relative_position_id = DRV_the_spark_of_a_long_term_conflict
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.2
+		}
+		bypass = {
+			OR = {
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_retreat_into_the_jungles
+		icon = GFX_focus_generic_jungle_troops
+		x = -1
+		y = 1
+		cost = 2
+		available = {
+			has_war_with = FRA
+		}
+		prerequisite = {
+			focus = DRV_toan_quoc_khang_chien
+		}
+		mutually_exclusive = {
+			focus = DRV_hold_the_major_cities
+		}
+		relative_position_id = DRV_toan_quoc_khang_chien
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = DRV_retreat_into_the_jungles_idea
+				years = 5
+			}
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 1082
+						state = 1617
+						state = 1619
+						state = 1015
+						state = 1734
+						state = 1522
+						state = 1521
+						state = 1083
+						state = 671
+						state = 1622
+						state = 1084
+						state = 1733
+						state = 1621
+						state = 1581
+						state = 1580
+						state = 1017
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = DRV_resistance_modifier_state
+					days = 720
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				has_global_flag = CCH_indochina_stalemate
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_hold_the_major_cities
+		icon = GFX_goal_generic_fortify_city
+		x = 1
+		y = 1
+		cost = 2
+		available = {
+			has_war_with = FRA
+		}
+		prerequisite = {
+			focus = DRV_toan_quoc_khang_chien
+		}
+		mutually_exclusive = {
+			focus = DRV_retreat_into_the_jungles
+		}
+		relative_position_id = DRV_toan_quoc_khang_chien
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 1612
+						state = 1016
+						state = 1614
+						state = 1613
+						state = 1736
+						state = 1616
+						state = 1523
+						state = 1615
+						state = 1581
+						state = 1620
+						state = 1619
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = DRV_resistance_modifier_state
+					days = 720
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				has_global_flag = CCH_indochina_stalemate
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_secure_the_tay_bac_region
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = -1
+		y = 1
+		relative_position_id = DRV_the_spark_of_a_long_term_conflict
+		available = {
+			OR = {
+				controls_state = 1083
+				controls_state = 1082
+				controls_state = 1521
+				controls_state = 1621
+				controls_state = 1084
+				controls_state = 1733
+				controls_state = 1622
+				controls_state = 1620
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_spark_of_a_long_term_conflict
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					controls_state = 1083
+				}
+				1083 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1082
+				}
+				1082 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1521
+				}
+				1521 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1621
+				}
+				1621 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1084
+				}
+				1084 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1733
+				}
+				1733 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1622
+				}
+				1622 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1620
+				}
+				1620 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_secure_the_north_central_coast
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 1
+		y = 1
+		relative_position_id = DRV_the_spark_of_a_long_term_conflict
+		available = {
+			OR = {
+				controls_state = 1581
+				controls_state = 1017
+				controls_state = 1580
+				controls_state = 1579
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_spark_of_a_long_term_conflict
+		}
+		cost = 2
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					controls_state = 1581
+				}
+				1581 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1017
+				}
+				1017 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1579
+				}
+				1579 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 1580
+				}
+				1580 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state_2
+						scope = DRV
+						days = 720
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_the_fight_between_a_tiger_and_an_elephant
+		icon = GFX_focus_PER_war_elephant
+		x = 1
+		y = 1
+		cost = 2
+		available = {
+			has_war_with = FRA
+			any_country = {
+				OR = {
+					original_tag = FRA
+					is_subject_of = FRA
+				}
+				controls_state = 1620
+			}
+			has_global_flag = FRA_operation_castor_flag
+		}
+		relative_position_id = DRV_secure_the_tay_bac_region
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			unlock_decision_tooltip = {
+				decision = DRV_prepare_for_dien_bien_phu
+				show_effect_tooltip = yes
+				show_modifiers = yes
+			}
+			hidden_effect = {
+				set_country_flag = DRV_unlock_dbp_dec
+			}
+		}
+		bypass = {
+			OR = {
+				has_global_flag = CCH_indochina_stalemate
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+		prerequisite = {
+			focus = DRV_secure_the_tay_bac_region
+		}
+		prerequisite = {
+			focus = DRV_secure_the_north_central_coast
+		}
+	}
+	focus = {
+		id = DRV_the_geneve_accords
+		icon = GFX_focus_CHI_negotiate_the_nine_powers_treaty
+		x = 0
+		y = 1
+		cost = 2
+		available = {
+			always = no
+			has_country_flag = DRV_france_sues_for_peace
+		}
+		bypass = {
+			OR = {
+				has_global_flag = CCH_indochina_stalemate
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_fight_between_a_tiger_and_an_elephant
+			focus = DRV_hold_the_major_cities
+			focus = DRV_retreat_into_the_jungles
+			focus = DRV_incursions_in_laos
+			focus = DRV_ca_mau_base_area
+		}
+		relative_position_id = DRV_the_fight_between_a_tiger_and_an_elephant
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			news_event = AtM_indochina.18
+		}
+	}
+	focus = {
+		id = DRV_second_anti_viet_minh_front
+		icon = GFX_goal_generic_war_with_comintern
+		x = 105
+		y = -2
+		cost = 2
+		available = {
+			is_communist = yes
+			has_country_flag = DRV_has_proclaimed_idp
+		}
+		bypass = {
+			NOT = {
+				is_communist = yes
+			}
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition
+				}
+				swap_ideas = {
+					remove_idea = DRV_political_opposition
+					add_idea = DRV_political_opposition_2
+				}
+			}
+			else = {
+				add_ideas = DRV_political_opposition_2
+			}
+		}
+		allow_branch = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_anti_vietminh_national_congress
+		icon = GFX_focus_DRV_1st_anti_vm_congress
+		x = 9
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_our_separate_path
+			focus = DRV_reach_out_to_the_imperialists
+		}
+		available = {
+			is_communist = yes
+		}
+		bypass = {
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_second_anti_viet_minh_front
+		}
+		relative_position_id = DRV_second_anti_viet_minh_front
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_rally_the_parties
+		icon = GFX_focus_eng_the_kings_party
+		x = 0
+		y = 1
+		cost = 2
+		available = {
+			is_communist = yes
+		}
+		bypass = {
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_anti_vietminh_national_congress
+		}
+		relative_position_id = DRV_anti_vietminh_national_congress
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_free_political_prisoners
+		icon = GFX_goal_continuous_boost_freedom
+		x = -4
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_rally_the_parties
+			focus = DRV_unite_vietnamese_nationalists
+		}
+		relative_position_id = DRV_rally_the_parties
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_bribe_the_military
+		icon = GFX_focus_ARG_crackdown_on_corruption
+		x = -1
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_free_political_prisoners
+		}
+		relative_position_id = DRV_free_political_prisoners
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_request_help_from_china
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		x = 1
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_free_political_prisoners
+		}
+		relative_position_id = DRV_free_political_prisoners
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_a_new_army
+		icon = GFX_focus_chi_army_reform
+		x = 1
+		y = 1
+		cost = 2
+		available = {
+			has_civil_war = no
+		}
+		prerequisite = {
+			focus = DRV_request_help_from_china
+			focus = DRV_bribe_the_military
+		}
+		relative_position_id = DRV_bribe_the_military
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_construct_the_national_research_academy
+		icon = GFX_focus_research
+		x = -1
+		y = 1
+		cost = 2
+		available = {
+			has_civil_war = no
+		}
+		prerequisite = {
+			focus = DRV_a_new_army
+		}
+		relative_position_id = DRV_a_new_army
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_purge_the_communists
+		icon = GFX_focus_SOV_military_purge
+		x = 1
+		y = 1
+		cost = 2
+		available = {
+			NOT = {
+				is_communist = yes
+				has_civil_war = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_a_new_army
+		}
+		relative_position_id = DRV_a_new_army
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_increase_support_from_the_people
+		icon = GFX_focus_GER_the_peoples_victory
+		x = 0
+		y = 2
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_rally_the_parties
+		}
+		relative_position_id = DRV_rally_the_parties
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_infiltrate_the_communists
+		icon = GFX_goal_generic_propaganda
+		x = -1
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_increase_support_from_the_people
+		}
+		relative_position_id = DRV_increase_support_from_the_people
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_secure_ammunition_deposits
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = 1
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_increase_support_from_the_people
+		}
+		relative_position_id = DRV_increase_support_from_the_people
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_the_on_nhu_hau_incident
+		icon = GFX_focus_generic_total_war
+		x = -1
+		y = 1
+		cost = 2
+		available = {
+			communism < 0.4
+		}
+		bypass = {
+			has_civil_war = yes
+		}
+		prerequisite = {
+			focus = DRV_secure_ammunition_deposits
+		}
+		prerequisite = {
+			focus = DRV_infiltrate_the_communists
+		}
+		relative_position_id = DRV_secure_ammunition_deposits
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_follow_the_democratic_model
+		icon = GFX_goal_support_democracy
+		x = -1
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_kickstart_the_next_october_revolution
+		}
+		available = {
+			OR = {
+				is_autocratic = yes
+				is_democratic = yes
+				is_nationalist = yes
+				is_left_wing_radical = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_on_nhu_hau_incident
+		}
+		relative_position_id = DRV_the_on_nhu_hau_incident
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_kickstart_the_next_october_revolution
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		x = 1
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_follow_the_democratic_model
+		}
+		available = {
+			OR = {
+				is_autocratic = yes
+				is_democratic = yes
+				is_nationalist = yes
+				is_left_wing_radical = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_on_nhu_hau_incident
+		}
+		relative_position_id = DRV_the_on_nhu_hau_incident
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_our_separate_path
+		icon = GFX_goal_anti_comintern_pact
+		x = 0
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_anti_vietminh_national_congress
+			focus = DRV_reach_out_to_the_imperialists
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_second_anti_viet_minh_front
+		}
+		relative_position_id = DRV_second_anti_viet_minh_front
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_revive_the_nazi_party_from_the_ashes
+		icon = GFX_focus_chi_mission_to_germany
+		x = 0
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_unite_vietnamese_nationalists
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_our_separate_path
+		}
+		relative_position_id = DRV_our_separate_path
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_strike_while_we_still_can
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 2
+		y = 2
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_revive_the_nazi_party_from_the_ashes
+			focus = DRV_unite_vietnamese_nationalists
+		}
+		relative_position_id = DRV_revive_the_nazi_party_from_the_ashes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_choosing_party_leader
+		icon = GFX_focus_GER_party_chancellor_bormann
+		x = 0
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_nationalist = yes
+				is_autocratic = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_strike_while_we_still_can
+		}
+		relative_position_id = DRV_strike_while_we_still_can
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_the_vanguard_youth
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		x = -2
+		y = 1
+		cost = 2
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		available = {}
+		prerequisite = {
+			focus = DRV_revive_the_nazi_party_from_the_ashes
+		}
+		relative_position_id = DRV_revive_the_nazi_party_from_the_ashes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_a_helping_hand_from_religious_militants
+		icon = GFX_focus_generic_advanced_military_studies
+		x = -1
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_cooperate_with_pro_japanese_loyalists
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_vanguard_youth
+		}
+		relative_position_id = DRV_the_vanguard_youth
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_cooperate_with_pro_japanese_loyalists
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 1
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_a_helping_hand_from_religious_militants
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_the_vanguard_youth
+		}
+		relative_position_id = DRV_the_vanguard_youth
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_underground_network
+		icon = GFX_focus_POL_reach_out_to_underground_state
+		x = 1
+		y = 1
+		cost = 2
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_a_helping_hand_from_religious_militants
+			focus = DRV_cooperate_with_pro_japanese_loyalists
+		}
+		relative_position_id = DRV_a_helping_hand_from_religious_militants
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_unite_vietnamese_nationalists
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		x = 2
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_revive_the_nazi_party_from_the_ashes
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_our_separate_path
+		}
+		relative_position_id = DRV_our_separate_path
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_reach_out_to_the_imperialists
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		x = -9
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_anti_vietminh_national_congress
+			focus = DRV_our_separate_path
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+			is_subject = yes
+		}
+		prerequisite = {
+			focus = DRV_second_anti_viet_minh_front
+		}
+		relative_position_id = DRV_second_anti_viet_minh_front
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_a_deal_with_paris
+		icon = GFX_focus_chi_reach_out_to_france
+		x = -2
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_cooperation_with_the_japanese_army
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+			is_subject = yes
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_the_imperialists
+		}
+		relative_position_id = DRV_reach_out_to_the_imperialists
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_cooperation_with_the_japanese_army
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 2
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_a_deal_with_paris
+		}
+		available = {}
+		bypass = {
+			has_civil_war = yes
+			NOT = {
+				is_communist = yes
+			}
+			is_subject = yes
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_the_imperialists
+		}
+		relative_position_id = DRV_reach_out_to_the_imperialists
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	focus = {
+		id = DRV_form_the_provisional_government
+		icon = GFX_focus_generic_communist
+		x = 43
+		y = -2
+		cost = 2
+		available = {
+			is_communist = yes
+			has_country_flag = DRV_has_proclaimed_idp
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.12.20
+			}
+		}
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.41
+			}
+		}
+		prerequisite = {
+			focus = DRV_reeducate_campaigns
+			focus = DRV_universal_suffrage
+			focus = DRV_standardize_the_language
+			focus = DRV_land_redistrubition
+			focus = DRV_price_adjusting_measures
+			focus = DRV_establish_an_economy
+			focus = DRV_dissolve_foreign_businesses
+			focus = DRV_abolish_the_corvee
+			focus = DRV_universal_suffrage
+		}
+	}
+	focus = {
+		id = DRV_the_legislative_election
+		icon = GFX_focus_generic_election
+		x = 0
+		y = 1
+		cost = 1
+		available = {
+			is_communist = yes
+		}
+		prerequisite = {
+			focus = DRV_form_the_provisional_government
+		}
+		relative_position_id = DRV_form_the_provisional_government
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			ROOT = {
+				country_event = AtM_DRV.13
+			}
+		}
+	}
+	focus = {
+		id = DRV_anti_counter_revolution_movement
+		icon = GFX_focus_generic_communism_anti_fascism
+		x = -4
+		y = 1
+		cost = 4
+		mutually_exclusive = {
+			focus = DRV_unity_against_imperialism
+		}
+		available = {
+			is_communist = yes
+		}
+		prerequisite = {
+			focus = DRV_internal_enemies
+		}
+		relative_position_id = DRV_internal_enemies
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.03
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition
+				}
+				swap_ideas = {
+					remove_idea = DRV_political_opposition
+					add_idea = DRV_political_opposition_ao_1
+				}
+			}
+			else = {
+				add_ideas = DRV_political_opposition_ao_1
+			}
+		}
+	}
+	focus = {
+		id = DRV_suppress_the_protests
+		icon = GFX_focus_PER_stage_mass_protests
+		x = -2
+		y = 1
+		cost = 4
+		available = {
+			is_communist = yes
+		}
+		prerequisite = {
+			focus = DRV_anti_counter_revolution_movement
+		}
+		relative_position_id = DRV_anti_counter_revolution_movement
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = DRV_political_opposition_ao_1
+					add_idea = DRV_political_opposition_ao_2
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_1
+						NOT = {
+							has_completed_focus = DRV_cut_off_reinforcements_from_china
+						}
+					}
+					swap_ideas = {
+						remove_idea = DRV_political_opposition_ao_1
+						add_idea = DRV_political_opposition_ao_2
+					}
+				}
+				else = {
+					remove_ideas = DRV_political_opposition_ao_1
+					add_ideas = DRV_political_opposition_ao_4
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_cut_off_reinforcements_from_china
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+			is_communist = yes
+			CHI = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					OR = {
+						is_communist = yes
+						is_left_wing_radical = yes
+					}
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_anti_counter_revolution_movement
+		}
+		relative_position_id = DRV_anti_counter_revolution_movement
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = DRV_political_opposition_ao_1
+					add_idea = DRV_political_opposition_ao_4
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_1
+						NOT = {
+							has_completed_focus = DRV_cut_off_reinforcements_from_china
+						}
+					}
+					swap_ideas = {
+						remove_idea = DRV_political_opposition_ao_1
+						add_idea = DRV_political_opposition_ao_4
+					}
+				}
+				else = {
+					remove_ideas = DRV_political_opposition_ao_1
+					add_ideas = DRV_political_opposition_ao_2
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_destroy_the_opposition_parties
+		icon = GFX_focus_POL_ban_nazi_party
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+			is_communist = yes
+		}
+		bypass = {
+			communism > 0.99
+		}
+		prerequisite = {
+			focus = DRV_suppress_the_protests
+		}
+		prerequisite = {
+			focus = DRV_cut_off_reinforcements_from_china
+		}
+		relative_position_id = DRV_cut_off_reinforcements_from_china
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			effect_tooltip = {
+				remove_ideas = DRV_political_opposition_ao_5
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_1
+					}
+					remove_ideas = DRV_political_opposition_ao_1
+				}
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_2
+					}
+					remove_ideas = DRV_political_opposition_ao_2
+				}
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_3
+					}
+					remove_ideas = DRV_political_opposition_ao_3
+				}
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_4
+					}
+					remove_ideas = DRV_political_opposition_ao_4
+				}
+				if = {
+					limit = {
+						has_idea = DRV_political_opposition_ao_5
+					}
+					remove_ideas = DRV_political_opposition_ao_5
+				}
+			}
+			add_stability = -0.1
+			annex_country = {
+				target = VNT
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = VTQ
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = VTC
+				transfer_troops = yes
+			}
+		}
+	}
+	focus = {
+		id = DRV_unity_against_imperialism
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 0
+		y = 1
+		cost = 1
+		mutually_exclusive = {
+			focus = DRV_anti_counter_revolution_movement
+		}
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			has_war = yes
+		}
+		prerequisite = {
+			focus = DRV_internal_enemies
+		}
+		relative_position_id = DRV_internal_enemies
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.10.8
+			}
+		}
+		completion_reward = {
+			effect_tooltip = {
+				country_event = AtM_DRV.20
+			}
+			hidden_effect = {
+				VTQ = {
+					country_event = {
+						id = AtM_DRV.40
+						hours = 12
+					}
+				}
+				VTC = {
+					country_event = {
+						id = AtM_DRV.40
+						hours = 12
+					}
+				}
+				VNT = {
+					country_event = {
+						id = AtM_DRV.40
+						hours = 12
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_allow_free_elections
+		icon = GFX_goal_support_democracy
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_unity_against_imperialism
+		}
+		relative_position_id = DRV_unity_against_imperialism
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			hidden_effect = {
+				set_elections = yes
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.01
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.01
+			}
+		}
+		mutually_exclusive = {
+			focus = DRV_viet_minh_accord
+		}
+	}
+	focus = {
+		id = DRV_incorporate_the_opposition
+		icon = GFX_goal_generic_national_unity
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_allow_free_elections
+		}
+		relative_position_id = DRV_allow_free_elections
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 25
+		}
+		completion_reward = {
+			add_stability = -0.03
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -1
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			annex_country = {
+				target = VNT
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = VTQ
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = VTC
+				transfer_troops = yes
+			}
+		}
+	}
+	focus = {
+		id = DRV_one_party_one_state
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			is_communist = yes
+		}
+		relative_position_id = DRV_incorporate_the_opposition
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			custom_effect_tooltip = DRV_one_party_tt
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition
+				}
+				remove_ideas = DRV_political_opposition
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_2
+				}
+				remove_ideas = DRV_political_opposition_2
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_ao_1
+				}
+				remove_ideas = DRV_political_opposition_ao_1
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_ao_2
+				}
+				remove_ideas = DRV_political_opposition_ao_2
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_ao_3
+				}
+				remove_ideas = DRV_political_opposition_ao_3
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_ao_4
+				}
+				remove_ideas = DRV_political_opposition_ao_4
+			}
+			if = {
+				limit = {
+					has_idea = DRV_political_opposition_ao_5
+				}
+				remove_ideas = DRV_political_opposition_ao_5
+			}
+			add_stability = -0.03
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			hidden_effect = {
+				set_no_elections = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_integrate_the_hongai_campha_commune
+			focus = DRV_incorporate_the_opposition
+			focus = DRV_destroy_the_opposition_parties
+		}
+	}
+	focus = {
+		id = DRV_address_the_minority_issue
+		icon = GFX_focus_BEL_the_flemish_question
+		x = 7
+		y = 1
+		cost = 1
+		available = {
+			has_country_flag = DRV_freedom_flag_EVENT_CHAIN
+		}
+		prerequisite = {
+			focus = DRV_addressing_the_problems
+		}
+		relative_position_id = DRV_addressing_the_problems
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.11.1
+			}
+		}
+		completion_reward = {
+			country_event = AtM_DRV.21
+		}
+	}
+	focus = {
+		id = DRV_unite_national_youth
+		icon = GFX_focus_DRV_unite_youth
+		x = -5
+		y = 1
+		cost = 6
+		available = {
+			date > 1945.9.27
+		}
+		prerequisite = {
+			focus = DRV_the_legislative_election
+		}
+		relative_position_id = DRV_the_legislative_election
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.6.1
+			}
+		}
+		completion_reward = {
+			add_ideas = DRV_national_youth_idea
+		}
+	}
+	focus = {
+		id = DRV_first_session_of_national_assembly
+		icon = GFX_focus_PRC_assume_leadership
+		x = 0
+		y = 1
+		relative_position_id = DRV_the_legislative_election
+		prerequisite = {
+			focus = DRV_the_legislative_election
+		}
+		cost = 2
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.61
+			}
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.2.15
+			}
+		}
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+	}
+	focus = {
+		id = DRV_form_the_united_resistance_government
+		icon = GFX_focus_generic_improve_the_administration
+		x = 0
+		y = 1
+		cost = 2
+		available = {
+			always = no
+		}
+		relative_position_id = DRV_first_session_of_national_assembly
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			country_event = AtM_DRV.23
+		}
+		prerequisite = {
+			focus = DRV_first_session_of_national_assembly
+		}
+	}
+	focus = {
+		id = DRV_second_session_national_assembly
+		icon = GFX_focus_PRC_assume_leadership
+		x = 0
+		y = 1
+		relative_position_id = DRV_form_the_united_resistance_government
+		cost = 2
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.62
+				days = 4
+			}
+		}
+		prerequisite = {
+			focus = DRV_form_the_united_resistance_government
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.10.15
+			}
+		}
+	}
+	focus = {
+		id = DRV_united_peoples_government
+		icon = GFX_goal_generic_national_unity
+		x = -1
+		y = 1
+		relative_position_id = DRV_second_session_national_assembly
+		cost = 2
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			country_event = {
+				id = AtM_DRV.55
+			}
+		}
+		prerequisite = {
+			focus = DRV_second_session_national_assembly
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_draft_the_1946_consitution
+		icon = GFX_focus_AFG_revive_the_1923_constitution
+		x = 1
+		y = 1
+		relative_position_id = DRV_second_session_national_assembly
+		prerequisite = {
+			focus = DRV_second_session_national_assembly
+		}
+		cost = 10
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_ideas = { DRV_1946_consitution }
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_establish_the_cicocpv
+		icon = GFX_focus_DRV_CICOCPV
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_unite_national_youth
+		}
+		relative_position_id = DRV_unite_national_youth
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_ideas = DRV_CICOCPV_idea
+		}
+	}
+	focus = {
+		id = DRV_root_out_corruption
+		icon = GFX_focus_ARG_crackdown_on_corruption
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_establish_the_cicocpv
+		}
+		relative_position_id = DRV_establish_the_cicocpv
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 75
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = DRV_CICOCPV_idea
+					add_idea = DRV_CICOCPV_idea_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_CICOCPV_idea
+				}
+				swap_ideas = {
+					remove_idea = DRV_CICOCPV_idea
+					add_idea = DRV_CICOCPV_idea_2
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_commission_info_and_edu
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_root_out_corruption
+		}
+		relative_position_id = DRV_root_out_corruption
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			effect_tooltip = {
+				add_ideas = DRV_CICOCPV_idea_3
+			}
+			if = {
+				limit = {
+					has_idea = DRV_CICOCPV_idea_2
+				}
+				swap_ideas = {
+					remove_idea = DRV_CICOCPV_idea_2
+					add_idea = DRV_CICOCPV_idea_3
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_expand_the_national_police
+		icon = GFX_focus_RAJ_a_private_military
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_unite_national_youth
+		}
+		relative_position_id = DRV_unite_national_youth
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.03
+		}
+	}
+	focus = {
+		id = DRV_form_agency
+		icon = GFX_focus_generic_secret_service_agency
+		x = -2
+		y = 1
+		cost = 5
+		available = {}
+		prerequisite = {
+			focus = DRV_expand_the_national_police
+		}
+		relative_position_id = DRV_expand_the_national_police
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			create_intelligence_agency = {
+				name = "Military Intelligence Division"
+				icon = "GFX_intelligence_agency_logo_ita"
+			}
+		}
+	}
+	focus = {
+		id = DRV_ensure_national_loyalty
+		icon = GFX_goal_generic_military_deal
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_expand_the_national_police
+		}
+		relative_position_id = DRV_expand_the_national_police
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_stability = 0.03
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = DRV_dissolve_the_religious_militias
+		icon = GFX_focus_AFG_against_kabul
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_ensure_national_loyalty
+			focus = DRV_form_agency
+		}
+		mutually_exclusive = {
+			focus = DRV_fulfill_their_demands
+		}
+		relative_position_id = DRV_form_agency
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = DRV_dissolved_religious_militias
+				days = 90
+			}
+		}
+	}
+	focus = {
+		id = DRV_fulfill_their_demands
+		icon = GFX_goal_generic_territory_or_war
+		x = 0
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_ensure_national_loyalty
+			focus = DRV_form_agency
+		}
+		mutually_exclusive = {
+			focus = DRV_dissolve_the_religious_militias
+		}
+		relative_position_id = DRV_ensure_national_loyalty
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.03
+			add_timed_idea = {
+				idea = DRV_fulfilled_their_demands
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = DRV_lien_viet_association
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		x = -2
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_communist = yes
+				is_social_democrat = yes
+			}
+			has_country_flag = DRV_dissolution_of_icp
+		}
+		prerequisite = {
+			focus = DRV_form_the_united_resistance_government
+		}
+		relative_position_id = DRV_form_the_united_resistance_government
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.5.29
+			}
+		}
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.54
+			}
+		}
+	}
+	focus = {
+		id = DRV_socialism_is_the_only_way
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			has_country_flag = DRV_dissolution_of_icp
+		}
+		prerequisite = {
+			focus = DRV_form_the_united_resistance_government
+		}
+		relative_position_id = DRV_form_the_united_resistance_government
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+			add_popularity = {
+				ideology = communism
+				popularity = 0.03
+			}
+			add_timed_idea = {
+				idea = DRV_hnccnm_idea
+				days = 1700
+			}
+		}
+	}
+	focus = {
+		id = DRV_reach_out_to_great_powers
+		icon = GFX_focus_ARG_reach_out_to_the_great_powers
+		x = 8
+		y = 4
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		relative_position_id = DRV_form_the_united_resistance_government
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			effect_tooltip = {
+				remove_ideas = DRV_unrecognized_state
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = DRV_unrecognized_state
+					}
+					remove_ideas = DRV_unrecognized_state
+					add_ideas = DRV_low_recognized_state
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_administrative_reforms
+		}
+	}
+	focus = {
+		id = DRV_vietnamese_soviet_cooperation
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = -1
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			SOV = {
+				exists = yes
+				is_subject = no
+				OR = {
+					is_communist = yes
+					is_left_wing_radical = yes
+				}
+			}
+		}
+		bypass = {
+			SOV = {
+				exists = no
+				OR = {
+					is_communist = no
+					is_left_wing_radical = no
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_great_powers
+		}
+		relative_position_id = DRV_reach_out_to_great_powers
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			SOV = {
+				country_event = AtM_DRV.24
+			}
+		}
+	}
+	focus = {
+		id = DRV_a_delegation_to_nanjing
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		x = 1
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_a_visit_in_beijing
+		}
+		available = {
+			OR = {
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_great_powers
+		}
+		relative_position_id = DRV_reach_out_to_great_powers
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_political_power = -25
+			CHI = {
+				country_event = AtM_DRV.68
+			}
+		}
+	}
+	focus = {
+		id = DRV_a_visit_in_beijing
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		x = 3
+		y = 1
+		cost = 2
+		mutually_exclusive = {
+			focus = DRV_a_delegation_to_nanjing
+		}
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_great_powers
+		}
+		relative_position_id = DRV_reach_out_to_great_powers
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1950.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = -25
+			PRC = {
+				country_event = AtM_DRV.69
+			}
+		}
+	}
+	focus = {
+		id = DRV_request_american_recognition
+		icon = GFX_focus_ARG_the_american_push
+		x = -3
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_reach_out_to_great_powers
+		}
+		relative_position_id = DRV_reach_out_to_great_powers
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1954.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = 25
+			USA = {
+				country_event = AtM_DRV.70
+			}
+		}
+	}
+	focus = {
+		id = DRV_solidify_our_indepedence
+		icon = GFX_focus_generic_soviet_politics
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+		}
+		prerequisite = {
+			focus = DRV_request_american_recognition
+			focus = DRV_vietnamese_soviet_cooperation
+			focus = DRV_a_delegation_to_nanjing
+			focus = DRV_a_visit_in_beijing
+		}
+		relative_position_id = DRV_vietnamese_soviet_cooperation
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1957.1.1
+			}
+		}
+		completion_reward = {
+			effect_tooltip = {
+				remove_ideas = DRV_low_recognized_state
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea = DRV_low_recognized_state
+					}
+					remove_ideas = DRV_low_recognized_state
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_administrative_reforms
+		icon = GFX_focus_SWE_socialist_reforms
+		x = -2
+		y = 2
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			has_country_flag = DRV_dissolution_of_icp
+		}
+		relative_position_id = DRV_socialism_is_the_only_way
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			add_political_power = 25
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = DRV_hnccnm_idea
+					add_idea = DRV_hnccnm_idea_2
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_hnccnm_idea
+				}
+				swap_ideas = {
+					remove_idea = DRV_hnccnm_idea
+					add_idea = DRV_hnccnm_idea_2
+					days = 1825
+				}
+			}
+		}
+		prerequisite = {
+			focus = DRV_second_session_national_assembly
+		}
+		prerequisite = {
+			focus = DRV_united_peoples_government
+		}
+		prerequisite = {
+			focus = DRV_draft_the_1946_consitution
+		}
+	}
+	focus = {
+		id = DRV_second_national_congress
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			has_country_flag = DRV_dissolution_of_icp
+		}
+		relative_position_id = DRV_administrative_reforms
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1951.1.1
+			}
+		}
+		completion_reward = {
+			add_political_power = -25
+			country_event = {
+				id = AtM_DRV.47
+			}
+		}
+		prerequisite = {
+			focus = DRV_administrative_reforms
+		}
+	}
+	focus = {
+		id = DRV_the_lien_viet_front
+		icon = GFX_goal_generic_national_unity
+		x = -2
+		y = 1
+		cost = 2
+		available = {
+			OR = {
+				is_communist = yes
+				is_market_liberal = yes
+				is_social_liberal = yes
+				is_social_democrat = yes
+			}
+			has_country_flag = DRV_second_congress_flag
+		}
+		prerequisite = {
+			focus = DRV_second_national_congress
+		}
+		relative_position_id = DRV_second_national_congress
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.56
+			}
+		}
+	}
+	focus = {
+		id = DRV_viet_minh_accord
+		icon = GFX_focus_generic_government_in_exile
+		x = 1
+		y = 1
+		relative_position_id = DRV_unity_against_imperialism
+		prerequisite = {
+			focus = DRV_unity_against_imperialism
+		}
+		cost = 1
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_flag = VNQDD_UAI_agreed
+				}
+				annex_country = {
+					target = VTQ
+					transfer_troops = yes
+				}
+				else = {
+					create_wargoal = {
+						type = annex_everything
+						target = VTQ
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = VNCMDMH_UAI_agreed
+				}
+				annex_country = {
+					target = VTC
+					transfer_troops = yes
+				}
+				else = {
+					create_wargoal = {
+						type = annex_everything
+						target = VTC
+					}
+				}
+			}
+		}
+		cancelable = no
+		mutually_exclusive = {
+			focus = DRV_allow_free_elections
+		}
+		available = {
+			OR = {
+				country_exists = VTC
+				country_exists = VTQ
+			}
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 250
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = DRV_integrate_the_hongai_campha_commune
+		icon = GFX_focus_AFG_integrate_tajik_and_uzbek_republics
+		x = 0
+		y = 1
+		relative_position_id = DRV_viet_minh_accord
+		prerequisite = {
+			focus = DRV_viet_minh_accord
+		}
+		cost = 1
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_flag = TROTSKYISTS_UAI_agreed
+				}
+				annex_country = {
+					target = VNT
+					transfer_troops = yes
+				}
+				else = {
+					create_wargoal = {
+						type = annex_everything
+						target = VNT
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = CCH_indochina_stalemate
+				}
+				1732 = {
+					transfer_state_to = IDC
+				}
+			}
+		}
+		available = {
+			country_exists = VNT
+			VNT = {
+				controls_state = 1730
+			}
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.11.15
+			}
+		}
+	}
+	focus = {
+		id = DRV_support_the_resistance_movement_in_south_vietnam
+		icon = GFX_focus_generic_spur_communist_revolutions
+		x = 4
+		y = 1
+		relative_position_id = DRV_the_spark_of_a_long_term_conflict
+		prerequisite = {
+			focus = DRV_the_spark_of_a_long_term_conflict
+		}
+		cost = 3
+		completion_reward = {
+			add_manpower = -25000
+			VCF = {
+				add_manpower = 25000
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = DRV
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 150
+					producer = DRV
+				}
+			}
+			add_opinion_modifier = {
+				target = VCF
+				modifier = huge_increase
+			}
+		}
+		available = {
+			has_war_with = FRA
+			country_exists = VCF
+			VCF = {
+				has_war_with = FRA
+			}
+		}
+		bypass = {
+			has_global_flag = geneva_conference_ratified
+			has_global_flag = CCH_indochina_DRV_victory
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1947.1.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_ca_mau_base_area
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		x = -1
+		y = 1
+		relative_position_id = DRV_support_the_resistance_movement_in_south_vietnam
+		prerequisite = {
+			focus = DRV_support_the_resistance_movement_in_south_vietnam
+		}
+		cost = 2
+		completion_reward = {
+			every_country = {
+				limit = {
+					controls_state = 1497
+					has_war_with = ROOT
+					1497 = {
+						is_core_of = PREV
+					}
+				}
+				1497 = {
+					remove_core_of = PREV
+					add_resistance = 100
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state
+						days = 720
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					controls_state = 1497
+					OR = {
+						original_tag = DRV
+						is_subject_of = DRV
+					}
+					1497 = {
+						is_core_of = PREV
+					}
+				}
+				1497 = {
+					add_dynamic_modifier = {
+						modifier = DRV_resistance_modifier_state
+						days = 720
+					}
+					create_unit = {
+						division = "name = \"Quan-dan-tu-ve\" division_template = \"Self-Defense Forces\" start_experience_factor = 0.4"
+						owner = VCF
+						allow_spawning_on_enemy_provs = no
+						count = 3
+					}
+				}
+			}
+			ROOT = {
+				add_manpower = 10000
+			}
+		}
+		available = {
+			1497 = {
+				CONTROLLER = {
+					has_war = yes
+				}
+			}
+			country_exists = VCF
+		}
+		bypass = {
+			has_global_flag = geneva_conference_ratified
+			has_global_flag = CCH_indochina_DRV_victory
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1947.3.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_incursions_in_laos
+		icon = GFX_focus_generic_army_attack
+		x = 1
+		y = 1
+		relative_position_id = DRV_support_the_resistance_movement_in_south_vietnam
+		prerequisite = {
+			focus = DRV_support_the_resistance_movement_in_south_vietnam
+		}
+		available = {
+			NOT = {
+				has_war_with = LAO
+			}
+		}
+		bypass = {
+			OR = {
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_stalemate
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+		cost = 2
+		completion_reward = {
+			LAO = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+			if = {
+				limit = {
+					LAO = {
+						controls_state = 1587
+					}
+				}
+				1587 = {
+					transfer_state_to = DRV
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1948.6.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_land_redistrubition
+		icon = GFX_focus_generic_farmland
+		x = -1
+		y = 1
+		relative_position_id = DRV_feed_the_peasants
+		prerequisite = {
+			focus = DRV_feed_the_peasants
+		}
+		cost = 2
+		completion_reward = {
+			DRV_reduce_food_crisis_mod = yes
+			add_stability = -0.03
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	focus = {
+		id = DRV_price_adjusting_measures
+		icon = GFX_focus_generic_price_controls
+		x = 1
+		y = 1
+		relative_position_id = DRV_feed_the_peasants
+		prerequisite = {
+			focus = DRV_feed_the_peasants
+		}
+		cost = 2
+		completion_reward = {
+			DRV_reduce_food_crisis_mod = yes
+			add_political_power = -25
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = DRV_has_idea_famine_tt
+				DRV_check_famine_if_yes = no
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	focus = {
+		id = DRV_abolish_the_corvee
+		icon = GFX_focus_GER_liberate_exploited_colonial_workers
+		x = 0
+		y = 1
+		relative_position_id = DRV_remove_unfair_taxes
+		prerequisite = {
+			focus = DRV_remove_unfair_taxes
+		}
+		cost = 1
+		completion_reward = {
+			add_stability = 0.05
+		}
+		available = {
+			has_country_flag = DRV_colonialism_flag_EVENT_CHAIN
+		}
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	focus = {
+		id = DRV_universal_suffrage
+		icon = GFX_focus_generic_universal_suffrage
+		x = 0
+		y = 1
+		relative_position_id = DRV_address_the_minority_issue
+		prerequisite = {
+			focus = DRV_address_the_minority_issue
+		}
+		cost = 1
+		completion_reward = {
+			add_stability = 0.03
+			add_political_power = 25
+		}
+		ai_will_do = {
+			factor = 25
+		}
+	}
+	focus = {
+		id = DRV_peoples_army
+		icon = GFX_focus_PRC_peoples_liberation_army
+		x = 58
+		y = -5
+		cost = 1
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = -5
+			army_experience = 1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_ve_quoc_doan
+		icon = GFX_focus_generic_army_doctrines_2
+		x = 0
+		y = 1
+		relative_position_id = DRV_peoples_army
+		prerequisite = {
+			focus = DRV_peoples_army
+		}
+		cost = 1
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			army_experience = 1
+			add_war_support = 0.03
+			swap_ideas = {
+				remove_idea = DRV_giai_phong_quan_idea
+				add_idea = DRV_ve_quoc_doan_idea
+			}
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_pva
+		icon = GFX_focus_PRC_immediate_response_to_lack_of_army
+		x = 0
+		y = 2
+		relative_position_id = DRV_ve_quoc_doan
+		prerequisite = {
+			focus = DRV_ve_quoc_doan
+		}
+		cost = 3
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DRV_ve_quoc_doan_idea
+				add_idea = DRV_peoples_army_idea
+			}
+		}
+		ai_will_do = {
+			factor = 75
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1946.5.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_workers_party
+		icon = GFX_focus_generic_communist
+		x = 1
+		y = 2
+		relative_position_id = DRV_second_national_congress
+		prerequisite = {
+			focus = DRV_fate_of_the_icp
+		}
+		cost = 2
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = 50
+			add_stability = 0.03
+			country_event = {
+				id = AtM_DRV.46
+			}
+			if = {
+				limit = {
+					has_idea = DRV_hnccnm_idea
+				}
+				remove_ideas = DRV_hnccnm_idea
+			}
+			if = {
+				limit = {
+					has_idea = DRV_hnccnm_idea_2
+				}
+				remove_ideas = DRV_hnccnm_idea_2
+			}
+		}
+		mutually_exclusive = {
+			focus = DRV_icp_restored
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_fate_of_the_icp
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 2
+		y = 1
+		relative_position_id = DRV_second_national_congress
+		prerequisite = {
+			focus = DRV_second_national_congress
+		}
+		cost = 10
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = 5
+			country_event = AtM_DRV.48
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_peoples_alliance_lao_cambodia
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 2
+		relative_position_id = DRV_fate_of_the_icp
+		prerequisite = {
+			focus = DRV_workers_party
+			focus = DRV_icp_restored
+		}
+		cost = 3
+		completion_reward = {
+			CAM = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+				add_ideas = { IDC_marginal_communist_support }
+			}
+			LAO = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+				add_ideas = { IDC_marginal_communist_support }
+			}
+			DRV = {
+				add_political_power = 50
+			}
+		}
+		available = {
+			country_exists = LAO
+			country_exists = CAM
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1951.3.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_icp_restored
+		icon = GFX_focus_spr_unify_the_london_bureau
+		x = 1
+		y = 1
+		relative_position_id = DRV_fate_of_the_icp
+		prerequisite = {
+			focus = DRV_fate_of_the_icp
+		}
+		cost = 3
+		completion_reward = {
+			custom_effect_tooltip = DRV_this_focus_is_immediately_bypassable_via_event
+			add_political_power = -100
+			add_stability = -0.1
+			if = {
+				limit = {
+					has_idea = DRV_hnccnm_idea
+				}
+				remove_ideas = DRV_hnccnm_idea
+			}
+			if = {
+				limit = {
+					has_idea = DRV_hnccnm_idea_2
+				}
+				remove_ideas = DRV_hnccnm_idea_2
+			}
+			country_event = {
+				id = AtM_DRV.64
+				hours = 6
+			}
+		}
+		mutually_exclusive = {
+			focus = DRV_workers_party
+		}
+		available = {
+			always = no
+		}
+	}
+	focus = {
+		id = DRV_nhan_dan_newspaper
+		icon = GFX_goal_generic_propaganda
+		x = -1
+		y = -1
+		relative_position_id = DRV_workers_party
+		prerequisite = {
+			focus = DRV_second_national_congress
+		}
+		cost = 2
+		completion_reward = {
+			country_event = {
+				id = AtM_DRV.53
+			}
+		}
+		available = {
+			has_country_flag = DRV_second_congress_flag
+		}
+	}
+	focus = {
+		id = DRV_reaffirm_united_national_front
+		icon = GFX_goal_generic_national_unity
+		x = -1
+		y = 1
+		relative_position_id = DRV_the_lien_viet_front
+		prerequisite = {
+			focus = DRV_the_lien_viet_front
+		}
+		cost = 5
+		completion_reward = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = DRV_lien_viet_front
+					add_idea = DRV_lien_viet_front_2
+					days = 1095
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DRV_lien_viet_front
+				}
+				swap_ideas = {
+					remove_idea = DRV_lien_viet_front
+					add_idea = DRV_lien_viet_front_2
+					days = 1095
+				}
+			}
+		}
+		available = {
+			has_idea = DRV_lien_viet_front
+		}
+		ai_will_do = {
+			factor = 120
+		}
+	}
+	focus = {
+		id = DRV_promote_the_land_reform
+		icon = GFX_focus_JAP_promote_japanese_settlement
+		x = 1
+		y = 1
+		relative_position_id = DRV_the_lien_viet_front
+		prerequisite = {
+			focus = DRV_the_lien_viet_front
+		}
+		cost = 5
+		completion_reward = {
+			add_political_power = -50
+			unlock_national_focus = DRV_cai_cach_ruong_lua_mien_bac
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1953.1.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_fatherland_front
+		icon = GFX_goal_generic_major_alliance
+		x = 0
+		y = 2
+		relative_position_id = DRV_nhan_dan_newspaper
+		prerequisite = {
+			focus = DRV_nhan_dan_newspaper
+		}
+		prerequisite = {
+			focus = DRV_workers_party
+		}
+		prerequisite = {
+			focus = DRV_promote_the_land_reform
+		}
+		prerequisite = {
+			focus = DRV_reaffirm_united_national_front
+		}
+		cost = 5
+		completion_reward = {
+			add_ideas = DRV_vietnamese_fatherland_front
+		}
+		available = {
+			NOT = {
+				OR = {
+					has_idea = DRV_lien_viet_front
+					has_idea = DRV_lien_viet_front_2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1955.9.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_devise_the_unification
+		icon = GFX_focus_generic_soviet_politics
+		x = 1
+		y = 1
+		relative_position_id = DRV_icp_restored
+		prerequisite = {
+			focus = DRV_icp_restored
+		}
+		cost = 5
+		completion_reward = {
+			add_ideas = DRV_unification_plan
+			add_political_power = 50
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_total_indochinese_liberation
+		icon = GFX_focus_generic_asia_liberation
+		x = -1
+		y = 1
+		relative_position_id = DRV_devise_the_unification
+		prerequisite = {
+			focus = DRV_devise_the_unification
+		}
+		prerequisite = {
+			focus = DRV_peoples_alliance_lao_cambodia
+		}
+		available = {
+			OR = {
+				CAM = {
+					is_communist = no
+				}
+				LAO = {
+					is_communist = no
+				}
+			}
+		}
+		cost = 5
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = CAM
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LAO
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_end_the_barriers_of_culture
+		icon = GFX_focus_AFG_defender_of_central_asia
+		x = 1
+		y = 1
+		relative_position_id = DRV_devise_the_unification
+		prerequisite = {
+			focus = DRV_devise_the_unification
+		}
+		prerequisite = {
+			focus = DRV_peoples_alliance_lao_cambodia
+		}
+		available = {
+			OR = {
+				CAM = {
+					is_communist = yes
+				}
+				LAO = {
+					is_communist = yes
+				}
+				CAM = {
+					is_subject_of = ROOT
+				}
+				LAO = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		cost = 5
+		completion_reward = {
+			country_event = AtM_DRV.65
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_proclaim_the_indochinese_federation
+		icon = GFX_focus_generic_support_drv_communism
+		x = -1
+		y = 1
+		relative_position_id = DRV_end_the_barriers_of_culture
+		prerequisite = {
+			focus = DRV_end_the_barriers_of_culture
+			focus = DRV_total_indochinese_liberation
+		}
+		available = {
+			has_completed_focus = DRV_reunification_of_vietnam
+			OR = {
+				CAM = {
+					is_communist = yes
+				}
+				LAO = {
+					is_communist = yes
+				}
+				CAM = {
+					is_subject_of = ROOT
+				}
+				LAO = {
+					is_subject_of = ROOT
+				}
+				AND = {
+					controls_state = 1018
+					controls_state = 1021
+				}
+			}
+		}
+		cost = 5
+		completion_reward = {
+			remove_ideas = DRV_unification_plan
+			country_event = AtM_DRV.66
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_push_for_reunification
+		icon = GFX_focus_GER_liberate_exploited_colonial_workers
+		x = -1
+		y = 1
+		relative_position_id = DRV_fatherland_front
+		prerequisite = {
+			focus = DRV_fatherland_front
+			focus = DRV_devise_the_unification
+		}
+		cost = 4
+		completion_reward = {
+			add_named_threat = {
+				threat = 8.0
+			}
+			add_war_support = 0.1
+			add_stability = -0.05
+			unlock_decision_tooltip = {
+				decision = DRV_funding_resistance_in_south_vietnam
+				show_effect_tooltip = yes
+				show_modifiers = yes
+			}
+			unlock_decision_tooltip = {
+				decision = DRV_liberate_south_vietnam
+				show_effect_tooltip = yes
+				show_modifiers = yes
+			}
+		}
+		mutually_exclusive = {
+			focus = DRV_abide_by_the_geneva_accords
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		available = {
+			OR = {
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_stalemate
+			}
+			country_exists = VIN
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						country_exists = VIN
+					}
+					VIN = {
+						is_subject_of = ROOT
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_abide_by_the_geneva_accords
+		icon = GFX_focus_generic_world_peace
+		x = 1
+		y = 1
+		relative_position_id = DRV_fatherland_front
+		prerequisite = {
+			focus = DRV_fatherland_front
+			focus = DRV_devise_the_unification
+		}
+		cost = 4
+		completion_reward = {
+			add_named_threat = {
+				threat = -4.0
+			}
+			add_war_support = -0.05
+			add_stability = 0.05
+			add_political_power = 50
+		}
+		mutually_exclusive = {
+			focus = DRV_push_for_reunification
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1956.1.1
+			}
+		}
+		available = {
+			OR = {
+				has_global_flag = geneva_conference_ratified
+				has_global_flag = CCH_indochina_stalemate
+			}
+			country_exists = VIN
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						country_exists = VIN
+					}
+					VIN = {
+						is_subject_of = ROOT
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+	}
+	focus = {
+		id = DRV_state_planning_committee
+		icon = GFX_focus_PRC_establish_shorter_market_plans
+		x = -3
+		y = 1
+		relative_position_id = DRV_fatherland_front
+		prerequisite = {
+			focus = DRV_fatherland_front
+		}
+		cost = 5
+		completion_reward = {
+			add_ideas = DRV_state_planning_idea
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1956.3.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_draft_the_1959_consitution
+		icon = GFX_focus_AFG_revive_the_1923_constitution
+		x = -2
+		y = 0
+		relative_position_id = DRV_state_planning_committee
+		prerequisite = {
+			focus = DRV_fatherland_front
+		}
+		cost = 5
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DRV_1959_consitution
+				remove_idea = DRV_1946_consitution
+			}
+		}
+		available = {
+			has_idea = DRV_1946_consitution
+		}
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1959.1.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_reunification_of_vietnam
+		icon = GFX_focus_PRC_restore_the_old_republic
+		x = -2
+		y = 1
+		relative_position_id = DRV_push_for_reunification
+		prerequisite = {
+			focus = DRV_push_for_reunification
+			focus = DRV_abide_by_the_geneva_accords
+		}
+		available = {
+			NOT = {
+				country_exists = VIN
+				country_exists = VNT
+				country_exists = VTQ
+				country_exists = VTC
+				country_exists = TFD
+				country_exists = HMO
+				country_exists = IDZ
+				country_exists = IDC
+			}
+			controls_state = 1013
+			controls_state = 1012
+			controls_state = 1014
+			controls_state = 1016
+		}
+		cost = 5
+		completion_reward = {
+			set_cosmetic_tag = DRV_socialist_republic
+			1013 = {
+				set_state_name = DRV_hochiminh_city
+			}
+			1014 = {
+				set_state_name = "Da Nang"
+			}
+			set_province_name = {
+				id = 13715
+				name = DRV_hochiminh_city
+			}
+			set_province_name = {
+				id = 10309
+				name = "Da Nang"
+			}
+			add_war_support = -0.25
+			add_stability = 0.15
+			add_popularity = {
+				ideology = communism
+				popularity = 0.25
+			}
+			if = {
+				limit = {
+					VCF = {
+						OR = {
+							is_subject_of = DRV
+							is_communist = yes
+						}
+					}
+				}
+				DRV = {
+					annex_country = {
+						target = VCF
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 250
+		}
+	}
+	focus = {
+		id = DRV_reconstruction_efforts
+		icon = GFX_focus_generic_economic_recovery
+		x = -1
+		y = 1
+		relative_position_id = DRV_reunification_of_vietnam
+		prerequisite = {
+			focus = DRV_reunification_of_vietnam
+		}
+		cost = 5
+		completion_reward = {
+			add_timed_idea = {
+				idea = DRV_reconstruction_efforts_idea
+				days = 1680
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_a_new_vietnam_from_the_ashes
+		icon = GFX_focus_AUS_bring_phonix_insurance_from_the_ashes
+		x = 1
+		y = 1
+		relative_position_id = DRV_reunification_of_vietnam
+		prerequisite = {
+			focus = DRV_reunification_of_vietnam
+		}
+		cost = 5
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 250
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	focus = {
+		id = DRV_denounce_regime_in_saigon
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = -1
+		y = 1
+		relative_position_id = DRV_abide_by_the_geneva_accords
+		prerequisite = {
+			focus = DRV_abide_by_the_geneva_accords
+			focus = DRV_push_for_reunification
+		}
+		available = {
+			country_exists = VIN
+			VIN = {
+				is_subject = no
+				is_communist = no
+			}
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						country_exists = VIN
+					}
+					VIN = {
+						is_subject_of = ROOT
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+		cost = 4
+		completion_reward = {
+			VIN = {
+				add_stability = -0.05
+			}
+			add_opinion_modifier = {
+				target = VIN
+				modifier = hostile_status
+			}
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1959.1.1
+			}
+		}
+	}
+	focus = {
+		id = DRV_form_the_mtgpmnvn
+		icon = GFX_focus_ARG_no_gods_no_masters
+		x = 0
+		y = 1
+		relative_position_id = DRV_denounce_regime_in_saigon
+		available = {
+			country_exists = VIN
+			VIN = {
+				is_subject = no
+				is_communist = no
+				controls_state = 1079
+			}
+		}
+		bypass = {
+			OR = {
+				AND = {
+					NOT = {
+						country_exists = VIN
+					}
+					VIN = {
+						is_subject_of = ROOT
+					}
+				}
+				has_global_flag = CCH_indochina_DRV_victory
+			}
+		}
+		prerequisite = {
+			focus = DRV_denounce_regime_in_saigon
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1959.12.15
+			}
+		}
+		cost = 5
+		completion_reward = {
+			1079 = {
+				transfer_state_to = VCF
+			}
+			VCF = {
+				set_autonomy_self_governing_state_no_elections = yes
+			}
+			VCF = {
+				hidden_effect = {
+					load_oob = VCF_vietnam_war
+					set_war_support = 1
+					set_stability = 0.5
+					set_cosmetic_tag = VCF_viet_cong
+					VIN = {
+						declare_war_on = {
+							target = VCF
+							type = annex_everything
+						}
+						every_controlled_state = {
+							limit = {
+								is_core_of = VIN
+							}
+							add_core_of = VCF
+						}
+					}
+				}
+				effect_tooltip = {
+					VCF = {
+						declare_war_on = {
+							target = VIN
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = DRV_reach_out_to_the_hmong
+		icon = GFX_focus_BRA_reach_out_to_military_dem
+		x = 25
+		y = -4
+		cost = 1
+		completion_reward = {
+			annex_country = {
+				target = HMO
+				transfer_troops = yes
+			}
+		}
+		available = {
+			HMO = {
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			country_exists = HMO
+			has_country_flag = DRV_has_proclaimed_idp
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1945.12.15
+			}
+		}
+	}
+}

@@ -1,0 +1,227 @@
+﻿###########################
+### Aftermath: Cold War ###
+###########################
+
+##### DIVISION TEMPLATES #####
+
+# Vietnamese National Army (VNA) — French-organized light infantry
+# Represents early mobile groups (Groupes Mobiles): ~3 infantry battalions
+# equipped with mixed US/French WWII-surplus arms (M1 Garand, MAS-36,
+# MAT-49, FM 24/29 LMG). Modelled after French Union infantry doctrine.
+division_template = {
+	name = "Quan Doi Quoc Gia"	
+	division_names_group = VIN_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }	# Basic combat engineer company
+		recon = { x = 0 y = 1 }	# Light cavalry/scout element
+		military_police = { x = 0 y = 2 }	# Internal security duties
+	}
+}
+
+##### ARMY #####
+units = {
+	# Quân khu thủ đô — Capital Military Region (Saigon)
+	# Under Gen. Nguyễn Văn Hinh, loyal to Emperor Bảo Đại.
+	# The VNA was barely a year old; most officers were French-trained
+	# and operational authority remained subordinate to the CEFEO.
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 4075 # Hanoi
+		division_template = "Quan Doi Quoc Gia"
+		start_experience_factor = 0.2	 
+		start_equipment_factor = 0.6	 
+	}
+}
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "VIN"
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 30
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment	# US M1 Garand / M1 Carbine; French MAS-36, MAT-49
+		amount = 3000
+		producer = USA
+	}
+}

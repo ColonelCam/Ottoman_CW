@@ -1,0 +1,40 @@
+
+state={
+	id=598
+	name="STATE_598"
+
+	history={
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			4123 3 #Huai'an
+		}
+		victory_points = {
+			9953 1 #Dongtai
+		}
+		victory_points = {
+			1076 1 #Huaiyin
+		}
+		victory_points = {
+			4031 1 #Xiangshui
+		}
+		victory_points = {
+			7025 10 #Xuzhou
+		}
+		victory_points = {
+			1029 4 #Lianyun
+		}
+	}
+
+	provinces={
+		1029 1076 1121 4005 4031 4082 4123 7025 7085 7142 7181 7200 9953 9995 10095 11973 12055 12067 13144 
+	}
+	manpower=21669300
+	buildings_max_level_factor=1.000
+	state_category = large_town
+	local_supplies=0.0 
+}

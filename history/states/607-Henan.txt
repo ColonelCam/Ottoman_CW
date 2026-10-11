@@ -1,0 +1,41 @@
+
+state={
+	id=607
+	name="STATE_607"
+	manpower=14289800
+	
+	state_category = city
+	
+	buildings_max_level_factor=1.000
+
+	history={
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		victory_points = {
+			9958 6 #Zhengzhou
+		}
+		victory_points = {
+			7508 1 #Nanyang
+		}
+		victory_points = {
+			10364 1 #Xuchang
+		}
+		victory_points = {
+			12012 1 #Wuyang
+		}
+		victory_points = {
+			1004 4 #Luoyang
+		}
+	}
+
+	provinces={
+		1004 1603 4519 4547 6932 7459 7508 9958 10364 11931 12012 
+	}
+
+	local_supplies=3.0 
+}

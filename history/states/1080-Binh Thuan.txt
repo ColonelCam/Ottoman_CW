@@ -1,0 +1,39 @@
+state={
+	id=1080
+	name="STATE_1080"
+	resources={
+		steel=1
+		rubber=1
+	}
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			13559 2 #Phan Thiet
+		}
+		victory_points = {
+			15143 1 #Phan Rang
+		}
+	}
+	provinces={
+		10232 13559 13560 15139 15140 15141 15143 
+	}
+	manpower=556400
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=0.000
+}

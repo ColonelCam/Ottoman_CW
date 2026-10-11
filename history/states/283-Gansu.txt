@@ -1,0 +1,58 @@
+state = {
+	id = 283
+	name = "STATE_283"
+	
+	resources = {
+		tungsten=1
+		coal=3
+	}
+
+	history = {
+		owner = CHI
+		add_claim_by = XSM
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			4939 = {
+				bunker = 2
+			}
+			517 = {
+				bunker = 2
+			}
+		}
+		victory_points = {
+			2022 20
+		}	
+		victory_points = {
+			531 1 #Wudu
+		}
+		victory_points = {
+			12797 1 #Linxia
+		}
+		victory_points = {
+			1647 2 #Pingliang
+		}
+		victory_points = {
+			517 2 #Qingyang
+		}
+		victory_points = {
+			5025 1 #Guyuan
+		}
+		victory_points = {
+			7911 2 #Tianshui
+		}
+		victory_points = {
+			5057 3 #Wuwei
+		}
+	}
+
+	provinces={
+		517 531 556 1630 1647 1933 1985 2022 3745 4313 4403 4939 5025 5057 5193 6638 7397 7911 12776 12797 12882 15128 15130 15133 
+	}
+	manpower = 5705400
+	buildings_max_level_factor = 1.000
+	state_category = town
+	local_supplies = 0.0 
+}

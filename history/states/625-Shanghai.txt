@@ -1,0 +1,42 @@
+state={
+	id=625
+	name="STATE_625"
+	
+	history={
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			air_base = 6
+			dockyard = 1
+			7014 = {
+				naval_base = 6
+				coastal_bunker = 1
+				bunker = 1
+			}
+		}
+		victory_points = {
+			7014 35 #Shanghai
+		}
+		victory_points = {
+			10076 10 #Suzhou
+		}
+		victory_points = {
+			4091 4 #Nantong
+		}
+		victory_points = {
+			15137 3 #Wuxi
+		}
+		victory_points = {
+			1089 1 #Rugao
+		}
+	}
+	provinces={
+		1089 4091 7014 7120 10034 10076 11928 12052 12076 15137 
+	}
+	manpower = 10000000
+	state_category = large_city
+	local_supplies=0.0 
+}

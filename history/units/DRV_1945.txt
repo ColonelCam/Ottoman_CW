@@ -1,0 +1,175 @@
+﻿###########################
+### Aftermath: Cold War ###
+###########################
+
+##### DIVISION TEMPLATES #####
+
+division_template = {
+	name = "People's Milita"
+	division_names_group = DRV_NAT_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		military_police = { x = 0 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Self-Defense Forces"		
+	division_names_group = DRV_DEF_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Guerilla Fighters"		
+	division_names_group = DRV_GUR_01
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	######## LAND OOB ########
+	##### Central Highlands #####
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 15156
+		division_template = "People's Milita"		
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 15156
+		division_template = "People's Milita"		
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.8
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 13607
+		division_template = "Self-Defense Forces"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13607
+		division_template = "Self-Defense Forces"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 13607
+		division_template = "Self-Defense Forces"		
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7
+	}
+	
+	##################################
+	########     Guerilla     ########
+	##################################
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 13607
+		division_template = "Guerilla Fighters"		
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13607
+		division_template = "Guerilla Fighters"		
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7015
+		division_template = "Guerilla Fighters"		
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 7015
+		division_template = "Guerilla Fighters"		
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.6
+	}
+	
+}
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "DRV"
+		}
+		requested_factories = 2
+		progress = 0.6
+		efficiency = 40
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2500
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 750
+		producer = CHI
+	}
+}

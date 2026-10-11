@@ -1,0 +1,50 @@
+
+state={
+	id=613
+	name="STATE_613" 
+	
+	history={
+		owner = CHI
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 6
+			11913 = {
+				bunker = 2
+				landmark_nanjing_presidential_palace = {
+					level = 1
+					allowed = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+				}
+			}
+		}
+		victory_points = {
+			11913 40 #Nanjing
+		}
+		victory_points = {
+			11982 10 #Zhenjiang
+		}
+		victory_points = {
+			4001 3 #Yangzhou
+		}
+		victory_points = {
+			15138 3 #Taizhou
+		}
+		victory_points = { 
+			996 3 #Changzhou
+		}
+		victory_points = { 
+			1146 1 #Hexian
+		}
+	}
+
+	provinces={
+		996 1146 4001 4105 4148 11913 11982 15138 
+	}
+	manpower = 5305100
+	state_category = large_town	
+	local_supplies=0.0 
+}

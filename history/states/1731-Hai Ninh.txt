@@ -1,0 +1,38 @@
+
+
+state={
+	id=1731
+	name="STATE_1731" 
+	resources={
+		coal=2
+	}
+
+	history={
+		owner = VTC
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = HNG
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces={
+		15185 15867 
+	}
+	manpower=5000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=0.000
+}

@@ -1,0 +1,40 @@
+state={
+	id=1079
+	name="STATE_1079"
+	resources={
+		rubber=7
+		aluminium=5
+	}
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_core_of = DGR
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			15156 2 #Pleiku
+		}
+		victory_points = {
+			1248 1 #Kon Tum
+		}
+	}
+	provinces={
+		1248 1328 4363 7380 10180 15154 15156 15157 15159 
+	}
+	manpower=200000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=11.000
+}

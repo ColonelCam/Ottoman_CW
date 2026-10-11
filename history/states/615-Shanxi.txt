@@ -1,0 +1,48 @@
+state={
+	id=615
+	name="STATE_615"
+
+	resources={
+		coal = 19
+	}
+	
+	history={
+		owner = SHX
+		add_core_of = SHX
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 3
+			arms_factory = 2
+			industrial_complex = 2
+			12432 = {
+				bunker = 2
+			}
+		}
+		victory_points = {
+			1519 15 #Taiyuan
+		}
+		victory_points = {
+			1438 6 #Datong
+		}
+		victory_points = {
+			12078 3 #Yangquan
+		}
+		victory_points = {
+			10421 2 #Changzi
+		}
+		victory_points = {
+			4538 1 #Yuci
+		}
+		victory_points = {
+			1531 1 #Lishi
+		}
+	}
+	provinces={
+		1027 1034 1180 1203 1438 1519 1531 1575 4074 4174 4469 4538 4634 7571 10367 10421 10480 10507 12078 12300 12344 12432 
+	}
+	
+	manpower = 11601000
+	state_category = large_town
+	local_supplies=0.0 
+}

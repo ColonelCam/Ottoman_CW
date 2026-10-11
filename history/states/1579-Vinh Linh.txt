@@ -1,0 +1,34 @@
+state={
+	id=1579
+	name="STATE_1579"
+	resources={
+		chromium=1
+	}
+	
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		
+		victory_points = {
+			15167 1 # Ho Xa
+		}
+	}
+	provinces={
+		15167 
+	}
+	manpower=50556
+	buildings_max_level_factor=1.000
+	state_category=enclave
+	local_supplies=0.000
+}

@@ -1,0 +1,25 @@
+
+state={
+	id=1318
+	name="STATE_1318" # Dnipropertovsk
+
+	history={
+		owner = UKR
+		add_core_of = SOV
+		add_core_of = UKR
+		victory_points = {
+			453 1 #Synelnikovo / Synelnykove
+		}
+		buildings = {
+			infrastructure = 1
+		}
+	}
+
+	provinces={
+		453 472 486 9463 9479 11452
+	}
+	
+	manpower = 591047	
+	state_category = pastoral
+	local_supplies=0.0 
+}

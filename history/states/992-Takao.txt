@@ -1,0 +1,35 @@
+state={
+	id=992
+	name="STATE_992"
+	
+	history={
+		owner = PRC
+		add_core_of = TWN
+		add_core_of = CHI
+		add_core_of = PRC
+		1948.6.1 = {
+			owner = CHI
+		}
+		buildings = {
+			infrastructure = 6
+			13389 = {
+				naval_base = 10
+				naval_supply_hub = 1
+			}
+		}
+		victory_points = {
+			12068 5
+		}
+		victory_points = {
+			13389 10
+		}
+
+	}
+	provinces={
+		11914 12068 13382 13383 13389
+	}
+	manpower=1948369
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=0.000
+}

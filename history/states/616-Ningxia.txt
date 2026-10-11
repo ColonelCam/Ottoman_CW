@@ -1,0 +1,38 @@
+state = {
+	id = 616
+	name = "STATE_616"
+	
+	resources={
+		coal=2
+	}
+
+	history = {
+		owner = NXM
+		add_core_of = NXM
+		add_core_of = CHI
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			10724 5 #Yinchuan
+		}
+		victory_points = {
+			14615 1 #Wuzong
+		}
+		victory_points = {
+			8127 1 #Zhongwei
+		}
+		victory_points = {
+			14616 1 #Wuhai
+		}
+	}
+
+	provinces={
+		3742 8081 8127 10724 14615 14616 15129 
+	}
+	manpower = 1827600
+	buildings_max_level_factor = 1.000
+	state_category = rural
+	local_supplies = 0.0 
+}

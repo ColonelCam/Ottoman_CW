@@ -1,0 +1,36 @@
+state={
+	id=1081
+	name="STATE_1081"
+	resources={
+		steel=1
+		coal=1
+	}
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			4379 10
+		}
+	}
+	provinces={
+		4379 15164 15165 
+	}
+	manpower=457900
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

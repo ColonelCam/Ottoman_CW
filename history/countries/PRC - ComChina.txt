@@ -1,0 +1,137 @@
+﻿capital = 991 #Taiwan
+
+oob = "PRC_1945_taiwan"
+set_convoys = 10
+set_stability = 0.6
+set_war_support = 0.95
+add_command_power = 20
+set_research_slots = 2
+add_political_power = 99
+
+set_cosmetic_tag = PRC_1946_communist_china #Until 1949
+
+622 = { #Shaanbei
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+
+# Experience
+army_experience = 5
+
+add_ideas = {
+	#National Spirits
+	CHI_civil_war
+	PRC_peoples_liberation_army
+	PRC_rectification_1
+	
+	#National Laws
+	limited_conscription
+	war_economy
+	closed_economy
+	
+	#Companies
+}
+
+add_opinion_modifier = { target = CHI modifier = hostile_status }
+
+
+
+
+1950.6.1 = {
+	# Decisions
+	activate_decision = PRC_establish_the_peoples_republic
+	activate_decision = PRC_take_manchuria_states
+	activate_decision = PRC_raise_up_conscription
+	activate_decision = PRC_reintegrate_xinjiang
+	activate_decision = PRC_annex_mengjiang
+	activate_decision = PRC_battle_of_hainan
+	activate_decision = PRC_battle_of_kinmen
+}
+
+1956.1.1 = {
+	# Decisions
+	activate_decision = PRC_battle_of_yijiangshan
+	activate_decision = PRC_battle_of_matsu
+	activate_decision = PRC_demand_tibet
+	# Wars
+	diplomatic_relation = {
+		country = CHI
+		relation = war_relation
+		active = no
+	}
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = peoples_war
+set_sub_doctrine = guerilla_war
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	infantry_weapons_2 = 1
+	support_weapons = 1
+	
+	### Special Forces ###
+	tech_mountaineers = 1
+	tech_support = 1
+	tech_recon = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_fortification_tech = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = PRC_mao_zedong
+recruit_character = PRC_zhu_de
+recruit_character = PRC_chen_yi
+recruit_character = PRC_peng_dehuai
+recruit_character = PRC_lin_biao
+recruit_character = PRC_kwong_hu
+recruit_character = PRC_luo_zhao
+recruit_character = PRC_liang_ma
+recruit_character = PRC_ma_jin
+recruit_character = PRC_ziao_jingguang
+recruit_character = PRC_nie_rongzhen
+recruit_character = PRC_su_yu
+recruit_character = PRC_liu_bocheng
+recruit_character = PRC_chen_geng
+recruit_character = PRC_gao_qiu
+recruit_character = PRC_liang_shen
+recruit_character = PRC_otto_braun
+recruit_character = PRC_gao_gang
+recruit_character = PRC_fang_zeyi
+recruit_character = PRC_xu_xiangqian
+recruit_character = PRC_deng_ye_peng
+recruit_character = PRC_ye_jianying
+recruit_character = PRC_hsia_tian
+recruit_character = PRC_zhang_wei
+recruit_character = PRC_zhou_enlai
+recruit_character = PRC_liu_shaoqi
+recruit_character = PRC_lin_bojiu
+recruit_character = PRC_dong_biwu
+recruit_character = PRC_he_yuandang
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 80 #Communism
+	left_wing_radical = 10
+	neutrality = 10 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1940.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

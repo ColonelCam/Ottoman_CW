@@ -1,0 +1,45 @@
+state={
+	id=1078
+	name="STATE_1078"
+	resources={
+		rubber=2
+		aluminium=10
+		coal=2
+	}
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DGR
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+		}
+		victory_points = {
+			7271 5 #Da Lat
+		}
+		victory_points = {
+			12176 1 #Bao Loc
+		}
+		victory_points = {
+			15144 1 #Gia Nghia
+		}
+	}
+	provinces={
+		7271 12150 12176 12204 13565 15142 15144 15146 15147 15148 
+	}
+	manpower=210000
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=11.000
+}

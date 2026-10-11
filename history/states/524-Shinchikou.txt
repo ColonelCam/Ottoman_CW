@@ -1,0 +1,34 @@
+state={
+	id=524
+	name="STATE_524"
+	
+	resources={
+		coal = 8
+	}
+
+	history={
+		owner = PRC
+		add_core_of = TWN
+		add_core_of = CHI
+		add_core_of = PRC
+		1948.6.1 = {
+			owner = CHI
+		}
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+			air_base = 6
+		}
+		victory_points = {
+			7214 3
+		}
+	}
+
+	provinces={
+		7214 11959 13378 13381 13388
+	}
+	manpower=1592537
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

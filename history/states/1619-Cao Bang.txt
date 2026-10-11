@@ -1,0 +1,41 @@
+state={
+	id=1619
+	name="STATE_1619"
+	resources={
+		coal=2
+		steel=3
+		aluminium=1
+	}
+
+	history={
+		owner = GXC
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		victory_points = {
+			12065 1 #Pac Bo
+		}
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	provinces={
+		12065 15435 
+	}
+	manpower=100221
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=11.000
+}
