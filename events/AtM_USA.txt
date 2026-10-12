@@ -1093,6 +1093,7 @@ country_event = {
 	desc = AtM_USA.18.desc
 	picture = GFX_report_event_ast_troops_landing
 	
+	trigger = { always = no }
 	is_triggered_only = yes
 	
 	option = {

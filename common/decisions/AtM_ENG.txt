@@ -1,0 +1,1272 @@
+political_actions = {
+	ENG_withdraw_from_iran = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			always = no
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = SWI_support_humanitarian_efforts
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 413
+				state = 1024
+				state = 1025
+				state = 1032
+				state = 1033
+			}
+		}
+		
+		complete_effect = {
+			add_stability = 0.025
+			IRN = {
+				set_autonomy_free = yes
+				leave_faction = yes
+				transfer_state = 413
+				transfer_state = 1024
+				transfer_state = 1025
+				transfer_state = 1032
+				transfer_state = 1033
+				remove_ideas = IRN_hatred_british
+			}
+			hidden_effect = {
+				411 = { set_demilitarized_zone = no }
+				412 = { set_demilitarized_zone = no }
+				414 = { set_demilitarized_zone = no }
+				417 = { set_demilitarized_zone = no }
+				1028 = { set_demilitarized_zone = no }
+				news_event = {
+					id = AtM_news.32
+					days = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	ENG_treaty_of_london = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			country_exists = JOR
+			JOR = {
+				is_subject_of = ENG
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_support
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_controlled_by = JOR
+			}
+		}
+
+		complete_effect = {
+			add_political_power = 25
+			JOR = {
+				set_autonomy_free = yes
+				leave_faction = yes
+				give_military_access = ENG
+			}
+			hidden_effect = {
+				# Trigger British treaty with Jordan event
+				news_event = {
+					id = AtM_news.43
+					days = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.5.1
+			}
+		}
+	}
+	
+	ENG_treaty_of_friendship = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = IRQ
+			IRQ = {
+				is_subject_of = ENG
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_trade_unions_support
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_controlled_by = IRQ
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			IRQ = {
+				set_autonomy_free = yes
+				leave_faction = yes
+				drop_cosmetic_tag = yes
+				give_military_access = ENG
+			}
+			hidden_effect = {
+				# Trigger British treaty with Iraq event
+				news_event = {
+					id = AtM_news.42
+					days = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1947.10.1
+			}
+		}
+	}
+	
+	ENG_form_the_malayan_union = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = BMA
+			BMA = {
+				is_subject_of = ENG
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = generic_operation
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = BMA
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_stability = 0.025
+			every_state = {
+				limit = {
+					OR = {
+						state = 336
+						state = 1197
+						state = 1198
+						state = 1199
+						state = 1200
+						state = 1201
+						state = 1204
+						state = 1206
+						state = 1827
+						state = 1202 #Strait Settlements
+						state = 1825 #Strait Settlements
+					}
+					CONTROLLER = {
+						OR = {
+							original_tag = ENG
+							is_subject_of = ENG
+						}
+					}
+				}
+				MAL = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+			}
+			MAL = {
+				set_autonomy_colony = yes
+				set_autocratic = yes
+				set_country_flag = MAL_union_of_malaya
+				drop_autonomy_cosmetic_tag = yes
+			}
+			SNG = {
+				transfer_state = 1203
+				transfer_state = 1824 #For Some Reason This was transferred to them for 3 months
+				set_autonomy_colony = yes
+				set_autocratic = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.4.1
+			}
+		}
+	}
+	
+	ENG_form_the_federation_of_malaya = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = MAL
+			MAL = {
+				is_subject_of = ENG
+				has_country_flag = MAL_union_of_malaya
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = generic_operation
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = MAL
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_stability = 0.025
+			every_state = {
+				limit = {
+					OR = {
+						state = 336
+						state = 1197
+						state = 1198
+						state = 1199
+						state = 1200
+						state = 1201
+						state = 1204
+						state = 1206
+						state = 1825
+						state = 1827
+					}
+					CONTROLLER = {
+						OR = {
+							original_tag = ENG
+							is_subject_of = ENG
+						}
+					}
+				}
+				MAL = {
+					transfer_state = PREV
+					add_state_core = PREV
+				}
+			}
+			MAL = {
+				set_country_flag = MAL_federation_of_malaya
+				clr_country_flag = MAL_union_of_malaya
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1948.2.1
+			}
+		}
+	}
+	
+	ENG_grant_malaysian_independence = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = MAL
+			MAL = {
+				is_subject_of = ENG
+				has_country_flag = MAL_federation_of_malaya
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = generic_operation
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = MAL
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_stability = 0.025
+			MAL = {
+				set_autonomy_free = yes
+				clr_country_flag = MAL_federation_of_malaya
+			}
+			if = {
+				limit = {
+					country_exists = SNG
+					is_subject_of = ENG
+					SNG = {
+						controls_state = 1203
+					}
+				}
+				MAL = {
+					set_autonomy_free = yes
+					SNG = {
+						set_autonomy_integrated_puppet_no_elections = yes
+						set_autocratic = yes
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1957.9.1
+			}
+		}
+	}
+	
+	ENG_release_israel = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = PAL
+			PAL = {
+				is_subject_of = ENG
+			}
+		}
+		
+		cost = 50
+		
+		fire_only_once = yes
+		
+		icon = generic_form_nation
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = ISR
+			}
+		}
+		
+		complete_effect = {
+			set_global_flag = arab_israeli_war
+			country_event = AtM_ENG.2
+			ISR = {
+				transfer_state = 454
+				transfer_state = 995
+				transfer_state = 998
+				transfer_state = 999
+				transfer_state = 1218
+				transfer_state = 1219
+			}
+			PAL = {
+				set_autonomy_free = yes
+				add_state_core = 999
+				add_state_core = 998
+				add_state_core = 1217
+				add_state_core = 1219
+				add_state_core = 1215
+				add_state_core = 1213
+				add_state_core = 454
+				add_state_core = 1214
+				add_state_core = 996
+				add_state_core = 1218
+				add_state_core = 1216
+				add_state_core = 995
+				add_state_core = 997
+				add_state_core = 1212
+				set_capital = {
+					state = 1212 # East Jerusalem
+					remember_old_capital = no
+				}
+				promote_character = PAL_ahmed_hilmi_pasha
+			}
+			hidden_effect = {
+				ISR = {
+					load_oob = ISR_1948
+					country_event = { id = AtM_ISR.1 days = 7 }
+					add_fuel = 500
+					add_offsite_building = {
+						type = industrial_complex
+						level = 3
+					}
+					add_offsite_building = {
+						type = arms_factory
+						level = 3
+					}
+					# Removes UK Templates
+					delete_unit_template_and_units = { division_template = "Guards Division" }
+					delete_unit_template_and_units = { division_template = "Armoured Division" }
+					delete_unit_template_and_units = { division_template = "Airborne Division" }
+					delete_unit_template_and_units = { division_template = "Light Division" }
+					delete_unit_template_and_units = { division_template = "Infantry (Reserve) Division" }
+					delete_unit_template_and_units = { division_template = "East African Division" }
+					delete_unit_template_and_units = { division_template = "West African Division" }
+				}
+				if = {
+					limit = {
+						country_exists = PAL
+					}
+					PAL = {
+						leave_faction = yes
+						declare_war_on = {
+							target = ISR
+							type = annex_everything
+						}
+						add_equipment_to_stockpile = {
+							type = infantry_equipment
+							amount = 1000
+							producer = ENG
+						}
+						load_oob = PAL_1948
+						add_fuel = 250
+						add_offsite_building = {
+							type = industrial_complex
+							level = 1
+						}
+					}
+					EGY = {
+						add_to_faction = PAL
+					}
+				}
+				news_event = {
+					id = AtM_news.34
+					days = 1
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1948.1.1
+			}
+		}
+	}
+	
+	ENG_offer_newfoundland_to_canada = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = CAN
+			# Newfoundland
+			331 = {
+				is_controlled_by = ENG
+			}
+			# Labrador Exterior
+			332 = {
+				is_controlled_by = ENG
+			}
+			# Central Labrador
+			1224 = {
+				is_controlled_by = ENG
+			}
+		}
+		
+		cost = 75
+		
+		fire_only_once = yes
+		
+		icon = SWE_set_navy_budget
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 331
+				state = 332
+				state = 1224
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 50
+			CAN = { country_event = AtM_CAN.1 }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1949.1.1
+			}
+		}
+	}
+	
+	ENG_withdraw_from_dire_dawa = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			country_exists = ETH
+			# Dire Dawa
+			1554 = {
+				is_controlled_by = ENG
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1554
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.025
+			ETH = {
+				transfer_state = 1554
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.7.1
+			}
+		}
+	}
+	
+	ENG_withdraw_from_southern_ethiopia = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			country_exists = ETH
+			# Ogaden
+			835 = {
+				is_controlled_by = ENG
+			}
+			# Dolo
+			1321 = {
+				is_controlled_by = ENG
+			}
+			# South Bale
+			1322 = {
+				is_controlled_by = ENG
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 835
+				state = 1321
+				state = 1322
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.025
+			ETH = {
+				transfer_state = 835
+				transfer_state = 1321
+				transfer_state = 1322
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1948.9.1
+			}
+		}
+	}
+	
+	ENG_withdraw_from_hawd = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			country_exists = ETH
+			# Hawd
+			1555 = {
+				is_controlled_by = ENG
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1555
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.025
+			ETH = {
+				transfer_state = 1555
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1955.1.1
+			}
+		}
+	}
+	
+	ENG_grant_jamaica_independence = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			country_exists = JAM
+			JAM = {
+				is_subject_of = ROOT
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		icon = infiltrate_state
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 689
+			}
+		}
+
+		complete_effect = {
+			add_stability = 0.025
+			JAM = {
+				set_autonomy_free = yes
+			}
+			if = {
+				limit = {
+					1828 = {
+						is_controlled_by = JAM
+					}
+				}
+				ENG = {
+					transfer_state = 1828
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1962.8.6
+			}
+		}
+	}
+	
+	ENG_propose_operation_kadesh_to_israel = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		available = {
+			EGY = {
+				is_subject = no
+			}
+		}
+		
+		visible = {
+			country_exists = ISR
+			has_global_flag = suez_crisis_operations
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = hol_draw_up_staff_plans
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = ISR
+				}
+			}
+		}
+		
+		complete_effect = {
+			ISR = { country_event = AtM_ISR.2 }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 150
+				date > 1956.10.1
+			}
+		}
+	}
+	
+	ENG_propose_operation_musketeer_to_france = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		available = {
+			EGY = {
+				is_subject = no
+			}
+		}
+		
+		visible = {
+			country_exists = FRA
+			has_global_flag = suez_crisis_operations
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = hol_draw_up_staff_plans
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = FRA
+				}
+			}
+		}
+		
+		complete_effect = {
+			FRA = { country_event = AtM_FRA.1 }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1956.10.1
+			}
+		}
+	}
+	
+	ENG_release_sarawak = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			# Sarawak
+			333 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+			NOT = {
+				country_exists = SRW
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 333
+				state = 1823
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			SRW = {
+				transfer_state = 333
+				add_state_core = 333
+				transfer_state = 1823
+				add_state_core = 1823
+				set_autonomy_crown_colony_no_elections = yes
+				set_autocratic_no_elections = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.7.1
+			}
+		}
+	}
+	
+	ENG_reinstate_sarawak = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			# Sarawak
+			333 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+			NOT = {
+				country_exists = SRW
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 333
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			SRW = {
+				transfer_state = 333
+				add_state_core = 333
+				transfer_state = 1823
+				add_state_core = 1823
+				preserve_cosmetic_tag = yes
+				set_autonomy_protectorate = yes
+				set_autocratic = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.7.1
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	ENG_release_north_borneo = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			# North Borneo
+			1040 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1040
+				state = 1826
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			NBO = {
+				transfer_state = 1040
+				add_state_core = 1040
+				transfer_state = 1826
+				add_state_core = 1826
+				set_autonomy_crown_colony_no_elections = yes
+				set_autocratic_no_elections = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.7.1
+			}
+		}
+	}
+
+	ENG_release_botswana = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			# Botswana
+			542 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 542
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			BOT = {
+				set_autonomy_free = yes
+				set_autocratic_no_elections = yes
+				set_capital = {
+					state = 542
+					remember_old_capital = no
+				}
+			}
+			SAF = {
+				if = {
+					limit = {
+						BOT = {
+							controls_state = 1477
+						}
+					}
+					transfer_state = 1477
+					add_state_core = 1477
+					BOT = {
+						remove_state_core = 1477
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1946.7.1
+			}
+		}
+	}
+	
+	ENG_release_tanganyika = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = TZN
+			TZN = {
+				is_subject_of = ENG
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				CONTROLLER = {
+					original_tag = TZN
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			TZN = {
+				set_autonomy_free = yes
+				set_autocratic_no_elections = yes
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1961.9.7
+			}
+		}
+	}
+	
+	ENG_enact_the_rhodesia_and_nyasaland_federation_act = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = RHO
+			RHO = {
+				is_subject_of = ENG
+			}
+			country_exists = ZAM
+			ZAM = {
+				is_subject_of = ENG
+			}
+			country_exists = MLW
+			MLW = {
+				is_subject_of = ENG
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					CONTROLLER = {
+						original_tag = RHO
+						original_tag = ZAM
+						original_tag = MLW
+					}
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			RHO = {
+				MLW = {
+					every_controlled_state = {
+						limit = {
+							CONTROLLER = {
+								OR = {
+									original_tag = MLW
+									is_subject_of = ENG
+								}
+							}
+						}
+						transfer_state_to = RHO
+					}
+				}
+				if = {
+					limit = {
+						country_exists = MLW
+					}
+					annex_country = {
+						target = MLW
+						transfer_troops = yes
+					}
+				}
+				ZAM = {
+					every_controlled_state = {
+						limit = {
+							CONTROLLER = {
+								OR = {
+									original_tag = ZAM
+									is_subject_of = ENG
+								}
+							}
+						}
+						transfer_state_to = RHO
+					}
+				}
+				if = {
+					limit = {
+						country_exists = ZAM
+					}
+					annex_country = {
+						target = ZAM
+						transfer_troops = yes
+					}
+				}
+				add_stability = 0.1
+				set_cosmetic_tag = RHO_rhodesia_and_nyasaland_federation
+			}
+			if = {
+				limit = {
+					RHO = {
+						is_ai = yes
+					}
+					ZAM = {
+						is_ai = no
+					}
+				}
+				RHO = {
+					change_tag_from = ZAM
+				}
+			}
+			if = {
+				limit = {
+					RHO = {
+						is_ai = yes
+					}
+					MLW = {
+						is_ai = no
+					}
+				}
+				RHO = {
+					change_tag_from = MLW
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1953.8.1
+			}
+		}
+	}
+	
+	ENG_dissolve_rhodesia_and_nyasaland_federation = {
+		allowed = {
+			original_tag = ENG
+		}
+		
+		visible = {
+			country_exists = RHO
+			RHO = {
+				is_subject_of = ENG
+				has_cosmetic_tag = RHO_rhodesia_and_nyasaland_federation
+			}
+		}
+		
+		cost = 25
+		
+		fire_only_once = yes
+		
+		icon = eng_ally_imperialist_coup
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				CONTROLLER = {
+					original_tag = RHO
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 25
+			RHO = {
+				every_owned_state = {
+					limit = {
+						is_core_of = ZAM
+					}	
+					ZAM = {
+						transfer_state = PREV
+					}
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = MLW
+					}
+					MLW = {
+						transfer_state = PREV
+					}
+				}
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = ENG_occupation
+			}
+			ENG = {
+				MLW = {
+					set_autonomy_protectorate = yes
+				}
+				ZAM = {
+					set_autonomy_protectorate = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				date > 1964.1.1
+			}
+		}
+	}
+}

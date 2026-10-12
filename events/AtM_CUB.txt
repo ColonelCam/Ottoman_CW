@@ -12,6 +12,9 @@ country_event = {
 	picture = GFX_report_event_generic_sign_treaty1
 	
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = PCC_already_rose_up_idiot }
+	}
 	
 	option = {
 		name = AtM_CUB.3.a
@@ -36,7 +39,7 @@ country_event = {
 			}
 			country_event = {
 				id = AtM_CUB.4
-				days = 503
+				days = 32
 			}
 		}
 		ai_chance = { base = 100 }
@@ -51,6 +54,9 @@ country_event = {
 	picture = GFX_report_event_generic_sign_treaty2
 	
 	is_triggered_only = yes
+	trigger = {
+		NOT = { has_global_flag = PCC_already_rose_up_idiot }
+	}
 	
 	after = {
 		CUB = {
@@ -59,50 +65,53 @@ country_event = {
 				type = civil_war
 			}
 		}
+		set_global_flag = PCC_already_rose_up_idiot
 	}
 	immediate = {
-		start_civil_war = {
-			ideology = communism
-			ruling_party = ROOT
-			save_global_event_target_as = CUB_PCC
-			set_country_flag = CUB_M26_7
-			set_cosmetic_tag = PCC_M26_7
-			size = 0
-			capital = 1010
-			states = { 1010 }
-			set_party_name = {
-				ideology = left_wing_radical
-				long_name = CUB_July_26_party_long
-				name = CUB_July_26_party
-			}
-			set_party_name = {
-				ideology = social_democrat
-				long_name = CUB_July_26_party_long
-				name = CUB_July_26_party
-			}
-			hidden_effect = {
-				load_oob = PCC_1953
-				set_popularities = {
-					democratic = 0 #Social Conservatism
-					market_liberal = 0
-					social_liberal = 0
-					social_democrat = 5
-					communism = 60 #Communism
-					left_wing_radical = 10
-					neutrality = 25 #Paternal Autocracy
-					fascism = 0 #Nationalism
+		CUB = {
+			start_civil_war = {
+				ideology = communism
+				ruling_party = ROOT
+				save_global_event_target_as = CUB_PCC
+				set_country_flag = CUB_M26_7
+				set_cosmetic_tag = PCC_M26_7
+				size = 0
+				capital = 1010
+				states = { 1010 }
+				set_party_name = {
+					ideology = left_wing_radical
+					long_name = CUB_July_26_party_long
+					name = CUB_July_26_party
 				}
-				promote_character = CUB_fidel_castro
-				# promote = set as country leader
-				#promote_character = CUB_raul_castro
-				#promote_character = CUB_che_guevara
-			}
-			hidden_effect = {
-				add_popularity = {
-					ideology = communism 
-					popularity = -0.3
+				set_party_name = {
+					ideology = social_democrat
+					long_name = CUB_July_26_party_long
+					name = CUB_July_26_party
 				}
-				USA = { puppet = PREV }
+				hidden_effect = {
+					load_oob = PCC_1953
+					set_popularities = {
+						democratic = 0 #Social Conservatism
+						market_liberal = 0
+						social_liberal = 0
+						social_democrat = 5
+						communism = 60 #Communism
+						left_wing_radical = 10
+						neutrality = 25 #Paternal Autocracy
+						fascism = 0 #Nationalism
+					}
+					promote_character = CUB_fidel_castro
+					# promote = set as country leader
+					#promote_character = CUB_raul_castro
+					#promote_character = CUB_che_guevara
+				}
+				hidden_effect = {
+					add_popularity = {
+						ideology = communism 
+						popularity = -0.3
+					}
+					USA = { puppet = PREV }
+				}
 			}
 		}
 	}

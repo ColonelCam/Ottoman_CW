@@ -15,6 +15,11 @@ set_research_slots = 2
 add_political_power = 49
 
 set_country_flag = monroe_doctrine
+country_event = {
+	id = AtM_CUB.3
+	days = 128
+	random_days = 64
+}
 
 # Starting tech
 set_technology = {
