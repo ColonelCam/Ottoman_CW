@@ -4131,6 +4131,13 @@ country_event = {
 		tag = USA
 		date > 1948.1.1
 		date < 1949.1.1
+		NOT = {
+			OR = {
+				is_nationalist = yes
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
 	}
 
 	option = {
