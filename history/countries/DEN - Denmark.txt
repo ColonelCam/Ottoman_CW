@@ -10,7 +10,7 @@ set_war_support = 0.6
 
 add_command_power = 5
 
-set_research_slots = 2
+set_research_slots = 3
 
 add_political_power = 49
 
@@ -73,6 +73,25 @@ set_technology = {
 
 recruit_character = DEN_vilhelm_buhl
 recruit_character = DEN_cay_lembcke
+#generals
+recruit_character = DEN_erik_with
+recruit_character = DEN_william_wain_prior 
+recruit_character = DEN_ebbe_gortz 
+recruit_character = DEN_frederik_christian_essemann 
+recruit_character = DEN_carl_jacobsen 
+recruit_character = DEN_christian_peder_kryssing 
+recruit_character = DEN_erik_leschly 
+recruit_character = DEN_erik_moller 
+recruit_character = DEN_paul_ramm 
+recruit_character = DEN_charles_henry_rye 
+recruit_character = DEN_christian_frederik_von_schalburg=
+recruit_character = DEN_hjalmar_rechnitzer 
+recruit_character = DEN_aage_vedel 
+recruit_character = DEN_emmanuel_briand_de_crevecoeur 
+recruit_character = DEN_christian_evers 
+recruit_character = DEN_carl_hammerich 
+recruit_character = DEN_paul_ipsen 
+
 
 set_popularities = {
 	democratic = 18 #Social Conservatism
