@@ -1,0 +1,36 @@
+DEN_HELP_SWEDEN = {
+
+	allowed = {
+		original_tag = DEN
+
+	}
+	
+	enable = {
+		FSW = {
+			has_war = yes
+		}
+	}
+
+	abort = {
+		NOT = {
+			country_exists = FSW
+		}
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = FSW
+		value = 300
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = FSW
+		value = 150
+	}
+	ai_strategy = {
+		type = support
+		id = FSW
+		value = 125
+	}
+	
+}

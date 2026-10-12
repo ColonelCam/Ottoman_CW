@@ -13,6 +13,7 @@ state = {
 	history = {
 		owner = FSW
 		add_core_of = FSW
+		add_core_of = SWE
 		victory_points = {
 			9279 5 # Malmö
 		}

@@ -17,6 +17,7 @@ add_political_power = 49
 add_ideas = {
 	DEN_danish_produce_export_ns
 	DEN_improved_logistics
+	DEN_third_position_international
 }
 
 if = {
@@ -71,6 +72,7 @@ set_technology = {
 }
 
 recruit_character = DEN_vilhelm_buhl
+recruit_character = DEN_cay_lembcke
 
 set_popularities = {
 	democratic = 18 #Social Conservatism

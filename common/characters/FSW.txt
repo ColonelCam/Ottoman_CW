@@ -1,0 +1,14 @@
+characters={
+	SWE_sven_olov_knutsson_lindholm = {
+		name="Sven Olov Lindholm"
+		portraits={
+			civilian={
+				large="gfx/leaders/SWE/portrait_SWE_sven_olav_lindholm.dds"
+			}
+		}
+		country_leader={
+			ideology=nazism
+			traits={ dictator }
+		}
+	}
+}

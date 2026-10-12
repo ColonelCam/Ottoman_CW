@@ -1,6 +1,6 @@
 ﻿capital = 138
 
-oob = "SWE_1945"
+oob = "FSW_1945"
 
 set_convoys = 20
 
@@ -95,7 +95,18 @@ set_technology = {
 	basic_machine_tools = 1
 }
 
-recruit_character = SWE_per_albin_hansson
+recruit_character = SWE_sven_olov_knutsson_lindholm
+
+every_state = {
+	limit = {
+		is_core_of = SWE
+	}
+	add_core_of = ROOT
+}
+declare_war_on = {
+                target = SWE
+                type = annex_everything
+}
 
 set_popularities = {
 	democratic = 15 #Social Conservatism
@@ -113,6 +124,10 @@ set_politics = {
 	last_election = "1942.1.1"
 	election_frequency = 48
 	elections_allowed = no
+}
+
+add_ideas = {
+	DEN_third_position_international
 }
 
 ### VARIANTS ###

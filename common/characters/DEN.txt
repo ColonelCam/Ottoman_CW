@@ -1,0 +1,27 @@
+characters={
+	DEN_vilhelm_buhl = {
+		name="Vilhelm Buhl"
+		portraits={
+			civilian={
+				large="gfx/leaders/DEN/Portrait_Denmark_Vilhelm_Buhl.png"
+			}
+		}
+		country_leader={
+			ideology=social_democrat_sub
+			traits = {}
+			expire="1965.1.1.1"
+		}
+	}
+	DEN_cay_lembcke = {
+		name="Cay Lembcke"
+		portraits={
+			civilian={
+				large="gfx/leaders/DEN/portrait_DEN_cay_lembcke.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits = { dictator }
+		}
+	}
+}

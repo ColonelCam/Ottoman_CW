@@ -1,0 +1,207 @@
+add_namespace = merf
+
+#FSW and DEN unite
+country_event = {
+	id = merf.1
+	title = merf.1.t
+	desc = merf.1.d
+	#picture =
+	fire_only_once = yes
+	trigger = {
+		original_tag = FSW
+		has_government = fascism
+		country_exists = DEN
+		DEN = {
+			has_government = fascism
+		}
+		has_war = no
+	}
+	mean_time_to_happen = { days = 95 }
+	option = {
+		name = merf.1.a
+		DEN = {
+			transfer_units_fraction= {
+				target = FSW
+				size = 1.0
+				stockpile_ratio = 1.0
+				army_ratio = 1.0
+				navy_ratio = 1.0
+				air_ratio = 1.0
+				keep_unit_leaders_trigger = {
+					always = no
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = DEN
+			}
+			add_core_of = SWE
+		}
+		annex_country = {
+		    target = DEN
+		    transfer_troops = yes
+		}
+		news_event = {
+			id = merf.2
+			hours = 10
+		}
+		country_event = {
+			id = merf.3
+			days = 250
+		}
+		set_cosmetic_tag = SCA_UNIFIED
+		set_global_flag = form_scandinavia_flag
+	}
+}
+
+#news event for above
+news_event = {
+	id = merf.2
+	title = merf.2.t
+	desc = merf.2.d
+	picture = GFX_news_event_german_speech #anschluss event image
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merf.2.a
+	}
+}
+
+#The Anslutnig (Swedish Anschluss)
+country_event = {
+	id = merf.3
+	title = merf.3.t
+	desc = merf.3.d
+	#picture =
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = merf.3.a
+		every_state = {
+			limit = {
+				is_core_of = NOR
+			}
+			add_core_of = ROOT
+		}
+		annex_country = {
+		    target = NOR
+		    transfer_troops = yes
+		}
+		news_event = merf.4
+		country_event = {
+			id = merf.5
+			days = 270
+		}
+	}
+}
+
+#news event for above
+news_event = {
+	id = merf.4
+	title = merf.4.t
+	desc = merf.4.d
+	picture = GFX_news_event_german_speech #anschluss event image
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merf.4.a
+	}
+}
+
+#Lindholm's Great Realignment
+country_event = {
+	id = merf.5
+	title = merf.5.t
+	desc = merf.5.d
+	#picture =
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		country_exists = USA
+		USA = {
+			has_government = communism
+		}
+	}
+	option = {
+		name = merf.5.a
+		set_temp_variable = {
+			var = swe_great_realignment_var
+			value = party_popularity@fascism
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = swe_great_realignment_var
+		}
+		add_country_leader_role = {
+		    character = SWE_sven_olov_knutsson_lindholm
+		    promote_leader = yes
+		    country_leader = {
+		        ideology = marxism
+		        traits = { dictator }
+		    }
+		}
+		set_politics = {
+		    ruling_party = communism
+		    elections_allowed = no
+		    long_name = FSW_fascism_party_long
+		    name = FSW_fascism_party
+		}
+		news_event = merf.6
+		USA = {
+			country_event = {
+				id = merf.7
+				days = 21
+			}
+		}
+	}
+}
+
+#news event for above
+news_event = {
+	id = merf.6
+	title = merf.6.t
+	desc = merf.6.d
+	picture = GFX_news_event_023 #4th international event image
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merf.6.a
+	}
+}
+
+#USA invites Scandinavia to the IWW
+country_event = {
+	id = merf.7
+	title = merf.7.t
+	desc = merf.7.d
+	#picture =
+	is_triggered_only = yes
+	trigger = {
+		has_government = communism
+		FSW = {
+			has_government = communism
+		}
+		is_faction_leader = yes
+	}
+	option = {
+		name = merf.7.a
+		add_to_faction = FSW
+		news_event = {
+			id = merf.8
+			hours = 2
+		}
+	}
+}
+#news event for above
+news_event = {
+	id = merf.8
+	title = merf.8.t
+	desc = merf.8.d
+	picture = GFX_news_event_023 #4th international event image
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merf.8.a
+	}
+}

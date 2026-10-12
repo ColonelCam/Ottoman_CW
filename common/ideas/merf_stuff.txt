@@ -1,0 +1,21 @@
+ideas = {
+	country = {
+	
+		DEN_third_position_international = {
+		
+			picture = chi_war_of_resistance
+			
+			available = {
+				has_government = fascism
+			}
+			
+			modifier = {
+				send_volunteer_divisions_required = -1.0
+				send_volunteer_factor = 0.5
+				send_volunteers_tension = -1.0
+				
+			}
+		}
+
+	}
+}

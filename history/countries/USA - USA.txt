@@ -13,7 +13,10 @@ army_experience = 20
 air_experience = 20
 navy_experience = 20
 
-activate_mission = USA_kkk_attack_imminent
+#activate_mission = USA_kkk_attack_imminent
+
+create_faction_from_template = faction_template_washington_international
+add_to_faction = PRC
 
 #set_power_balance = {
 	#id = USA_power_balance
@@ -126,15 +129,15 @@ add_ideas = {
 	partial_economic_mobilisation
 	
 	#Cabinet
-	USA_harold_ickes
-	USA_william_donovan
-	USA_omar_bradley
-	USA_george_marshall
-	USA_ernest_king
-	USA_henry_arnold
-	USA_raymond_a_spruance
-	USA_thomas_kinkaid
-	USA_joseph_stilwell
+#	USA_harold_ickes
+#	USA_william_donovan
+#	USA_omar_bradley
+#	USA_george_marshall
+#	USA_ernest_king
+#	USA_henry_arnold
+#	USA_raymond_a_spruance
+#	USA_thomas_kinkaid
+#	USA_joseph_stilwell
 	
 	#Designers
 	#detroit_arsenal
