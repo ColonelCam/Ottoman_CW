@@ -6,9 +6,782 @@ characters={
 				large="gfx/leaders/SWE/portrait_SWE_sven_olav_lindholm.dds"
 			}
 		}
-		country_leader={
-			ideology=nazism
-			traits={ dictator }
+		#country_leader={
+		#	ideology=nazism
+		#	traits={ dictator }
+		#}
+	}
+
+
+	#GENERALS
+	SWE_folke_hogberg={
+		name=SWE_folke_hogberg
+		portraits={
+			army={
+				large=GFX_portrait_SWE_folke_hogberg
+				small=GFX_portrait_SWE_folke_hogberg_small
+			}
+		}
+		corps_commander={
+			traits={ commando }
+			skill=3
+			attack_skill=1
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=0
 		}
 	}
+	SWE_erik_af_edholm={
+		name=SWE_erik_af_edholm
+		portraits={
+			army={
+				large=GFX_portrait_SWE_erik_af_edholm
+				small=GFX_portrait_SWE_erik_af_edholm_small
+			}
+		}
+		corps_commander={
+			traits={ hill_fighter }
+			skill=4
+			attack_skill=4
+			defense_skill=1
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=0
+		}
+	}
+	SWE_claes_lindstrom={
+		name=SWE_claes_lindstrom
+		portraits={
+			army={
+				large=GFX_portrait_SWE_claes_lindstrom
+				small=GFX_portrait_SWE_claes_lindstrom_small
+			}
+		}
+		navy_leader={
+			traits={ battleship_adherent blockade_runner }
+			skill=4
+			attack_skill=3
+			defense_skill=4
+			maneuvering_skill=3
+			coordination_skill=3
+			legacy_id=0
+		}
+	}
+	SWE_rikard_persson={
+		name=SWE_rikard_persson 
+		portraits={
+			army={
+				large=GFX_portrait_SWE_claes_lindstrom
+				small=GFX_portrait_SWE_claes_lindstrom_small
+			}
+		}
+		navy_leader={
+			traits={ concealment_expert smoke_screen_expert blockade_runner }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=1
+			visible = { has_character_flag = has_rikard_persson }
+		}
+
+	}
+
+	SWE_per_sylvan={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+
+			advisor={
+				slot = army_chief
+				idea_token = SWE_per_sylvan
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_chief_defensive_1
+					}
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_per_sylvan
+			portraits={
+				army={
+					small = "GFX_portrait_SWE_per_sylvan_small"
+					large = "GFX_portrait_SWE_per_sylvan"
+				}
+			}
+
+			corps_commander={
+				traits={ infantry_officer }
+				skill=2
+				attack_skill=1
+				defense_skill=2
+				planning_skill=3
+				logistics_skill=1
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" } }
+			advisor={
+				slot = army_chief
+				idea_token = SWE_per_sylvan
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_chief_defensive_1
+					}
+					cost =  50
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_per_sylvan
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_6"
+				}
+			}
+		}
+	}
+
+	SWE_carl_ehrensvard ={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			name=SWE_carl_ehrensvard
+			portraits={
+				army={
+					large = "GFX_portrait_SWE_carl_ehrensvard"
+				}
+			}
+
+			corps_commander={
+				traits={ war_hero politically_connected inflexible_strategist }
+				skill=3
+				attack_skill=1
+				defense_skill=3
+				planning_skill=2
+				logistics_skill=2
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" } }
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_gosta_ehrensvard
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_commerce_raiding_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_gosta_ehrensvard
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_2"
+				}
+			}
+		}
+	}
+	SWE_gosta_ehrensvard={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_gosta_ehrensvard
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_commerce_raiding_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_gosta_ehrensvard
+			portraits={
+				army={
+					small="GFX_portrait_SWE_gosta_ehrensvard_small"
+					large = "GFX_portrait_SWE_gosta_ehrensvard"
+				}
+			}
+
+			navy_leader={
+				traits={ navy_career_officer fleet_protector }
+				skill=1
+				attack_skill=1
+				defense_skill=1
+				maneuvering_skill=1
+				coordination_skill=1
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" }}
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_gosta_ehrensvard
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_commerce_raiding_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_gosta_ehrensvard
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_2"
+				}
+			}
+		}
+	}
+
+	SWE_helge_stromback={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = high_command
+				idea_token = SWE_helge_stromback
+				ledger = navy
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_capital_ship_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_helge_stromback
+			portraits={
+				army={
+					small="GFX_portrait_SWE_helge_stromback_small"
+					large = "GFX_portrait_SWE_helge_stromback"
+				}
+			}
+
+			navy_leader={
+				traits={ fleet_protector aviation_enthusiast }
+				skill=1
+				attack_skill=1
+				defense_skill=1
+				maneuvering_skill=1
+				coordination_skill=2
+				legacy_id=0
+			}
+		}
+	}
+
+	SWE_helge_jung={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				cost = 100
+				slot = theorist
+				idea_token = SWE_helge_jung
+				ledger = army
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					military_theorist
+				}
+			}
+			name=SWE_helge_jung
+			portraits={
+				army={
+					small="GFX_portrait_SWE_helge_jung_small"
+					large = "GFX_portrait_SWE_helge_jung"
+				}
+			}
+
+			corps_commander={
+				traits={ skilled_staffer politically_connected old_guard }
+				skill=2
+				attack_skill=1
+				defense_skill=2
+				planning_skill=3
+				logistics_skill=1
+				legacy_id=0
+			}
+
+			advisor={
+				slot = high_command
+				idea_token = SWE_helge_jung
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_entrenchment_2
+					}
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" } }
+			advisor={
+				cost = 100
+				
+				slot = theorist
+				idea_token = SWE_helge_jung
+				ledger = army
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						military_theorist
+					}
+			}
+			name=SWE_helge_jung
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_2"
+				}
+			}
+		}
+	}
+
+	SWE_olof_thornell={
+		advisor={
+			slot = army_chief
+			idea_token = SWE_olof_thornell
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_chief_reform_2
+				}
+				ai_will_do = {
+					factor = 1.000
+				}
+			cost = 100
+		}
+		name=SWE_olof_thornell
+		portraits={
+			army={
+				small="GFX_portrait_SWE_olof_thornell_small"
+				large="GFX_portrait_SWE_olof_thornell"
+			}
+		}
+
+		corps_commander={
+			traits={ politically_connected old_guard harsh_leader }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	SWE_fabian_tamm={
+		instance = { 
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_fabian_tamm
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						 navy_chief_decisive_battle_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_fabian_tamm
+			portraits={
+				army={
+					small="GFX_portrait_SWE_fabian_tamm_small"
+					large = "GFX_portrait_SWE_fabian_tamm"
+				}
+			}
+
+
+			navy_leader={
+				traits={ navy_career_officer }
+				skill=2
+				attack_skill=1
+				defense_skill=2
+				maneuvering_skill=1
+				coordination_skill=3
+				legacy_id=0
+			}
+		}
+
+		instance = { 
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" }}
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_fabian_tamm
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_reform_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_fabian_tamm
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_1"
+				}
+			}
+		}
+	}
+	SWE_charles_de_champs={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_charles_de_champs
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_reform_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_charles_de_champs
+			portraits={
+				army={
+					small="GFX_portrait_SWE_charles_leon_de_champs_small"
+					large = "GFX_portrait_SWE_charles_leon_de_champs"
+				}
+			}
+
+			navy_leader={
+				traits={ navy_career_officer gentlemanly naval_lineage }
+				skill=2
+				attack_skill=2
+				defense_skill=2
+				maneuvering_skill=1
+				coordination_skill=2
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" }}
+			advisor={
+				slot = navy_chief
+				idea_token = SWE_charles_de_champs
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						navy_chief_decisive_battle_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_charles_de_champs
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_2"
+				}
+			}
+		}
+	}
+	SWE_axel_rappe={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = high_command
+				idea_token = SWE_axel_rappe
+				ledger = army
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_artillery_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_axel_rappe
+			portraits={
+				army={
+					small="GFX_portrait_SWE_axel_rappe_small"
+					large = "GFX_portrait_SWE_axel_rappe"
+				}
+			}
+
+			corps_commander={
+				traits={ politically_connected war_hero engineer_officer }
+				skill=2
+				attack_skill=2
+				defense_skill=2
+				planning_skill=2
+				logistics_skill=1
+				legacy_id=0
+			}
+		}
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" } }
+			advisor={
+				slot = high_command
+				idea_token = SWE_axel_rappe
+				ledger = army
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_artillery_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_axel_rappe
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_1"
+				}
+			}
+		}
+	}
+
+	SWE_oscar_nygren={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = army_chief
+				idea_token = SWE_oscar_nygren
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_chief_drill_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_oscar_nygren
+			portraits={
+				army={
+					small="GFX_portrait_SWE_oscar_nygren_small"
+					large="GFX_portrait_SWE_oscar_nygren"
+				}
+			}
+
+			field_marshal = {
+				traits={ winter_specialist }
+				skill=1
+				attack_skill=1
+				defense_skill=1
+				planning_skill=1
+				logistics_skill=2
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" }  }
+			advisor={
+				slot = army_chief
+				idea_token = SWE_oscar_nygren
+				allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_chief_drill_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_oscar_nygren
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_3"
+				}
+			}
+		}
+	}
+	SWE_axel_ljungdahl={
+		instance = {
+			allowed = { has_dlc = "Arms Against Tyranny" }
+			advisor={
+				slot = high_command
+				idea_token = SWE_axel_ljungdahl
+				ledger = air
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						air_chief_safety_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_axel_ljungdahl
+			portraits={
+				army={
+					small="GFX_portrait_SWE_axel_ljungdahl_small"
+					large = "GFX_portrait_SWE_axel_ljungdahl"
+				}
+			}
+			corps_commander={
+				traits={ }
+				skill=1
+				attack_skill=1
+				defense_skill=1
+				planning_skill=1
+				logistics_skill=1
+				legacy_id=0
+			}
+		}
+
+		instance = {
+			allowed = { NOT = { has_dlc = "Arms Against Tyranny" } }
+			advisor={
+				slot = high_command
+				idea_token = SWE_axel_ljungdahl
+				ledger = air
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						air_bomber_interception_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_axel_ljungdahl
+			portraits={
+				army={
+					small="GFX_idea_generic_air_europe_2"
+				}
+			}
+		}
+
+	}
+	SWE_archibald_douglas={
+			advisor={
+				slot = high_command
+				idea_token = SWE_archibald_douglas
+				ledger = army
+					allowed = {
+						original_tag = SWE
+					}
+					traits = {
+						army_infantry_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+			name=SWE_archibald_douglas
+			portraits={
+				army={
+					small="GFX_portrait_SWE_archibald_douglas_small"
+					large="GFX_portrait_SWE_archibald_douglas"
+				}
+				civilian = {
+					large="GFX_portrait_SWE_archibald_douglas"
+				}
+			}
+
+			corps_commander={
+				traits={ cavalry_leader war_hero }
+				skill=3
+				attack_skill=2
+				defense_skill=3
+				planning_skill=2
+				logistics_skill=3
+				legacy_id=0
+			}
+		country_leader={
+			ideology=nazism #historically involved in a plot
+			traits={
+			###
+			}
+		}
+
+	}
+
+	SWE_ernst_linder={
+
+		name=SWE_ernst_linder
+		portraits={
+			army={
+				small="GFX_portrait_SWE_ernst_linder_small"
+				large = "GFX_portrait_SWE_ernst_linder"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = SWE_ernst_linder
+			allowed  = {
+					original_tag  = SWE
+				}
+			traits  = {
+				army_CombinedArms_2 
+			}
+		}
+
+		corps_commander={
+			traits={ cavalry_leader war_hero }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=0
+		}
+	}
+
+
+
+
 }

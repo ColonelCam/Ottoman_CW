@@ -24,4 +24,714 @@ characters={
 			traits = { dictator }
 		}
 	}
+
+	#generals
+	DEN_erik_with ={
+		name = DEN_erik_with
+		portraits={
+			army={
+				large = GFX_portrait_DEN_erik_with
+				small=GFX_portrait_DEN_erik_with_small
+			}
+		}
+		advisor={			
+			slot = army_chief
+			idea_token = DEN_erik_with
+			allowed = {
+				original_tag = DEN
+				has_dlc = "Arms Against Tyranny"				
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		field_marshal = {
+			traits = { unyielding_defender politically_connected }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = -1
+		}
+	}
+
+	DEN_william_wain_prior = {
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_william_wain_prior
+			portraits={
+				army={
+					large = GFX_portrait_DEN_william_wain_prior
+					small = GFX_portrait_DEN_william_wain_prior_small
+				}
+			}
+			advisor={			
+				slot = army_chief
+				idea_token = DEN_william_wain_prior
+				allowed = {
+					original_tag = DEN
+					#Already checked for DLC in the instance
+				}
+				available = {
+					has_completed_focus = DEN_sign_forsvarsforliget
+				}
+				traits = {
+					army_chief_drill_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			field_marshal = {
+				traits = { expert_delegator infantry_officer infantry_leader }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+				legacy_id = -1
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_william_wain_prior
+			portraits={
+				army={
+					large=GFX_portrait_Wilhelm_Wain_Prior
+					small=GFX_portrait_Wilhelm_Wain_Prior_small
+				}
+			}
+			advisor={			
+				slot = army_chief
+				idea_token = DEN_william_wain_prior
+				allowed = {
+					original_tag = DEN
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			advisor={
+				cost = 100
+				slot = theorist
+				idea_token = DEN_william_wain_prior
+				ledger = army
+					allowed = {
+						original_tag = DEN
+					}	
+					traits = {
+						military_theorist
+					}
+			}
+			corps_commander={
+				traits={ trickster }
+				skill=3
+				attack_skill=2
+				defense_skill=3
+				planning_skill=3
+				logistics_skill=2
+				legacy_id=-1
+			}
+		}
+	}
+
+	DEN_ebbe_gortz = {
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_ebbe_gortz
+			portraits = {
+				army = {
+					large = GFX_portrait_DEN_ebbe_gortz
+					small = GFX_portrait_DEN_ebbe_gortz_small
+				}
+			}
+			advisor={			
+				slot = army_chief
+				idea_token = DEN_ebbe_gortz
+				allowed = {
+					original_tag = DEN
+					#Already checked for DLC in the instance
+				}
+				available = {
+					OR = {
+						has_completed_focus = DEN_haeren_reorganization
+						has_completed_focus = DEN_collaboration_government 
+					}
+				}
+				traits = {
+					army_chief_organizational_1
+				}
+				cost = 50
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			field_marshal = {
+				traits = { organisational_leader career_officer trait_cautious }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 3
+				legacy_id = -1
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_ebbe_gortz
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_1"
+				}
+			}
+			advisor={			
+				slot = army_chief
+				idea_token = DEN_ebbe_gortz
+				allowed = {
+					original_tag = DEN
+					#Already checked for DLC in the instance
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+		}
+	}
+
+	DEN_frederik_christian_essemann = {
+		name = DEN_frederik_christian_essemann
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_frederik_christian_essemann
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	DEN_carl_jacobsen = {
+		name = DEN_carl_jacobsen
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_carl_jacobsen
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
+		}
+	}
+
+	DEN_christian_peder_kryssing = {
+		name = DEN_christian_peder_kryssing
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_christian_peder_kryssing
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { trait_engineer fortress_buster } 
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
+			visible = { 
+				OR = {
+					has_completed_focus = DEN_strengthen_the_officer_corp
+					AND = {
+						is_subject = yes
+						OVERLORD = {
+							OR = {
+								has_government = fascism
+								has_government = neutrality
+							}
+						}
+						has_completed_focus = DEN_contribute_to_the_war
+					}
+				}
+			}
+		}
+	}
+
+	DEN_erik_leschly = {
+		name = DEN_erik_leschly
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_erik_leschly
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { cavalry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	DEN_erik_moller = {
+		name = DEN_erik_moller
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_erik_moller
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { inflexible_strategist organizer trickster }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = -1
+			visible = { has_completed_focus = DEN_seek_independence }
+		}
+	}
+
+	DEN_paul_ramm = {
+		name = DEN_paul_ramm
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_paul_ramm
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { trait_engineer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id = -1
+		}
+	}
+
+	DEN_charles_henry_rye = {
+		name = DEN_charles_henry_rye
+		portraits = {
+			army = {
+				large = GFX_portrait_DEN_charles_henry_rye
+				small=GFX_portrait_Wilhelm_Wain_Prior_small
+			}
+		}
+		corps_commander={
+			traits = { old_guard organizer }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+			legacy_id = -1
+		}
+	}
+
+	DEN_christian_frederik_von_schalburg={
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_christian_frederik_von_schalburg
+			portraits = {
+				army = {
+					large = GFX_portrait_DEN_christian_frederik_von_schalburg
+					small=GFX_portrait_Wilhelm_Wain_Prior_small
+				}
+			}
+			corps_commander={
+				traits = { trait_reckless infantry_officer }
+				skill = 2
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+				legacy_id = -1
+				visible = { 
+					OR = {
+						has_completed_focus = DEN_strengthen_the_officer_corp
+						AND = {
+							is_subject = yes
+							OVERLORD = {
+								OR = {
+									has_government = fascism
+									has_government = neutrality
+								}
+							}
+							has_completed_focus = DEN_contribute_to_the_war
+						}
+					}
+				}
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_christian_frederik_von_schalburg
+			portraits={
+				army={
+					small="GFX_idea_generic_army_europe_5"
+				}
+			}
+			advisor={			
+				slot = high_command
+				idea_token = DEN_christian_frederik_von_schalburg
+				ledger = army
+					allowed = {
+						original_tag = DEN
+					}
+					traits = {
+						army_logistics_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+		}
+	}
+
+	DEN_hjalmar_rechnitzer = {
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_hjalmar_rechnitzer
+			portraits = {
+				navy = {
+					large = GFX_portrait_DEN_hjalmar_rechnitzer
+					small = GFX_portrait_DEN_hjalmar_rechnitzer_small
+				}
+			}
+			advisor={			
+				slot = navy_chief
+				idea_token = DEN_hjalmar_rechnitzer
+				allowed = {
+						original_tag = DEN
+						#Already checked for DLC in the instance
+					}
+				traits = {
+					navy_chief_reform_1
+				}
+				cost = 50
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			navy_leader = {
+				traits = { safety_first green_water_expert }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 3
+				maneuvering_skill = 1
+				coordination_skill = 2
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_hjalmar_rechnitzer
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_1"
+				}
+			}
+			advisor={			
+				slot = high_command
+				idea_token = DEN_hjalmar_rechnitzer
+				ledger = navy
+				allowed = {
+					original_tag = DEN
+				}
+				traits = {
+					navy_fleet_logistics_1
+				}
+				cost =  50
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+		}
+	}
+
+	DEN_aage_vedel = {
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_aage_vedel
+			portraits = {
+				navy = {
+					large = GFX_portrait_DEN_aage_vedel
+					small = GFX_portrait_DEN_aage_vedel_small
+				}
+			}
+			advisor={			
+				slot = navy_chief
+				idea_token = DEN_aage_vedel
+				allowed = {
+					original_tag = DEN
+					#Already checked for DLC in the instance
+				}
+				available = {
+					OR = {
+						has_completed_focus = DEN_expand_ubadsvabnet
+						has_completed_focus = DEN_collaboration_government 
+					}
+				}
+				traits = {
+					navy_chief_maneuver_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			navy_leader = {
+				traits = { superior_tactician navy_media_personality fleet_protector }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				maneuvering_skill = 3
+				coordination_skill = 3
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_aage_vedel
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_2"
+				}
+			}
+			advisor={			
+				slot = navy_chief
+				idea_token = DEN_aage_vedel
+				allowed = {
+					original_tag = DEN
+				}
+				traits = {
+					navy_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+		}
+	}
+
+	DEN_emmanuel_briand_de_crevecoeur = {
+		name = DEN_emmanuel_briand_de_crevecoeur
+		portraits = {
+			navy = {
+				large = GFX_portrait_DEN_emmanuel_briand_de_crevecoeur
+				small = GFX_portrait_DEN_emmanuel_briand_de_crevecoeur_small
+			}
+		}
+		advisor={			
+			slot = high_command
+			idea_token = DEN_emmanuel_briand_de_crevecoeur
+			ledger = navy
+			allowed = {
+				original_tag = DEN
+				has_dlc = "Arms Against Tyranny"
+			}
+			traits = {
+				navy_naval_air_defense_1
+			}
+			#cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		navy_leader = {
+			traits = { fly_swatter gunnery_expert }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+	}
+
+	DEN_christian_evers = {
+		name = DEN_christian_evers
+		portraits = {
+			navy = {
+				large = GFX_portrait_DEN_christian_evers
+				small = GFX_portrait_DEN_christian_evers_small
+			}
+		}
+		advisor={			
+			slot = high_command
+			idea_token = DEN_christian_evers
+			ledger = navy
+			allowed = {
+				original_tag = DEN
+				has_dlc = "Arms Against Tyranny"
+			}
+			traits = {
+				navy_anti_submarine_1
+			}
+			cost = 50
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		navy_leader = {
+			traits = { seawolf chief_engineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+	}
+
+	DEN_carl_hammerich = {
+		instance = {
+			allowed = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			name = DEN_carl_hammerich
+			portraits = {
+				army = {
+					large = GFX_portrait_DEN_carl_hammerich
+					small=GFX_portrait_DEN_carl_hammerich_small
+				}
+			}
+			advisor={			
+				slot = high_command
+				idea_token = DEN_carl_hammerich
+				ledger = navy
+				allowed = {
+					original_tag = DEN
+					#Already checked for DLC in the instance
+				}
+				traits = {
+					navy_submarine_1
+				}
+				cost = 50
+				ai_will_do = {
+					base = 1.000
+				}
+			}
+			navy_leader = {
+				traits = { torpedo_expert navy_career_officer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				maneuvering_skill = 2
+				coordination_skill = 1
+			}
+		}
+		instance = {
+			allowed = {
+				NOT = { has_dlc = "Arms Against Tyranny" }
+			}
+			name = DEN_carl_hammerich
+			portraits={
+				army={
+					small="GFX_idea_generic_navy_europe_1"
+				}
+			}
+			advisor={
+				slot = navy_chief
+				idea_token = DEN_carl_hammerich
+				allowed = {
+						original_tag = DEN
+					}
+					traits = {
+						navy_chief_decisive_battle_2
+					}
+					cost = 100
+					ai_will_do = {
+						factor = 1.000
+					}
+			}
+		}
+	}
+
+	DEN_paul_ipsen = {
+		name = DEN_paul_ipsen
+		portraits = {
+			navy = {
+				large = GFX_portrait_DEN_paul_ipsen
+				small = GFX_portrait_DEN_paul_ipsen_small
+			}
+		}
+		advisor={			
+			slot = theorist
+			idea_token = DEN_paul_ipsen
+			ledger = navy
+			allowed = {
+				original_tag = DEN
+				has_dlc = "Arms Against Tyranny"
+			}
+			traits = {
+				naval_theorist
+			}
+			cost = 100
+			ai_will_do = {
+				base = 1.000
+			}
+		}
+		navy_leader = {
+			traits = { bold blockade_runner }
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+
+		
 }

@@ -8,20 +8,25 @@ country_event = {
 	#picture =
 	fire_only_once = yes
 	trigger = {
-		original_tag = FSW
+		original_tag = DEN
 		has_government = fascism
-		country_exists = DEN
-		DEN = {
+		country_exists = FSW
+		FSW = {
 			has_government = fascism
+			has_war = no
 		}
 		has_war = no
 	}
 	mean_time_to_happen = { days = 95 }
 	option = {
 		name = merf.1.a
-		DEN = {
+		add_research_slot = 1
+		FSW = {
+			SWE_sven_olov_knutsson_lindholm = {
+				set_nationality = DEN
+			}
 			transfer_units_fraction= {
-				target = FSW
+				target = ROOT
 				size = 1.0
 				stockpile_ratio = 1.0
 				army_ratio = 1.0
@@ -34,13 +39,21 @@ country_event = {
 		}
 		every_state = {
 			limit = {
-				is_core_of = DEN
+				is_core_of = FSW
 			}
-			add_core_of = SWE
+			add_core_of = DEN
 		}
 		annex_country = {
-		    target = DEN
+		    target = FSW
 		    transfer_troops = yes
+		}
+		add_country_leader_role = {
+		    character = SWE_sven_olov_knutsson_lindholm
+		    promote_leader = yes
+		    country_leader = {
+		        ideology = nazism
+		        traits = { dictator }
+		    }
 		}
 		news_event = {
 			id = merf.2
@@ -52,6 +65,11 @@ country_event = {
 		}
 		set_cosmetic_tag = SCA_UNIFIED
 		set_global_flag = form_scandinavia_flag
+		set_party_name = {
+		    ideology = fascism
+		    long_name = FSW_fascism_party_long
+		    name = FSW_fascism_party
+		}
 	}
 }
 
@@ -141,6 +159,7 @@ country_event = {
 		        traits = { dictator }
 		    }
 		}
+		promote_character = DEN_cay_lembcke
 		set_politics = {
 		    ruling_party = communism
 		    elections_allowed = no
@@ -179,14 +198,14 @@ country_event = {
 	is_triggered_only = yes
 	trigger = {
 		has_government = communism
-		FSW = {
+		DEN = {
 			has_government = communism
 		}
 		is_faction_leader = yes
 	}
 	option = {
 		name = merf.7.a
-		add_to_faction = FSW
+		add_to_faction = DEN
 		news_event = {
 			id = merf.8
 			hours = 2

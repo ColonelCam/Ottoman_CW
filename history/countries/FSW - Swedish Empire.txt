@@ -96,6 +96,24 @@ set_technology = {
 }
 
 recruit_character = SWE_sven_olov_knutsson_lindholm
+#generals
+recruit_character = SWE_folke_hogberg
+recruit_character = SWE_erik_af_edholm
+recruit_character = SWE_claes_lindstrom
+recruit_character = SWE_rikard_persson
+recruit_character = SWE_per_sylvan
+recruit_character = SWE_carl_ehrensvard
+recruit_character = SWE_gosta_ehrensvard
+recruit_character = SWE_helge_stromback
+recruit_character = SWE_helge_jung
+recruit_character = SWE_olof_thornell
+recruit_character = SWE_fabian_tamm
+recruit_character = SWE_charles_de_champs
+recruit_character = SWE_axel_rappe
+recruit_character = SWE_oscar_nygren
+recruit_character = SWE_axel_ljungdahl
+recruit_character = SWE_archibald_douglas
+recruit_character = SWE_ernst_linder
 
 every_state = {
 	limit = {
