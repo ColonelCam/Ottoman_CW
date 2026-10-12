@@ -13,9 +13,6 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	after = {
-		country_event = { id = AtM_CUB.4 days = 64 random_days = 64 }
-	}
 	option = {
 		name = AtM_CUB.3.a
 		set_autocratic_no_elections = yes
@@ -55,6 +52,14 @@ country_event = {
 	
 	is_triggered_only = yes
 	
+	after = {
+		CUB = {
+			declare_war_on = {
+				target = PCC
+				type = civil_war
+			}
+		}
+	}
 	immediate = {
 		start_civil_war = {
 			ideology = communism
@@ -98,12 +103,6 @@ country_event = {
 					popularity = -0.3
 				}
 				USA = { puppet = PREV }
-				PREV = {
-					declare_war_on = {
-						target = CUB
-						type = civil_war
-					}
-				}
 			}
 		}
 	}
