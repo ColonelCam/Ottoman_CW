@@ -1,0 +1,31 @@
+on_actions = {
+
+
+	on_peaceconference_ended = { #for some reason FSW wouldn't fully annex SWE
+		effect = {
+			if = {
+				limit = {
+					original_tag = FSW #winner
+					FROM = { original_tag = SWE } #loser
+				}
+				every_state = {
+					limit = {
+						is_core_of = SWE
+					}
+					remove_core_of = SWE
+				}
+				if = {
+					limit = {
+						country_exists = SWE
+					}
+					annex_country = {
+					    target = SWE
+					    transfer_troops = yes
+					}
+				}
+			}
+		}
+	}
+
+
+}

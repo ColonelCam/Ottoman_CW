@@ -40,6 +40,9 @@ if = {
 	}
 }
 
+#LEADER
+recruit_character = RUS_alisa_ziovyevna_rosenbaum
+
 # First Secretary of the Communist Party of Ukraine
 recruit_character = SOV_nikita_khrushchyov
 
@@ -78,16 +81,16 @@ add_ideas = {
 	service_by_requirement
 	
 	#Cabinet
-	SOV_lavrenty_beriya
-	SOV_nikita_khrushchyov
-	SOV_vyacheslav_molotov
-	SOV_georgy_zhukov
-	SOV_semyon_timoshenko
-	SOV_nikolay_kuznetsov
-	SOV_aleksandr_novikov
-	SOV_aleksandr_vasilevsky
-	SOV_ivan_konev
-	SOV_konstantin_rokossovsky
+	#SOV_lavrenty_beriya
+	#SOV_nikita_khrushchyov
+	#SOV_vyacheslav_molotov
+	#SOV_georgy_zhukov
+	#SOV_semyon_timoshenko
+	#SOV_nikolay_kuznetsov
+	#SOV_aleksandr_novikov
+	#SOV_aleksandr_vasilevsky
+	#SOV_ivan_konev
+	#SOV_konstantin_rokossovsky
 	
 	#Companies
 	SOV_stalingrad_tractor_factory
