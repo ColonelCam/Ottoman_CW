@@ -34,6 +34,10 @@ TUR_kuwait_war_category = {
 			original_tag = TUR
 			always = no
 		}
+		
+		available = { 
+			always = no 
+		}
 
 		icon = mission_icon
 
@@ -46,9 +50,13 @@ TUR_kuwait_war_category = {
 		cancel_trigger = {
 				NOT = { controls_state = 656 }
 			}
+			
+		cancel_effect = {
+			country_event = { id = AtM_TUR.7 }
+		}
 		
 		timeout_effect = {
-			country_event = { id = AtM_TUR.7 }
+			country_event = { id = AtM_TUR.8 }
 		}
 	}
 }

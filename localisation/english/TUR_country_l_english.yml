@@ -1,6 +1,5 @@
 ﻿l_english:
  #events
- 
  AtM_TUR.1.t: "Meeting with Abdulaziz"
  AtM_TUR.1.d: "Celal Bayar met with the leader of the autonomous region of Ottoman Central Arabia today and has come back with fantasic news. The central arabian leader has agreed upon integration into the Ottoman federation under the condition that sufficent investment is made into the country. This is a great day for map painting."
  Atm_TUR.1.a: "Excellent News"
@@ -9,3 +8,29 @@
  AtM_TUR.2.d: "Celal Bayar has been a popular leader among the ottoman people with liberlization across the empire taking place and winning World War 2. However, an Ismet from the more conservative CHP party is on the rise."
  Atm_TUR.2.a: "Celal Bayar wins"
  Atm_TUR.2.b: "İsmet İnönü wins"
+ 
+ AtM_TUR.3.t: "CHP victory in elections
+ AtM_TUR.3.d: "The unlikely candidate Ismet won the election across the Ottoman Empire"
+ Atm_TUR.3.a: "Cool"
+ 
+ AtM_TUR.4.t: "Kuwait crisis"
+ AtM_TUR.4.d: "Our federation represents the liberation of the oppressed minorities across Africa and the Middle East. Britian still holds a protectorate in Kuwait and we must demand they hand it over."
+ Atm_TUR.4.a: "Kuwait will be free"
+ 
+ AtM_TUR.5.t: "Britain refuses to hand over Kuwait"
+ AtM_TUR.5.d: "The British delegation, despite our historic friendship have refused to hand over Kuwait. Therefore we have no choice but to take it by force."
+ Atm_TUR.5.a: "War it is then"
+ 
+ AtM_TUR.6.t: "Seizure of Kuwait"
+ AtM_TUR.6.d: "Our invasion of Kuwait has been met with resounding success. But it seems Britain isn't willing to sign a ceasefire as of yet, thus the war continues..."
+ Atm_TUR.6.a: "We must hold out"
+ 
+ AtM_TUR.7.t: "Failure in Kuwait"
+ AtM_TUR.7.d: "After repeated attempts to take and hold Kuwait it resulted in a devasting loss. We must accept defeat and sign a peacedeal with Britain."
+ Atm_TUR.7.a: "Embarssing"
+ 
+ AtM_TUR.8.t: "Success in Kuwait"
+ AtM_TUR.8.d: "Britain have been unable to reclaim Kuwait from our forces and have decided to sign a ceasefire, agreeing to hand over the region to us."
+ Atm_TUR.8.a: "Excellent"
+ 
+ #focuses
