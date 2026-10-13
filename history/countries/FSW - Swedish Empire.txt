@@ -6,7 +6,7 @@ set_convoys = 20
 
 set_stability = 0.8
 
-set_war_support = 0.5
+set_war_support = 0.6
 
 add_command_power = 5
 
@@ -14,9 +14,14 @@ set_research_slots = 3
 
 add_political_power = 49
 
+add_manpower = 85000
+
 add_ideas = {
 	SWE_gustaf_v_idea
 	neutrality_idea
+
+	#laws
+	limited_conscription
 }
 
 if = {
