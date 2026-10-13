@@ -1,0 +1,26 @@
+state={
+	id=1663
+	name="STATE_1663"
+	history = {
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = SYR
+		add_claim_by = KUR
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			1606 3
+		}
+		victory_points = {
+			6883 1
+		}
+	}
+	provinces={
+		1606 1634 6883 14123 14124 14125
+	}
+	manpower=120000
+	state_category = pastoral
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

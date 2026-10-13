@@ -138,3 +138,66 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = AtM_TUR.9
+	title = AtM_TUR.9.t
+	desc = AtM_TUR.9.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.9.a
+		FRA = {
+			add_stability = -0.15
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 1006
+					state = 459
+					state = 460
+				}
+			}
+			set_demilitarized_zone = yes
+		}
+	}
+}
+
+country_event = {
+	id = AtM_TUR.10
+	title = AtM_TUR.10.t
+	desc = AtM_TUR.10.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.10.a
+			1006 = { transfer_state_to = ALG }
+			459 = { transfer_state_to = ALG }
+			460 = { transfer_state_to = ALG }	
+		ALG = {
+			declare_war_on = {
+				target = FRA
+				type = take_core_state
+			}
+			load_oob = ALG_rebels
+		}
+	}
+}
+
+country_event = {
+	id = AtM_TUR.11
+	title = AtM_TUR.11.t
+	desc = AtM_TUR.11.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.11.a
+		add_to_faction = ALG
+	}
+}

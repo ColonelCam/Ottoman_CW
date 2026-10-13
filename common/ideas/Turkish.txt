@@ -47,7 +47,7 @@ ideas = {
 				original_tag = TUR
 			}
 			
-			picture = generic_stockpile_fuel
+			picture = idea_ARG_construction_guilds
 			
 			modifier = {
 				production_speed_buildings_factor = 0.15
@@ -60,7 +60,7 @@ ideas = {
 				original_tag = ITA
 			}
 			
-			picture = generic_stockpile_fuel
+			picture = idea_ITA_italian_irredentism
 			
 			modifier = {
 				democratic_drift = 0.1			
@@ -70,15 +70,29 @@ ideas = {
 		TUR_attack_britain = {
 		
 			allowed = {
-				original_tag = ITA
+				original_tag = TUR
 			}
 			
-			picture = generic_stockpile_fuel
+			picture = idea_FIN_british_threat
 			
 			modifier = {
 				army_attack_factor = 0.10
 				army_defence_factor = 0.10
 			}
+		}
+		TUR_volunteers_to_ALG = {
+		
+			allowed = {
+				original_tag = TUR
+			}
+			
+			picture = idea_ast_volunteer_defence_corps
+			
+			targeted_modifier = {
+                tag = ALG
+                send_volunteer_size = 3
+                send_volunteers_tension = -0.5
+            }
 		}
 	}
 }

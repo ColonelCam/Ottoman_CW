@@ -1,0 +1,28 @@
+
+state={
+	id=1221
+	name="STATE_1221"
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = SYR
+		buildings = {
+			infrastructure = 3
+			1088 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			1088 2
+		}
+	}
+
+	provinces={
+		1088 10087 14107 14108
+	}
+	manpower=400000 
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+	local_supplies=2.000
+}

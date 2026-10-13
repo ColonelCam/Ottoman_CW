@@ -14,9 +14,15 @@ on_actions = {
 				target = AUS
 				transfer_troops = no
 			}
-			release = SLO
+			release = SLV
 			release = CRO
 			release = HUN
+			1382 = {
+				transfer_state_to = ROM
+			}
+			76 = {
+				transfer_state_to = ROM
+			}
 				
 				}
 			}

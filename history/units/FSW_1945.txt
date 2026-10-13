@@ -70,7 +70,7 @@ units = {
 		location = 11160 # Kristianstad
 		division_template = "Arméfördelning"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	division = {
@@ -78,7 +78,7 @@ units = {
 		location = 11160 # Kristianstad
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	# Northern Military District
@@ -90,7 +90,7 @@ units = {
 		location = 11160# Osterund
 		division_template = "Arméfördelning"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	division = {
@@ -98,7 +98,7 @@ units = {
 		location = 11160# Osterund
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	# Western Military District
@@ -110,7 +110,7 @@ units = {
 		location = 9279# Skövde
 		division_template = "Arméfördelning"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	division = {
@@ -118,7 +118,7 @@ units = {
 		location = 9279# Skovde
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.8
 
 	}
 	# Eastern Military District
@@ -130,7 +130,7 @@ units = {
 		location = 9279#Stockholm
 		division_template = "Arméfördelning"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 	division = {
@@ -138,7 +138,7 @@ units = {
 		location = 9279#Stockholm
 		division_template = "Kavalleribrigaden"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 	division = {
@@ -146,7 +146,7 @@ units = {
 		location = 9279#Stockholm
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 	# Upper Northern Military District
@@ -158,7 +158,7 @@ units = {
 		location = 9279# Boden
 		division_template = "Arméfördelning"
 		start_experience_factor = 0.3
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 	division = {
@@ -166,7 +166,7 @@ units = {
 		location = 9279# Boden
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 
@@ -175,65 +175,7 @@ units = {
 		location = 9279# Gotland
 		division_template = "Militärområde"
 		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-
-
-	division = {
-		name = "Folkarmégruppen"
-		location = 9279# Gotland
-		division_template = "Arméfördelning"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégruppen"
-		location = 9279# Gotland
-		division_template = "Arméfördelning"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégruppen"
-		location = 9279# Gotland
-		division_template = "Arméfördelning"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégruppen"
-		location = 9279# Gotland
-		division_template = "Arméfördelning"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégruppen"
-		location = 9279# Gotland
-		division_template = "Arméfördelning"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégrupp med pansar"
-		location = 9279# Gotland
-		division_template = " Pansarregemente"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
-
-	}
-	division = {
-		name = "Folkarmégrupp med pansar"
-		location = 9279# Gotland
-		division_template = " Pansarregemente"
-		start_experience_factor = 0.2
-		start_equipment_factor = 1.0
+		start_equipment_factor = 0.3
 
 	}
 }

@@ -1,0 +1,29 @@
+
+state={
+	id=680
+	name="STATE_680"
+	
+	resources={
+		oil=1
+	}
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = SYR
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			2013 2
+		}
+	}
+
+
+	provinces={
+		2013 3942 14112 14114 15754
+	}
+	manpower = 84110 
+	state_category = pastoral
+	local_supplies=4.0 
+}
