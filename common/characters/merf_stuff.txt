@@ -1,0 +1,15 @@
+characters={
+	RUS_alisa_ziovyevna_rosenbaum = {
+		name="Alisa Rosenbaum"
+		gender = female
+		portraits={
+			civilian={
+				large="gfx/leaders/SOV/ayn_rand.tga"
+			}
+		}
+		country_leader = {
+			ideology = social_liberal_sub
+			traits = { anti_communist }
+		}
+	}
+}

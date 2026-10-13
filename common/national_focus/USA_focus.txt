@@ -19751,7 +19751,7 @@ focus_tree = {
 		y = 1
 		cost = 4.3
 		
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 0 }
 		
 		completion_reward = {
 			add_stability = 0.02
@@ -20104,7 +20104,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 0 }
 		
 		completion_reward = {
 			add_stability = 0.05
@@ -20140,7 +20140,7 @@ focus_tree = {
 		y = 1
 		cost = 2.9
 		
-		ai_will_do = { factor = 1 }
+		ai_will_do = { factor = 0 }
 		
 		completion_reward = {
 			SOV = { country_event = AtM_USA.54 }
@@ -20213,6 +20213,10 @@ focus_tree = {
 		cost = 4.3
 		
 		ai_will_do = { factor = 1 }
+
+		available = {
+			is_faction_leader = no
+		}
 		
 		completion_reward = {
 			create_faction_from_template = faction_template_american_workers_alliance
