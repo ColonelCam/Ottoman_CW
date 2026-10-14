@@ -1,0 +1,24 @@
+
+state={
+	id=32
+	name="STATE_32" 
+
+	history={
+		owner = BOS
+		add_core_of = YUG
+		add_core_of = BOS
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			9586 4 #Bihać
+		}
+	}
+
+	provinces={
+		3985 6614 6957 9586 15344 15355 15356 15357 15358
+	}
+	local_supplies=6.0 
+	manpower = 507500
+	state_category = rural
+}

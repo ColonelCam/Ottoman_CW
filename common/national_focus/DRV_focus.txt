@@ -3331,9 +3331,6 @@ focus_tree = {
 			always = no
 		}
 		bypass = {
-			always = yes
-		}
-		allow_branch = {
 			DRV = {
 				has_war = yes
 			}

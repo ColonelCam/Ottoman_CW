@@ -1,0 +1,30 @@
+state={
+	id=974
+	name="STATE_974"
+	resources={
+		oil=3
+		coal=2
+	}
+
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 2
+			1177 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			1177 1 #Hallasan
+		}
+	}
+	provinces={
+		1177 15085 
+	}
+	manpower=199456
+	state_category=small_island
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

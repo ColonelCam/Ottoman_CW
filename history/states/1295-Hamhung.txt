@@ -1,0 +1,35 @@
+state={
+	id=1295
+	name="STATE_1295"
+	resources={
+		steel=1
+	}
+
+	history={
+		owner = ROK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			15114 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			15114 8 #Hungnam
+		}
+		victory_points = {
+			6928 6 #Hamhung
+		}
+	}
+	
+	provinces={
+		6928 10083 11770 15112 15114 
+	}
+	manpower=1545554
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

@@ -18,11 +18,17 @@ add_ideas = {
 	#National Spirits
 	ROK_hyperinflation_1
 	ROK_japanese_advisors
-	ROK_american_occupation
+	DPK_soviet_occupation
 	
 	#National Laws
 }
-
+SOV = {
+	set_autonomy = {
+		target = ROK
+		autonomous_state = autonomy_integrated_puppet	#Military Occupation
+		freedom_level = 0.9
+	}
+}
 add_opinion_modifier = {
 	target = DPK
 	modifier = large_decrease
@@ -30,12 +36,7 @@ add_opinion_modifier = {
 
 add_opinion_modifier = {
 	target = USA
-	modifier = american_occupation
-}
-
-reverse_add_opinion_modifier = {
-	target = USA
-	modifier = american_occupation
+	modifier = large_decrease
 }
 
 1948.6.1 = {
@@ -161,8 +162,7 @@ set_technology = {
 }
 
 
-# Starting characters
-recruit_character = ROK_john_r_hodge
+#recruit_character = ROK_john_r_hodge
 
 # Leaders ready to be recruited later through events or focuses
 recruit_character = ROK_syngman_rhee

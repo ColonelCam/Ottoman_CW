@@ -1,0 +1,26 @@
+
+state={
+	id=1584
+	name="STATE_1584"
+
+	history={
+		owner = BOS
+		add_core_of = YUG
+		add_core_of = BOS
+		add_core_of = SRP
+		
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			15348 2 # Doboj
+		}
+	}
+
+	provinces={
+		11574 15345 15348 15350 
+	}
+	manpower = 60223
+	state_category = pastoral
+	local_supplies=3.0 
+}

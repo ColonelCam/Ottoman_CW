@@ -1,0 +1,31 @@
+state={
+	id=1070
+	name="STATE_1070"
+	resources={
+		oil=3
+	}
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			13531 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			13531 10 #Incheon
+		}
+	}
+	
+	provinces={
+		13529 13530 13531 
+	}
+	manpower=358225
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=0.000
+}

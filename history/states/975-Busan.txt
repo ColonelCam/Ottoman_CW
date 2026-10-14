@@ -1,0 +1,35 @@
+state={
+	id=975
+	name="STATE_975"
+	resources={
+		aluminium=12
+		coal=2
+	}
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			dockyard = 1
+			4056 = {
+				naval_base = 5
+			}
+		}
+		victory_points = {
+			4056 20 #Busan
+		}
+		victory_points = {
+			12060 3 #Masan
+		}
+	}
+	
+	provinces={
+		4056 12060 13541 15090 
+	}
+	manpower=2842989
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

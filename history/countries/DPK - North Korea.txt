@@ -1,0 +1,276 @@
+﻿capital = 979 # North Korea - Pyongyang
+
+oob = "DPK_1945"
+
+set_convoys = 15
+
+set_stability = 0.3
+
+set_war_support = 0.7
+
+add_command_power = 5
+
+set_research_slots = 2
+
+add_political_power = 49
+
+# Experience
+army_experience = 5
+USA = {
+	set_autonomy = {
+		target = ROK
+		autonomous_state = autonomy_integrated_puppet	#Military Occupation
+		freedom_level = 0.9
+	}
+}
+
+#recruit_character = DPK_terentii_shtykov
+
+add_ideas = {
+	#National Spirits
+	DPK_no_armed_forces_established_4
+	DPK_no_air_force_established_4
+	DPK_no_navy_established_4
+	DPK_infrastructure_in_ruins_4
+	
+	#National Laws
+	low_economic_mobilisation
+	volunteer_only
+}
+
+add_opinion_modifier = {
+	target = ROK
+	modifier = large_decrease
+}
+
+add_opinion_modifier = {
+	target = SOV
+	modifier = large_decrease
+}
+
+add_opinion_modifier = {
+	target = PRC
+	modifier = large_decrease
+}
+
+1948.6.1 = {
+	oob = "DPK_1948"
+	# National Focuses
+	complete_national_focus = DPK_a_barren_land
+	complete_national_focus = DPK_a_bright_future
+	complete_national_focus = DPK_agriculture_work
+	complete_national_focus = DPK_shtykovs_leadership
+	complete_national_focus = DPK_remove_japanese_presence
+	complete_national_focus = DPK_search_the_countryside
+	complete_national_focus = DPK_search_the_military
+	complete_national_focus = DPK_search_the_government
+	complete_national_focus = DPK_execute_the_traitors
+	complete_national_focus = DPK_our_job_is_finished
+	complete_national_focus = DPK_CPK_chosen
+	complete_national_focus = DPK_demand_kim_il_sung
+	complete_national_focus = DPK_under_our_leader
+	complete_national_focus = DPK_building_a_new_nation
+	complete_national_focus = DPK_building_a_new_political_structure
+	complete_national_focus = DPK_form_the_KPA
+}
+
+1950.6.1 = {
+	# National Focuses
+	complete_national_focus = DPK_prepare_the_formation_of_our_country
+	complete_national_focus = DPK_formation_of_the_dprk
+	complete_national_focus = DPK_the_road_to_war
+	complete_national_focus = DPK_end_the_capitalist
+	complete_national_focus = DPK_purchase_arms_from_the_ussr
+	complete_national_focus = DPK_fortify_pyongyang
+	complete_national_focus = DPK_the_northern_border
+	complete_national_focus = DPK_industrialisation
+	complete_national_focus = DPK_start_militarisation
+	complete_national_focus = DPK_repair_the_roads
+	complete_national_focus = DPK_the_army
+	complete_national_focus = DPK_mass_assault
+	complete_national_focus = DPK_the_navy
+	complete_national_focus = DPK_defence_from_the_seas
+	complete_national_focus = DPK_build_a_mighty_navy
+	complete_national_focus = DPK_start_naval_production
+	complete_national_focus = DPK_submarine_warfare
+	complete_national_focus = DPK_the_airforce
+	complete_national_focus = DPK_anti_air_focus
+}
+
+1956.1.1 = {
+	# National Focuses
+	complete_national_focus = DPK_operation_pokpung
+	complete_national_focus = DPK_prepare_the_factories
+	complete_national_focus = DPK_mobilise_on_the_border
+	complete_national_focus = DPK_raise_new_divisions
+	complete_national_focus = DPK_so_it_begins
+	complete_national_focus = DPK_and_so_it_ends
+	complete_national_focus = DPK_the_southern_border
+	complete_national_focus = DPK_no_escape
+	complete_national_focus = DPK_the_workforce_expanded
+	complete_national_focus = DPK_isolationism
+	complete_national_focus = DPK_one_hundred_years_of_prosperity
+	complete_national_focus = DPK_the_trenches
+	complete_national_focus = DPK_we_stand_together
+	complete_national_focus = DPK_utilize_artillery
+	complete_national_focus = DPK_utilize_technology
+	complete_national_focus = DPK_fix_the_mistakes
+	complete_national_focus = DPK_make_a_competent_army_structure
+	complete_national_focus = DPK_stay_ahead_of_the_south
+	complete_national_focus = DPK_peoples_volunteer_army
+	complete_national_focus = DPK_interfere_with_trade
+	complete_national_focus = DPK_focus_on_airbases
+	complete_national_focus = DPK_blueprints_of_an_airforce
+	complete_national_focus = DPK_aircraft_production
+	complete_national_focus = DPK_soviet_training
+	complete_national_focus = DPK_establish_the_kpaf
+	# Wars
+	diplomatic_relation = {
+		country = USA
+		relation = war_relation
+		active = no
+	}
+	diplomatic_relation = {
+		country = ROK
+		relation = war_relation
+		active = no
+	}
+	diplomatic_relation = {
+		country = WGR
+		relation = war_relation
+		active = no
+	}
+}
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	#set_oob = "TAG_1945_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+	}
+	else = {
+		#set_oob = "TAG_1945"
+		set_technology = {
+			gwtank = 1
+		}
+	}
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = peoples_war
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	infantry_at = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	amphibious_mechanized_infantry = 1
+	
+	### Special Forces ###
+	tech_mountaineers = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+# Leaders ready to be recruited later through events or focuses
+recruit_character = DPK_kim_il_sung
+recruit_character = DPK_revolutionary_council
+recruit_character = DPK_kim_tu_bong
+recruit_character = DPK_pak_hon_yong
+recruit_character = DPK_kim_won_bong
+recruit_character = DPK_cho_man_sik
+recruit_character = DPK_japanese_remnants_character
+recruit_character = DPK_anarchist_council
+
+recruit_character = DPK_provisional_nationalist_government
+recruit_character = DPK_nationalist_leader
+recruit_character = DPK_yi_geon
+recruit_character = DPK_koryeo_leader
+
+# Military Commanders
+recruit_character = DPK_choe_yong_gon
+recruit_character = DPK_kim_chaek
+recruit_character = DPK_kang_kon
+recruit_character = DPK_mu_chong
+recruit_character = DPK_pang_ho_san
+
+# Field Marshals
+recruit_character = DPK_o_jin_u
+recruit_character = DPK_choe_kwang
+recruit_character = DPK_ri_ul_sol
+
+# Additional Corps Commanders
+recruit_character = DPK_an_gil
+recruit_character = DPK_lee_sang_jo
+recruit_character = DPK_kim_ung
+recruit_character = DPK_pak_il_u
+
+# Navy Leaders
+recruit_character = DPK_kim_won_mu
+recruit_character = DPK_choe_chang_dok
+
+# Air Force Leaders
+recruit_character = DPK_wang_yong
+recruit_character = DPK_ri_hak_su
+
+# Political Advisors
+recruit_character = DPK_ho_ka_i
+recruit_character = DPK_choe_chang_ik
+recruit_character = DPK_pak_chung_ae
+recruit_character = DPK_hong_myong_hui
+recruit_character = DPK_o_ki_sop
+recruit_character = DPK_kim_yong_bom
+recruit_character = DPK_pak_song_chol
+
+# High Command Advisors
+recruit_character = DPK_o_paek_ryong
+recruit_character = DPK_kim_kwang_hyop
+recruit_character = DPK_kim_il_chol
+recruit_character = DPK_ri_jong_ok
+
+# Theorists
+recruit_character = DPK_kim_il
+recruit_character = DPK_nam_il
+recruit_character = DPK_kim_yong_nam
+recruit_character = DPK_choe_hyon
+recruit_character = DPK_kim_chang_bong
+
+set_popularities = {
+	democratic = 10 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 10
+	social_democrat = 15
+	communism = 45 #Communism
+	left_wing_radical = 15
+	neutrality = 0 #Paternal Autocracy
+	fascism = 5 #Nationalism
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

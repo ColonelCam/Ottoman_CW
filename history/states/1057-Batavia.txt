@@ -1,0 +1,30 @@
+state={
+	id=1057
+	name="STATE_1057"
+
+	history={
+		owner = DEI
+		add_core_of = INS
+		add_core_of = DEI
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+			dockyard = 2
+			air_base = 3
+			7381 = {
+				naval_base = 6
+			}
+		}
+		victory_points = {
+			7381 30 #Jakarta
+		}
+	}
+	
+	provinces={
+		7381 12249
+	}
+	manpower=4251889
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

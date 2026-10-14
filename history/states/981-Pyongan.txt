@@ -1,0 +1,26 @@
+state={
+	id=981
+	name="STATE_981"
+
+	history={
+		owner = ROK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			11835 3 #Sinúiju
+		}
+		victory_points = {
+			9795 1 #Chosan
+		}
+	}
+	provinces={
+		912 9795 9918 11828 11835 
+	}
+	manpower=1599245
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

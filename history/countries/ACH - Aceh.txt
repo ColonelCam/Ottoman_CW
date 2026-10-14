@@ -1,0 +1,93 @@
+﻿capital = 1056 #Bandar Aceh
+
+oob = "ACH_1945"
+
+set_convoys = 5
+
+set_stability = 0.35
+
+set_war_support = 0.65
+
+add_command_power = 10
+
+set_research_slots = 1
+
+add_political_power = 49
+
+# Experience
+army_experience = 5
+
+add_ideas = {
+	#National Spirits
+	
+	#National Laws
+	limited_conscription
+	war_economy
+	closed_economy
+}
+
+	HOL = {
+		declare_war_on = {
+			target = ACH
+			type = annex_everything
+		}
+	}
+	declare_war_on = {
+		target = INS
+		type = annex_everything
+	}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = irregulars
+set_sub_doctrine = infiltration_tactics
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Special Forces ###
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+#recruit_character = ACH_
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 0 #Communism
+	left_wing_radical = 0
+	neutrality = 10 #Paternal Autocracy
+	fascism = 90 #Nationalism
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

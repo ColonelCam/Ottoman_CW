@@ -1,0 +1,28 @@
+
+state={
+	id=525
+	name="STATE_525"
+	resources={
+		steel=11
+	}
+
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			15102 2 #Suwon 
+		}
+	}
+
+	provinces={
+		7204 7221 11992 15097 15100 15101 15102 
+	}
+	manpower=3084105
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

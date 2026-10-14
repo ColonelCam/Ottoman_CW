@@ -1,0 +1,39 @@
+state={
+	id=1015
+	name="STATE_1015"
+	resources={
+		coal=1
+	}
+
+	history={
+		owner = GXC
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = IDC
+		}
+		1950.6.1 = {
+			owner = VIN
+		}
+		1956.1.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			13441 5 #Cao Bang
+		}
+	}
+	provinces={
+		13441 15191 
+	}
+	manpower=150221
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

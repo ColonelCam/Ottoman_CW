@@ -1,0 +1,1831 @@
+###################################
+###   North Vietnamese Events   ###
+###################################
+
+add_namespace = AtM_DRV
+
+# Vietnam proclaim the republic
+country_event = {
+	id = AtM_DRV.1
+	title = AtM_DRV.1.t
+	desc = AtM_DRV.1.desc
+	picture = GFX_1945_declaration_of_independence_drv
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.1.a
+		ai_chance = { base = 1 }
+		add_stability = 0.10
+		add_war_support = 0.10
+		complete_national_focus = DRV_proclaim_the_republic
+		set_country_flag = DRV_has_proclaimed_idp
+		hidden_effect = {
+			country_event = { id = AtM_DRV.29 hours = 24 }
+			drop_cosmetic_tag = yes
+			news_event = {
+				id = AtM_news.97
+				days = 1
+			}
+		}
+	}
+}
+
+# Allied Landings on Saigon Event
+country_event = {
+	id = AtM_DRV.2
+	title = AtM_DRV.2.t
+	desc = AtM_DRV.2.desc
+	#picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.2.a
+		ai_chance = { base = 5 }
+		add_political_power = -25
+	}
+	#option = {
+	#	name = AtM_DRV.2.b
+	#	ai_chance = { base = 0 } #BROKEN AT THE MOMENT
+	#	hidden_effect = {
+	#		FRA = { country_event = AtM_indochina.5 }
+	#	}
+	#}
+}
+
+country_event = { 
+	id = AtM_DRV.3
+	title = AtM_DRV.3.t
+	desc = AtM_DRV.3.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.3.a
+		add_stability = 0.01
+		add_war_support = 0.01
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 100
+			producer = JFC
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = 10
+			producer = JFC
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_rural = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_rural
+				value = -3
+				tooltip = DRV_remove_3_rural_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.4
+	title = AtM_DRV.4.t
+	desc = AtM_DRV.4.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.4.a
+		add_political_power = -5
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 10
+			producer = JFC
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_rural = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_rural
+				value = -1
+				tooltip = DRV_remove_1_rural_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.5
+	title = AtM_DRV.5.t
+	desc = AtM_DRV.5.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.5.a
+		add_political_power = -25
+		add_stability = -0.02
+		add_war_support = -0.03
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -50
+			producer = DRV
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = -5
+			producer = DRV
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_rural = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_rural
+				value = 3
+				tooltip = DRV_add_3_rural_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.6
+	title = AtM_DRV.6.t
+	desc = AtM_DRV.6.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.6.a
+		add_stability = 0.01
+		add_war_support = 0.01
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 100
+			producer = JFC
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = 10
+			producer = JFC
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_urban = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_urban
+				value = -3
+				tooltip = DRV_remove_3_urban_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.7
+	title = AtM_DRV.7.t
+	desc = AtM_DRV.7.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.7.a
+		add_political_power = -5
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 15
+			producer = JFC
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_urban = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_urban
+				value = -1
+				tooltip = DRV_remove_1_urban_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.8
+	title = AtM_DRV.8.t
+	desc = AtM_DRV.8.desc
+	picture = GFX_report_event_japanese_soldiers_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.8.a
+		add_political_power = -25
+		add_stability = -0.02
+		add_war_support = -0.03
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -50
+			producer = DRV
+		}
+		add_equipment_to_stockpile = {
+			type = support_equipment_1
+			amount = -5
+			producer = DRV
+		}
+		if = {
+			limit = { DRV_check_japanese_army_presence_urban = yes }	
+			add_to_variable = {
+				var = DRV_japanese_army_presence_urban
+				value = 3
+				tooltip = DRV_add_3_urban_pres_tt
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.9
+	title = AtM_DRV.9.t
+	desc = AtM_DRV.9.desc
+	picture = GFX_DRV_nam_bo_khang_chien
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.9.a
+		DRV = {
+			add_ideas = DRV_unprepared_defensives_idea
+		}
+		CCH = {
+			add_ideas = DRV_never_surrender_idea
+			add_ideas = DRV_unprepared_defensives_idea
+		}
+		VNT = {
+			add_ideas = DRV_unprepared_defensives_idea
+		}
+		VIN = {
+			add_ideas = DRV_unprepared_defensives_idea
+		}
+	}
+}
+
+# Reorganization of the Economic Ministries Position
+country_event = { 
+	id = AtM_DRV.10
+	title = AtM_DRV.10.t
+	desc = AtM_DRV.10.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.10.a
+		DRV = {
+			complete_national_focus = DRV_form_the_industrial_ministries
+		}
+	}
+}
+
+# Temporary Calm
+country_event = { 
+	id = AtM_DRV.11
+	title = AtM_DRV.11.t
+	desc = AtM_DRV.11.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.11.a
+		DRV_reduce_food_crisis_mod = yes
+	}
+}
+
+# Economic Planning Committee
+country_event = { 
+	id = AtM_DRV.12
+	title = AtM_DRV.12.t
+	desc = AtM_DRV.12.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.12.a
+		add_political_power = 50
+		DRV_reduce_economic_crisis = yes
+	}
+}
+
+# Legislative Election
+country_event = { 
+	id = AtM_DRV.13
+	title = AtM_DRV.13.t
+	desc = AtM_DRV.13.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.13.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+}
+
+# UAI Event chain
+country_event = { 
+	id = AtM_DRV.14
+	title = AtM_DRV.14.t
+	desc = AtM_DRV.14.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.14.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_stability = 0.03
+		set_country_flag = VNQDD_UAI_agreed
+		VTQ = {
+			set_autonomy_self_governing_state_no_elections = yes
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.15
+	title = AtM_DRV.15.t
+	desc = AtM_DRV.15.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.15.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_stability = 0.02
+		set_country_flag = VNCMDMH_UAI_agreed
+		VTC = {
+			set_autonomy_self_governing_state_no_elections = yes
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.16
+	title = AtM_DRV.16.t
+	desc = AtM_DRV.16.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.16.a
+		add_political_power = 25
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+		add_stability = 0.02
+		set_country_flag = TROTSKYISTS_UAI_agreed
+		VNT = {
+			set_autonomy_self_governing_state_no_elections = yes
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.17
+	title = AtM_DRV.17.t
+	desc = AtM_DRV.17.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.17.a
+		add_political_power = -25
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.18
+	title = AtM_DRV.18.t
+	desc = AtM_DRV.18.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.18.a
+		add_political_power = -25
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+
+country_event = { 
+	id = AtM_DRV.19
+	title = AtM_DRV.19.t
+	desc = AtM_DRV.19.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.19.a
+		add_political_power = -25
+		add_popularity = {
+			ideology = communism
+			popularity = -0.03
+		}
+	}
+}
+
+# DECOY UAI EVENT
+country_event = { 
+	id = AtM_DRV.20
+	title = AtM_DRV.20.t
+	desc = AtM_DRV.20.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.20.a
+		add_political_power = 1
+	}
+}
+
+# Religion and Minorities
+country_event = { 
+	id = AtM_DRV.21
+	title = AtM_DRV.21.t
+	desc = AtM_DRV.21.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.21.a
+		add_ideas = DRV_buddhist_nation_idea
+		hidden_effect = {
+			country_event = AtM_DRV.22
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.21.b
+		add_ideas = DRV_christian_nation_idea
+		hidden_effect = {
+			country_event = AtM_DRV.22
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.21.c
+		add_ideas = DRV_atheist_country_idea
+		hidden_effect = {
+			country_event = AtM_DRV.22
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.21.d
+		add_ideas = DRV_secular_nation_idea
+		hidden_effect = {
+			country_event = AtM_DRV.22
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# Fate of the Minorities
+country_event = { 
+	id = AtM_DRV.22
+	title = AtM_DRV.22.t
+	desc = AtM_DRV.22.desc
+	picture = GFX_1946_ethnic_minorties_drv
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.22.a
+		add_ideas = DRV_their_land_is_ours_idea
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.22.b
+		add_ideas = DRV_their_land_is_their_land_idea
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.22.c
+		#set up autonuomous regions
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.22.d
+		add_stability = -0.01
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+# National Assembly Elected
+country_event = { 
+	id = AtM_DRV.23
+	title = AtM_DRV.23.t
+	desc = AtM_DRV.23.desc
+	picture = GFX_1946_natassembly_drv
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.23.a
+		add_stability = 0.01
+		add_popularity = { ideology = communism popularity = 0.01 }
+		add_political_power = 50
+	}
+}
+
+country_event = {
+	id = AtM_DRV.24
+	title = AtM_DRV.24.t
+	desc = AtM_DRV.24.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.24.a
+		add_political_power = 50
+		DRV = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = DRV_soviet_improve_relations_minor
+			}
+		}
+		add_opinion_modifier = {
+			target = DRV
+			modifier = DRV_soviet_improve_relations_minor
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.24.b
+		DRV = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = DRV_soviet_decrease_relations_mild
+			}
+		}
+		add_opinion_modifier = {
+			target = DRV
+			modifier = DRV_soviet_decrease_relations_mild
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = AtM_DRV.25
+	title = AtM_DRV.25.t
+	desc = AtM_DRV.25.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.25.a
+		DRV = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 200
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 25
+			}
+		}
+	}
+}
+
+#Dissolution of the Nazi Party
+
+country_event = {
+	id = AtM_DRV.26
+	title = AtM_DRV.26.t
+	desc = AtM_DRV.26.desc
+	picture = GFX_daivietflag_event
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.26.a
+		add_stability = -0.01
+		add_political_power = 10
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.02
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.01
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.26.b
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.01
+		}
+		custom_effect_tooltip = AtM_DRV.26.b_tt
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Establishment of the General Staff
+
+country_event = {
+	id = AtM_DRV.27
+	title = AtM_DRV.27.t
+	desc = AtM_DRV.27.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.27.a
+		complete_national_focus = DRV_peoples_army
+	}
+}
+
+#Establishment of the Ve Quoc Doan
+
+country_event = {
+	id = AtM_DRV.28
+	title = AtM_DRV.28.t
+	desc = AtM_DRV.28.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.28.a
+		complete_national_focus = DRV_ve_quoc_doan
+	}
+}
+
+#First Session of the Provisional Government
+
+country_event = {
+	id = AtM_DRV.29
+	title = AtM_DRV.29.t
+	desc = AtM_DRV.29.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.29.a
+		custom_effect_tooltip = AtM_DRV.29.a_tt
+		complete_national_focus = DRV_addressing_the_problems
+		hidden_effect = {
+			country_event = { id = AtM_DRV.30 hours = 2 }
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding the Food Insecurity Problem
+
+country_event = {
+	id = AtM_DRV.30
+	title = AtM_DRV.30.t
+	desc = AtM_DRV.30.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.30.a
+		hidden_effect = {
+			country_event = { id = AtM_DRV.31 hours = 1 }
+			set_country_flag = DRV_famine_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding Illiteracy among the Population
+
+country_event = {
+	id = AtM_DRV.31
+	title = AtM_DRV.31.t
+	desc = AtM_DRV.31.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.31.a
+		hidden_effect = {
+			country_event = { id = AtM_DRV.32 hours = 1 }
+			set_country_flag = DRV_iliteracy_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding Democracy and Legitimacy of our government
+
+country_event = {
+	id = AtM_DRV.32
+	title = AtM_DRV.32.t
+	desc = AtM_DRV.32.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.32.a
+		hidden_effect = {
+			country_event = { id = AtM_DRV.33 hours = 1 }
+			set_country_flag = DRV_democracy_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding the Old Burden of Colonialism
+
+country_event = {
+	id = AtM_DRV.33
+	title = AtM_DRV.33.t
+	desc = AtM_DRV.33.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.33.a
+		hidden_effect = {
+			country_event = { id = AtM_DRV.34 hours = 1 }
+			set_country_flag = DRV_colonialism_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding Taxation
+
+country_event = {
+	id = AtM_DRV.34
+	title = AtM_DRV.34.t
+	desc = AtM_DRV.34.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.34.a
+		hidden_effect = {
+			country_event = { id = AtM_DRV.35 hours = 1 }
+			set_country_flag = DRV_taxes_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#EVENT CHAIN: Regarding the Freedom of Faith
+
+country_event = {
+	id = AtM_DRV.35
+	title = AtM_DRV.35.t
+	desc = AtM_DRV.35.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.35.a
+		hidden_effect = {
+			set_country_flag = DRV_freedom_flag_EVENT_CHAIN
+		}
+	}
+}
+
+#Flooding in North Vietnam
+country_event = {
+	id = AtM_DRV.36
+	title = AtM_DRV.36.t
+	desc = AtM_DRV.36.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.36.a
+		add_political_power = 25
+	}
+}
+
+#Dealing with External Enemies
+country_event = {
+	id = AtM_DRV.37
+	title = AtM_DRV.37.t
+	desc = AtM_DRV.37.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.37.a
+		add_political_power = 5
+		complete_national_focus = DRV_external_enemies
+	}
+}
+
+#Dealing with Internal Enemies
+country_event = {
+	id = AtM_DRV.38
+	title = AtM_DRV.38.t
+	desc = AtM_DRV.38.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.38.a
+		add_political_power = 5
+		complete_national_focus = DRV_internal_enemies
+	}
+}
+
+#The Declaration
+country_event = {
+	id = AtM_DRV.39
+	title = AtM_DRV.39.t
+	desc = AtM_DRV.39.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.39.a
+		complete_national_focus = DRV_war_of_resistance
+	}
+}
+
+#Viet Minh demands our cooperation
+country_event = {
+	id = AtM_DRV.40
+	title = AtM_DRV.40.t
+	desc = AtM_DRV.40.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { #Accept
+		name = AtM_DRV.40.a
+		if = {
+			limit = {
+				tag = VTQ
+			}
+			DRV = {	
+				country_event = AtM_DRV.14
+			}
+			else_if = {
+				limit = { tag = VTC }
+				DRV = {	
+					country_event = AtM_DRV.15
+				}
+			}
+			else_if = {
+				limit = { tag = VNT }
+				DRV = {	
+					country_event = AtM_DRV.16
+				}
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				original_tag = VTQ
+			}
+		}
+	}
+	
+	option = { #Refuse
+		name = AtM_DRV.40.b
+		if = {
+        	limit = { tag = VTQ }
+			DRV = {	
+       	 		country_event = AtM_DRV.17
+			}
+       	 	else_if = {
+            	limit = { tag = VTC }
+				DRV = {	
+            		country_event = AtM_DRV.18
+				}
+        	}
+       		else_if = {
+            	limit = { tag = VNT }
+				DRV = {	
+            		country_event = AtM_DRV.19
+				}
+       	 	}
+    	}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 25
+				is_historical_focus_on = yes
+				original_tag = VTQ
+			}
+		}
+	}
+}
+
+#Provisional Government Formation
+country_event = {
+	id = AtM_DRV.41
+	title = AtM_DRV.41.t
+	desc = AtM_DRV.41.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.41.a
+		add_political_power = 45
+	}
+}
+
+#Fontainebleau Conference
+country_event = {
+	id = AtM_DRV.42
+	title = AtM_DRV.42.t
+	desc = AtM_DRV.42.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.41.a
+		add_political_power = 15
+	}
+}
+
+#Ho–Sainteny Agreement
+country_event = {
+	id = AtM_DRV.43
+	title = AtM_DRV.43.t
+	desc = AtM_DRV.43.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.43.a
+		add_political_power = 15
+		country_event = { id = AtM_DRV.44 days = 50 }
+	}
+}
+
+#Da Lat Conference
+country_event = {
+	id = AtM_DRV.44
+	title = AtM_DRV.44.t
+	desc = AtM_DRV.44.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.44.a
+		add_political_power = 15
+		country_event = { id = AtM_DRV.42 days = 65 }
+	}
+}
+
+#Dissolution of the ICP
+country_event = {
+	id = AtM_DRV.45
+	title = AtM_DRV.45.t
+	desc = AtM_DRV.45.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.45.a
+		add_political_power = -15
+		set_party_name = {
+			ideology = communism
+			name = DRV_marxist_research_association_party
+			long_name = DRV_marxist_research_association_party
+		}
+		hidden_effect = {
+			set_country_flag = DRV_dissolution_of_icp
+		}
+	}
+}
+
+#Establishment of the LPV
+country_event = {
+	id = AtM_DRV.46
+	title = AtM_DRV.46.t
+	desc = AtM_DRV.46.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.46.a
+		add_political_power = -15
+		hidden_effect = {
+			clr_country_flag = DRV_dissolution_of_icp
+		}
+		set_party_name = {
+			ideology = communism
+			name = DRV_lpv_party
+			long_name = DRV_lpv_party
+		}
+	}
+}
+
+#The Second National Congress
+country_event = {
+	id = AtM_DRV.47
+	title = AtM_DRV.47.t
+	desc = AtM_DRV.47.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.47.a
+		add_political_power = -10
+		country_event = { id = AtM_DRV.49 days = 3 }
+		hidden_effect = {
+			complete_national_focus = DRV_fate_of_the_icp
+		}
+	}
+}
+
+#Question of the ICP
+country_event = {
+	id = AtM_DRV.48
+	title = AtM_DRV.48.t
+	desc = AtM_DRV.48.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.48.a
+		add_political_power = -5
+		hidden_effect = {
+			complete_national_focus = DRV_workers_party
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.48.b
+		add_political_power = -15
+		hidden_effect = {
+			complete_national_focus = DRV_icp_restored
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Political Report
+country_event = {
+	id = AtM_DRV.49
+	title = AtM_DRV.49.t
+	desc = AtM_DRV.49.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.49.a
+		add_political_power = 25
+		hidden_effect = {
+			set_country_flag = DRV_second_congress_flag
+		}
+	}
+}
+
+#Voice of Vietnam Broadcast
+country_event = {
+	id = AtM_DRV.50
+	title = AtM_DRV.50.t
+	desc = AtM_DRV.50.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.50.a
+		add_political_power = 5
+		add_stability = 0.01
+	}
+}
+
+#Popular Education Office
+country_event = {
+	id = AtM_DRV.51
+	title = AtM_DRV.51.t
+	desc = AtM_DRV.51.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.51.a
+		add_political_power = 5
+	}
+}
+
+#Golden Week
+country_event = {
+	id = AtM_DRV.52
+	title = AtM_DRV.52.t
+	desc = AtM_DRV.52.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.52.a
+		add_political_power = 50
+	}
+}
+
+#Nhan Dan Newspaper
+country_event = {
+	id = AtM_DRV.53
+	title = AtM_DRV.53.t
+	desc = AtM_DRV.53.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.53.a
+		add_political_power = 50
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+}
+
+#Lien Viet Coalition
+country_event = {
+	id = AtM_DRV.54
+	title = AtM_DRV.54.t
+	desc = AtM_DRV.54.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.54.a
+		add_political_power = 10
+		add_ideas = DRV_lien_viet_association
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.03
+		}
+	}
+}
+
+#United People's Government
+country_event = {
+	id = AtM_DRV.55
+	title = AtM_DRV.55.t
+	desc = AtM_DRV.55.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.55.a
+		add_political_power = 25
+		add_stability = 0.02
+	}
+}
+
+#Lien Viet Front
+country_event = {
+	id = AtM_DRV.56
+	title = AtM_DRV.56.t
+	desc = AtM_DRV.56.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.56.a
+		swap_ideas = {
+			remove_idea = DRV_lien_viet_association
+			add_idea = DRV_lien_viet_front
+		}
+	}
+}
+
+#Execution of Tran Du Chau
+country_event = {
+	id = AtM_DRV.57
+	title = AtM_DRV.57.t
+	desc = AtM_DRV.57.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.57.a
+		#Tran Du Chau dies 
+		add_political_power = 5
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.57.b
+		#Tran Du Chau survives
+		add_political_power = -5
+		add_stability = -0.05
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Nguyen Van Khuong Liberates Samneua
+country_event = {
+	id = AtM_DRV.58
+	title = AtM_DRV.58.t
+	desc = AtM_DRV.58.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { #Yes
+		name = AtM_DRV.58.a
+		add_political_power = 5
+		set_country_flag = DRV_nguyen_van_khuong_reached_out
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = { #No
+		name = AtM_DRV.58.b
+		add_political_power = -5
+		add_stability = -0.05
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#Souphanouvong meets Ho Chi Minh
+country_event = {
+	id = AtM_DRV.59
+	title = AtM_DRV.59.t
+	desc = AtM_DRV.59.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.59.a
+		add_political_power = 5
+		hidden_effect = {
+			country_event = { id = AtM_DRV.60 days = 45 }
+		}
+	}	
+}
+
+#Lao-Viet Mutual Assistance
+country_event = {
+	id = AtM_DRV.60
+	title = AtM_DRV.60.t
+	desc = AtM_DRV.60.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.60.a
+		add_timed_idea = { idea = DRV_LAO_mutual_assistance_idea days = 1200 }
+		LAO = {
+			add_timed_idea = { idea = DRV_LAO_mutual_assistance_idea days = 1200 }
+		}
+		ai_chance = {
+			base = 25
+		}
+	}	
+	
+	option = { 
+		name = AtM_DRV.60.b
+		add_stability = -0.03
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}
+
+#First Session of the National Assembly
+country_event = {
+	id = AtM_DRV.61
+	title = AtM_DRV.61.t
+	desc = AtM_DRV.61.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.61.a
+		complete_national_focus = DRV_form_the_united_resistance_government
+	}	
+}
+
+#Second Session of the National Assembly
+country_event = {
+	id = AtM_DRV.62
+	title = AtM_DRV.62.t
+	desc = AtM_DRV.62.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.62.a
+		complete_national_focus = DRV_united_peoples_government
+		hidden_effect = {
+			country_event = { id = AtM_DRV.63 days = 1 }
+		}
+	}	
+}
+
+#Drafting the 1946 Consitution
+country_event = {
+	id = AtM_DRV.63
+	title = AtM_DRV.63.t
+	desc = AtM_DRV.63.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.63.a
+		complete_national_focus = DRV_draft_the_1946_consitution
+	}	
+}
+
+#Reestablishment of the ICP
+country_event = {
+	id = AtM_DRV.64
+	title = AtM_DRV.64.t
+	desc = AtM_DRV.64.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.64.a
+		set_party_name = {
+			ideology = communism
+			name = DRV_idc_party
+			long_name = DRV_idc_party
+		}
+	}	
+}
+
+#Lifting the Barrier
+country_event = {
+	id = AtM_DRV.65
+	title = AtM_DRV.65.t
+	desc = AtM_DRV.65.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.65.a
+		add_political_power = 50
+		add_stability = 0.1
+		add_war_support = 0.1
+	}	
+}
+
+#Reunification of Indochina
+country_event = {
+	id = AtM_DRV.66
+	title = AtM_DRV.66.t
+	desc = AtM_DRV.66.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.66.a
+		add_timed_idea = {
+			idea = DRV_recent_unification_idea
+			days = 1080
+		}
+		set_cosmetic_tag = DRV_indochinese_federation_ct
+		add_stability = 0.05
+		set_country_flag = DRV_indochina_reunify_flag
+		if = {
+			limit = {
+				LAO = {
+					OR = {
+						is_subject_of = DRV
+						is_communist = yes
+					}
+				}
+			}
+			DRV = {
+				annex_country = {
+					target = LAO
+					transfer_troops = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				CAM = {
+					OR = {
+						is_subject_of = DRV
+						is_communist = yes
+					}
+				}
+			}
+			DRV = {
+				annex_country = {
+					target = CAM
+					transfer_troops = yes
+				}
+			}
+		}
+		LAO = {
+			every_core_state = {
+				add_core_of = ROOT
+			}
+		}
+		CAM = {
+			every_core_state = {
+				add_core_of = ROOT
+			}
+		}
+	}	
+}
+
+#Dev Note
+country_event = {
+	id = AtM_DRV.67
+	title = AtM_DRV.67.t
+	desc = AtM_DRV.67.desc
+	# picture = GFX_
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = AtM_DRV.67.a
+	}	
+	
+	option = { 
+		name = AtM_DRV.67.b
+		custom_effect_tooltip = AtM_DRV.67.b_tt
+	}	
+}
+
+#Nanjing Delegation
+country_event = {
+	id = AtM_DRV.68
+	title = AtM_DRV.68.t
+	desc = AtM_DRV.68.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.68.a
+		add_political_power = 50
+		DRV = {
+			add_opinion_modifier = {
+				target = CHI
+				modifier = reformed_relations
+			}
+		}
+		add_opinion_modifier = {
+			target = DRV
+			modifier = reformed_relations
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.68.b
+		DRV = {
+			add_opinion_modifier = {
+				target = CHI
+				modifier = refused_cooperation
+			}
+		}
+		add_opinion_modifier = {
+			target = CHI
+			modifier = refused_cooperation
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+#Visit to Beijing
+country_event = {
+	id = AtM_DRV.69
+	title = AtM_DRV.69.t
+	desc = AtM_DRV.69.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.69.a
+		add_political_power = 50
+		DRV = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = reformed_relations
+			}
+		}
+		add_opinion_modifier = {
+			target = DRV
+			modifier = reformed_relations
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.69.b
+		DRV = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = refused_cooperation
+			}
+		}
+		add_opinion_modifier = {
+			target = PRC
+			modifier = refused_cooperation
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+
+#Demand American Recognition
+country_event = {
+	id = AtM_DRV.70
+	title = AtM_DRV.70.t
+	desc = AtM_DRV.70.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.70.a
+		add_political_power = 25
+		add_war_support = -0.025
+		DRV = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = DRV_usa_improve_relations
+			}
+			reverse_add_opinion_modifier = {
+				target = ROOT
+				modifier = DRV_usa_improve_relations
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_decrease
+			}
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.70.b
+		FRA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_increase
+			}
+		}
+		VIN = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = medium_increase
+			}
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+#Failure of the Land Reform
+country_event = {
+	id = AtM_DRV.71
+	title = AtM_DRV.71.t
+	desc = AtM_DRV.71.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.71.a
+		add_political_power = -5
+		add_stability = -0.1
+		complete_national_focus = DRV_fail_lrf
+	}
+}
+
+#Fontainebleau - France
+country_event = {
+	id = AtM_DRV.72
+	title = AtM_DRV.72.t
+	desc = AtM_DRV.72.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.72.a
+		country_event = {
+			id = AtM_DRV.44
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	
+	option = {
+		name = AtM_DRV.72.b
+		country_event = {
+			id = AtM_DRV.73
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+
+#Fontainebleau - Rejected
+country_event = {
+	id = AtM_DRV.73
+	title = AtM_DRV.73.t
+	desc = AtM_DRV.73.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_DRV.73.a
+	}
+}

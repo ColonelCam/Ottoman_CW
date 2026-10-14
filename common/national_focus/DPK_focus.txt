@@ -1,0 +1,8469 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+
+focus_tree = {
+	id = north_korea_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 150
+			tag = DPK
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 1550 y = 150 }
+	
+	########################
+	## Shtykov leadership ##
+	########################
+
+	
+	focus = {
+		id = DPK_remove_japanese_presence
+		icon = GFX_focus_AST_war_japan
+		x = 22
+		y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 10 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -10
+			add_stability = 0.025
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			custom_effect_tooltip = DPK_enable_japan_mechanic
+			hidden_effect = {
+				random_list = {
+					0 = {
+						activate_mission = DPK_military_sabotage
+					}
+					0 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+					10 = {
+						activate_mission = DPK_japanese_insurgance
+						random_owned_controlled_state = {
+							set_variable = { ROOT.DPK_target_state = THIS }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_search_the_countryside
+		icon = GFX_focus_generic_farmland
+		relative_position_id = DPK_remove_japanese_presence
+		prerequisite = { focus = DPK_remove_japanese_presence }
+		x = 2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 25 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.015
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_search_the_military
+		icon = GFX_focus_generic_military_academy
+		relative_position_id = DPK_remove_japanese_presence
+		prerequisite = { focus = DPK_remove_japanese_presence }
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 10 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_command_power = 10
+			add_war_support = -0.025
+			# Activate war industrialist
+			activate_advisor = DPK_pak_song_chol
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.025
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_search_the_government
+		icon = GFX_focus_SWE_socialist_reforms
+		relative_position_id = DPK_remove_japanese_presence
+		prerequisite = { focus = DPK_remove_japanese_presence }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 10 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 10
+			add_stability = 0.02
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.025
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_execute_the_traitors
+		icon = GFX_focus_generic_advanced_military_studies
+		relative_position_id = DPK_search_the_government
+		prerequisite = { focus = DPK_search_the_government }
+		prerequisite = { focus = DPK_search_the_countryside }
+		prerequisite = { focus = DPK_search_the_military }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 25 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.05
+			custom_effect_tooltip = DPK_disable_japan_mechanic
+			hidden_effect = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_our_job_is_finished
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		relative_position_id = DPK_execute_the_traitors
+		prerequisite = { focus = DPK_execute_the_traitors }
+		mutually_exclusive = { focus = DPK_expand_the_occupation }
+		x = -2 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 10 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.05
+			retire_character = DPK_terentii_shtykov
+			set_party_name = {
+				ideology = communism
+				long_name = DPK_communism_cpk_party_long
+				name = DPK_communism_cpk_party
+			}
+			promote_character = DPK_revolutionary_council
+			country_event = {
+				id = AtM_DPK.5
+				days = 1
+				random_hours = 10
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_expand_the_occupation
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		relative_position_id = DPK_our_job_is_finished
+		prerequisite = { focus = DPK_execute_the_traitors }
+		mutually_exclusive = { focus = DPK_our_job_is_finished }
+		x = 6 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 100
+			swap_ideas = {
+				remove_idea = DPK_soviet_occupation
+				add_idea = DPK_soviet_occupation_2
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_become_a_socialist_republic
+		icon = GFX_focus_SOV_international_union_of_soviet_republics
+		relative_position_id = DPK_expand_the_occupation
+		prerequisite = { focus = DPK_expand_the_occupation }
+		mutually_exclusive = { focus = DPK_follow_soviet_communist }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_proposition_to_the_soviet_union
+		icon = GFX_focus_generic_support_sov_communism
+		relative_position_id = DPK_become_a_socialist_republic
+		prerequisite = { focus = DPK_become_a_socialist_republic }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			country_exists = SOV
+		}
+
+		bypass = {
+			NOT = {
+				country_exists = SOV
+			}
+		}
+
+		completion_reward = {
+			SOV = {
+				country_event = AtM_SOV.3
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_back_to_the_original_plan
+		icon = GFX_SOV_reformalize_the_role_of_the_patriarchate_ccp_2d_sov_compatibility
+		relative_position_id = DPK_proposition_to_the_soviet_union
+		prerequisite = { focus = DPK_proposition_to_the_soviet_union }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -100
+			add_stability = -0.05
+			add_war_support = -0.05
+			hidden_effect = {
+				complete_national_focus = DPK_our_job_is_finished
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_follow_soviet_communist
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_expand_the_occupation
+		prerequisite = { focus = DPK_expand_the_occupation }
+		mutually_exclusive = { focus = DPK_become_a_socialist_republic }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_propose_the_invasion_of_korea
+		icon = GFX_goal_generic_major_war
+		relative_position_id = DPK_follow_soviet_communist
+		prerequisite = { focus = DPK_follow_soviet_communist }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			country_exists = SOV
+		}
+
+		bypass = {
+			NOT = {
+				country_exists = SOV
+			}
+		}
+
+		completion_reward = {
+			SOV = {
+				country_event = AtM_SOV.4
+			}
+		}
+	}
+	
+	###############
+	## COMMUNIST ##
+	###############
+	
+	focus = {
+		id = DPK_CPK_chosen
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_our_job_is_finished
+		prerequisite = { focus = DPK_our_job_is_finished }
+		mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = 0 y = 1
+		cost = 0
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+			has_country_leader = {
+				character = DPK_kim_il_sung
+				ruling_only = yes
+			}
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = { }
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = DPK_demand_kim_il_sung
+		icon = GFX_focus_DPK_return_kim_il_sung
+		relative_position_id = DPK_CPK_chosen
+		prerequisite = { focus = DPK_CPK_chosen }
+		#mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = -2
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+			has_country_leader = {
+				character = DPK_kim_il_sung
+				ruling_only = yes
+			}
+		}
+
+		available = {
+			is_communist = yes
+			has_country_flag = DPK_chose_kim
+		}
+
+		completion_reward = {
+			promote_character = DPK_kim_il_sung
+		}
+	}
+	
+	focus = {
+		id = DPK_under_our_leader
+		icon = GFX_focus_DPK_under_our_leader
+		relative_position_id = DPK_demand_kim_il_sung
+		prerequisite = { focus = DPK_demand_kim_il_sung }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+
+		available = {
+			has_country_leader = {
+				character = DPK_kim_il_sung
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_cult_of_personality
+			hidden_effect = {
+				load_oob = DPK_1948
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_pak_hon_yong_elected
+		icon = GFX_focus_generic_communist
+		relative_position_id = DPK_CPK_chosen
+		prerequisite = { focus = DPK_CPK_chosen }
+		#mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = 0 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+		}
+
+		available = {
+			is_communist = yes
+			has_country_flag = DPK_chose_pak
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			promote_character = DPK_pak_hon_yong
+		}
+	}
+	
+	focus = {
+		id = DPK_korean_orthodox_socialism
+		icon = GFX_focus_SWE_socialist_reforms
+		relative_position_id = DPK_pak_hon_yong_elected
+		prerequisite = { focus = DPK_pak_hon_yong_elected }
+		#mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = 0
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+		}
+
+		available = {
+			has_country_leader = {
+				character = DPK_pak_hon_yong
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_anti_revisionism_idea
+			hidden_effect = {
+				load_oob = DPK_1948
+			}
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_cho_man_sik_elected
+		icon = GFX_focus_prc_agrarian_socialism
+		relative_position_id = DPK_CPK_chosen
+		prerequisite = { focus = DPK_CPK_chosen }
+		#mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = 2 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+			has_country_leader = {
+				character = DPK_cho_man_sik
+				ruling_only = yes
+			}
+		}
+
+		available = {
+			is_communist = yes
+			has_country_flag = DPK_chose_cho
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			promote_character = {
+				character = DPK_cho_man_sik
+				ideology = marxism
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_socialist_democracy
+		icon = GFX_focus_generic_social_democracy
+		relative_position_id = DPK_cho_man_sik_elected
+		prerequisite = { focus = DPK_cho_man_sik_elected }
+		#mutually_exclusive = { focus = DPK_stage_public_protests }
+		x = 0
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 25 }
+		
+		bypass = {
+		}
+
+		available = {
+			has_country_leader = {
+				character = DPK_cho_man_sik
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_socialist_democracy_idea
+			hidden_effect = {
+				load_oob = DPK_1948
+			}
+			add_popularity = {
+				ideology = social_democrat 
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_stage_public_protests
+		relative_position_id = DPK_CPK_chosen
+		mutually_exclusive = { focus = DPK_CPK_chosen }
+		prerequisite = { focus = DPK_our_job_is_finished }
+		icon = GFX_focus_PER_stage_mass_protests
+		x = -4 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			has_country_flag = DPK_problems
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = -0.02
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = DPK_building_a_new_nation
+		icon = GFX_focus_generic_industry_work_communist
+		relative_position_id = DPK_under_our_leader
+		prerequisite = { 
+			focus = DPK_under_our_leader 
+			focus = DPK_korean_orthodox_socialism
+			focus = DPK_socialist_democracy
+		}
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = {
+			is_communist = yes
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_peoples_committee_of_korea
+			527 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			980 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_building_a_new_political_structure
+		icon = GFX_focus_generic_political_structure_communist
+		relative_position_id = DPK_under_our_leader
+		prerequisite = { 
+			focus = DPK_under_our_leader 
+			focus = DPK_korean_orthodox_socialism
+			focus = DPK_socialist_democracy
+		}
+		x = 3 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		available = {
+			is_communist = yes
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			country_event = {
+				id = AtM_DPK.6
+				days = 1
+				random_hours = 10
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_prepare_the_formation_of_our_country
+		icon = GFX_focus_generic_literature_communist
+		relative_position_id = DPK_building_a_new_nation
+		prerequisite = { focus = DPK_building_a_new_nation }
+		prerequisite = { focus = DPK_building_a_new_political_structure }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		available = {
+			is_communist = yes
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 75
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = DPK_formation_of_the_dprk
+		icon = GFX_focus_DPK_form_the_dprk
+		relative_position_id = DPK_prepare_the_formation_of_our_country
+		prerequisite = { focus = DPK_prepare_the_formation_of_our_country }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		available = {
+			is_communist = yes
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = DPK_back_to_the_original_plan
+				}
+				remove_ideas = DPK_soviet_occupation_2
+			}
+			else = {
+				remove_ideas = DPK_soviet_occupation
+			}
+			
+			set_autonomy_free = yes
+			leave_faction = yes
+			
+			#So that DPK troops don't get stuck in Europe and go back to their homeland
+			SOV = {
+				give_military_access = DPK
+			}
+			hidden_effect = {
+				DDR = {
+					give_military_access = DPK
+				}
+				POL = {
+					give_military_access = DPK
+				}
+				CZE = {
+					give_military_access = DPK
+				}
+				DPK = {
+					swap_ideas = {
+						remove_idea = eastern_member_ns
+						add_idea = eastern_aligned_ns
+					}
+				}
+			}
+			
+			hidden_effect = {
+				news_event = {
+					id = AtM_news.2
+					days = 1
+				}
+			}
+		}
+	}
+	
+##############################
+## KIM IL SUNG NOT RETURNED ##
+##############################	
+	
+	focus = {
+		id = DPK_plan_b
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		relative_position_id = DPK_stage_public_protests
+		prerequisite = { focus = DPK_stage_public_protests }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		bypass = { }
+
+		completion_reward = {
+			remove_ideas = DPK_soviet_occupation
+			SOV = {
+				end_puppet = DPK
+			}
+			leave_faction = yes
+			set_country_flag = dpk_independence_war
+			SOV = {
+				declare_war_on = {
+					target = DPK
+					type = puppet_wargoal_focus
+				}
+			}
+
+			hidden_effect = {
+				news_event = {
+					id = AtM_news.12
+					days = 1
+				}
+				DPK = {
+					retire_character = DPK_terentii_shtykov
+					retire_character = DPK_kim_il_sung
+					promote_character = DPK_revolutionary_council
+				}
+				SOV = {
+					set_province_controller = 11915
+					set_province_controller = 11835
+					set_province_controller = 3904
+					load_oob = SOV_korean_defectors
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_state_secured
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_plan_b
+		prerequisite = { focus = DPK_plan_b }
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = DPK_purge_soviet_officials
+		icon = GFX_focus_SOV_military_purge
+		relative_position_id = DPK_plan_b
+		prerequisite = { focus = DPK_plan_b }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_soviet_official_purge
+				days = 50
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = DPK
+					modifier = medium_decrease
+				}
+			}
+			DPK = {
+				add_opinion_modifier = {
+					target = SOV
+					modifier = medium_decrease
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_an_uncertain_future
+		icon = GFX_SOV_the_triple_entente_ccp_2d_sov_compatibility
+		relative_position_id = DPK_purge_soviet_officials
+		prerequisite = { focus = DPK_purge_soviet_officials }
+		prerequisite = { focus = DPK_the_state_secured }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			NOT = {
+				has_country_flag = dpk_independence_war
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.4
+		}
+	}
+
+	focus = {
+		id = DPK_rebuild_the_nation
+		icon = GFX_focus_SOV_rebuild_the_savior_cathedral
+		relative_position_id = DPK_an_uncertain_future
+		prerequisite = { focus = DPK_an_uncertain_future }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			NOT = {
+				has_country_flag = dpk_independence_war
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_reconstruction_efforts_1
+				days = 365			
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_civilian_programs
+		icon = GFX_focus_DEN_civilian_preparations
+		relative_position_id = DPK_rebuild_the_nation
+		prerequisite = { focus = DPK_rebuild_the_nation }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_creating_a_valuable_currency
+		icon = GFX_focus_generic_currency_reforms
+		relative_position_id = DPK_civilian_programs
+		prerequisite = { focus = DPK_civilian_programs }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_currency_reforms
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_repair_the_damage
+		icon = GFX_focus_SOV_the_road_of_life
+		relative_position_id = DPK_rebuild_the_nation
+		prerequisite = { focus = DPK_rebuild_the_nation }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			has_idea = DPK_reconstruction_efforts_1
+		}
+		
+		bypass = {
+			NOT = { has_idea = DPK_reconstruction_efforts_1 }
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_reconstruction_efforts_1
+				add_idea = DPK_reconstruction_efforts_2
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_improve_upon_previous_designs
+		icon = GFX_focus_generic_railroad
+		relative_position_id = DPK_repair_the_damage
+		prerequisite = { focus = DPK_repair_the_damage }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_repairs_complete
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		relative_position_id = DPK_improve_upon_previous_designs
+		prerequisite = { focus = DPK_improve_upon_previous_designs }
+		prerequisite = { focus = DPK_creating_a_valuable_currency }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = DPK_the_two_democracies
+		icon = GFX_goal_support_democracy
+		#relative_position_id = DPK_an_uncertain_future
+		x = -5 y = 16
+		cost = 0
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			has_country_flag = dpk_democracy_chosen
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_path_to_salvation
+		icon = GFX_focus_DPK_path_to_salvation
+		relative_position_id = DPK_the_two_democracies
+		prerequisite = { focus = DPK_the_two_democracies }
+		mutually_exclusive = { focus = DPK_the_path_to_damnation }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			always = no
+		}
+
+		completion_reward = {
+			add_stability = 0.03
+			add_war_support = -0.1
+			
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_korean_telephone
+		icon = GFX_focus_generic_phone_democratic
+		relative_position_id = DPK_the_path_to_salvation
+		prerequisite = { focus = DPK_the_path_to_salvation }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ROK
+				modifier = korean_telephone
+			}
+			reverse_add_opinion_modifier = {
+				target = ROK
+				modifier = korean_telephone
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_declare_elections
+		icon = GFX_focus_generic_election
+		relative_position_id = DPK_the_korean_telephone
+		prerequisite = { focus = DPK_the_korean_telephone }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = social_liberal
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			hidden_effect = {
+				add_popularity = {
+					ideology = social_liberal
+					popularity = 0.20
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_a_dream_of_1_korea
+		icon = GFX_focus_DPK_road_to_war
+		relative_position_id = DPK_declare_elections
+		prerequisite = { focus = DPK_declare_elections }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.01
+		}
+	}
+	
+	focus = {
+		id = DPK_the_meeting_begins
+		icon = GFX_SOV_annex_tannu_tuva_ccp_2d_sov_compatibility
+		relative_position_id = DPK_the_path_to_salvation
+		prerequisite = { focus = DPK_the_path_to_salvation focus = DPK_the_path_to_damnation }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			OR = {
+				has_completed_focus = DPK_a_dream_of_1_korea
+				has_completed_focus = DPK_fix_housing_prices
+			}
+		}
+
+		completion_reward = {
+			country_event = AtM_DPK.16
+		}
+	}
+
+	focus = {
+		id = DPK_create_memorials
+		icon = GFX_SOV_positive_heroism_ccp_2d_sov_compatibility
+		relative_position_id = DPK_the_meeting_begins
+		prerequisite = { focus = DPK_the_meeting_begins }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.02
+			add_war_support = 0.02
+			ROK = {
+				add_stability = 0.02
+				add_war_support = 0.02
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_declare_the_friendship_act
+		icon = GFX_SOV_annex_tannu_tuva_ccp_2d_sov_compatibility
+		relative_position_id = DPK_create_memorials
+		prerequisite = { focus = DPK_create_memorials }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			ROK = {
+				country_event = {
+					id = AtM_DPK.13
+					days = 2
+					random_hours = 12
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_it_was_meant_to_be
+		icon = GFX_focus_jap_spiritual_mobilization
+		relative_position_id = DPK_declare_the_friendship_act
+		prerequisite = { focus = DPK_declare_the_friendship_act }
+		mutually_exclusive = { focus = DPK_it_was_not_meant_to_be }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = DPK_the_seoul_of_korea
+		icon = GFX_focus_generic_japanese_imperial_glory
+		relative_position_id = DPK_it_was_meant_to_be
+		prerequisite = { focus = DPK_it_was_meant_to_be }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_capital = {
+			  state = 977
+			  remember_old_capital = no
+			}
+			set_victory_points = {
+				province = 7125
+				value = 50
+			}
+			997 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_invest_in_the_south
+		icon = GFX_SOV_aristocratic_investments_ccp_2d_sov_compatibility
+		relative_position_id = DPK_the_seoul_of_korea
+		prerequisite = { focus = DPK_the_seoul_of_korea }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_list = {
+				10 = {
+					1299 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					975 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					1298 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					525 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+						type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_invest_in_the_north
+		icon = GFX_focus_generic_road_investment
+		relative_position_id = DPK_invest_in_the_south
+		prerequisite = { focus = DPK_invest_in_the_south }
+		x = 0 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_list = {
+				10 = {
+					979 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					980 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					981 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				10 = {
+					972 = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+						type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_it_was_not_meant_to_be
+		icon = GFX_focus_RAJ_bathe_in_hellfire
+		relative_position_id = DPK_declare_the_friendship_act
+		prerequisite = { focus = DPK_declare_the_friendship_act }
+		mutually_exclusive = { focus = DPK_it_was_meant_to_be }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = -0.1
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = DPK_bring_them_to_our_fold
+		icon = GFX_focus_generic_annex_country_2
+		relative_position_id = DPK_it_was_not_meant_to_be
+		prerequisite = { focus = DPK_it_was_not_meant_to_be }
+		mutually_exclusive = { focus = DPK_remain_the_two_koreas }
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = DPK_draw_plans
+		icon = GFX_SOV_depoliticize_the_military_ccp_2d_sov_compatibility
+		relative_position_id = DPK_bring_them_to_our_fold
+		prerequisite = { focus = DPK_bring_them_to_our_fold }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_operation_morning_calm
+				days = 365
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_invasion_of_the_south
+		icon = GFX_goal_generic_major_war
+		relative_position_id = DPK_draw_plans
+		prerequisite = { focus = DPK_draw_plans }
+		x = 0 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROK
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_remain_the_two_koreas
+		icon = GFX_goal_generic_military_deal
+		relative_position_id = DPK_it_was_not_meant_to_be
+		prerequisite = { focus = DPK_it_was_not_meant_to_be }
+		mutually_exclusive = { focus = DPK_bring_them_to_our_fold }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = DPK_create_economic_cooperation
+		icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
+		relative_position_id = DPK_remain_the_two_koreas
+		prerequisite = { focus = DPK_remain_the_two_koreas }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_tied_economies
+			ROK = {
+				add_ideas = DPK_tied_economies
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_push_for_an_alliance
+		icon = GFX_goal_generic_major_alliance
+		relative_position_id = DPK_create_economic_cooperation
+		prerequisite = { focus = DPK_create_economic_cooperation }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		completion_reward = {
+			create_faction_from_template = faction_template_mutual_assistance_bloc
+			ROK = {
+				country_event = AtM_DPK.17
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_path_to_damnation
+		icon = GFX_focus_DPK_path_to_damnation
+		relative_position_id = DPK_the_two_democracies
+		prerequisite = { focus = DPK_the_two_democracies }
+		mutually_exclusive = { focus = DPK_the_path_to_salvation }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_war_support = 0.1
+			
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.2
+			}
+			
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_1_supreme_ruler
+		icon = GFX_focus_generic_military_dictatorship
+		relative_position_id = DPK_the_path_to_damnation
+		prerequisite = { focus = DPK_the_path_to_damnation }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			hidden_effect = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.10
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_internal_politics_only
+		icon = GFX_SOV_return_democracy_to_the_party_ccp_2d_sov_compatibility
+		relative_position_id = DPK_1_supreme_ruler
+		prerequisite = { focus = DPK_1_supreme_ruler }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = DPK_fix_housing_prices
+		icon = GFX_focus_generic_low_cost_housing
+		relative_position_id = DPK_internal_politics_only
+		prerequisite = { focus = DPK_internal_politics_only }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_housing_prices_reforms
+		}
+	}
+
+	focus = {
+		id = DPK_continue_with_the_method
+		icon = GFX_focus_generic_anarchist_support
+		#relative_position_id = DPK_an_uncertain_future
+		x = 6 y = 16
+		cost = 0
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			has_country_flag = dpk_communism_chosen
+		}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = DPK_unify_amcom_members
+		icon = GFX_focus_GER_the_peoples_victory
+		relative_position_id = DPK_continue_with_the_method
+		prerequisite = { focus = DPK_continue_with_the_method }
+		x = 3 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_party_name = {
+				ideology = fascism
+				name = DPK_left_wing_radical_party
+				long_name = DPK_left_wing_radical_party_long
+			}
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_government_stabilization
+		icon = GFX_focus_SWE_socialist_reforms
+		relative_position_id = DPK_unify_amcom_members
+		prerequisite = { focus = DPK_unify_amcom_members }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.1
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_ensure_maximum_efficiency
+		icon = GFX_focus_generic_communist_industry
+		relative_position_id = DPK_government_stabilization
+		prerequisite = { focus = DPK_government_stabilization }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_maximum_efficiency
+		}
+	}
+
+	focus = {
+		id = DPK_power_to_the_people
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		relative_position_id = DPK_continue_with_the_method
+		prerequisite = { focus = DPK_continue_with_the_method }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_cosmetic_tag = DPK_anarchist_union
+			add_ideas = DPK_power_to_the_people_idea
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_help_workers
+		icon = GFX_focus_generic_workers
+		relative_position_id = DPK_power_to_the_people
+		prerequisite = { focus = DPK_power_to_the_people }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = 0.05
+			every_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_create_job_opportunities
+		icon = GFX_focus_generic_industry_work_communist
+		relative_position_id = DPK_help_workers
+		prerequisite = { focus = DPK_help_workers }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_command_power = 25
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_us_the_people_us_the_laws
+		icon = GFX_focus_focus_fra_revolution_utmost
+		relative_position_id = DPK_power_to_the_people
+		prerequisite = { focus = DPK_power_to_the_people }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_peoples_law_idea
+				remove_idea = DPK_power_to_the_people_idea
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_our_unifying_destiny
+		icon = GFX_goal_generic_military_deal
+		relative_position_id = DPK_us_the_people_us_the_laws
+		prerequisite = { focus = DPK_us_the_people_us_the_laws }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_an_alternative_to_the_giants
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		relative_position_id = DPK_create_job_opportunities
+		prerequisite = { focus = DPK_create_job_opportunities }
+		prerequisite = { focus = DPK_our_unifying_destiny }
+		prerequisite = { focus = DPK_ensure_maximum_efficiency }
+		x = 3 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			custom_effect_tooltip = DPK_total_neutrality_tt
+			hidden_effect = {
+				remove_ideas = eastern_member_ns
+				DPK = {
+					clear_sov_influence = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_establish_the_peoples_council
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_an_alternative_to_the_giants
+		prerequisite = { focus = DPK_an_alternative_to_the_giants }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			DPK_anarchist_council = {
+				promote_character = anarchist_left_wing_radical
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_increase_stockpiles
+		icon = GFX_focus_generic_equipment_communism
+		relative_position_id = DPK_continue_with_the_method
+		prerequisite = { focus = DPK_continue_with_the_method }
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = DPK
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 1000
+				producer = DPK
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_guns_of_the_cold_war
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		relative_position_id = DPK_increase_stockpiles
+		prerequisite = { focus = DPK_increase_stockpiles }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = DPK
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_promote_our_ideology
+		icon = GFX_focus_por_workers_of_iberia
+		relative_position_id = DPK_increase_stockpiles
+		prerequisite = { focus = DPK_increase_stockpiles }
+		x = 0 y = 3
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_war_support = 0.15
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_propaganda_movements
+		icon = GFX_focus_ETH_callout_to_the_world
+		relative_position_id = DPK_promote_our_ideology
+		prerequisite = { focus = DPK_promote_our_ideology }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = PRC
+						original_tag = CHI
+						original_tag = MON
+						original_tag = JAP
+						original_tag = DRV
+						original_tag = CCH
+						original_tag = SIA
+						original_tag = BRM
+						original_tag = MAL
+						original_tag = INS
+						original_tag = RAJ
+						original_tag = ROK
+					}
+				}
+				add_political_power = -50
+				add_stability = -0.05
+				add_popularity = {
+					ideology = left_wing_radical
+					popularity = 0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_no_democracy_or_communism
+		icon = GFX_goal_anti_comintern_pact
+		relative_position_id = DPK_propaganda_movements
+		prerequisite = { focus = DPK_propaganda_movements }
+		prerequisite = { focus = DPK_establish_the_peoples_council }
+		mutually_exclusive = { focus = DPK_work_with_the_communists }
+		x = 0 y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_work_with_the_communists
+		icon = GFX_goal_support_communism
+		relative_position_id = DPK_no_democracy_or_communism
+		prerequisite = { focus = DPK_propaganda_movements }
+		prerequisite = { focus = DPK_establish_the_peoples_council }
+		mutually_exclusive = { focus = DPK_no_democracy_or_communism }
+		x = 4 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			SOV = {
+				country_event = AtM_DPK.7
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_push_to_protect_anarchist_goals
+		icon = GFX_focus_generic_communist
+		relative_position_id = DPK_no_democracy_or_communism
+		prerequisite = { focus = DPK_no_democracy_or_communism }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.1
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_announce_a_counter
+		icon = GFX_focus_SOV_the_last_purge
+		relative_position_id = DPK_push_to_protect_anarchist_goals
+		prerequisite = { focus = DPK_push_to_protect_anarchist_goals }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_anarchist_counter_revolution
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_letter_27
+		icon = GFX_focus_prc_agrarian_socialism
+		relative_position_id = DPK_announce_a_counter
+		prerequisite = { focus = DPK_announce_a_counter }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_revolutionary_manifesto
+		}
+	}
+
+	focus = {
+		id = DPK_intervene_in_foreign_conflicts
+		icon = GFX_focus_usa_focus_on_asia
+		relative_position_id = DPK_no_democracy_or_communism
+		prerequisite = { focus = DPK_no_democracy_or_communism }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_possible_country = {
+				limit = {
+					OR = {
+						original_tag = MON
+						original_tag = JAP
+						original_tag = VIN
+						original_tag = DRV
+						original_tag = CCH
+						original_tag = LAO
+						original_tag = SIA
+						original_tag = BRM
+						original_tag = CAM
+						original_tag = PHI
+						original_tag = PRC
+						original_tag = CHI
+						original_tag = BMA
+						original_tag = MAL
+						original_tag = INS
+						original_tag = DEI
+						original_tag = BRU
+						original_tag = CPS
+						original_tag = NEP
+						original_tag = BHU
+						original_tag = TIB
+						original_tag = SIK
+						original_tag = XGC
+						original_tag = ETR
+						original_tag = XSM
+						original_tag = SZC
+						original_tag = YUN
+						original_tag = GXC
+						original_tag = SHX
+						original_tag = SUI
+						original_tag = ROK
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_spreading_anarchism
+					}
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_subjugation
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_fallout
+		icon = GFX_focus_YUG_pan_slavic_congress
+		relative_position_id = DPK_intervene_in_foreign_conflicts
+		prerequisite = { focus = DPK_intervene_in_foreign_conflicts }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = DPK_integration_anarchism_dec_category
+			unlock_decision_tooltip = DPK_unify_asia
+			every_possible_country = {
+				limit = {
+					OR = {
+						original_tag = ROK
+						original_tag = MON
+						original_tag = JAP
+						original_tag = VIN
+						original_tag = DRV
+						original_tag = CCH
+						original_tag = LAO
+						original_tag = SIA
+						original_tag = BRM
+						original_tag = CAM
+						original_tag = PHI
+						original_tag = PRC
+						original_tag = CHI
+						original_tag = BMA
+						original_tag = MAL
+						original_tag = INS
+						original_tag = DEI
+						original_tag = BRU
+						original_tag = CPS
+						original_tag = NEP
+						original_tag = BHU
+						original_tag = TIB
+						original_tag = SIK
+						original_tag = XGC
+						original_tag = ETR
+						original_tag = XSM
+						original_tag = SZC
+						original_tag = YUN
+						original_tag = GXC
+						original_tag = SHX
+						original_tag = SUI
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_surprise_invasion_decision
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_us_against_the_world
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		relative_position_id = DPK_the_fallout
+		prerequisite = { focus = DPK_the_fallout }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			has_country_flag = DPK_unified_asia
+		}
+
+		completion_reward = {
+			every_possible_country = {
+				limit = {
+					OR = {
+						original_tag = IRN
+						original_tag = AFG
+						original_tag = SOV
+						original_tag = IRQ
+						original_tag = SAU
+						original_tag = KUW
+						original_tag = QAT
+						original_tag = BHR
+						original_tag = UAE
+						original_tag = IMO
+						original_tag = OMA
+						original_tag = FSA
+						original_tag = YEM
+						original_tag = JOR
+						original_tag = SYR
+						original_tag = LEB
+						original_tag = PAL
+						original_tag = ISR
+						original_tag = RAJ
+						original_tag = PAK
+						original_tag = BAN
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_surprise_invasion_decision
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_diplomatic_mission_to_the_ussr
+		icon = GFX_focus_generic_support_sov_communism
+		relative_position_id = DPK_work_with_the_communists
+		prerequisite = { focus = DPK_work_with_the_communists }
+		x = 2 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = red_comrades
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = red_comrades
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_recognise_the_prc
+		icon = GFX_focus_generic_support_prc_communism
+		relative_position_id = DPK_diplomatic_mission_to_the_ussr
+		prerequisite = { focus = DPK_diplomatic_mission_to_the_ussr }
+		x = 0 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = PRC
+				modifier = red_comrades
+			}
+			add_opinion_modifier = {
+				target = PRC
+				modifier = red_comrades
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_missions_to_asia
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		relative_position_id = DPK_work_with_the_communists
+		prerequisite = { focus = DPK_work_with_the_communists }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 100
+			every_possible_country = {
+				limit = {
+					OR = {
+						original_tag = IRN
+						original_tag = AFG
+						original_tag = SOV
+						original_tag = IRQ
+						original_tag = SAU
+						original_tag = KUW
+						original_tag = QAT
+						original_tag = BHR
+						original_tag = UAE
+						original_tag = IMO
+						original_tag = OMA
+						original_tag = FSA
+						original_tag = YEM
+						original_tag = JOR
+						original_tag = SYR
+						original_tag = LEB
+						original_tag = PAL
+						original_tag = ISR
+						original_tag = RAJ
+						original_tag = PAK
+						original_tag = BAN
+						original_tag = MON
+						original_tag = JAP
+						original_tag = VIN
+						original_tag = DRV
+						original_tag = CCH
+						original_tag = LAO
+						original_tag = SIA
+						original_tag = BRM
+						original_tag = CAM
+						original_tag = PHI
+						original_tag = PRC
+						original_tag = CHI
+						original_tag = BMA
+						original_tag = MAL
+						original_tag = INS
+						original_tag = DEI
+						original_tag = BRU
+						original_tag = CPS
+						original_tag = NEP
+						original_tag = BHU
+						original_tag = TIB
+						original_tag = SIK
+						original_tag = XGC
+						original_tag = ETR
+						original_tag = XSM
+						original_tag = SZC
+						original_tag = YUN
+						original_tag = GXC
+						original_tag = SHX
+						original_tag = SUI
+						original_tag = ROK
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_missions_to_asia_decision
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_create_the_internal_war
+		icon = GFX_goal_generic_war_with_comintern
+		relative_position_id = DPK_missions_to_asia
+		prerequisite = { focus = DPK_missions_to_asia }
+		x = 0 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_destroy_the_internal_conflict
+				days = 100
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_beware_the_americans
+		icon = GFX_focus_generic_attack_usa
+		relative_position_id = DPK_create_the_internal_war
+		prerequisite = { focus = DPK_create_the_internal_war }
+		x = 0 y = 1
+		cost = 8.6
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 50
+			army_experience = 50 
+			add_war_support = 0.075
+			add_popularity = {
+				ideology = fascism 
+				popularity = 0.05
+			}
+			ROK = {
+				add_popularity = {
+					ideology = left_wing_radical 
+					popularity = 0.15
+				}
+				add_stability = -0.15
+			}
+			unlock_decision_tooltip = DPK_influence_politics_south_korea
+			unlock_decision_tooltip = DPK_destabilize_south_korea
+			ROK = {
+				unlock_decision_category_tooltip = ROK_defence_against_anarchist_meddling_decisions_category
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_arm_the_anarchists
+		icon = GFX_SOV_the_workers_dictatorship_ccp_2d_sov_compatibility
+		relative_position_id = DPK_beware_the_americans
+		prerequisite = { focus = DPK_beware_the_americans }
+		#mutually_exclusive = { focus = DPK_ready_the_elections }
+		x = 1 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_manpower = 15000
+			add_ideas = DPK_anarchist_army
+		}
+	}
+
+	focus = {
+		id = DPK_intervene_in_the_japanese_civil_war
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		relative_position_id = DPK_arm_the_anarchists
+		prerequisite = { focus = DPK_arm_the_anarchists }
+		prerequisite = { focus = DPK_ready_the_elections }
+		x = -1 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { 
+			all_core_state = {
+				is_owned_by = DPK
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			unlock_decision_tooltip = DPK_send_weapons_japan
+			unlock_decision_tooltip = DPK_influence_politics_japan
+			JAP = {
+				unlock_decision_category_tooltip = JAP_defence_against_anarchist_meddling_decisions_category
+			}
+			custom_effect_tooltip = DPK_japanese_civil_war_tt
+		}
+	}
+
+	focus = {
+		id = DPK_ready_the_elections
+		icon = GFX_focus_usa_voter_registration_act
+		relative_position_id = DPK_beware_the_americans
+		prerequisite = { focus = DPK_beware_the_americans }
+		#mutually_exclusive = { focus = DPK_arm_the_anarchists }
+		x = -1 y = 1
+		cost = 4.3
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		completion_reward = {
+			set_party_name = {
+				ideology = left_wing_radical
+				name = DPK_peoples_council_party
+				long_name = DPK_peoples_council_party_left_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = DPK_peoples_council_party
+				long_name = DPK_peoples_council_party_far_left_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = DPK_peoples_council_party
+				long_name = DPK_peoples_council_party_right_long
+			}
+			set_party_name = {
+				ideology = fascism
+				name = DPK_peoples_council_party
+				long_name = DPK_peoples_council_party_far_right_long
+			}
+			hidden_effect = {
+				DPK_anarchist_council = {
+					promote_character = anti_imperialism
+				}
+				DPK_anarchist_council = {
+					promote_character = anarchism
+				}
+				DPK_anarchist_council = {
+					promote_character = anarchist_communism
+				}
+			}
+			country_event = {
+				id = AtM_DPK.26
+				days = 1
+			}
+		}
+	}
+
+	## Nationalist
+	focus = {
+		id = DPK_korean_nationalism
+		icon = GFX_goal_support_fascism
+		#relative_position_id = DPK_an_uncertain_future
+		x = 50 y = 20
+		cost = 0
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+			has_country_flag = dpk_fascism_chosen
+		}
+
+		completion_reward = {
+		}
+	}
+
+	focus = {
+		id = DPK_funding_the_new_government
+		icon = GFX_focus_BEL_government_resigns
+		relative_position_id = DPK_korean_nationalism
+		prerequisite = { focus = DPK_korean_nationalism }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				name = DPK_provisional_government
+				long_name = DPK_provisional_government_long
+			}
+			set_party_name = {
+				ideology = fascism
+				name = DPK_provisional_government
+				long_name = DPK_provisional_government_long
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.45
+			}
+			hidden_effect = {
+				promote_character = { 
+					character = DPK_provisional_nationalist_government 
+					ideology = nationalism
+				}
+				promote_character = { 
+					character = DPK_provisional_nationalist_government 
+					ideology = oligarchism
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_create_state_doctrine
+		icon = GFX_focus_generic_support_the_left_right
+		relative_position_id = DPK_funding_the_new_government
+		prerequisite = { focus = DPK_funding_the_new_government }
+		x = 0 y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			set_power_balance = {
+				id = DPK_nationalist_bop
+				left_side = DPK_national_revanchist_bop_side
+				right_side = DPK_national_revivalist_bop_side
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_voice_of_the_korean_people
+		icon = GFX_focus_ITA_generic_fascist_workers
+		relative_position_id = DPK_funding_the_new_government
+		prerequisite = { focus = DPK_funding_the_new_government }
+		x = 5 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_fight_for_food
+		icon = GFX_focus_generic_industry_agriculture_work_communist
+		relative_position_id = DPK_voice_of_the_korean_people
+		prerequisite = { focus = DPK_voice_of_the_korean_people }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_fight_for_house
+		icon = GFX_focus_SWE_hygienic_housing
+		relative_position_id = DPK_voice_of_the_korean_people
+		prerequisite = { focus = DPK_voice_of_the_korean_people }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_fight_for_work
+		icon = GFX_focus_generic_public_works
+		relative_position_id = DPK_fight_for_house
+		prerequisite = { focus = DPK_fight_for_food }
+		prerequisite = { focus = DPK_fight_for_house }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_develop_our_cities
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		relative_position_id = DPK_fight_for_work
+		prerequisite = { focus = DPK_fight_for_work }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			979 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			1295 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_train_the_people
+		icon = GFX_goal_generic_allies_build_infantry
+		relative_position_id = DPK_develop_our_cities
+		prerequisite = { focus = DPK_develop_our_cities }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_manpower = 15000
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_role_of_religion
+		icon = GFX_goal_generic_political_pressure
+		relative_position_id = DPK_create_state_doctrine
+		prerequisite = { focus = DPK_create_state_doctrine }
+		x = 0 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.18
+		}
+	}
+	
+	focus = {
+		id = DPK_dealing_with_communists
+		icon = GFX_focus_GER_end_european_communism
+		relative_position_id = DPK_role_of_religion
+		prerequisite = { focus = DPK_role_of_religion }
+		x = -1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.19
+		}
+	}
+	
+	focus = {
+		id = DPK_the_economy_role
+		icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+		relative_position_id = DPK_role_of_religion
+		prerequisite = { focus = DPK_role_of_religion }
+		x = 1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.20
+		}
+	}
+	
+	focus = {
+		id = DPK_role_of_the_monarchy
+		icon = GFX_focus_generic_monarchist_sentiment
+		relative_position_id = DPK_the_economy_role
+		prerequisite = { focus = DPK_the_economy_role }
+		prerequisite = { focus = DPK_dealing_with_communists }
+		x = -1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.22
+		}
+	}
+	
+	focus = {
+		id = DPK_role_of_women
+		icon = GFX_focus_AUS_womens_education_initiative
+		relative_position_id = DPK_the_economy_role
+		prerequisite = { focus = DPK_the_economy_role }
+		prerequisite = { focus = DPK_dealing_with_communists }
+		x = 1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.21
+		}
+	}
+	
+	focus = {
+		id = DPK_role_of_nation
+		icon = GFX_focus_generic_fascist_propaganda
+		relative_position_id = DPK_the_economy_role
+		prerequisite = { focus = DPK_the_economy_role }
+		prerequisite = { focus = DPK_dealing_with_communists }
+		x = -3
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			country_event = AtM_DPK.23
+		}
+	}
+	
+	focus = {
+		id = DPK_people_state
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_role_of_the_monarchy
+		prerequisite = { focus = DPK_role_of_nation }
+		prerequisite = { focus = DPK_role_of_women }
+		prerequisite = { focus = DPK_role_of_the_monarchy }
+		mutually_exclusive = { focus = DPK_old_system }
+		mutually_exclusive = { focus = DPK_koryo_focus }
+		x = -3
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { 
+			power_balance_value = {
+				id = DPK_nationalist_bop
+				value < 0.05
+			}
+		}
+
+		completion_reward = {
+			set_cosmetic_tag = DPK_peoples_state
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				long_name = DPK_npp_party_long
+				name = DPK_npp_party
+			}
+			set_party_name = {
+				ideology = neutrality 
+				long_name = DPK_npp_party_long
+				name = DPK_npp_party
+			}
+			set_party_name = {
+				ideology = left_wing_radical 
+				long_name = DPK_npp_party_long
+				name = DPK_npp_party
+			}
+			add_popularity = {
+				ideology = left_wing_radical 
+				popularity = 0.1
+			}
+			promote_character = { 
+				character = DPK_nationalist_leader 
+				ideology = nationalism
+			}
+			hidden_effect = {
+				promote_character = { 
+					character = DPK_nationalist_leader 
+					ideology = nationalism
+				}
+				promote_character = { 
+					character = DPK_nationalist_leader 
+					ideology = despotism
+				}
+				promote_character = { 
+					character = DPK_nationalist_leader 
+					ideology = left_wing_radical_sub
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_old_system
+		icon = GFX_focus_generic_monarchy_2
+		relative_position_id = DPK_role_of_the_monarchy
+		prerequisite = { focus = DPK_role_of_nation }
+		prerequisite = { focus = DPK_role_of_women }
+		prerequisite = { focus = DPK_role_of_the_monarchy }
+		mutually_exclusive = { focus = DPK_people_state }
+		mutually_exclusive = { focus = DPK_koryo_focus }
+		x = 0 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { 
+			power_balance_value = {
+				id = DPK_nationalist_bop
+				value > -0.05
+			}
+			has_country_flag = DPK_choseon_dinasty
+		}
+
+		completion_reward = {
+			set_cosmetic_tag = DPK_joseon
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+				long_name = DPK_joseon_party
+				name = DPK_joseon_party
+			}
+			set_party_name = {
+				ideology = fascism 
+				long_name = DPK_joseon_party
+				name = DPK_joseon_party
+			}
+			promote_character = {
+				character = DPK_yi_geon
+				ideology = absolute_monarchy
+			}
+			hidden_effect = {
+				promote_character = {
+					character = DPK_yi_geon
+					ideology = nationalism
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_koryo_focus
+		icon = GFX_goal_generic_political_pressure
+		relative_position_id = DPK_role_of_the_monarchy
+		prerequisite = { focus = DPK_role_of_nation }
+		prerequisite = { focus = DPK_role_of_women }
+		prerequisite = { focus = DPK_role_of_the_monarchy }
+		mutually_exclusive = { focus = DPK_people_state }
+		mutually_exclusive = { focus = DPK_old_system }
+		x = 3 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { 
+			power_balance_value = {
+				id = DPK_nationalist_bop
+				value > -0.05
+			}
+			has_country_flag = DPK_koryo_state
+		}
+
+		completion_reward = {
+			set_cosmetic_tag = DPK_koryo
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				long_name = DPK_koryo_party_long
+				name = DPK_koryo_party
+			}
+			set_party_name = {
+				ideology = neutrality 
+				long_name = DPK_koryo_party_long
+				name = DPK_koryo_party
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.25
+			}
+			promote_character = {
+				character = DPK_koryeo_leader
+				ideology = nationalism
+			}
+			hidden_effect = {
+				promote_character = {
+					character = DPK_koryeo_leader
+					ideology = oligarchism
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_external_politics
+		icon = GFX_goal_generic_political_pressure
+		relative_position_id = DPK_funding_the_new_government
+		prerequisite = { focus = DPK_funding_the_new_government }
+		x = -6 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_PROPAGANDA }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 100
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = DPK_the_greater_dream
+		icon = GFX_focus_BEL_legacy_of_the_great_war
+		relative_position_id = DPK_external_politics
+		prerequisite = { focus = DPK_external_politics }
+		mutually_exclusive = { focus = DPK_the_only_dream }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = {
+			has_completed_focus = DPK_people_state
+		}
+
+		completion_reward = {
+			add_ideas = DPK_great_korea_dream
+		}
+	}
+
+	focus = {
+		id = DPK_first_korea
+		icon = GFX_focus_jap_strike_south
+		relative_position_id = DPK_the_greater_dream
+		prerequisite = { focus = DPK_the_greater_dream }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = DPK_surprise_invasion
+				days = 80
+			}
+			declare_war_on = {
+				target = ROK
+				type = annex_everything
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_then_japan
+		icon = GFX_focus_attack_japan
+		relative_position_id = DPK_first_korea
+		prerequisite = { focus = DPK_first_korea }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			create_wargoal = {
+				target = JAP
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_start_integration
+		icon = GFX_SOV_experts_in_camouflage_ccp_2d_sov_compatibility
+		relative_position_id = DPK_then_japan
+		prerequisite = { focus = DPK_then_japan }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_political_power = 200
+			unlock_decision_category_tooltip = DPK_expansion_dec_category
+		}
+	}
+
+	focus = {
+		id = DPK_lockdown
+		icon = GFX_goal_generic_defence
+		relative_position_id = DPK_the_greater_dream
+		prerequisite = { focus = DPK_the_greater_dream focus = DPK_the_only_dream }
+		x = -1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 2
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_support_future_fascist_regimes
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		relative_position_id = DPK_lockdown
+		prerequisite = { focus = DPK_lockdown }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = PRC
+						original_tag = MON
+						original_tag = SIA
+						original_tag = LAO
+						original_tag = CAM
+					}
+				}
+				add_timed_idea = {
+					idea = DPK_nationalist_movements
+					days = 100
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_a_third_power
+		icon = GFX_goal_generic_major_alliance
+		relative_position_id = DPK_support_future_fascist_regimes
+		prerequisite = { focus = DPK_support_future_fascist_regimes }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_offsite_building = { type = industrial_complex level = 3 }
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_political_power = 100
+			add_popularity = {
+				popularity = 0.1
+				ideology = ROOT
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_the_pyongyang_revolutionary_axis
+		icon = GFX_goal_generic_alliance
+		relative_position_id = DPK_a_third_power
+		prerequisite = { focus = DPK_a_third_power }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			create_faction_from_template = {
+			   template = faction_template_generic_dominance
+			   name = "Pyongyang Revolutionary Axis"
+			   icon = GFX_faction_logo_generic_2
+			   color = { 100 100 150 }
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_clash_of_titans
+		icon = GFX_focus_PER_clash_of_titans
+		relative_position_id = DPK_the_pyongyang_revolutionary_axis
+		prerequisite = { focus = DPK_the_pyongyang_revolutionary_axis }
+		mutually_exclusive = { focus = DPK_diplomatic_solutions }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						owns_state = 1416 
+						owns_state = 1537
+						owns_state = 328 
+						owns_state = 715
+						owns_state = 716
+						owns_state = 1192
+						owns_state = 1189
+						owns_state = 1192
+						owns_state = 1189
+						owns_state = 12
+					}
+				}
+				DPK = {
+					create_wargoal = {
+						target = PREV
+						type = puppet_wargoal_focus
+					}
+				}
+			}
+			every_state = {
+				limit = {
+					OR = {
+						state = 1416 
+						state = 1537
+						state = 328 
+						state = 715
+						state = 716
+						state = 1192
+						state = 1189
+						state = 1192
+						state = 1189
+						state = 745
+						state = 12
+					}
+				}
+				add_core_of = DPK
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_diplomatic_solutions
+		icon = GFX_focus_generic_diplomatic_treaty
+		relative_position_id = DPK_the_pyongyang_revolutionary_axis
+		prerequisite = { focus = DPK_the_pyongyang_revolutionary_axis }
+		mutually_exclusive = { focus = DPK_clash_of_titans }
+		x = -1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 1416 
+						state = 1537
+						state = 328 
+						state = 715
+						state = 716
+						state = 1192
+						state = 1189
+						state = 1192
+						state = 1189
+						state = 745
+						state = 12
+					}
+				}
+				add_claim_by = DPK
+			}
+			unlock_decision_tooltip = DPK_ask_for_manchuria
+		}
+	}
+
+	focus = {
+		id = DPK_cold_war_diplomacy
+		icon = GFX_focus_generic_diplomatic_treaty
+		relative_position_id = DPK_diplomatic_solutions
+		prerequisite = { focus = DPK_diplomatic_solutions }
+		x = -1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			unlock_decision_tooltip = DPK_ask_us_support
+			unlock_decision_tooltip = DPK_ask_ussr_support
+		}
+	}
+
+	focus = {
+		id = DPK_grow_influence_abroad
+		icon = GFX_focus_generic_diplomatic_treaty
+		relative_position_id = DPK_diplomatic_solutions
+		prerequisite = { focus = DPK_diplomatic_solutions }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					capital_scope = {
+						OR = {
+							is_on_continent = asia
+						}
+					}
+					NOT = {
+						original_tag = PRC
+						original_tag = CHI
+						original_tag = JAP
+						original_tag = IRN
+						original_tag = JAP
+						original_tag = JAP
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_spreading_nationalism
+					}
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_demand_subjugation
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_reach_the_american_theater
+		icon = GFX_focus_generic_diplomatic_treaty
+		relative_position_id = DPK_grow_influence_abroad
+		prerequisite = { focus = DPK_grow_influence_abroad }
+		prerequisite = { focus = DPK_cold_war_diplomacy }
+		x = -1 y = 1
+		cost = 14.4
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					OR = {
+						capital_scope = {
+							is_on_continent = south_america
+						}
+						NOT = {
+							original_tag = BRA
+						}
+						original_tag = MEX
+						original_tag = NIC
+						original_tag = HON
+						original_tag = ELS
+						original_tag = GUA
+						original_tag = COS
+						original_tag = PAN
+					}
+				}
+				DPK = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_spreading_nationalism
+					}
+					activate_targeted_decision = {
+						target = PREV
+						decision = DPK_demand_subjugation
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_the_only_dream
+		icon = GFX_SOV_war_measures_in_the_east_ccp_2d_sov_compatibility
+		relative_position_id = DPK_external_politics
+		prerequisite = { focus = DPK_external_politics }
+		mutually_exclusive = { focus = DPK_the_greater_dream }
+		x = -2 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { 
+			OR = {
+				has_completed_focus = DPK_old_system
+				has_completed_focus = DPK_koryo_focus
+			}
+		}
+
+		completion_reward = {
+			add_war_support = 0.05
+			ROK = {
+				add_war_support = -0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_all_eyes_on_korea
+		icon = GFX_SOV_superior_war_machines_ccp_2d_sov_compatibility
+		relative_position_id = DPK_the_only_dream
+		prerequisite = { focus = DPK_the_only_dream }
+		x = -1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROK
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_well_thought_plan
+		icon = GFX_SOV_war_measures_in_the_east_ccp_2d_sov_compatibility
+		relative_position_id = DPK_all_eyes_on_korea
+		prerequisite = { focus = DPK_all_eyes_on_korea }
+		mutually_exclusive = { focus = DPK_dumb_and_loud }
+		x = -2 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_master_plan
+		}
+	}
+
+	focus = {
+		id = DPK_dumb_and_loud
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		relative_position_id = DPK_all_eyes_on_korea
+		prerequisite = { focus = DPK_all_eyes_on_korea }
+		mutually_exclusive = { focus = DPK_well_thought_plan }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_ideas = DPK_aggressive_plan
+		}
+	}
+
+	focus = {
+		id = DPK_shall_korea_tremble
+		icon = GFX_SOV_the_last_break_southward_ccp_2d_sov_compatibility
+		relative_position_id = DPK_well_thought_plan
+		prerequisite = { focus = DPK_well_thought_plan focus = DPK_dumb_and_loud }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_offsite_building = { type = arms_factory level = 3 }
+		}
+	}
+	
+################
+## KOREAN WAR ##
+################
+	
+	focus = {
+		id = DPK_the_road_to_war
+		icon = GFX_focus_DPK_road_to_war
+		x = 37
+		y = 0
+		cost = 2.2
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = { base = 5 }
+
+		available = {
+			date > 1948.06.01
+			DPK = {
+				NOT = {
+					is_puppet = yes
+				}
+			}
+			NOT = {
+				has_completed_focus = DPK_plan_b
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			army_experience = 10
+			air_experience = 10
+			add_war_support = 0.02
+		}
+	}
+	
+	focus = {
+		id = DPK_end_the_capitalist
+		icon = GFX_focus_generic_strike_at_democracy2
+		relative_position_id = DPK_the_road_to_war
+		x = -1 y = 1
+		cost = 0.8
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = DPK_the_road_to_war }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = DPK_purchase_arms_from_the_ussr
+		icon = GFX_focus_SWE_let_fly_all_guns
+		relative_position_id = DPK_the_road_to_war
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = DPK_the_road_to_war }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -100
+			add_opinion_modifier = {
+				target = SOV
+				modifier = huge_increase
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = 750
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 250
+				producer = SOV
+			}
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_airframe_1
+					amount = 25
+					producer = SOV
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = fighter_equipment_1
+					amount = 25
+					producer = SOV
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = { 
+					type = light_tank_chassis_2
+					amount = 50
+					producer = SOV
+				}
+				add_equipment_to_stockpile = { 
+					type = medium_tank_chassis_2
+					amount = 50
+					producer = SOV
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = light_tank_equipment_1
+					amount = 50
+					producer = SOV
+				}
+				add_equipment_to_stockpile = {
+					type = medium_tank_equipment_1
+					amount = 50
+					producer = SOV
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_operation_pokpung
+		icon = GFX_goal_generic_positive_trade_relations
+		relative_position_id = DPK_end_the_capitalist
+		x = 1 y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				date > 1950.1.1
+			}
+		}
+
+		prerequisite = { focus = DPK_purchase_arms_from_the_ussr }
+		prerequisite = { focus = DPK_end_the_capitalist }
+
+		available = {
+			ROK = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_operation_pokpung_ns
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_prepare_the_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		relative_position_id = DPK_operation_pokpung
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = DPK_operation_pokpung }
+
+		available = {
+			NOT = {
+				has_completed_focus = DPK_so_it_begins
+			}
+		}
+		
+		bypass = { }
+
+		completion_reward = {
+			527 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			979 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			981 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = war_economy
+		}
+	}
+	
+	focus = {
+		id = DPK_mobilise_on_the_border
+		icon = GFX_focus_generic_limited_social_mobilization
+		relative_position_id = DPK_operation_pokpung
+		x = 0 y = 1
+		cost = 2.9
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = DPK_operation_pokpung }
+
+		available = {
+			NOT = {
+				has_completed_focus = DPK_so_it_begins
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_manpower = 150000
+		}
+	}
+	focus = {
+		id = DPK_raise_new_divisions
+		icon = GFX_focus_NORDIC_com_selector_army
+		relative_position_id = DPK_operation_pokpung
+		x = 2 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = DPK_operation_pokpung }
+
+		available = {
+			DPK = {
+				has_full_control_of_state = 979
+				has_full_control_of_state = 982
+				has_full_control_of_state = 983
+				has_full_control_of_state = 972
+			}
+			NOT = {
+				has_completed_focus = DPK_so_it_begins
+			}
+		}
+		
+		bypass = { }
+
+		completion_reward = {
+			custom_effect_tooltip = DPK_troops_to_raise_tt
+			hidden_effect = {
+				DPK = {
+					load_oob = DPK_FOCUS_INF
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_so_it_begins
+		icon = GFX_focus_DPK_so_it_begins
+		relative_position_id = DPK_mobilise_on_the_border
+		x = 0 y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				date > 1950.6.1
+			}
+		}
+
+		prerequisite = { focus = DPK_mobilise_on_the_border }
+		prerequisite = { focus = DPK_raise_new_divisions }
+		prerequisite = { focus = DPK_prepare_the_factories }
+
+		available = {
+			is_subject = no
+			date > 1950.6.1
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			set_global_flag = korean_war
+			DPK = {
+				declare_war_on = {
+					target = ROK
+					type = take_core_state
+				}
+			}
+			add_named_threat = {
+				threat = 16.0
+				name = DPK_korean_war
+			}
+			hidden_effect = {
+				every_country = {
+					set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+					set_global_flag = SE_KOREA
+					play_song = korean_war_SE
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_defensive_actions
+		icon = GFX_focus_SWE_hedgehog_defense
+		relative_position_id = DPK_so_it_begins
+		prerequisite = { focus = DPK_so_it_begins }
+		x = 0 y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 25
+				surrender_progress > 0.5
+			}
+		}
+
+		available = {
+			is_subject = no
+			surrender_progress > 0.4
+		}
+
+		bypass = {
+			DPK = {
+				NOT = {
+					has_war_with = ROK
+				}
+			}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_defensive_operations
+				days = 365
+			}
+		}
+	}
+	
+	#########################
+	## COMMMUNIST POST-WAR ##
+	#########################
+	
+	focus = {
+		id = DPK_and_so_it_ends
+		icon = GFX_focus_generic_surrender
+		relative_position_id = DPK_defensive_actions
+		x = 0 y = 2
+		cost = 4.3
+
+		search_filters = { }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_defensive_actions }
+
+		available = {
+			has_war = no
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = { DPK_aftermath_of_the_bombings }
+			add_ideas = { DPK_party_factionalism }
+			add_ideas = { DPK_small_parties }
+		}
+	}
+	
+	## Post-War Reconstruction
+	focus = {
+		id = DPK_economic_reconstruction
+		icon = GFX_focus_generic_modernize_industry
+		relative_position_id = DPK_and_so_it_ends
+		x = -14
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_aftermath_of_the_bombings_1
+				remove_idea = DPK_aftermath_of_the_bombings
+			}
+		}
+	}
+	focus = {
+		id = DPK_rebuild_cities
+		icon = GFX_focus_DEN_civilian_preparations
+		relative_position_id = DPK_economic_reconstruction
+		x = -1 
+		y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_economic_reconstruction }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			979 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			1293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					977 = { is_owned_by = DPK }
+				}
+				977 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					975 = { is_owned_by = DPK }
+				}
+				975 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_ask_soviet_help
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		relative_position_id = DPK_economic_reconstruction
+		x = 1 
+		y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_economic_reconstruction }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_help_from_soviets
+				days = 250
+			}
+		}
+	}
+	focus = {
+		id = DPK_chollima_plan
+		icon = GFX_goal_generic_soviet_construction
+		relative_position_id = DPK_economic_reconstruction
+		x = 0
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_economic_reconstruction }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_chollima_plan_idea
+				days = 480
+			}
+		}
+	}
+	focus = {
+		id = DPK_help_civilian_industry
+		icon = GFX_focus_generic_industry_work_communist
+		relative_position_id = DPK_rebuild_cities
+		x = -2
+		y = 1
+		cost = 6.4
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_rebuild_cities }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			every_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_motivate_workers
+		icon = GFX_focus_generic_workers
+		relative_position_id = DPK_rebuild_cities
+		x = 0
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_rebuild_cities }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_worker_motivation
+		}
+	}
+	focus = {
+		id = DPK_mass_employment
+		icon = GFX_SOV_socialist_realism_ccp_2d_sov_compatibility
+		relative_position_id = DPK_motivate_workers
+		x = -1
+		y = 1
+		cost = 6.4
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_motivate_workers }
+		prerequisite = { focus = DPK_help_civilian_industry }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_worker_motivation_1
+				remove_idea = DPK_worker_motivation
+			}
+		}
+	}
+	focus = {
+		id = DPK_ease_the_burden
+		icon = GFX_focus_generic_agricultural_subsidies
+		relative_position_id = DPK_ask_soviet_help
+		x = 2
+		y = 1
+		cost = 6.4
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_ask_soviet_help }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = DPK_women_in_the_workforce
+		icon = GFX_focus_ARG_women_in_industry
+		relative_position_id = DPK_ask_soviet_help
+		x = 0
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_ask_soviet_help }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = DPK_women_in_workforce
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = DPK_develop_capitals
+		icon = GFX_focus_generic_industry_2
+		relative_position_id = DPK_ease_the_burden
+		x = -1
+		y = 1
+		cost = 6.4
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_ease_the_burden }
+		prerequisite = { focus = DPK_women_in_the_workforce }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			set_victory_points = {
+				province = 7171
+				value = 40
+			}
+			set_victory_points = {
+				province = 912
+				value = 5
+			}
+			set_victory_points = {
+				province = 6928
+				value = 15
+			}
+			set_victory_points = {
+				province = 6922
+				value = 10
+			}
+			set_victory_points = {
+				province = 4052
+				value = 20
+			}
+			1295 = {
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 6928
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_eyacha
+		icon = GFX_focus_generic_communist_industry
+		relative_position_id = DPK_chollima_plan
+		x = 0
+		y = 4
+		cost = 8.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_mass_employment }
+		prerequisite = { focus = DPK_develop_capitals }
+		prerequisite = { focus = DPK_chollima_plan }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 150
+			remove_ideas = DPK_aftermath_of_the_bombings_1
+		}
+	}
+	## Post-War Politics: Kim
+	focus = {
+		id = DPK_centralize_administration
+		icon = GFX_focus_generic_join_comintern
+		relative_position_id = DPK_and_so_it_ends
+		x = -7 
+		y = 1
+		cost = 8.6
+		mutually_exclusive = { focus = DPK_decentralize_administration }
+		mutually_exclusive = { focus = DPK_embrace_factionalism }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+			has_country_leader = {
+				character = DPK_kim_il_sung
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 100
+			if = {
+				limit = {
+					has_country_flag = WPK_founded
+				}
+				set_party_name = {
+					ideology = left_wing_radical
+					long_name = DPK_communism_wpk_opposition_party_long
+					name = DPK_communism_wpk_opposition_party
+				}
+			}
+			else = {
+				set_party_name = {
+					ideology = left_wing_radical
+					long_name = DPK_communism_cpk_opposition_party_long
+					name = DPK_communism_cpk_opposition_party
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_deal_with_yeonanpa
+		icon = GFX_focus_spr_crush_the_revolution
+		relative_position_id = DPK_centralize_administration
+		x = -4 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_centralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_party_factionalism_1
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_2
+					remove_idea = DPK_party_factionalism_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_party_factionalism_2
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_3
+					remove_idea = DPK_party_factionalism_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_1
+					remove_idea = DPK_party_factionalism
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_deal_with_soviet_clique
+		icon = GFX_focus_attack_soviet
+		relative_position_id = DPK_centralize_administration
+		x = -2 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_centralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_party_factionalism_1
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_2
+					remove_idea = DPK_party_factionalism_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_party_factionalism_2
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_3
+					remove_idea = DPK_party_factionalism_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_1
+					remove_idea = DPK_party_factionalism
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_deal_with_homeland_faction
+		icon = GFX_focus_SOV_the_last_purge
+		relative_position_id = DPK_centralize_administration
+		x = 0 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_centralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -50
+			add_popularity = {
+				ideology = left_wing_radical 
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = DPK_the_minor_parties
+		icon = GFX_focus_generic_red_flags
+		relative_position_id = DPK_centralize_administration
+		x = 3 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_centralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_small_parties_infiltrated
+				remove_idea = DPK_small_parties
+			}
+		}
+	}
+	focus = {
+		id = DPK_remove_foreign_meddling
+		icon = GFX_goal_generic_political_pressure
+		relative_position_id = DPK_deal_with_yeonanpa
+		x = 1 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_deal_with_yeonanpa }
+		prerequisite = { focus = DPK_deal_with_soviet_clique }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_manpower = -1500
+		}
+	}
+	focus = {
+		id = DPK_destroy_pak_clique
+		icon = GFX_goal_generic_war_with_comintern
+		relative_position_id = DPK_deal_with_homeland_faction
+		x = 0 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_deal_with_homeland_faction }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_party_factionalism_1
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_2
+					remove_idea = DPK_party_factionalism_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_party_factionalism_2
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_3
+					remove_idea = DPK_party_factionalism_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_1
+					remove_idea = DPK_party_factionalism
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_infiltrate_democratic_parties
+		icon = GFX_focus_PER_strengthen_the_tudeh
+		relative_position_id = DPK_the_minor_parties
+		x = -1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_the_minor_parties }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_command_power = -20
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.075
+			}
+		}
+	}
+	focus = {
+		id = DPK_infiltrate_chondoism
+		icon = GFX_focus_generic_strike_at_democracy2
+		relative_position_id = DPK_the_minor_parties
+		x = 1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_the_minor_parties }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = -0.05
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+		}
+	}
+	focus = {
+		id = DPK_expand_cult_of_personality
+		icon = GFX_focus_DPK_return_kim_il_sung
+		relative_position_id = DPK_destroy_pak_clique
+		x = -1 
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_remove_foreign_meddling }
+		prerequisite = { focus = DPK_destroy_pak_clique }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			remove_ideas = DPK_party_factionalism_3
+			swap_ideas = {
+				add_idea = DPK_cult_of_personality_1
+				remove_idea = DPK_cult_of_personality
+			}
+			add_popularity = {
+				ideology = left_wing_radical 
+				popularity = -0.5
+			}
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = DPK_merge_organizations
+		icon = GFX_focus_usa_voter_registration_act
+		relative_position_id = DPK_infiltrate_democratic_parties
+		x = 1
+		y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_infiltrate_democratic_parties }
+		prerequisite = { focus = DPK_infiltrate_chondoism }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_small_parties_heavily_monitored
+				remove_idea = DPK_small_parties_infiltrated
+			}
+			set_party_name = {
+				long_name = DPK_social_democrat_party_long
+				name = DPK_social_democrat_party
+				ideology = social_liberal
+			}
+			add_popularity = {
+				ideology = neutrality 
+				popularity = -0.1
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.1
+			}
+		}
+	}
+	## Post-War Politics: Pak
+	focus = {
+		id = DPK_embrace_factionalism
+		icon = GFX_focus_generic_soviet_politics
+		relative_position_id = DPK_and_so_it_ends
+		x = 0 
+		y = 1
+		cost = 8.6
+		mutually_exclusive = { focus = DPK_decentralize_administration }
+		mutually_exclusive = { focus = DPK_centralize_administration }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+			has_country_leader = {
+				character = DPK_pak_hon_yong
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
+			swap_ideas = {
+				add_idea = DPK_party_factionalism_3
+				remove_idea = DPK_party_factionalism
+			}
+		}
+	}
+	focus = {
+		id = DPK_to_moscow
+		icon = GFX_focus_generic_support_sov_communism
+		relative_position_id = DPK_embrace_factionalism
+		x = -2 
+		y = 3
+		cost = 6.3
+		mutually_exclusive = { focus = DPK_to_beijing }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_embrace_factionalism }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = red_comrades
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = red_comrades
+			}
+		}
+	}
+	focus = {
+		id = DPK_to_beijing
+		icon = GFX_focus_generic_support_prc_communism
+		relative_position_id = DPK_embrace_factionalism
+		x = 2 
+		y = 3
+		cost = 6.3
+		mutually_exclusive = { focus = DPK_to_moscow }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_embrace_factionalism }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = PRC
+				modifier = red_comrades
+			}
+			add_opinion_modifier = {
+				target = PRC
+				modifier = red_comrades
+			}
+		}
+	}
+	focus = {
+		id = DPK_push_for_reforms
+		icon = GFX_focus_SWE_socialist_reforms
+		relative_position_id = DPK_to_moscow
+		x = -2 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_to_moscow }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_anti_revisionism_idea_1
+				remove_idea = DPK_anti_revisionism_idea
+			}
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.2
+			}
+			if = {
+				limit = {
+					has_country_flag = WPK_founded
+				}
+				set_party_name = {
+					ideology = left_wing_radical
+					long_name = DPK_communism_wpk_party_long
+					name = DPK_communism_wpk_party
+				}
+			}
+			else = {
+				set_party_name = {
+					ideology = left_wing_radical
+					long_name = DPK_communism_cpk_party_long
+					name = DPK_communism_cpk_party
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_mission_to_moscow
+		icon = GFX_focus_generic_communist_industry
+		relative_position_id = DPK_push_for_reforms
+		x = -3
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_reforms }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_offsite_building = { 
+				type = industrial_complex 
+				level = 1 
+			}
+			add_offsite_building = { 
+				type = arms_factory 
+				level = 1 
+			}
+			SOV = {
+				add_offsite_building = { 
+					type = industrial_complex 
+					level = 2
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_expand_dem_parties
+		icon = GFX_focus_generic_social_democracy
+		relative_position_id = DPK_push_for_reforms
+		x = -1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_reforms }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			swap_ideas = {
+				add_idea = DPK_small_parties_expanded
+				remove_idea = DPK_small_parties
+			}
+			set_party_name = {
+				ideology = market_liberal
+				long_name = DPK_social_liberal_party_long
+				name = DPK_social_liberal_party
+			}
+		}
+	}
+	focus = {
+		id = DPK_join_comecon
+		icon = GFX_focus_SOV_the_comecon
+		relative_position_id = DPK_push_for_reforms
+		x = 1 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_reforms }
+
+		available = {
+			SOV = {
+				has_completed_focus = SOV_AtM_found_the_comecon
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = SOV_comecon_ns
+			add_to_tech_sharing_group = comecon_research
+		}
+	}
+	focus = {
+		id = DPK_sov_friendship_treaty
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+		relative_position_id = DPK_expand_dem_parties
+		x = 1 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_mission_to_moscow }
+		prerequisite = { focus = DPK_expand_dem_parties }
+		prerequisite = { focus = DPK_join_comecon }
+		prerequisite = { focus = DPK_purge_chondo }
+		prerequisite = { focus = DPK_military_investments }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			SOV = {
+				country_event = {
+					id = AtM_DPK.7
+					days = 2
+					random_hours = 12
+				} 
+			} 
+		}
+	}
+	focus = {
+		id = DPK_push_for_cultural_revolution
+		icon = GFX_focus_prc_maoism
+		relative_position_id = DPK_to_beijing
+		x = 2 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_to_beijing }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = -0.05
+			remove_ideas = DPK_small_parties
+			swap_ideas = {
+				add_idea = DPK_cultural_revolution
+				remove_idea = DPK_anti_revisionism_idea
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id = DPK_the_korean_leap_forward
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		relative_position_id = DPK_push_for_cultural_revolution
+		x = 3 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_cultural_revolution }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea  = DPK_korean_leap_forward
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = DPK_increase_defence_spending
+		icon = GFX_focus_generic_combined_arms
+		relative_position_id = DPK_push_for_cultural_revolution
+		x = 1 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_cultural_revolution }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_mutual_defence_treaty
+		icon = GFX_goal_generic_forceful_treaty
+		relative_position_id = DPK_push_for_cultural_revolution
+		x = -1 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_push_for_cultural_revolution }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.1
+			give_military_access = PRC
+			give_guarantee = PRC
+			PRC = {
+				give_military_access = DPK
+				give_guarantee = DPK
+			}
+		}
+	}
+	focus = {
+		id = DPK_request_yanbian
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		relative_position_id = DPK_increase_defence_spending
+		x = -1 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_the_korean_leap_forward }
+		prerequisite = { focus = DPK_increase_defence_spending }
+		prerequisite = { focus = DPK_mutual_defence_treaty }
+		prerequisite = { focus = DPK_purge_chondo }
+		prerequisite = { focus = DPK_military_investments }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			PRC = {
+				country_event = {
+					id = AtM_DPK.10
+					days = 2
+					random_hours = 12
+				} 
+			} 
+		}
+	}
+	focus = {
+		id = DPK_remove_guerrilla
+		icon = GFX_goal_anti_comintern_pact
+		relative_position_id = DPK_to_beijing
+		x = -2 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { 
+			focus = DPK_to_beijing
+			focus = DPK_to_moscow
+		}
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			remove_ideas = DPK_party_factionalism_3
+		}
+	}
+	focus = {
+		id = DPK_purge_chondo
+		icon = GFX_focus_generic_conspiracy
+		relative_position_id = DPK_remove_guerrilla
+		x = -1 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_remove_guerrilla }
+
+		available = {
+			has_completed_focus = DPK_religious_suppression
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+			set_party_name = {
+				ideology = democratic
+				long_name = DPK_gonmin_party_long
+				name = DPK_gonmin_party
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = DPK_dongro_party_long
+				name = DPK_dongro_party
+			}
+		}
+	}
+	focus = {
+		id = DPK_military_investments
+		icon = GFX_focus_generic_manpower
+		relative_position_id = DPK_remove_guerrilla
+		x = 1 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_remove_guerrilla }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = 0.1
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	## Post-War Politics: Cho
+	focus = {
+		id = DPK_decentralize_administration
+		icon = GFX_focus_generic_communist
+		relative_position_id = DPK_and_so_it_ends
+		x = 7 
+		y = 1
+		cost = 8.6
+		mutually_exclusive = { focus = DPK_embrace_factionalism }
+		mutually_exclusive = { focus = DPK_centralize_administration }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+			has_country_leader = {
+				character = DPK_cho_man_sik
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = -150
+			add_stability = 0.05
+			swap_ideas = {
+				add_idea = DPK_party_factionalism_1
+				remove_idea = DPK_party_factionalism
+			}
+		}
+	}
+	focus = {
+		id = DPK_destroy_chinese_influence
+		icon = GFX_focus_attack_china
+		relative_position_id = DPK_decentralize_administration
+		x = -2 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_decentralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_party_factionalism_1
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_2
+					remove_idea = DPK_party_factionalism_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_party_factionalism_2
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_3
+					remove_idea = DPK_party_factionalism_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_1
+					remove_idea = DPK_party_factionalism
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_destroy_soviet_influence
+		icon = GFX_focus_attack_soviet
+		relative_position_id = DPK_decentralize_administration
+		x = 2 
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_decentralize_administration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_party_factionalism_1
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_2
+					remove_idea = DPK_party_factionalism_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_party_factionalism_2
+				}
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_3
+					remove_idea = DPK_party_factionalism_2
+				}
+			}
+			else = {
+				swap_ideas = {
+					add_idea = DPK_party_factionalism_1
+					remove_idea = DPK_party_factionalism
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_cooperate_with_homeland
+		icon = GFX_goal_generic_dangerous_deal
+		relative_position_id = DPK_decentralize_administration
+		x = 0 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_decentralize_administration }
+
+		available = {
+			has_completed_focus = DPK_destroy_chinese_influence
+			has_completed_focus = DPK_destroy_soviet_influence
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			remove_ideas = DPK_party_factionalism_3
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism 
+				popularity = 0.05
+			}
+		}
+	}
+	focus = {
+		id = DPK_affirm_total_neutrality
+		icon = GFX_goal_generic_neutrality_focus
+		relative_position_id = DPK_cooperate_with_homeland
+		x = -3 
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_destroy_soviet_influence }
+		prerequisite = { focus = DPK_destroy_chinese_influence }
+		prerequisite = { focus = DPK_cooperate_with_homeland }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = DPK_total_neutrality_tt
+			hidden_effect = {
+				remove_ideas = eastern_member_ns
+				DPK = {
+					clear_sov_influence = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_integrate_small_parties
+		icon = GFX_goal_support_democracy
+		relative_position_id = DPK_cooperate_with_homeland
+		x = -1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_destroy_soviet_influence }
+		prerequisite = { focus = DPK_destroy_chinese_influence }
+		prerequisite = { focus = DPK_cooperate_with_homeland }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_small_parties_integrated
+				remove_idea = DPK_small_parties
+			}
+			add_popularity = {
+				ideology = social_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = market_liberal
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.05
+			}
+			set_party_name = {
+				ideology = market_liberal
+				long_name = DPK_social_liberal_party_long
+				name = DPK_social_liberal_party
+			}
+		}
+	}
+	focus = {
+		id = DPK_small_priv_effort
+		icon = GFX_focus_generic_the_giant_wakes
+		relative_position_id = DPK_cooperate_with_homeland
+		x = 1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_destroy_soviet_influence }
+		prerequisite = { focus = DPK_destroy_chinese_influence }
+		prerequisite = { focus = DPK_cooperate_with_homeland }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_owned_by = DPK
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = DPK_simplify_bureaucracy
+		icon = GFX_goal_generic_intelligence_exchange
+		relative_position_id = DPK_cooperate_with_homeland
+		x = 3
+		y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_destroy_soviet_influence }
+		prerequisite = { focus = DPK_destroy_chinese_influence }
+		prerequisite = { focus = DPK_cooperate_with_homeland }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			
+		}
+	}
+	focus = {
+		id = DPK_one_party_democracy
+		icon = GFX_focus_prc_agrarian_socialism
+		relative_position_id = DPK_small_priv_effort
+		x = -1
+		y = 1
+		cost = 8.6
+		mutually_exclusive = { focus = DPK_true_peoples_democracy }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_integrate_small_parties }
+		prerequisite = { focus = DPK_small_priv_effort }
+		prerequisite = { focus = DPK_simplify_bureaucracy }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			add_country_leader_role = {
+				character = DPK_cho_man_sik
+				promote_leader = yes
+				country_leader = {
+					ideology = left_wing_radical_sub
+					expire = "1965.1.1.1"
+					traits={ 
+						popular_figurehead2 
+						religious_leader 
+					}
+				}
+			}
+			set_party_name = {
+				ideology = social_democrat 
+				name = DPK_communism_spk_party
+				long_name = DPK_communism_spk_party_long
+			}
+			set_politics = {
+				ruling_party = left_wing_radical
+				elections_allowed = no
+				last_election = "1953.07.27"
+				election_frequency = 48
+				long_name = DPK_communism_spk_party_long
+				name = DPK_communism_spk_party
+			}
+			add_popularity = {
+				ideology = left_wing_radical
+				popularity = 0.35
+			}
+			swap_ideas = {
+				add_idea = DPK_socialist_democracy_idea_one_party
+				remove_idea = DPK_socialist_democracy_idea
+			}
+		}
+	}
+	focus = {
+		id = DPK_true_peoples_democracy
+		icon = GFX_focus_generic_social_democracy
+		relative_position_id = DPK_small_priv_effort
+		x = 1
+		y = 1
+		cost = 8.6
+		mutually_exclusive = { focus = DPK_one_party_democracy }
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+		
+		prerequisite = { focus = DPK_integrate_small_parties }
+		prerequisite = { focus = DPK_small_priv_effort }
+		prerequisite = { focus = DPK_simplify_bureaucracy }
+
+		available = {}
+
+		bypass = { }
+
+		completion_reward = {
+			set_politics = {
+				ruling_party = social_democrat
+				elections_allowed = no
+				last_election = "1953.07.27"
+				election_frequency = 48
+				long_name = DPK_communism_spk_party_long
+				name = DPK_communism_spk_party
+			}
+			set_party_name = {
+				ideology = social_liberal 
+				name = DPK_peoples_republic_party
+				long_name = DPK_peoples_republic_party_long
+			}
+			set_party_name = {
+				ideology = left_wing_radical 
+				name = DPK_labouring_peoples_party
+				long_name = DPK_labouring_peoples_party_long
+			}
+			set_party_name = {
+				ideology = communism 
+				name = DPK_communism_cpk_party
+				long_name = DPK_communism_cpk_party_long
+			}
+			promote_character = DPK_pak_hon_yong
+			swap_ideas = {
+				add_idea = DPK_socialist_democracy_idea_1
+				remove_idea = DPK_socialist_democracy_idea
+			}
+			hidden_effect = {
+				set_popularities = {
+					democratic = 10 #Social Conservatism
+					market_liberal = 5
+					social_liberal = 15
+					social_democrat = 35
+					communism = 20 #Communism
+					left_wing_radical = 10
+					neutrality = 5 #Paternal Autocracy
+					fascism = 0 #Nationalism
+				}
+			}
+		}
+	}
+	## Post-War Culture
+	focus = {
+		id = DPK_religious_suppression
+		icon = GFX_focus_generic_annex_country
+		relative_position_id = DPK_and_so_it_ends
+		x = 12
+		y = 1
+		cost = 6.3
+		mutually_exclusive = { focus = DPK_religious_toleration }
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					character = DPK_cho_man_sik
+					ruling_only = yes
+				}
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_religious_suppression_idea
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.025
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = DPK_democratic_party
+				long_name = DPK_democratic_party_long
+			}
+		}
+	}
+	focus = {
+		id = DPK_revolutionary_culture
+		icon = GFX_focus_SWE_refuge_for_revolutionaries
+		relative_position_id = DPK_religious_suppression
+		x = -1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_religious_suppression }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_revolutionary_culture_idea
+				remove_idea = DPK_religious_suppression_idea
+			}	
+		}
+	}
+	focus = {
+		id = DPK_korean_feminism
+		icon = GFX_focus_generic_women_in_military
+		relative_position_id = DPK_revolutionary_culture
+		x = 1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_revolutionary_culture }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				add_idea = DPK_revolutionary_culture_idea_1
+				remove_idea = DPK_revolutionary_culture_idea
+			}	
+		}
+	}
+	focus = {
+		id = DPK_religious_toleration
+		icon = GFX_focus_generic_concessions
+		relative_position_id = DPK_and_so_it_ends
+		x = 14
+		y = 1
+		cost = 6.3
+		mutually_exclusive = { focus = DPK_religious_suppression }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_and_so_it_ends }
+
+		available = {
+			has_country_leader = {
+				character = DPK_cho_man_sik
+				ruling_only = yes
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.025
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.025
+			}
+		}
+	}
+	focus = {
+		id = DPK_foreign_movies
+		icon = GFX_focus_generic_phone_democratic
+		relative_position_id = DPK_religious_toleration
+		x = 1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_religious_toleration }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_foreign_media
+		}
+	}
+	focus = {
+		id = DPK_join_the_UN
+		icon = GFX_focus_generic_democratic_europe
+		relative_position_id = DPK_foreign_movies
+		x = -1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = DPK_foreign_movies }
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	focus = {
+		id = DPK_incerase_literacy
+		icon = GFX_focus_generic_socialist_science
+		relative_position_id = DPK_religious_toleration
+		x = -1
+		y = 1
+		cost = 6.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { 
+			focus = DPK_religious_toleration 
+			focus = DPK_religious_suppression
+		}
+
+		available = {
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	#################
+	## THE ECONOMY ##
+	#################
+	
+	focus = {
+		id = DPK_a_barren_land
+		icon = GFX_focus_DPK_barren_wasteland
+		x = 0 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = {
+			982 = {
+				is_fully_controlled_by = ROOT
+			}
+			980 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			982 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			980 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_resource = {
+				type = steel
+				amount = 5
+				state = 982
+			}
+			add_resource = {
+				type = chromium
+				amount = 5
+				state = 980
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_a_bright_future
+		icon = GFX_SOV_architect_of_communism_ccp_2d_sov_compatibility
+		relative_position_id = DPK_a_barren_land
+		prerequisite = { focus = DPK_a_barren_land }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_stability = 0.02
+		}
+	}
+
+	focus = {
+		id = DPK_agriculture_work
+		icon = GFX_focus_generic_industry_agriculture_work_communist
+		relative_position_id = DPK_a_barren_land
+		prerequisite = { focus = DPK_a_barren_land }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_agriculture_improvements
+		}
+	}
+	
+	focus = {
+		id = DPK_fortify_pyongyang
+		icon = GFX_goal_generic_fortify_city
+		relative_position_id = DPK_agriculture_work
+		prerequisite = { focus = DPK_agriculture_work }
+		x = -2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_full_control_of_state = 979
+				}
+				979 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 10065
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 7171
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_northern_border
+		icon = GFX_goal_generic_fortify_city
+		relative_position_id = DPK_fortify_pyongyang
+		prerequisite = { focus = DPK_fortify_pyongyang }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_full_control_of_state = 981
+				}
+				981 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 11835
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 9918
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 9795
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 527
+				}
+				527 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 11828
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 6963
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 906
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 9899
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 980
+				}
+				980 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 3803
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 3860
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 898
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 6944
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_southern_border
+		icon = GFX_goal_generic_fortify_city
+		relative_position_id = DPK_fortify_pyongyang
+		prerequisite = { focus = DPK_fortify_pyongyang }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					AND = {
+						has_full_control_of_state = 982
+						NOT = {
+							has_country_flag = korean_war_historical
+						}
+					}
+				}
+				982 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 4107
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 1003
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 12040
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 982
+					has_country_flag = korean_war_historical
+				}
+				982 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 12040
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 972
+				}
+				972 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 13370
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 13371
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 1148
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 973
+				}
+				973 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 13366
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						has_full_control_of_state = 983
+						has_country_flag = korean_war_historical
+					}
+				}
+				983 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 9981
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 4004
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 11958
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_no_escape
+		icon = GFX_goal_generic_fortify_city
+		relative_position_id = DPK_the_northern_border
+		mutually_exclusive = { focus = DPK_limited_travel }
+		prerequisite = { focus = DPK_the_northern_border }
+		prerequisite = { focus = DPK_the_southern_border }
+		x = 2 y = 2
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_no_escape_idea
+		}
+	}
+
+	focus = {
+		id = DPK_limited_travel
+		icon = GFX_focus_generic_jet_planes
+		relative_position_id = DPK_no_escape
+		mutually_exclusive = { focus = DPK_no_escape }
+		prerequisite = { focus = DPK_the_northern_border }
+		prerequisite = { focus = DPK_the_southern_border }
+		x = -2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_limited_freedoms_idea
+		}
+	}
+	
+	focus = {
+		id = DPK_industrialisation
+		icon = GFX_focus_generic_industry_work_communist
+		relative_position_id = DPK_agriculture_work
+		prerequisite = { focus = DPK_agriculture_work }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = {
+			979 = {
+				is_fully_controlled_by = ROOT
+			}
+			1293 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+
+		bypass = { }
+
+		completion_reward = {
+			979 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_start_militarisation
+		icon = GFX_goal_generic_construct_mil_factory
+		relative_position_id = DPK_a_bright_future
+		prerequisite = { focus = DPK_a_bright_future }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = {
+			1293 = {
+				is_fully_controlled_by = ROOT		
+			}
+			979 = {
+				is_fully_controlled_by = ROOT					
+			}
+		}
+		
+		bypass = { }
+
+		completion_reward = {
+			1293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			979 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_repair_the_roads
+		icon = GFX_goal_generic_construct_infrastructure
+		relative_position_id = DPK_industrialisation
+		prerequisite = { focus = DPK_start_militarisation }
+		prerequisite = { focus = DPK_industrialisation }
+		x = 2 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_4
+				}
+				swap_ideas = {
+					remove_idea = DPK_infrastructure_in_ruins_4
+					add_idea = DPK_infrastructure_in_ruins_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_3
+				}
+				swap_ideas = {
+					remove_idea = DPK_infrastructure_in_ruins_3
+					add_idea = DPK_infrastructure_in_ruins_2
+				}
+			}
+		
+			979 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			983 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			981 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			527 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_workforce_expanded
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		relative_position_id = DPK_repair_the_roads
+		prerequisite = { focus = DPK_industrialisation }
+		prerequisite = { focus = DPK_start_militarisation }
+		x = 2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_4
+				}
+				swap_ideas = {
+					remove_idea = DPK_infrastructure_in_ruins_4
+					add_idea = DPK_infrastructure_in_ruins_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_3
+				}
+				swap_ideas = {
+					remove_idea = DPK_infrastructure_in_ruins_3
+					add_idea = DPK_infrastructure_in_ruins_2
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = DPK_agriculture_improvements
+				}
+				swap_ideas = {
+					remove_idea = DPK_agriculture_improvements
+					add_idea = DPK_agriculture_improvements_2
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_isolationism
+		icon = GFX_SOV_the_trade_union_as_labor_organizer_ccp_2d_sov_compatibility
+		relative_position_id = DPK_repair_the_roads
+		mutually_exclusive = { focus = DPK_a_communism_market focus = DPK_a_global_market }
+		prerequisite = { focus = DPK_repair_the_roads }
+		prerequisite = { focus = DPK_the_workforce_expanded }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_infrastructure_in_ruins_2
+				add_idea = DPK_infrastructure_in_ruins_1
+			}
+			add_ideas = {
+				closed_economy
+			}
+			981 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			527 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			983 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_a_communism_market
+		icon = GFX_goal_generic_trade
+		relative_position_id = DPK_isolationism
+		mutually_exclusive = { focus = DPK_isolationism focus = DPK_a_global_market }
+		prerequisite = { focus = DPK_repair_the_roads }
+		prerequisite = { focus = DPK_the_workforce_expanded }
+		x = 2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+		
+			swap_ideas = {
+				remove_idea = DPK_infrastructure_in_ruins_2
+				add_idea = DPK_infrastructure_in_ruins_1
+			}
+			
+			add_ideas = limited_exports
+			
+			every_country = {
+				limit = {
+					is_communist = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = medium_increase
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_a_global_market
+		icon = GFX_goal_generic_positive_trade_relations
+		relative_position_id = DPK_isolationism
+		mutually_exclusive = { focus = DPK_isolationism focus = DPK_a_communism_market }
+		prerequisite = { focus = DPK_repair_the_roads }
+		prerequisite = { focus = DPK_the_workforce_expanded }
+		x = -2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_infrastructure_in_ruins_2
+				add_idea = DPK_infrastructure_in_ruins_1
+			}
+			
+			add_ideas = free_trade
+			
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+	}
+
+	focus = {
+		id = DPK_one_hundred_years_of_prosperity
+		icon = GFX_focus_generic_communist_industry
+		relative_position_id = DPK_isolationism
+		prerequisite = { focus = DPK_a_global_market focus = DPK_isolationism focus = DPK_a_communism_market }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_4
+				}		
+				remove_ideas = DPK_infrastructure_in_ruins_4
+			}
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_3
+				}		
+				remove_ideas = DPK_infrastructure_in_ruins_3
+			}
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_2
+				}		
+				remove_ideas = DPK_infrastructure_in_ruins_2
+			}
+			if = {
+				limit = {
+					has_idea = DPK_infrastructure_in_ruins_1
+				}		
+				remove_ideas = DPK_infrastructure_in_ruins_1
+			}
+			972 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			983 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	#################
+	## LA MILITARY ##
+	#################
+	
+	focus = {
+		id = DPK_form_the_KPA
+		icon = GFX_SOV_the_glory_of_the_red_army_ccp_2d_sov_compatibility
+		relative_position_id = DPK_a_barren_land
+		x = 2 y = 7
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 10
+			air_experience = 10
+			navy_experience = 10
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				add_ideas = limited_conscription
+			}
+			swap_ideas = {
+				remove_idea = DPK_no_armed_forces_established_4
+				add_idea = DPK_no_armed_forces_established_3
+			}
+			swap_ideas = {
+				remove_idea = DPK_no_navy_established_4
+				add_idea = DPK_no_navy_established_3
+			}
+			swap_ideas = {
+				remove_idea = DPK_no_air_force_established_4
+				add_idea = DPK_no_air_force_established_3
+			}
+		}
+	}
+
+	## Army ##
+	focus = {
+		id = DPK_the_army
+		icon = GFX_focus_DPK_the_army
+		relative_position_id = DPK_form_the_KPA
+		prerequisite = { focus = DPK_form_the_KPA }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_4
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_4
+					add_idea = DPK_no_armed_forces_established_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_3
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_3
+					add_idea = DPK_no_armed_forces_established_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_2
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_2
+					add_idea = DPK_no_armed_forces_established_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_1
+				}		
+				remove_ideas = DPK_no_armed_forces_established_1
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = DPK_no_armed_forces_established_1
+							has_idea = DPK_north_korean_militarism
+						}
+					}
+				}
+				add_ideas = DPK_north_korean_militarism
+			}
+			# Activate key army leadership
+			activate_advisor = DPK_o_jin_u
+			activate_advisor = DPK_choe_yong_gon
+		}
+	}
+	
+	focus = {
+		id = DPK_motorisation_of_the_army
+		icon = GFX_focus_generic_tank_assault
+		relative_position_id = DPK_the_army
+		prerequisite = { focus = DPK_the_army }
+		mutually_exclusive = { focus = DPK_mass_assault }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = motorized_equipment
+				uses = 1
+				bonus = 1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_durable_tanks
+		icon = GFX_focus_generic_communism_tank_production
+		relative_position_id = DPK_motorisation_of_the_army
+		prerequisite = { focus = DPK_motorisation_of_the_army }
+		mutually_exclusive = { focus = DPK_only_for_infantry }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 2
+				category = cat_mobile_warfare
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_only_for_infantry
+		icon = GFX_focus_generic_truck
+		relative_position_id = DPK_durable_tanks
+		prerequisite = { focus = DPK_motorisation_of_the_army }
+		mutually_exclusive = { focus = DPK_durable_tanks }
+		x = 2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 2
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_the_roads_are_ours
+		icon = GFX_focus_SOV_the_road_of_life
+		relative_position_id = DPK_durable_tanks
+		prerequisite = { focus = DPK_durable_tanks focus = DPK_only_for_infantry }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_4
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_4
+					add_idea = DPK_no_armed_forces_established_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_3
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_3
+					add_idea = DPK_no_armed_forces_established_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_2
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_2
+					add_idea = DPK_no_armed_forces_established_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_1
+				}		
+				remove_ideas = DPK_no_armed_forces_established_1
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = DPK_no_armed_forces_established_1
+							has_idea = DPK_north_korean_militarism
+						}
+					}
+				}		
+				add_ideas = DPK_north_korean_militarism
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_learn_from_the_germans
+		icon = GFX_focus_BRA_acquire_german_tanks
+		relative_position_id = DPK_the_roads_are_ours
+		prerequisite = { focus = DPK_the_roads_are_ours }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = armor
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_equipment_to_stockpile = {
+					type = light_tank_chassis
+					amount = 500
+					producer = DPK
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = light_tank_equipment_1
+					amount = 500
+					producer = DPK
+				}			
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_mass_assault
+		icon = GFX_focus_HUN_expand_the_army
+		relative_position_id = DPK_the_army
+		prerequisite = { focus = DPK_the_army }
+		mutually_exclusive = { focus = DPK_motorisation_of_the_army }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		ai_will_do = { factor = 2 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_war_support = -0.025
+			add_manpower = 200000
+		}
+	}
+
+	focus = {
+		id = DPK_the_trenches
+		icon = GFX_SOV_protect_the_white_sea_baltic_canal_ccp_2d_sov_compatibility
+		relative_position_id = DPK_mass_assault
+		prerequisite = { focus = DPK_mass_assault }
+		mutually_exclusive = { focus = DPK_we_stand_together }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 2
+				category = cat_grand_battle_plan
+			}
+			# Activate grand battle plan theorist
+			activate_advisor = DPK_kim_yong_nam
+		}
+	}
+
+	focus = {
+		id = DPK_we_stand_together
+		icon = GFX_SOV_carry_revolution_east_ccp_2d_sov_compatibility
+		relative_position_id = DPK_the_trenches
+		prerequisite = { focus = DPK_mass_assault }
+		mutually_exclusive = { focus = DPK_the_trenches }
+		x = -2 y = 0
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				uses = 2
+				category = cat_mass_assault
+			}
+			# Activate mass assault theorist
+			activate_advisor = DPK_choe_hyon
+		}
+	}
+
+	focus = {
+		id = DPK_utilize_artillery
+		icon = GFX_SOV_soviet_artillery_ccp_2d_sov_compatibility
+		relative_position_id = DPK_we_stand_together
+		prerequisite = { focus = DPK_the_trenches focus = DPK_we_stand_together }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_4
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_4
+					add_idea = DPK_no_armed_forces_established_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_3
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_3
+					add_idea = DPK_no_armed_forces_established_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_2
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_2
+					add_idea = DPK_no_armed_forces_established_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_1
+				}		
+				remove_ideas = DPK_no_armed_forces_established_1
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = DPK_no_armed_forces_established_1
+							has_idea = DPK_north_korean_militarism
+						}
+					}
+				}
+				add_ideas = DPK_north_korean_militarism
+			}
+			# Activate artillery specialist
+			activate_advisor = DPK_kim_kwang_hyop
+		}
+	}
+
+	focus = {
+		id = DPK_utilize_technology
+		icon = GFX_SOV_leningrad_polytechnical_institute_ccp_2d_sov_compatibility
+		relative_position_id = DPK_utilize_artillery
+		prerequisite = { focus = DPK_utilize_artillery }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = DPK_fix_the_mistakes
+		icon = GFX_focus_chi_army_reform
+		relative_position_id = DPK_mass_assault
+		prerequisite = { focus = DPK_mass_assault focus = DPK_motorisation_of_the_army }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_4
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_4
+					add_idea = DPK_no_armed_forces_established_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_3
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_3
+					add_idea = DPK_no_armed_forces_established_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_2
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_2
+					add_idea = DPK_no_armed_forces_established_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_1
+				}		
+				remove_ideas = DPK_no_armed_forces_established_1
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = DPK_no_armed_forces_established_1
+							has_idea = DPK_north_korean_militarism
+						}
+					}
+				}		
+				add_ideas = DPK_north_korean_militarism
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_make_a_competent_army_structure
+		icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
+		relative_position_id = DPK_fix_the_mistakes
+		prerequisite = { focus = DPK_fix_the_mistakes }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 2 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_command_power = 10
+			add_political_power = -25
+			# Activate additional army leadership
+			activate_advisor = DPK_choe_kwang
+			activate_advisor = DPK_ri_ul_sol
+			activate_advisor = DPK_o_paek_ryong
+		}
+	}
+
+	focus = {
+		id = DPK_stay_ahead_of_the_south
+		icon = GFX_goal_support_communism
+		relative_position_id = DPK_fix_the_mistakes
+		prerequisite = { focus = DPK_fix_the_mistakes }
+		x = 0 y = 2
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.05
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1500
+				producer = DPK
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = DPK
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_peoples_volunteer_army
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		relative_position_id = DPK_stay_ahead_of_the_south
+		prerequisite = { focus = DPK_stay_ahead_of_the_south }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_the_pva
+		}
+	}
+	
+	focus = {
+		id = DPK_abolish_the_revolutionary_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		relative_position_id = DPK_stay_ahead_of_the_south
+		prerequisite = { focus = DPK_stay_ahead_of_the_south }
+		x = -1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_4
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_4
+					add_idea = DPK_no_armed_forces_established_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_3
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_3
+					add_idea = DPK_no_armed_forces_established_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_2
+				}		
+				swap_ideas = {
+					remove_idea = DPK_no_armed_forces_established_2
+					add_idea = DPK_no_armed_forces_established_1
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_armed_forces_established_1
+				}		
+				remove_ideas = DPK_no_armed_forces_established_1
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = DPK_no_armed_forces_established_1
+							has_idea = DPK_north_korean_militarism
+						}
+					}
+				}		
+				add_ideas = DPK_north_korean_militarism
+			}
+			army_experience = 5
+		}
+	}
+	
+	## Navy ##
+	focus = {
+		id = DPK_the_navy
+		icon = GFX_focus_DPK_north_korean_navy
+		relative_position_id = DPK_form_the_KPA
+		prerequisite = { focus = DPK_form_the_KPA }
+		x = -8 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_no_navy_established_3
+				add_idea = DPK_no_navy_established_2
+			}
+			navy_experience = 5
+		}
+	}
+
+	focus = {
+		id = DPK_defence_from_the_seas
+		icon = GFX_focus_generic_coastal_fort
+		relative_position_id = DPK_the_navy
+		prerequisite = { focus = DPK_the_navy }
+		x = -1 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			979 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 4052
+				}
+			}
+			527 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 3981
+				}
+			}
+			980 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					instant_build = yes
+					province = 6922
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_naval_bomber_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		relative_position_id = DPK_defence_from_the_seas
+		prerequisite = { focus = DPK_defence_from_the_seas }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_AIR_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = naval_bomber
+				uses = 1
+				bonus = 0.50
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_build_a_mighty_navy
+		icon = GFX_focus_generic_navy_battleship2
+		relative_position_id = DPK_the_navy
+		prerequisite = { focus = DPK_the_navy }
+		x = 1 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_no_navy_established_2
+				add_idea = DPK_no_navy_established_1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_start_naval_production
+		icon = GFX_goal_continuous_naval_production
+		relative_position_id = DPK_build_a_mighty_navy
+		prerequisite = { focus = DPK_build_a_mighty_navy }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			979 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_submarine_warfare
+		icon = GFX_SOV_submarine_warfare_ccp_2d_sov_compatibility
+		relative_position_id = DPK_start_naval_production
+		prerequisite = { focus = DPK_start_naval_production }
+		mutually_exclusive = { focus = DPK_capital_ships }
+		x = 1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = mio_cat_tech_all_submarine_and_modules
+				uses = 1
+				bonus = 0.50
+			}
+			# Activate naval theorist
+			activate_advisor = DPK_kim_chang_bong
+		}
+	}
+
+	focus = {
+		id = DPK_interfere_with_trade
+		icon = GFX_focus_generic_trade_interdiction
+		relative_position_id = DPK_submarine_warfare
+		prerequisite = { focus = DPK_submarine_warfare }
+		x = 1 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = trade_interdiction_tree
+				uses = 1
+				bonus = 0.50
+			}		
+		}
+	}
+	
+	focus = {
+		id = DPK_mass_produce_submarines
+		icon = GFX_goal_continuous_naval_production
+		relative_position_id = DPK_interfere_with_trade
+		prerequisite = { focus = DPK_interfere_with_trade }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_capital_ships
+		icon = GFX_goal_generic_navy_battleship
+		relative_position_id = DPK_start_naval_production
+		prerequisite = { focus = DPK_start_naval_production }
+		mutually_exclusive = { focus = DPK_submarine_warfare }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = mio_cat_tech_all_capital_ship_and_modules
+				uses = 1
+				bonus = 0.50
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_create_naval_facilities
+		icon = GFX_SOV_expand_shipbuilding_plants_ccp_2d_sov_compatibility
+		relative_position_id = DPK_capital_ships
+		prerequisite = { focus = DPK_capital_ships }
+		x = -1 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_increase_shipyard_production
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		relative_position_id = DPK_create_naval_facilities
+		prerequisite = { focus = DPK_create_naval_facilities }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = DPK_training_naval_advisors
+		icon = GFX_focus_generic_naval_discipline
+		relative_position_id = DPK_submarine_warfare
+		prerequisite = { focus = DPK_submarine_warfare focus = DPK_capital_ships }
+		x = -1 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = DPK_no_navy_established_4
+				}
+				remove_ideas = DPK_no_navy_established_4
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_navy_established_3
+				}
+				remove_ideas = DPK_no_navy_established_3
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_navy_established_2
+				}
+				remove_ideas = DPK_no_navy_established_2
+			}
+			else_if = {
+				limit = {
+					has_idea = DPK_no_navy_established_1
+				}
+				remove_ideas = DPK_no_navy_established_1
+			}
+			# Activate naval leadership
+			activate_advisor = DPK_kim_won_mu
+			activate_advisor = DPK_choe_chang_dok
+			activate_advisor = DPK_ri_jong_ok
+		}
+	}
+
+	focus = {
+		id = DPK_innovations_in_naval_warfare
+		icon = GFX_focus_generic_navy_research_bonus
+		relative_position_id = DPK_training_naval_advisors
+		prerequisite = { focus = DPK_training_naval_advisors }
+		x = 0 y = 1
+		cost = 4.3
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_the_korean_peoples_navy
+		}
+	}
+
+	focus = {
+		id = DPK_integrate_the_airforce
+		icon = GFX_focus_generic_air_carrier
+		relative_position_id = DPK_innovations_in_naval_warfare
+		prerequisite = { focus = DPK_innovations_in_naval_warfare }
+		x = 0 y = 1
+		cost = 4.3
+		
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_tech_bonus = {
+				category = mio_cat_tech_all_carrier_and_modules
+				uses = 1
+				bonus = 0.5
+			}
+		}
+	}
+	
+	## Airforce ##
+	focus = {
+		id = DPK_the_airforce
+		icon = GFX_focus_PER_the_peoples_airforce
+		relative_position_id = DPK_form_the_KPA
+		prerequisite = { focus = DPK_form_the_KPA }
+		x = 7 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_no_air_force_established_3
+				add_idea = DPK_no_air_force_established_2
+			}
+			# Activate air force leadership
+			activate_advisor = DPK_wang_yong
+		}
+	}
+
+	focus = {
+		id = DPK_anti_air_focus
+		icon = GFX_focus_generic_air_defense
+		relative_position_id = DPK_the_airforce
+		prerequisite = { focus = DPK_the_airforce }
+		mutually_exclusive = { focus = DPK_focus_on_airbases }
+		x = -1 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_focus_on_airbases
+		icon = GFX_goal_generic_build_airforce
+		relative_position_id = DPK_anti_air_focus
+		prerequisite = { focus = DPK_the_airforce }
+		mutually_exclusive = { focus = DPK_anti_air_focus }
+		x = 2 y = 0
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			DPK = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_blueprints_of_an_airforce
+		icon = GFX_focus_generic_air_research_boost
+		relative_position_id = DPK_anti_air_focus
+		prerequisite = { focus = DPK_focus_on_airbases focus = DPK_anti_air_focus }
+		x = 1 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = DPK_no_air_force_established_2
+				add_idea = DPK_no_air_force_established_1
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_aircraft_production
+		icon = GFX_focus_generic_communism_aircraft_production
+		relative_position_id = DPK_blueprints_of_an_airforce
+		prerequisite = { focus = DPK_blueprints_of_an_airforce }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			remove_ideas = DPK_no_air_force_established_1
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_soviet_training
+		icon = GFX_focus_generic_support_sov_communism
+		relative_position_id = DPK_aircraft_production
+		prerequisite = { focus = DPK_aircraft_production }
+		mutually_exclusive = { focus = DPK_independent_training focus = DPK_prc_training }
+		x = 2 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			air_experience = 10
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_independent_training
+		icon = GFX_SOV_intensify_pilot_training_program_ccp_2d_sov_compatibility
+		relative_position_id = DPK_aircraft_production
+		prerequisite = { focus = DPK_aircraft_production }
+		mutually_exclusive = { focus = DPK_soviet_training focus = DPK_prc_training }
+		x = 0 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			air_experience = 20
+			DPK = {
+				random_owned_controlled_state = {
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = DPK_prc_training
+		icon = GFX_focus_generic_support_prc_communism
+		relative_position_id = DPK_aircraft_production
+		prerequisite = { focus = DPK_aircraft_production }
+		mutually_exclusive = { focus = DPK_independent_training focus = DPK_soviet_training }
+		x = -2 y = 1
+		cost = 8.6
+
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
+		ai_will_do = { factor = 1 }
+
+		available = { }
+
+		bypass = { }
+
+		completion_reward = {
+			air_experience = 10
+			add_opinion_modifier = {
+				target = PRC
+				modifier = small_increase
+			}		
+		}
+	}
+
+	focus = {
+		id = DPK_establish_the_kpaf
+		icon = GFX_focus_NORDIC_mon_capstone_airforce
+		relative_position_id = DPK_prc_training
+		prerequisite = { focus = DPK_prc_training focus = DPK_independent_training focus = DPK_soviet_training }
+		x = 2 y = 1
+		cost = 8.6
+		
+		search_filters = { FOCUS_FILTER_AIR_XP }
+		
+		ai_will_do = { factor = 1 }
+
+		available = { }
+		
+		bypass = { }
+
+		completion_reward = {
+			add_ideas = DPK_the_korean_peoples_army_air_force
+			# Activate additional air force leadership
+			activate_advisor = DPK_ri_hak_su
+			activate_advisor = DPK_kim_il_chol
+		}
+	}
+}

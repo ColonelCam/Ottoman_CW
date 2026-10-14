@@ -1,0 +1,30 @@
+state={
+	id=978
+	name="STATE_978"
+	resources={
+		steel=7
+		tungsten=9
+	}
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			10036 2 #Chuncheon
+		}
+		victory_points = {
+			15099 1 #Andong
+		}
+	}
+	
+	provinces={
+		4103 7021 9936 10036 13369 15099 15103 15104 
+	}
+	manpower=454977
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

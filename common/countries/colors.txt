@@ -43,8 +43,8 @@ WAD = {
 ################################
 
 SOV = {
-	color = rgb { 43 174  97 }
-	color_ui = rgb { 43 174  97 }
+	color = rgb { 43 174 97 }
+	color_ui = rgb { 43 174 97 }
 }
 RUS = {
 	color = rgb { 75 110 45 }
@@ -814,8 +814,8 @@ GUM = {
 	color_ui = rgb { 50 100 225 }
 }
 MAN = {
-	color = rgb { 255 120 71 }
-	color_ui = rgb { 255 120 71 }
+	color = rgb { 43 174 97 }
+	color_ui = rgb { 43 174 97 }
 }
 CBV = {
 	color = rgb { 5 175 5 }

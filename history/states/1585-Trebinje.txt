@@ -1,0 +1,27 @@
+
+state={
+	id=1585
+	name="STATE_1585"
+
+	history={
+		owner = BOS
+		add_core_of = YUG
+		add_core_of = BOS
+		add_core_of = HRZ
+		add_core_of = SRP
+		
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			15353 2 # Trebinje
+		}
+	}
+
+	provinces={
+		953 11845 15352 15353
+	}
+	manpower = 40221
+	state_category = pastoral
+	local_supplies=3.0 
+}

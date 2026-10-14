@@ -1,0 +1,24 @@
+state={
+	id=1300
+	name="STATE_1300"
+
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			10110 3
+		}
+	}
+	
+	provinces={
+		10110 11948 12085 15086 15087 15088 15089 
+	}
+	manpower=3642989
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

@@ -1,0 +1,42 @@
+
+state={
+	id=535
+	name="STATE_535" # Koshinetsu-Hokuriku
+	manpower = 5871000
+	state_category = large_city
+	
+	resources={
+		steel=18
+		tungsten=8
+	}
+
+	history={
+		owner = JPN
+		add_core_of = JAP
+		add_core_of = JPN
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			dockyard = 1
+			fuel_silo = 2
+		}
+		victory_points = {
+			1117 12
+		}
+		victory_points = {
+			7102 2
+		}
+		victory_points = {
+			11989 2
+		}
+		victory_points = {
+			10032 4
+		}
+	}
+
+	provinces={
+		998 1067 1117 7102 9952 10015 10032 10128 11930 11989 12007 
+	}
+
+	local_supplies=0.0 
+}

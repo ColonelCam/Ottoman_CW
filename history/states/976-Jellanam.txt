@@ -1,0 +1,33 @@
+
+state={
+	id=976
+	name="STATE_976"
+
+	resources={
+		coal = 1
+	}
+	
+	history={
+		owner = DPK
+		add_core_of = ROK
+		add_core_of = DPK
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = {
+			15091 5 #Kwangju
+		}
+		victory_points = {
+			4126 2 #Kunsan
+		}
+	}
+
+	provinces={
+		4126 7175 10085 15091 15092 15095 
+	}
+	manpower=1803557
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

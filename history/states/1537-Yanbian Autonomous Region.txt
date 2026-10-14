@@ -1,0 +1,32 @@
+
+state={
+	id=1537
+	name="STATE_1537"
+
+	history={
+		owner = ROK
+		add_core_of = MAN
+		add_core_of = CHI
+		add_core_of = PRC
+		add_claim_by = DPK
+		add_claim_by = ROK
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			944 1
+		}
+		1948.6.1 = {
+			owner = PRC
+		}
+	}
+
+	provinces={
+		944 973 3929 3944 3947 6806 6964 9897 9928 11862 14333 14337
+	}
+	
+	buildings_max_level_factor=1.000
+	manpower = 204100
+	state_category = pastoral
+	local_supplies=0.000
+}

@@ -1,0 +1,26 @@
+
+state={
+	id=1583
+	name="STATE_1583"
+
+	history={
+		owner = BOS
+		add_core_of = YUG
+		add_core_of = BOS
+		add_core_of = SRP
+		
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			6983 5 # Banja Luka
+		}
+	}
+
+	provinces={
+		6619 6983 9588 9591 9922 11572 15347 15349 15359
+	}
+	manpower = 500622
+	state_category = town
+	local_supplies=3.0 
+}

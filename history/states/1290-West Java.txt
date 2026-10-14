@@ -1,0 +1,24 @@
+state={
+	id=1290
+	name="STATE_1290"
+
+	history={
+		owner = DEI
+		add_core_of = INS
+		add_core_of = DEI
+		1948.6.1 = {
+			owner = INS
+		}
+		buildings = {
+			infrastructure = 3
+		}
+	}
+	
+	provinces={
+		1425 4406 4621 7421 10307 
+	}
+	manpower=5051889
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

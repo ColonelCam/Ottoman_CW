@@ -1,0 +1,349 @@
+﻿division_template = {
+	name = "Juntuán"	# Represents three-division infantry corps (generally poorly-equipped, but decent experience),
+	division_names_group = PRC_INF_01
+									#	PRC divisions were well-trained in guerilla mountain tactics.
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	priority = 0
+}
+division_template = {
+	name = "Renmin Jundui"		# Represents three-column local militia groups.
+	division_names_group = PRC_GAR_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+	priority = 1
+}
+division_template = {
+	name = "Zhongxing shi"
+	division_names_group = PRC_HEAVY_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		artillery_brigade  = { x = 3 y = 0 }
+		artillery_brigade  = { x = 3 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+	priority = 2
+}
+
+##### STARTING PRODUCTION #####
+instant_effect = {
+	
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3800
+		producer = PRC
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2500
+		producer = CHI
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "PRC"
+		}
+		requested_factories = 2
+		progress = 0.8
+		efficiency = 80
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "PRC"
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 60
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "PRC"
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 50
+	}
+}
+
+##### OOB #####
+units = {
+	
+	## The Juntuán
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 7186
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 13389
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 13389
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 13389
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 13389
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	## The Renmin Jundui
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 7007
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1153
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 12407
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 1023
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 12378
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 9997
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 5072
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 10819
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 12841
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 13507
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 1531
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 1034
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 1458
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 14400
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 15
+		}
+		location = 8049
+		division_template = "Renmin Jundui"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+}

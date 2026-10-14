@@ -13,6 +13,12 @@ on_actions = {
                     days = 10
                 }
             }
+            PRC = {
+                country_event = {
+                    id = phm_events.1
+                    days = 20
+                }
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ state={
 	}
 
 	history={
-		owner = GXC
+		owner = DRV
 		add_core_of = VIN
 		add_core_of = DRV
 		add_claim_by = IDC

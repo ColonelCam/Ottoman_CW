@@ -1,0 +1,44 @@
+state={
+	id=1059
+	name="STATE_1059"
+	resources={
+		rubber=42.000
+		steel=13.000
+	}
+
+	history={
+		owner = DEI
+		add_core_of = INS
+		add_core_of = DEI
+		1948.6.1 = {
+			owner = INS
+		}
+		INS = {
+			set_province_controller = 12165
+			set_province_controller = 1313
+			set_province_controller = 1274
+			set_province_controller = 10150
+		}
+		1950.6.1 = {
+			owner = INS
+		}
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			12268 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			12268 5 
+		}
+	}
+
+	provinces={
+		1246 1274 1313 1401 4276 4364 4381 10150 10322 12165 12268 12296
+	}
+	manpower=3222456
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}
