@@ -420,3 +420,47 @@ USA_support_cub = {
 		value = 420
 	}
 }
+
+USA_support_evil_china = {
+
+	allowed = {
+		original_tag = USA
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		OR = { is_communist = yes
+		is_left_wing_radical = yes }
+	}
+
+	abort = {
+		OR = {
+			NOT = {
+				country_exists = PRC
+			}
+			is_in_faction_with = PRC
+			PRC = {
+				NOT = {
+					OR = { is_communist = yes
+					is_left_wing_radical = yes }
+				}
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = PRC
+		value = 69
+	}
+	ai_strategy = {
+		type = support
+		id = PRC
+		value = 67
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRC
+		value = 420
+	}
+}
