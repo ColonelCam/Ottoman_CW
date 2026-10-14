@@ -1,0 +1,29 @@
+
+state = {
+	id = 1320
+	name = "STATE_1320"
+	manpower = 352011
+	
+	state_category = rural
+
+	history = {
+		owner = UKR
+		add_core_of = SOV
+		add_core_of = UKR
+		add_core_of = MOL
+		add_core_of = PMR
+		buildings = {
+			industrial_complex = 1
+			infrastructure = 2
+		}
+		victory_points = {
+			13764 2 #Tiraspol
+		}
+	}
+
+	provinces = {
+		13764 13765 13766 
+	}
+
+	local_supplies = 6.0 
+}
