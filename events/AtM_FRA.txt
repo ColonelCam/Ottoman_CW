@@ -77,7 +77,7 @@ political_actions = {
 					}
 					if = {
 						limit = {
-							has_war_with = VCF
+							has_war_with = VIN
 						}
 						VIN = {
 							white_peace = CAM
@@ -172,7 +172,7 @@ political_actions = {
 					}
 					if = {
 						limit = {
-							has_war_with = VCF
+							has_war_with = VIN
 						}
 						VIN = {
 							white_peace = CPS
@@ -267,7 +267,7 @@ political_actions = {
 					}
 					if = {
 						limit = {
-							has_war_with = VCF
+							has_war_with = VIN
 						}
 						VIN = {
 							white_peace = LAO

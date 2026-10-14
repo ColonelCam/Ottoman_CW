@@ -36,6 +36,12 @@ country_event = {
 				target = JFC
 				type = annex_everything
 			}
+			CHI = {
+					add_timed_idea = {
+						idea = CHI_last_stand
+						days = 360
+					}
+			}
 			hidden_effect = {
 				set_state_controller = 595
 				set_state_controller = 597
