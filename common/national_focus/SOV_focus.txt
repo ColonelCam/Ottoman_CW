@@ -1,18 +1,18 @@
 ﻿
-focus_tree = {
-	id = soviet_focus
-
-	country = {
-		factor = 0
-		
-		modifier = {
-			add = 150
-			tag = SOV
-		}
-	}
-	
-	default = no
-
-	continuous_focus_position = { x = 120 y = 700 }
-	
-}
+#focus_tree = {
+#	id = soviet_focus
+#
+#	country = {
+#		factor = 0
+#		
+#		modifier = {
+#			add = 150
+#			tag = SOV
+#		}
+#	}
+#	
+#	default = no
+#
+#	continuous_focus_position = { x = 120 y = 700 }
+#	
+#}
