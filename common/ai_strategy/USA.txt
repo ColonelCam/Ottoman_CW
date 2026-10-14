@@ -194,38 +194,41 @@ USA_support_rok = {
 	
 	enable = {
 		is_historical_focus_on = yes
-		NOT = { is_communist = yes }
-		NOT = { is_left_wing_radical = yes }
+		OR = {
+		is_communist = yes
+		is_left_wing_radical = yes }
 	}
 
 	abort = {
-		ROK = {
+		DPK = {
+			NOT = {
 			OR = {
 				is_communist = yes
 				is_left_wing_radical = yes
+			}
 			}
 		}
 	}
 	
 	ai_strategy = {
 		type = send_volunteers_desire
-		id = ROK
+		id = DPK
 		value = 200
 	}
 	ai_strategy = {
 		type = send_lend_lease_desire
-		id = ROK
+		id = DPK
 		value = 100
 	}
 	ai_strategy = {
 		type = support
-		id = ROK
+		id = DPK
 		value = 25
 	}
 	#Reluctant to support Korea directly
 	ai_strategy = {
 		type = protect
-		id = ROK
+		id = DPK
 		value = -25
 	}
 }
