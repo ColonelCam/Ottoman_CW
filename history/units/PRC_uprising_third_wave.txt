@@ -130,7 +130,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 4
 		}
-		location = 7186
+		location = 13389
 		division_template = "Juntuán"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.8
@@ -140,7 +140,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 5
 		}
-		location = 7186
+		location = 13389
 		division_template = "Juntuán"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.8
@@ -149,46 +149,6 @@ units = {
 		division_name = {
 			is_name_ordered = yes
 			name_order = 6
-		}
-		location = 7186
-		division_template = "Juntuán"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 7
-		}
-		location = 13389
-		division_template = "Juntuán"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 8
-		}
-		location = 13389
-		division_template = "Juntuán"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 9
-		}
-		location = 13389
-		division_template = "Juntuán"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 10
 		}
 		location = 13389
 		division_template = "Juntuán"
@@ -271,7 +231,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 8
 		}
-		location = 10819
+		location = 12841
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.6
@@ -281,7 +241,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 9
 		}
-		location = 12841
+		location = 13507
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.6
@@ -291,7 +251,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 10
 		}
-		location = 13507
+		location = 1531
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.6
@@ -301,7 +261,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 11
 		}
-		location = 1531
+		location = 1034
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.6
@@ -311,7 +271,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 12
 		}
-		location = 1034
+		location = 1458
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.6
@@ -321,16 +281,6 @@ units = {
 			is_name_ordered = yes
 			name_order = 13
 		}
-		location = 1458
-		division_template = "Renmin Jundui"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.6
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 14
-		}
 		location = 14400
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.2
@@ -339,7 +289,7 @@ units = {
 	division = {
 		division_name = {
 			is_name_ordered = yes
-			name_order = 15
+			name_order = 14
 		}
 		location = 8049
 		division_template = "Renmin Jundui"

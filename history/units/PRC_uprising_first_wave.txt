@@ -520,7 +520,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 7
 		}
-		location = 11072
+		location = 10072
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.5
 		start_equipment_factor = 0.9
@@ -530,7 +530,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 8
 		}
-		location = 11043
+		location = 4010
 		division_template = "Renmin Jundui"
 		start_experience_factor = 0.5
 		start_equipment_factor = 0.9

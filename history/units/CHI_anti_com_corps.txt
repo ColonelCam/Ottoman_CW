@@ -1,0 +1,511 @@
+﻿division_template = {
+	name = "Juntuán"				# Represents: German-trained divisions (better equipment than rest),
+	division_names_group = CHI_INF_01
+									# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+
+	priority = 0 # garrison
+}
+division_template = {
+	name = "Sanjiao Jun"			# Represents three-division infantry corps (generally poorly-equipped militias)
+	division_names_group = CHI_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Qibing Jun"		# Represents two-division cavalry corps (generally poorly-equipped)
+	division_names_group = CHI_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+}
+
+### OOB ###
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 156
+		}
+		location = 7014
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 157
+		}
+		location = 7014
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 158
+		}
+		location = 7014
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 159
+		}
+		location = 9953
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 160
+		}
+		location = 1069
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 161
+		}
+		location = 12026
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 162
+		}
+		location = 9843
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 163
+		}
+		location = 9843
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 164
+		}
+		location = 11982
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 165
+		}
+		location = 11982
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 166
+		}
+		location = 996
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 167
+		}
+		location = 11913
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 168
+		}
+		location = 1168
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 169
+		}
+		location = 3992
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 170
+		}
+		location = 3992
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 171
+		}
+		location = 1146
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 172
+		}
+		location = 7025
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 173
+		}
+		location = 3992
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 174
+		}
+		location = 1169
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 175
+		}
+		location = 9958
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 176
+		}
+		location = 7656
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 177
+		}
+		location = 4619
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 178
+		}
+		location = 4619
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 179
+		}
+		location = 7097
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 180
+		}
+		location = 10018
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 181
+		}
+		location = 7137
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 182
+		}
+		location = 4037
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 182
+		}
+		location = 7159
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 183
+		}
+		location = 1188
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 184
+		}
+		location = 1188
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 185
+		}
+		location = 1169
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 186
+		}
+		location = 14613
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 187
+		}
+		location = 4144
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 188
+		}
+		location = 1139
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 189
+		}
+		location = 11913
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 190
+		}
+		location = 11913
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 191
+		}
+		location = 10042
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 192
+		}
+		location = 9938
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 193
+		}
+		location = 10043
+		division_template = "Juntuán"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 5
+		progress = 0.5
+		efficiency = 70
+		industrial_manufacturer = mio:CHI_hanyan_arsenal_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 40
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 2000
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = light_tank_equipment_1
+		amount = 200
+		producer = CHI
+	}
+}

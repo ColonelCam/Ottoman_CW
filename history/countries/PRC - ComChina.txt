@@ -1,7 +1,7 @@
 ﻿capital = 991 #Taiwan
 
 oob = "PRC_1945_taiwan"
-set_convoys = 10
+set_convoys = 500
 set_stability = 0.6
 set_war_support = 0.95
 add_command_power = 20

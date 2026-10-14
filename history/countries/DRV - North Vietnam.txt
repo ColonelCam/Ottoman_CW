@@ -1,0 +1,397 @@
+﻿capital = 1016 # Ha Noi
+
+oob = "DRV_1945"
+
+set_convoys = 5
+
+set_stability = 0.6
+
+set_war_support = 0.75
+
+add_command_power = 20
+
+set_research_slots = 2
+
+add_political_power = 49
+
+give_military_access = CHI
+give_military_access = YUN
+
+set_cosmetic_tag = DRV_viet_minh
+1945.9.2 = {
+add_timed_idea = { idea = DRV_flooding_1945 days = 14 }
+# Dissolution of the Dai Viet NatSoc Party
+country_event = { id = AtM_DRV.26 hours = 72 }
+# Establishment of the General Staff
+country_event = { id = AtM_DRV.27 days = 5 }
+# Establishment of Ve Quoc Doan
+country_event = { id = AtM_DRV.28 days = 96 }
+# Dissolution of the ICP
+country_event = { id = AtM_DRV.45 days = 70 }
+# Trial of Tran Du Chau
+country_event = { id = AtM_DRV.57 days = 1825 }
+# Souphanouvong meets Ho
+country_event = { id =  AtM_DRV.59 days = 3 }
+}
+
+1497 = { #Bac Lieu
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1501 = { #Soc Trang
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1502 = { #Ben Tre
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1498 = { #Rach Gia
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1499 = { #Ha Tien
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1500 = { #Dong Thap
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1012 = { #Can Tho
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+286 = { #Gia Lai
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1079 = { #Kon Tum
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1579 = { #Vinh Linh
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+671 = { #SON la
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1083 = { #HLS
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1621 = { #Lao Kay
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1622 = { #Hung Hoa
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1084 = { #Lai Chau
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1521 = { #Ha Giang
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1522 = { #Dong
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1619 = { #Cao Bang
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1015 = { #
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1617 = { #Lang SON
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1082 = { #Tuyen Quang
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1733 = { #Muong Nhe
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1734 = { #Ha Giang
+	add_dynamic_modifier = { modifier = DRV_no_electricity_state }
+}
+1616 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1613 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1614 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1618 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1524 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1523 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1612 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1581 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1017 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1580 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1578 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1081 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1577 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1014 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1730 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1734 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1062 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1575 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1576 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1574 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1080 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1506 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1087 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1505 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1503 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1658 = { #Can Gio
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1078 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1620 = { #
+	add_dynamic_modifier = { modifier = DRV_underdeveloped_electricity_state }
+}
+1504 = { #
+	add_dynamic_modifier = { modifier = DRV_developed_electricity_state }
+}
+1013 = { #
+	add_dynamic_modifier = { modifier = DRV_developed_electricity_state }
+}
+1732 = { #
+	add_dynamic_modifier = { modifier = DRV_developed_electricity_state }
+}
+1615 = { #
+	add_dynamic_modifier = { modifier = DRV_developed_electricity_state }
+}
+1016 = { #
+	add_dynamic_modifier = { modifier = DRV_developed_electricity_state }
+}
+1524 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1619 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1015 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1733 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1731 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1734 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1522 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1521 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1083 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1621 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1084 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1622 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+671 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1079 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+286 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+1078 = { #
+	add_dynamic_modifier = { modifier = DRV_ethnic_minority_state }
+}
+
+set_variable = { DRV_nationalists_opposition_level = 45 }
+set_variable = { DRV_nationalists_popularity = 50 }
+set_variable = { DRV_monarchists_opposition_level = 15 }
+set_variable = { DRV_monarchists_popularity = 20 }
+set_variable = { DRV_trotskyists_opposition_level = 30 }
+set_variable = { DRV_trotskyists_popularity = 15 }
+set_variable = { DRV_total_opposition = 0 }
+set_variable = { DRV_total_popularity = 0 }
+set_variable = { DRV_opposition_damages = 0 }
+set_variable = { DRV_stablitiy_lost = 0 }
+set_variable = { DRV_japanese_army_presence_urban = 40 }
+set_variable = { DRV_japanese_army_presence_rural = 65 }
+set_variable = { frame_economy_progess_DRV = 1 }
+set_variable = { DRV_dirty_economic_progess_ui = 0 }
+set_variable = { DRV_industrial_efficiency_level = 10 }
+set_variable = { DRV_divs_cap = 10 }
+set_variable = { DRV_divs_cur = 0 }
+DRV_total_amount_of_opposition_count = yes
+
+1948.6.1 = {
+	oob = "DRV_1948"
+	drop_cosmetic_tag = yes
+}
+
+1956.1.1 = {
+	# Wars
+	diplomatic_relation = {
+		country = FRA
+		relation = war_relation
+		active = no
+	}
+	diplomatic_relation = {
+		country = VIN
+		relation = war_relation
+		active = no
+	}
+	diplomatic_relation = {
+		country = SAR
+		relation = war_relation
+		active = no
+	}
+}
+
+add_ideas = {
+	#National Spirits
+	DRV_the_viet_minh
+	DRV_unrecognized_state
+	DRV_lack_of_industry
+	DRV_famine_1944_1945
+	DRV_illiteracy 
+	DRV_scars_of_colonial_rule
+	DRV_political_opposition
+	DRV_economy_idea
+	DRV_giai_phong_quan_idea
+	
+	#National Laws
+	DRV_volunteer
+	war_economy
+	DRV_isolation
+	
+	#Companies
+}
+
+add_opinion_modifier = {
+	target = VCF
+	modifier = huge_increase
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = peoples_war
+set_sub_doctrine = guerilla_war
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	infantry_at = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_fortification_tech = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = DRV_ho_chi_minh
+recruit_character = DRV_truong_chinh
+recruit_character = DRV_vo_nguyen_giap
+recruit_character = DRV_pham_van_dong
+recruit_character = DRV_ton_duc_thang
+recruit_character = DRV_le_duc_tho
+recruit_character = DRV_nguyen_luong_bang
+recruit_character = DRV_chu_van_tan
+recruit_character = DRV_tran_huy_lieu
+recruit_character = DRV_vinh_thuy
+recruit_character = DRV_cadeo_le_huu_tu
+recruit_character = DRV_nguyen_manh_ha
+recruit_character = DRV_vu_dinh_hoe
+recruit_character = DRV_vu_trong_khanh
+recruit_character = DRV_pham_ngoc_thach
+recruit_character = DRV_dao_trong_kim
+recruit_character = DRV_le_van_hien
+recruit_character = DRV_cu_huy_can
+recruit_character = DRV_nguyen_van_xuan
+recruit_character = DRV_nguyen_hai_than
+recruit_character = DRV_hoang_van_thai
+recruit_character = DRV_ta_xuan_thu
+recruit_character = DRV_tran_quy_hai
+
+set_popularities = {
+	democratic = 15 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 10
+	communism = 55 #Communism
+	left_wing_radical = 10
+	neutrality = 8 #Paternal Autocracy
+	fascism = 2 #Nationalism
+}
+
+set_politics = {
+	ruling_party = communism
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}

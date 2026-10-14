@@ -3361,9 +3361,9 @@ focus_tree = {
 		y = 1
 		cost = 2
 		available = {
-			1016 = {
-				is_controlled_by = ROOT
-			}
+			# 1016 = {
+			#	is_controlled_by = ROOT
+			#}
 			has_country_flag = DRV_has_proclaimed_idp
 		}
 		prerequisite = {

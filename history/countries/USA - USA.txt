@@ -16,7 +16,7 @@ navy_experience = 20
 #activate_mission = USA_kkk_attack_imminent
 
 create_faction_from_template = faction_template_washington_international
-add_to_faction = PRC
+#add_to_faction = PRC
 
 #set_power_balance = {
 	#id = USA_power_balance

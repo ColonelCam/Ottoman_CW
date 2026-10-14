@@ -179,56 +179,6 @@ units = {
 		start_experience_factor = 1
 		start_equipment_factor = 0.8
 	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 16
-		}
-		location =  9843
-		division_template = "Chinese Occupation Force"		
-		start_experience_factor = 1
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 17
-		}
-		location =  11996
-		division_template = "Chinese Occupation Force"		
-		start_experience_factor = 1
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 18
-		}
-		location =  11996
-		division_template = "Chinese Occupation Force"		
-		start_experience_factor = 1
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 19
-		}
-		location =  11996
-		division_template = "Chinese Occupation Force"		
-		start_experience_factor = 1
-		start_equipment_factor = 0.8
-	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 20
-		}
-		location =  11996
-		division_template = "Chinese Occupation Force"		
-		start_experience_factor = 1
-		start_equipment_factor = 0.8
-	}
 }
 
 #########################

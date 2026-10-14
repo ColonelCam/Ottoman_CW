@@ -16,7 +16,7 @@ on_actions = {
             PRC = {
                 country_event = {
                     id = phm_events.1
-                    days = 20
+                    days = 20 # 900
                 }
             }
         }

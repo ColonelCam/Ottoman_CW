@@ -22,9 +22,7 @@ PRC_seize_manchuria = {
 	
 	allowed = {
 		original_tag = PRC
-		CHI = {
-			exists = no
-		}
+		has_war_with = CHI
 	}
 
 	visible = {

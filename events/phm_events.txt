@@ -28,7 +28,28 @@ country_event = {
 				target = CHI
 				type = civil_war
 			}
+			declare_war_on = {
+				target = SHX
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = JFC
+				type = annex_everything
+			}
 			hidden_effect = {
+				set_state_controller = 595
+				set_state_controller = 597
+				set_state_controller = 625
+				CHI = {
+					set_province_controller = 7014
+					set_province_controller = 7120	
+					set_province_controller = 7189
+					set_province_controller = 1069
+					set_province_controller = 4037
+					set_province_controller = 10043
+					set_province_controller = 11962
+					load_oob = "CHI_anti_com_corps"
+				}
 				load_oob = "PRC_uprising_first_wave"
 			country_event = {
 				id = phm_events.2
@@ -53,7 +74,20 @@ country_event = {
 		name = phm_events.2.a
 		
 			hidden_effect = {
+				
+			declare_war_on = {
+				target = YUN
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GXC
+				type = annex_everything
+			}
 				load_oob = "PRC_uprising_second_wave"
+				#set_state_controller = 592
+				set_state_controller = 728
+				set_state_controller = 1446
+				set_state_controller = 1447	
 			country_event = {
 				id = phm_events.3
 				days = 2
@@ -75,6 +109,40 @@ country_event = {
 		name = phm_events.3.a
 		custom_effect_tooltip = "No more lootbox."
 			hidden_effect = {
+				declare_war_on = {
+				target = SZC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = XIK
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SUI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SUI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = YLC
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = NXM
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = XSM
+				type = annex_everything
+			}
+				set_state_controller = 728
+				set_state_controller = 1088
+				set_state_controller = 1134	
+				CHI = {
+					set_province_controller = 7097
+				}
 				load_oob = "PRC_uprising_third_wave"
 			}
 		}
