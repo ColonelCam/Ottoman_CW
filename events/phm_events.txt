@@ -39,7 +39,7 @@ country_event = {
 			CHI = {
 					add_timed_idea = {
 						idea = CHI_last_stand
-						days = 100
+						days = 360
 					}
 			}
 			hidden_effect = {
