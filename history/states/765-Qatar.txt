@@ -1,0 +1,30 @@
+state={
+	id=765
+	name="STATE_765"
+	
+	resources={
+		oil=1
+	}
+
+	history = {
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = QAT
+		victory_points = {
+			8051 1
+		}
+		buildings = {
+			infrastructure = 2
+			8051 = {
+				naval_base = 2
+			}
+		}
+	}
+
+	provinces={
+		8051 14286 14288 
+	}
+	manpower = 51600
+	local_supplies = 0.0 
+	state_category = pastoral
+}

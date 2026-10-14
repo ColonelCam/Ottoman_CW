@@ -1,0 +1,26 @@
+
+state={
+	id=210
+	name="STATE_210" # Omani Desert
+	manpower = 10000
+	
+	state_category = wasteland
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = IMO
+		add_core_of = OMA
+		1956.1.1 = {
+			owner = OMA
+		}
+		buildings = {
+			infrastructure = 0
+		}
+	}
+
+	provinces={
+		2018 2059 14267 14268 14271 
+	}
+
+	local_supplies=0.0 
+}

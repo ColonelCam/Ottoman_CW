@@ -1,0 +1,24 @@
+state={
+	id=995
+	name="STATE_995"
+	
+	history={
+		owner = TUR
+		add_core_of = ISR
+add_core_of = TUR
+		# De Facto Israeli control
+				buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			1086 20
+		}
+	}
+	
+	provinces={
+		1086
+	}
+	manpower=479247
+	state_category=town
+	local_supplies=1.0
+}

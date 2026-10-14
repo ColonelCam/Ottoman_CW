@@ -1,0 +1,26 @@
+state={
+	id=1037
+	name="STATE_1037"
+	
+	resources={
+		oil=1
+	}
+	
+	history = {
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = BHR
+		add_claim_by = IRN
+		victory_points = {
+			13444 3
+		}
+	}
+	
+	provinces={
+		13444
+	}
+	manpower=108650
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category = pastoral
+}

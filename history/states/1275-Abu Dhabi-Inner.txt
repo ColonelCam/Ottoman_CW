@@ -1,0 +1,22 @@
+
+state={
+	id=1275
+	name="STATE_1275"
+	manpower = 5000
+	
+	state_category = wasteland
+	impassable = yes
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = UAE
+		add_claim_by = SAU
+	}
+
+	provinces={
+		4932 
+	}
+
+	local_supplies=4.0 
+}

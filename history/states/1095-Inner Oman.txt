@@ -1,0 +1,35 @@
+state = {
+	id = 1095
+	name = "STATE_1095"
+
+	state_category = pastoral
+	
+	resources={
+		oil=2 
+	}
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = IMO
+		add_core_of = OMA
+		1956.1.1 = {
+			owner = OMA
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			5049 3
+		}
+		victory_points = {
+			14276 1
+		}
+	}
+	
+	provinces={
+		5049 14273 14274 14275 14276 14277 14278 14279 14281 
+	}
+	
+	manpower=70000
+}

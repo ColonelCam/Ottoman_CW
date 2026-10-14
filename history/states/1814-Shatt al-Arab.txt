@@ -1,0 +1,25 @@
+state = {
+    id = 1814
+    name="STATE_1814"
+    manpower = 42500
+    state_category = rural
+
+    history = {
+		owner = TUR
+		add_core_of = IRQ
+add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+		}
+        victory_points = {
+            78 3
+        }
+    }
+
+    provinces = {
+        78 13487 16163 16164
+    }
+
+    local_supplies = 0
+}

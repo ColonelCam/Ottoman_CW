@@ -1,0 +1,26 @@
+state={
+	id=675
+	name="STATE_675"
+
+	history={
+		owner = TUR
+		add_core_of = IRQ
+add_core_of = TUR
+		victory_points = {
+			12839 2
+		}
+		victory_points = {
+			1631 1 
+		}
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	
+	provinces={
+		1631 12413 12839 14143 14145 14146 14147 14148 
+	}
+	manpower = 172093
+	state_category = pastoral
+	local_supplies=0.0 
+}

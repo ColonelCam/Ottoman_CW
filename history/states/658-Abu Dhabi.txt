@@ -1,0 +1,35 @@
+
+state={
+	id=658
+	name="STATE_658"
+	manpower = 170200
+	resources={
+		oil=4
+	}
+	
+	state_category = pastoral
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = UAE
+		buildings = {
+			infrastructure = 1
+			14285 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			7960 1 
+		}
+		victory_points = {
+			14285 2
+		}
+	}
+
+	provinces={
+		2048 7960 8108 10904 14282 14283 14285 14287 14289 
+	}
+
+	local_supplies=4.0 
+}

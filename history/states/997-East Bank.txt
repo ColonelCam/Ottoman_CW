@@ -1,0 +1,34 @@
+state={
+	id=997
+	name="STATE_997"
+
+	history={
+		owner = TUR
+		add_core_of = ISR
+add_core_of = TUR
+		1948.6.1 = {
+			owner = TUR
+			add_core_of = PAL
+		}
+		1950.6.1 = {
+			owner = JOR
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = {
+			7107 3
+		}
+		victory_points = {
+			13657 4
+		}
+	}
+	provinces={
+		7107 13392 13393 13655 13656 13657 13658
+	}
+	manpower=1498188
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

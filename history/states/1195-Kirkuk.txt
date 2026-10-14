@@ -1,0 +1,29 @@
+
+state={
+	id=1195
+	name="STATE_1195"
+	
+	resources={
+		oil=10
+	}
+
+	history={
+		owner = TUR
+		add_core_of = IRQ
+add_core_of = TUR
+		add_core_of = KUR
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			15633 7
+		}
+	}
+
+	provinces={
+		8123 10793 15629 15633 
+	}
+	manpower = 300000
+	state_category = pastoral
+	local_supplies=6.0 
+}

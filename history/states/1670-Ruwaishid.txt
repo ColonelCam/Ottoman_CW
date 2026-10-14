@@ -1,0 +1,21 @@
+
+state={
+	id=1670
+	name="STATE_1670"
+
+	history={
+		owner = TUR
+		add_core_of = JOR
+add_core_of = TUR
+		buildings = {
+			infrastructure = 1
+		}
+	}
+
+	provinces={
+		1544 4440 13973 13975
+	}
+	manpower = 42000 
+	state_category = wasteland
+	local_supplies=0.0 
+}

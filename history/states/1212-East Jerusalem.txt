@@ -1,0 +1,31 @@
+state={
+	id=1212
+	name="STATE_1212"
+	
+	history={
+		owner = TUR
+		add_core_of = ISR
+add_core_of = TUR
+		1948.6.1 = {
+			owner = TUR
+			add_core_of = PAL
+		}
+		1950.6.1 = {
+			owner = JOR
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			13660 10 
+		}
+	}
+	
+	provinces={
+		13660 
+	}
+	manpower=284222
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

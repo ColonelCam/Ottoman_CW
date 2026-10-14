@@ -1,0 +1,24 @@
+state= {
+	id=183
+	name="STATE_183"
+	
+	resources={
+		chromium=3
+	}
+
+	history={
+		owner = TUR
+		add_core_of = CYP
+add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	
+	provinces= {
+		7193 15202
+	}
+	manpower = 347959 #pending update
+	state_category = rural
+	local_supplies=0.0 
+}

@@ -1,0 +1,28 @@
+
+state={
+	id=1668
+	name="STATE_1668"
+
+	history={
+		owner = TUR
+		add_core_of = KUR
+		add_claim_by = IRQ
+		1948.6.1 = {
+			add_core_of = IRQ
+add_core_of = TUR
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			15632 5
+		}
+	}
+
+	provinces={
+		6826 15630 15631 15632 15637 15640
+	}
+	manpower = 220000
+	state_category = rural
+	local_supplies=6.0 
+}

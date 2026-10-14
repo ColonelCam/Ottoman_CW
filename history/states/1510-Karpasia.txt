@@ -1,0 +1,21 @@
+state={
+	id=1510
+	name="STATE_1510"
+
+	history={
+		owner = TUR
+		add_core_of = CYP
+add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+		}
+	}
+	
+	provinces= {
+		15195 15210
+	}
+	
+	manpower = 347959 # TODO: pending update
+	state_category = rural	
+	local_supplies=0.0 
+}

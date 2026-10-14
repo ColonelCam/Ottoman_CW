@@ -1,0 +1,21 @@
+
+state={
+	id=1190
+	name="STATE_1190"
+
+	history={
+		owner = TUR
+		add_core_of = IRQ
+add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+		}
+	}
+
+	provinces={
+		3795 12046
+	}
+	manpower = 70000
+	state_category = pastoral
+	local_supplies=6.0 
+}

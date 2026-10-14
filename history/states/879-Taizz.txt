@@ -1,0 +1,26 @@
+
+state = {
+	id = 879
+	name = "STATE_879" 
+
+	history = {
+		owner = TUR
+		add_core_of = YEM
+		add_core_of = TUR
+		add_claim_by = FSA
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			13493 3 
+		}
+	}
+
+	provinces={
+		1973 10752 13493 
+	}
+	
+	manpower = 800000
+	state_category = rural
+	local_supplies = 0.0 
+}

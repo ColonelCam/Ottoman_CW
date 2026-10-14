@@ -1,0 +1,24 @@
+
+state={
+	id=1274
+	name="STATE_1274"
+	manpower=5000
+	
+	impassable = yes
+
+	history={
+		owner = TUR
+		add_core_of = FSA
+		add_core_of = TUR
+		add_core_of = YEM
+		add_contested_owner = SAU
+	}
+
+	provinces={
+		12894 
+	}
+	
+	buildings_max_level_factor=1.000
+	state_category=wasteland
+	local_supplies=0.000
+}

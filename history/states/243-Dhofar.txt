@@ -1,0 +1,25 @@
+
+state={
+	id=243
+	name="STATE_243"
+	manpower = 30000
+	
+	state_category = pastoral
+
+	history={
+		owner = TUR
+		add_core_of = OMA
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			2103 2
+		}
+	}
+
+	provinces={
+		2103 14266 
+	}
+	local_supplies=0.0 
+}

@@ -1,0 +1,27 @@
+
+state={
+	id=1399
+	name="STATE_1399"
+	manpower=471202
+
+	history={
+		owner = TUR
+		add_core_of = FSA
+		add_core_of = YEM
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			14246 1
+		}
+	}
+
+	provinces={
+		14245 14246 14247 14249 
+	}
+	
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

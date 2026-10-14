@@ -1,0 +1,25 @@
+state={
+	id=1673
+	name="STATE_1673"
+	history = {
+		owner = TUR
+		add_core_of = JOR
+add_core_of = TUR
+		victory_points = {
+			4115 1
+		}
+		buildings = {
+			infrastructure = 2
+			4115 = {
+				naval_base = 1
+			}
+		}
+	}
+	provinces={
+		4115 13964 13966 13968
+	}
+	manpower=25000 
+	state_category=pastoral
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
