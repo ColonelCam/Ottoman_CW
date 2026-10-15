@@ -1,0 +1,28 @@
+characters={
+	NOR_einar_gerhardsen={
+		name="Einar Gerhardsen"
+		portraits={
+			civilian={
+				large="gfx/leaders/NOR/Portrait_Norway_Einar_Gerhardson.png"
+			}
+		}
+		country_leader={
+			ideology=social_democrat_sub
+			traits = {}
+			expire="1965.1.1.1"
+		}
+	}
+
+	NOR_rolf_fuglesang={
+		name="Rolf Jørgen Fuglesang"
+		portraits={
+			civilian={
+				large="gfx/leaders/NOR/rolf_fuglesang.tga"
+			}
+		}
+		country_leader={
+			ideology=nationalism
+			traits = {}
+		}
+	}
+}

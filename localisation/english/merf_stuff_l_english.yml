@@ -6,6 +6,8 @@
   FSW_fascism_party:0 "SNA"
   FSW_fascism_party_long:0 "Skandinaviens Nationella Arbetarparti"
 
+  NOR_fascism_party:0 "Nasjonal Samling"
+
   merf.2.t:0 "Scandinavian Nationalists Unite"
   merf.2.d:0 "After the conclusion of the Swedish Civil War, the Danish and Swedish authorities have finally rejoiced in unification as they begin their project for a greater Nordic reich.\n\nAfter a brief conference, the nations have elected the Swedish leader Sven Olov Lindholm as their absolute dictator, and they now greedily eye the missing piece of the puzzle- Norway."
   merf.2.a:0 "I thought we banished fascism?!"
@@ -21,3 +23,7 @@
   merf.8.t:0 "Scandinavia joins the I.W.W."
   merf.8.d:0 "Following Lindholm's new direction for Scandinavia, the American President has decided they have become sufficiently reformed and are now amicable to be admitted to America's international alliance- the International Workers of the World.\n\nThis represents a huge alignment on the global stage, as America now has a direct line to put pressure on Central Europe."
   merf.8.a:0 "A Spectre is Haunting Europe..."
+
+  merf.10.t:0 "The Oslo Putsch"
+  merf.10.d:0 "Highly dissatisfied with Lindholm's chosen direction for Scandinavia, especially aligning with the communists, and with Scandinavian sovereignty now being directly threatened, former unionists in Norway have renounced the united Scandinavian dream and declared independence.\n\nWith thunderous applause from gathered crowds in Oslo, who deeply reject the war, the Norwegian state has been resurrect and militia have been mobilised to secure their sovereignty against Copenhagen."
+  merf.10.a:0 "Good... luck?"

@@ -224,3 +224,63 @@ news_event = {
 		name = merf.8.a
 	}
 }
+
+#Great Norwegian Revolt!
+country_event = {
+	id = merf.9
+	title = merf.9.t
+	desc = merf.9.d
+	#picture =
+	trigger = {
+		original_tag = DEN
+		owns_state = 110
+		has_government = communism
+		surrender_progress > 0.1
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 21
+	}
+	option = {
+		name = merf.9.a
+		NOR = {
+			transfer_state = 110
+			load_oob = "NOR_REVOLUTION"
+			add_popularity = {
+			    ideology = fascism
+			    popularity = 0.45
+			}
+			set_politics = {
+			    ruling_party = fascism
+			    elections_allowed = no
+			}
+			remove_ideas = {
+				NOR_complacent_cabinet_ns
+				NOR_crumbling_fortifications_ns				
+			}
+			add_research_slot = 1
+			inherit_technology = DEN
+		}
+                declare_war_on = {
+                	target = NOR
+                	type = annex_everything
+            	}
+		news_event = {
+			id = merf.10
+			hours = 2
+		}
+	}
+}
+
+#News for above
+news_event = {
+	id = merf.10
+	title = merf.10.t
+	desc = merf.10.d
+	picture = GFX_news_event_gathering_protest
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merf.10.a
+	}
+}
