@@ -25,6 +25,7 @@ recruit_character = IRN_mohammad_mosaddegh
 add_ideas = {
 	#National Spirits
 	IRN_anglo_iranian_oil_company
+	IRN_core_states_attack_buff
 	
 	#Cabinet
 	IRN_mohammad_reza_shah

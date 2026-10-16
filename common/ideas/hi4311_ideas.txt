@@ -47,5 +47,13 @@ ideas = {
                 send_volunteers_tension = -0.5
             }
 		}
+		
+		IRN_core_states_attack_buff = {
+			allowed = { original_tag = IRN }
+			modifier = {
+				army_core_attack_factor = 0.4
+				army_core_defence_factor = 0.7
+			}
+		}
     }
 }

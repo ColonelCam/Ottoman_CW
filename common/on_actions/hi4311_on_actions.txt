@@ -1,0 +1,22 @@
+on_actions = {
+    on_capitulation = {
+		# This is an extra failsafe, otherwise the return of British-occupied Iranian states should be handled alongside
+		# Ottoman victory over the British.
+        effect = {
+			IF = {
+				LIMIT = {
+					ROOT = { original_tag = ENG }
+                    FROM = { original_tag = IRN	}
+				}
+				FROM = {
+					white_peace = { tag = ROOT }
+					
+					every_core_state = {
+						LIMIT = { is_owned_by = ENG }
+						transfer_state_to = IRN
+					}
+				}
+			}
+        }
+    }
+}

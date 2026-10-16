@@ -136,6 +136,14 @@ country_event = {
 			target = KUW
 			transfer_troops = no
 		}
+		hidden_effect = {
+			IRN = {
+				every_core_state = {
+					limit = { is_owned_by = ENG }
+					transfer_state_to = IRN
+				}
+			}
+		}
 	}
 }
 
