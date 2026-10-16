@@ -1,0 +1,68 @@
+operations = {
+	IRN_proclaim_iranian_unification = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			tag = IRN
+		}
+		available = {
+			all_core_state = { is_owned_by = ROOT }
+		}
+		
+		cost = 10
+		fire_only_once = yes
+		ai_will_do = { factor = 10 }
+		days_remove = 4
+		
+		remove_effect = {
+			news_event = hi4311_news_event.4
+		}
+	}
+	
+	IRN_train_new_divisions = {
+		icon = GFX_decision_eng_trade_unions_support
+
+		visible = {
+			tag = IRN
+		}
+		
+		cost = 10
+		ai_will_do = { factor = 20 }
+		days_remove = 60
+		
+		modifier = {
+			training_time_factor = -0.3
+			training_time_army_factor = -0.2
+			max_training = 0.2
+		}
+		
+		complete_effect = {
+			add_manpower = 10000
+		}
+	}
+
+	IRN_seize_abu_musa = {
+		visible = { tag = IRN }
+
+		ai_will_do = { factor = 30 }
+		available = {
+			OR = {
+				has_war_with = ENG
+				TUR = { has_war_with = ENG }
+			}
+		}
+		days_remove = 3
+		fire_only_once = yes
+
+		remove_effect = {
+			1027 = {
+				transfer_state_to = IRN
+				create_unit = {
+					division = "name = \"Infantry Units\" division_template = \"Infantry Group\" start_experience_factor = 1.0"
+					owner = IRN
+					count = 2
+				}
+			}
+		}
+	}
+}

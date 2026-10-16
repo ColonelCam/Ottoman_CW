@@ -1,0 +1,116 @@
+spriteTypes = {
+	
+	#####################
+	#	SUPEREVENT GFX	#
+	#####################
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_background"
+		texturefile = "gfx/interface/GFX_superevent_background.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_foreground"
+		texturefile = "gfx/interface/GFX_superevent_foreground.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_confirm_button"
+		texturefile = "gfx/interface/GFX_superevent_confirm_button.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_1"
+		texturefile = "gfx/interface/superevents/superevent_test.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_KOR_WAR"
+		texturefile = "gfx/interface/superevents/superevent_korean_war.png"
+	}
+
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_USA_CWR"
+		texturefile = "gfx/interface/superevents/superevent_american_civil_war.png"
+	}
+
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_HUN_REV"
+		texturefile = "gfx/interface/superevents/superevent_hungarian_revolution.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_HUN_GHR"
+		texturefile = "gfx/interface/superevents/superevent_greater_hungary_restored.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_PRC_WINS"
+		texturefile = "gfx/interface/superevents/superevent_prc_wins_chinese_civil_war.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_ROC_WINS"
+		texturefile = "gfx/interface/superevents/superevent_roc_wins_chinese_civil_war.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_SOV_MOON"
+		texturefile = "gfx/interface/superevents/superevent_soviet_landing_on_moon.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_USA_MOON"
+		texturefile = "gfx/interface/superevents/superevent_american_landing_on_moon.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_THIRD_WORLD_WAR"
+		texturefile = "gfx/interface/superevents/superevent_3rd_world_war.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_SOV_STALIN_DEAD"
+		texturefile = "gfx/interface/superevents/superevent_death_of_stalin.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_SOV_SOVIET_CIVIL_WAR"
+		texturefile = "gfx/interface/superevents/superevent_soviet_civil_war.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_GER_UNIFICATION_COMMUNISM"
+		texturefile = "gfx/interface/superevents/superevent_german_unification_communism.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_GER_UNIFICATION_DEMOCRATIC"
+		texturefile = "gfx/interface/superevents/superevent_german_unification_democratic.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_USA_NORTH_AMERICAN_UNIFICATION"
+		texturefile = "gfx/interface/superevents/superevent_north_american_unification.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_BERLIN_WALL"
+		texturefile = "gfx/interface/superevents/superevent_berlin_wall.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_CUBAN_MISSILE_CRISIS"
+		texturefile = "gfx/interface/superevents/superevent_cuban_missile_crisis.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_stuff_embed_BRAZILIAN_CIVIL_WAR"
+		texturefile = "gfx/interface/superevents/superevent_brazilian_civil_war.png"
+	}
+	
+	spriteType = {
+		name = "GFX_superevent_Iranian_Reunification"
+		texturefile = "gfx/Super_Event_Iranian_Reunification.dds"
+	}
+}

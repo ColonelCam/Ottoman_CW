@@ -3,6 +3,10 @@ SpriteTypes = {
 		name = "hi4311_iran_constitutional_monarchy"
 		texturefile = "gfx/event_pictures/hi4311_iran_constitutional_monarchy.dds"
 	}
+	SpriteType = {
+		name = "hi4311_iran_reunified"
+		texturefile = "gfx/event_pictures/hi4311_iran_reunified.dds"
+	}
 	
 	SpriteType = {
 		name = "GFX_focus_TUR_IRN_strike_south"

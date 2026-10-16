@@ -2,12 +2,8 @@ IRN_historical = {
 	name = "Iranian Historical Plan"
 	desc = "Mogging to retrieve all Iranian states and fuck over the UK"
 
-	allowed = {
-		original_tag = IRN
-	}
-	enable = {
-		always = yes
-	}
+	allowed = { original_tag = IRN }
+	enable = { always = yes }
 	abort = {}
 
 	ai_national_focuses = {

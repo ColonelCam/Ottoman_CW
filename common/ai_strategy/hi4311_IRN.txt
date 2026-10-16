@@ -1,0 +1,136 @@
+IRN_prepare_for_war_strategy = {
+	abort_when_not_enabled = yes
+	allowed = {
+		original_tag = IRN
+	}
+	enable = {
+		num_divisions < 52
+	}
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 720
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 450
+	}
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = 800
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = 200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -80
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -120
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = 200
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 150
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 750
+	}
+}
+
+IRN_war_against_ENG_strategy = {
+	allowed = { original_tag = IRN }
+	enable = { has_war_with = ENG }
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = front_control
+		country_trigger = {
+			OR = {
+				tag = ENG
+				is_in_faction_with = ENG
+			}
+		}
+		state_trigger = {
+			is_core_of = IRN
+		}
+		ordertype = front
+		execution_type = balanced
+		manual_attack = yes
+		priority = 1
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		country_trigger = {
+			OR = {
+				tag = ENG
+				is_in_faction_with = ENG
+			}
+		}
+		state_trigger = {
+			is_core_of = IRN
+		}
+		value = 100
+	}
+	ai_strategy = {
+		type = force_concentration_target_weight
+		country_trigger = {
+			OR = {
+				tag = ENG
+				is_in_faction_with = ENG
+			}
+		}
+		state_trigger = {
+			is_core_of = IRN
+		}
+		value = 100
+	}
+	
+	# Safeguard naval-border states. Keep 35% of available divisions garrisoned in those states
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.35
+		states = {
+			410
+			1025
+			1024
+			413
+		}
+	}
+	
+	# Reduce the AI's desire to spare units for ally defence (negative = less)
+	ai_strategy = {
+		type = spare_unit_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = dont_defend_ally_borders
+		id = TUR
+		value = 100
+	}
+}

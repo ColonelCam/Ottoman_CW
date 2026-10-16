@@ -14,6 +14,7 @@ focus_tree = {
 	default = no
 
 	continuous_focus_position = { x = 120 y = 200 }
+	shared_focus = IRN_TUR_form_alliance
 
 	focus = {
 		id = TUR_healthy_uncle_of_europe

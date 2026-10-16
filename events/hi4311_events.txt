@@ -86,6 +86,7 @@ country_event = { # Iran requests return of states
 				value = 420
 			}
 		}
+		set_country_flag = IRN_friends_TUR
 		ai_chance = { base = 1 }
 	}
 	option = {
@@ -121,7 +122,7 @@ country_event = { # Iran requests to join our faction
 	
 	trigger = {
 		tag = TUR
-		TUR = { is_faction_leader = yes }
+		is_faction_leader = yes
 		NOT = { IRN = { has_country_flag = IRN_antagonized_by_TUR } }
 	}
 	is_triggered_only = yes
@@ -162,9 +163,6 @@ news_event = { # NEWS: Iran Retrieves States from Russia
 	
 	option = {
 		name = hi4311_news_event.2.a
-		IRN = {
-			set_cosmetic_tag = IRN_shahdom
-		}
 	}
 }
 
@@ -179,5 +177,26 @@ news_event = { # NEWS: Japanese Civil War
 	
 	option = {
 		name = hi4311_news_event.3.a
+	}
+}
+
+news_event = { # NEWS: Iran Reunified
+	id = hi4311_news_event.4
+	title = hi4311_news_event.4.t
+	desc = hi4311_news_event.4.desc
+	picture = hi4311_iran_reunified
+	
+	major = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+			set_global_flag = SE__IRANIAN_REUNIFICATION
+			play_song = Iranian_Reunification_Colonel_Cam_Audio
+		}
+	}
+	
+	option = {
+		name = hi4311_news_event.4.a
 	}
 }

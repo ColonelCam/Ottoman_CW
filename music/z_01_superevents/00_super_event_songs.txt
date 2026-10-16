@@ -1,0 +1,144 @@
+
+music_station = "AtM_SE"
+
+music = {
+	song = "american_civil_war_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "Iranian_Reunification_Colonel_Cam_Audio"
+	chance = {
+		modifier = { factor = 0.0 }
+	}
+}
+
+music = {
+	song = "korean_war_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "hungarian_revolution_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "greater_hungary_restored_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "3rd_world_war_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "death_of_stalin_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "north_american_unification_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "prc_victory_in_ccw_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "roc_victory_in_ccw_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "soviet_civil_war_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "american_moon_landing_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "soviet_moon_landing_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "german_reunification_democratic_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "german_reunification_communist_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}
+
+music = {
+	song = "atom_bomb_baby_SE"
+	chance = {
+		modifier = {
+			factor = 0.0
+		}		
+	}
+}

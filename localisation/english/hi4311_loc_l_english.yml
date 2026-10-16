@@ -34,6 +34,10 @@
     hi4311_news_event.3.t: "Japanese Civil War"
     hi4311_news_event.3.desc: "The long-standing division of Japan has erupted into open conflict. North and South Japan, the two states established after the Second Great War under the respective influence of [ENG.GetNameDefCap] and [SOV.GetNameDefCap], have formally entered a state of war, fighting along the demarcation line separating the two governments.\n\nThe origins of the conflict remain contested. Northern authorities accuse the South of provoking border incidents and harboring reactionary elements, while Southern officials claim the North is seeking to impose its will by force.\nFor the people of Japan, the outbreak of civil war marks the most serious crisis since the end of the Second Great War."
     hi4311_news_event.3.a: "It was bound to happen."
+    
+    hi4311_news_event.4.t: "Iranian Reunification Achieved"
+    hi4311_news_event.4.desc: "The Iranian people have taken to the streets today in mass celebrations following the final success of the reunification campaigns. After months of bitter fighting, the last of Iranian soul has been liberated, and the government led by [IRN.GetLeader] has declared that Iran is whole once more. Crowds gathered in cities and towns across the country, waving flags, chanting patriotic slogans, and calling for national unity after years of division and conflict.\n\nThe War of Reunification, which divided families, devastated border regions, and consumed the resources of the young Iranian state, has formally ended with the restoration of central authority over all Iranian territory. Many Iranians now look to [IRN.capital.GetCapitalVictoryPointName] with hope that the sacrifices of the war will not have been in vain."
+    hi4311_news_event.4.a: "The Iranian Spring Has Arrived."
 
     ## IDEAS
     volunteer_cap_increase: "§GVolunteer Cap Increase:§!\n"

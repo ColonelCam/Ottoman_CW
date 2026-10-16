@@ -1,0 +1,174 @@
+guiTypes = {
+	containerWindowType = {
+		name = "SE_WINDOW_WINDOW"
+		position = { x = 0 y = 0 }
+		size = { width = 720 height = 512 }
+		orientation = center
+		origo = center
+		moveable = yes
+		click_to_front = no
+		clipping = no
+
+		background = {
+			name = "Background"	
+			spriteType = GFX_superevent_stuff_background
+		}
+		
+		iconType = {
+			name = "Super_Event_Testing_Embed"
+			spriteType = GFX_superevent_stuff_embed_1
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_Iranian_Reunification_Embed"
+			spriteType = GFX_superevent_Iranian_Reunification
+			position = { x = 0 y = 0 }
+		}
+		
+		iconType = {
+			name = "Super_Event_Korea_Embed"
+			spriteType = GFX_superevent_stuff_embed_KOR_WAR
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_USA_CWR_Embed"
+			spriteType = GFX_superevent_stuff_embed_USA_CWR
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_HUN_REV_Embed"
+			spriteType = GFX_superevent_stuff_embed_HUN_REV
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_HUN_GHR_Embed"
+			spriteType = GFX_superevent_stuff_embed_HUN_GHR
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_PRC_WINS_Embed"
+			spriteType = GFX_superevent_stuff_embed_PRC_WINS
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_ROC_WINS_Embed"
+			spriteType = GFX_superevent_stuff_embed_ROC_WINS
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_USA_MOON_Embed"
+			spriteType = GFX_superevent_stuff_embed_USA_MOON
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_SOV_MOON_Embed"
+			spriteType = GFX_superevent_stuff_embed_SOV_MOON
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_THIRD_WORLD_WAR_Embed"
+			spriteType = GFX_superevent_stuff_embed_THIRD_WORLD_WAR
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_SOV_STALIN_DEAD_Embed"
+			spriteType = GFX_superevent_stuff_embed_SOV_STALIN_DEAD
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_SOVIET_CIVIL_WAR_Embed"
+			spriteType = GFX_superevent_stuff_embed_SOV_SOVIET_CIVIL_WAR
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_GER_UNIFICATION_COMMUNISM_Embed"
+			spriteType = GFX_superevent_stuff_embed_GER_UNIFICATION_COMMUNISM
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_GER_UNIFICATION_DEMOCRATIC_Embed"
+			spriteType = GFX_superevent_stuff_embed_GER_UNIFICATION_DEMOCRATIC
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_USA_NORTH_AMERICAN_UNIFICATION_Embed"
+			spriteType = GFX_superevent_stuff_embed_USA_NORTH_AMERICAN_UNIFICATION
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_BERLIN_WALL_Embed"
+			spriteType = GFX_superevent_stuff_embed_BERLIN_WALL
+			position = {x = 0 y = 0}
+		}
+		
+		iconType = {
+			name = "Super_Event_CUBAN_MISSILE_CRISIS_Embed"
+			spriteType = GFX_superevent_stuff_embed_CUBAN_MISSILE_CRISIS
+			position = {x = 0 y = 0}
+		}
+
+		iconType = {
+			name = "Super_Event_BRAZILIAN_CIVIL_WAR_Embed"
+			spriteType = GFX_superevent_stuff_embed_BRAZILIAN_CIVIL_WAR
+			position = {x = 0 y = 0}
+		}
+		
+		###############
+		###INTERFACE###
+		###############
+		
+		iconType = {
+			name = "Super_Event_Foreground_Cover"
+			spriteType = GFX_superevent_stuff_foreground
+			position = {x = 0 y = 0}
+		}
+		
+		instantTextBoxType = {
+			name = "super_event_yapping_part"
+			position = { x = 175 y = 305 }
+			font = "hoi_16mbs" #Invalid Font
+			borderSize = {x = 0 y = 0}
+			text = "[get_super_event_yappery]"
+			maxWidth = 348
+			maxHeight = 110
+			fixedsize = yes	
+			format = left
+		}
+		
+		instantTextboxType = {
+			name = "super_title"
+			position = { x = 110 y = 14 }
+			font = "hoi_24header"
+			format = center
+			borderSize = {x = 0 y = 0}
+			text = "[get_super_event_title]"
+			maxWidth = 500
+			maxHeight = 50
+			fixedsize = yes
+		}
+		
+		buttonType = {
+			name = "sp_event_close_button"
+			spriteType = "GFX_superevent_stuff_confirm_button"
+			position = { x = 162 y = 438 }
+			clicksound = click_close
+			buttonText = "[get_super_event_confirm_quote]"
+			buttonFont = "hoi_20b"
+		}
+	}
+}

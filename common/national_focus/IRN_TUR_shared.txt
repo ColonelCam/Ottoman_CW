@@ -18,7 +18,13 @@ shared_focus = {
 		trigger = { has_focus_tree = iran_focus }
 	}
 	allow_branch = {
-		NOT = { IRN = { has_country_flag = IRN_antagonized_by_TUR } }
+		IF = {
+			LIMIT = { original_tag = IRN }
+			NOT = { has_country_flag = IRN_antagonized_by_TUR }
+		}
+		ELSE = {
+			has_country_flag = IRN_friends_TUR
+		}
 	}
 
 	text_icon = SSB_PER_focus_style

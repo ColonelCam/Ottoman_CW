@@ -1,0 +1,393 @@
+# TITLES
+defined_text = {
+	name = get_super_event_title
+	
+	text = {
+		trigger = { has_global_flag = SE__TESTING_1 }
+		localization_key = SE__TESTING_1_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE__IRANIAN_REUNIFICATION }
+		localization_key = "Iranian Reunification"
+	}
+	text = {
+		trigger = { has_global_flag = SE_KOREA }
+		localization_key = SE_KOREA_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_CWR }
+		localization_key = SE_USA_CWR_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_REV }
+		localization_key = SE_HUN_REV_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_GHR }
+		localization_key = SE_HUN_GHR_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_PRC_WINS }
+		localization_key = SE_PRC_WINS_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_ROC_WINS }
+		localization_key = SE_ROC_WINS_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_MOON }
+		localization_key = SE_USA_MOON_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_MOON }
+		localization_key = SE_SOV_MOON_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_THIRD_WORLD_WAR }
+		localization_key = SE_THIRD_WORLD_WAR_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_STALIN_DEAD }
+		localization_key = SE_SOV_STALIN_DEAD_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_SOVIET_CIVIL_WAR }
+		localization_key = SE_SOV_SOVIET_CIVIL_WAR_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_COMMUNISM }
+		localization_key = SE_GER_UNIFICATION_COMMUNISM_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC }
+		localization_key = SE_GER_UNIFICATION_DEMOCRATIC_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION }
+		localization_key = SE_USA_NORTH_AMERICAN_UNIFICATION_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_BERLIN_WALL }
+		localization_key = SE_BERLIN_WALL_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_CUBAN_MISSILE_CRISIS }
+		localization_key = SE_CUBAN_MISSILE_CRISIS_TITLE
+	}
+	text = {
+		trigger = { has_global_flag = SE_BRA_CWR }
+		localization_key = SE_BRA_CWR_TITLE
+	}
+}
+
+# DESCS
+defined_text = {
+	name = get_super_event_yappery
+	
+	text = {
+		trigger = { has_global_flag = SE__TESTING_1 }
+		localization_key = SE_TESTING_1_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE__IRANIAN_REUNIFICATION }
+		localization_key = "I heard the voice of your revolution... As Shah of Iran as well as an Iranian citizen, I cannot but approve your revolution... Let all of us work together to establish real democracy in Iran... I make a commitment to be with you and your revolution against corruption and injustice in Iran. - Mohammad Reza Pahlavi"
+	}
+	text = {
+		trigger = { has_global_flag = SE_KOREA }
+		localization_key = SE_KOREA_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_CWR }
+		localization_key = SE_USA_CWR_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_REV }
+		localization_key = SE_HUN_REV_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_GHR }
+		localization_key = SE_HUN_GHR_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_PRC_WINS }
+		localization_key = SE_PRC_WINS_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_ROC_WINS }
+		localization_key = SE_ROC_WINS_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_MOON }
+		localization_key = SE_USA_MOON_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_MOON }
+		localization_key = SE_SOV_MOON_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_THIRD_WORLD_WAR }
+		localization_key = SE_THIRD_WORLD_WAR_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_STALIN_DEAD }
+		localization_key = SE_SOV_STALIN_DEAD_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_SOVIET_CIVIL_WAR }
+		localization_key = SE_SOV_SOVIET_CIVIL_WAR_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_COMMUNISM }
+		localization_key = SE_GER_UNIFICATION_COMMUNISM_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC }
+		localization_key = SE_GER_UNIFICATION_DEMOCRATIC_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION }
+		localization_key = SE_USA_NORTH_AMERICAN_UNIFICATION_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_BERLIN_WALL }
+		localization_key = SE_BERLIN_WALL_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_CUBAN_MISSILE_CRISIS }
+		localization_key = SE_CUBAN_MISSILE_CRISIS_DESC
+	}
+	text = {
+		trigger = { has_global_flag = SE_BRA_CWR }
+		localization_key = SE_BRA_CWR_DESC
+	}
+}
+
+# CONFIRMATIONS
+defined_text = {
+	name = get_super_event_confirm_quote
+	
+	text = {
+		trigger = { has_global_flag = SE__TESTING_1 }
+		localization_key = SE_TESTING_1_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE__IRANIAN_REUNIFICATION }
+		localization_key = "After A Long Winter, Comes The Thaw."
+	}
+	text = {
+		trigger = { has_global_flag = SE_KOREA }
+		localization_key = SE_KOREA_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_CWR }
+		localization_key = SE_USA_CWR_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_HUN_REV 
+				tag = HUN
+			}
+		}
+		localization_key = SE_HUN_REV_HUN_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_REV }
+		localization_key = SE_HUN_REV_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_HUN_GHR 
+				tag = HUN
+			}
+		}
+		localization_key = SE_HUN_GHR_HUN_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_HUN_GHR }
+		localization_key = SE_HUN_GHR_CONFIRM
+	}
+
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_PRC_WINS 
+				tag = PRC
+			}
+		}
+		localization_key = SE_PRC_WINS_PRC_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_PRC_WINS }
+		localization_key = SE_PRC_WINS_CONFIRM
+	}
+	
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_ROC_WINS 
+				tag = CHI
+			}
+		}
+		localization_key = SE_ROC_WINS_ROC_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_ROC_WINS }
+		localization_key = SE_ROC_WINS_CONFIRM
+	}
+	
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_USA_MOON 
+				tag = SOV
+			}
+		}
+		localization_key = SE_USA_MOON_SOV_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_MOON }
+		localization_key = SE_USA_MOON_CONFIRM
+	}
+	
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_SOV_MOON 
+				tag = SOV
+			}
+		}
+		localization_key = SE_SOV_MOON_SOV_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_MOON }
+		localization_key = SE_SOV_MOON_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_THIRD_WORLD_WAR }
+		localization_key = SE_THIRD_WORLD_WAR_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_SOV_STALIN_DEAD 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_SOV_STALIN_DEAD_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_STALIN_DEAD }
+		localization_key = SE_SOV_STALIN_DEAD_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_SOV_SOVIET_CIVIL_WAR 
+				tag = SOV
+			}
+		}
+		localization_key = SE_SOV_SOVIET_CIVIL_WAR_SOV_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_SOV_SOVIET_CIVIL_WAR 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_SOV_SOVIET_CIVIL_WAR_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_SOV_SOVIET_CIVIL_WAR }
+		localization_key = SE_SOV_SOVIET_CIVIL_WAR_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_GER_UNIFICATION_COMMUNISM 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_GER_UNIFICATION_COMMUNISM_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_COMMUNISM }
+		localization_key = SE_GER_UNIFICATION_COMMUNISM_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_GER_UNIFICATION_DEMOCRATIC_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC }
+		localization_key = SE_GER_UNIFICATION_DEMOCRATIC_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION 
+				tag = USA
+			}
+		}
+		localization_key = SE_USA_NORTH_AMERICAN_UNIFICATION_USA_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION }
+		localization_key = SE_USA_NORTH_AMERICAN_UNIFICATION_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_BERLIN_WALL 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_BERLIN_WALL_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_BERLIN_WALL }
+		localization_key = SE_BERLIN_WALL_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_CUBAN_MISSILE_CRISIS 
+				tag = USA
+			}
+		}
+		localization_key = SE_CUBAN_MISSILE_CRISIS_USA_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_CUBAN_MISSILE_CRISIS 
+				tag = SOV
+			}
+		}
+		localization_key = SE_CUBAN_MISSILE_CRISIS_SOV_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_CUBAN_MISSILE_CRISIS }
+		localization_key = SE_CUBAN_MISSILE_CRISIS_CONFIRM
+	}
+	text = {
+		trigger = {
+			AND = {
+				has_global_flag = SE_BRA_CWR 
+				is_communist = yes
+			}
+		}
+		localization_key = SE_BRA_CWR_COM_CONFIRM
+	}
+	text = {
+		trigger = { has_global_flag = SE_BRA_CWR }
+		localization_key = SE_BRA_CWR_CONFIRM
+	}
+}

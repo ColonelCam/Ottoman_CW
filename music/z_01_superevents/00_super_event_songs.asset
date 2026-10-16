@@ -1,0 +1,96 @@
+
+music = {
+	name = "american_civil_war_SE"
+	file = "american_civil_war.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "Iranian_Reunification_Colonel_Cam_Audio"
+	file = "Iranian_Reunification_Colonel_Cam_Audio.ogg"
+	volume = 1
+}
+
+music = {
+	name = "korean_war_SE"
+	file = "korean_war.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "hungarian_revolution_SE"
+	file = "hungarian_revolution.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "greater_hungary_restored_SE"
+	file = "greater_hungary_restored.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "3rd_world_war_SE"
+	file = "3rd_world_war.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "death_of_stalin_SE"
+	file = "death_of_stalin.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "north_american_unification_SE"
+	file = "north_american_unification.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "prc_victory_in_ccw_SE"
+	file = "prc_victory_in_ccw.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "roc_victory_in_ccw_SE"
+	file = "roc_victory_in_ccw.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "soviet_civil_war_SE"
+	file = "soviet_civil_war.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "american_moon_landing_SE"
+	file = "america_moon_landing.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "soviet_moon_landing_SE"
+	file = "soviet_moon_landing.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "german_reunification_democratic_SE"
+	file = "german_reunification_democratic.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "german_reunification_communist_SE"
+	file = "german_reunification_communist.ogg"
+	volume = 0.65
+}
+
+music = {
+	name = "atom_bomb_baby_SE"
+	file = "atom_bomb_baby.ogg"
+	volume = 0.65
+}

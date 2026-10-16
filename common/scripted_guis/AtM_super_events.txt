@@ -1,0 +1,196 @@
+scripted_gui = {
+
+	SE_WINDOW_SGUI = {
+		window_name = "SE_WINDOW_WINDOW"
+		context_type = player_context
+
+		visible = {
+			has_global_flag = GLOBAL__SEEING_SUPER_EVENT
+		}
+		
+		triggers = {
+			Super_Event_Testing_Embed_visible = {
+				has_global_flag = SE__TESTING_1
+			}
+			Super_Event_Iranian_Reunification_Embed_visible = {
+				has_global_flag = SE__IRANIAN_REUNIFICATION
+			}
+			Super_Event_Korea_Embed_visible = {
+				has_global_flag = SE_KOREA
+			}
+			Super_Event_USA_CWR_Embed_visible = {
+				has_global_flag = SE_USA_CWR
+			}
+			Super_Event_HUN_REV_Embed_visible = {
+				has_global_flag = SE_HUN_REV
+			}
+			Super_Event_HUN_GHR_Embed_visible = {
+				has_global_flag = SE_HUN_GHR
+			}
+			Super_Event_PRC_WINS_Embed_visible = {
+				has_global_flag = SE_PRC_WINS
+			}
+			Super_Event_ROC_WINS_Embed_visible = {
+				has_global_flag = SE_ROC_WINS
+			}
+			Super_Event_USA_MOON_Embed_visible = {
+				has_global_flag = SE_USA_MOON
+			}
+			Super_Event_SOV_MOON_Embed_visible = {
+				has_global_flag = SE_SOV_MOON
+			}
+			Super_Event_THIRD_WORLD_WAR_Embed_visible = {
+				has_global_flag = SE_THIRD_WORLD_WAR
+			}
+			Super_Event_SOV_STALIN_DEAD_Embed_visible = {
+				has_global_flag = SE_SOV_STALIN_DEAD
+			}
+			Super_Event_SOVIET_CIVIL_WAR_Embed_visible = {
+				has_global_flag = SE_SOV_SOVIET_CIVIL_WAR
+			}
+			Super_Event_GER_UNIFICATION_COMMUNISM_Embed_visible = {
+				has_global_flag = SE_GER_UNIFICATION_COMMUNISM
+			}
+			Super_Event_GER_UNIFICATION_DEMOCRATIC_Embed_visible = {
+				has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC
+			}
+			Super_Event_USA_NORTH_AMERICAN_UNIFICATION_Embed_visible = {
+				has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION
+			}
+			Super_Event_BERLIN_WALL_Embed_visible = {
+				has_global_flag = SE_BERLIN_WALL
+			}
+			Super_Event_CUBAN_MISSILE_CRISIS_Embed_visible = {
+				has_global_flag = SE_CUBAN_MISSILE_CRISIS
+			}
+			Super_Event_BRAZILIAN_CIVIL_WAR_Embed_visible = {
+				has_global_flag = SE_BRA_CWR
+			}
+		}
+
+		############
+		###BUTTON###
+		############
+		
+		effects = {
+			sp_event_close_button_click = {
+				clr_global_flag = GLOBAL__SEEING_SUPER_EVENT
+
+				if = {
+					limit = {
+						has_global_flag = SE__TESTING_1
+					}
+					clr_global_flag = SE__TESTING_1
+				}
+				if = {
+					limit = {
+						has_global_flag = SE__IRANIAN_REUNIFICATION
+					}
+					clr_global_flag = SE__IRANIAN_REUNIFICATION
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_KOREA
+					}
+					clr_global_flag = SE_KOREA
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_USA_CWR
+					}
+					clr_global_flag = SE_USA_CWR
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_HUN_REV
+					}
+					clr_global_flag = SE_HUN_REV
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_HUN_GHR
+					}
+					clr_global_flag = SE_HUN_GHR
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_PRC_WINS
+					}
+					clr_global_flag = SE_PRC_WINS
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_ROC_WINS
+					}
+					clr_global_flag = SE_ROC_WINS
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_USA_MOON
+					}
+					clr_global_flag = SE_USA_MOON
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_SOV_MOON
+					}
+					clr_global_flag = SE_SOV_MOON
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_THIRD_WORLD_WAR
+					}
+					clr_global_flag = SE_THIRD_WORLD_WAR
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_SOV_STALIN_DEAD
+					}
+					clr_global_flag = SE_SOV_STALIN_DEAD
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_SOV_SOVIET_CIVIL_WAR
+					}
+					clr_global_flag = SE_SOV_SOVIET_CIVIL_WAR
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_GER_UNIFICATION_COMMUNISM
+					}
+					clr_global_flag = SE_GER_UNIFICATION_COMMUNISM
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_GER_UNIFICATION_DEMOCRATIC
+					}
+					clr_global_flag = SE_GER_UNIFICATION_DEMOCRATIC
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION
+					}
+					clr_global_flag = SE_USA_NORTH_AMERICAN_UNIFICATION
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_BERLIN_WALL
+					}
+					clr_global_flag = SE_BERLIN_WALL
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_CUBAN_MISSILE_CRISIS
+					}
+					clr_global_flag = SE_CUBAN_MISSILE_CRISIS
+				}
+				if = {
+					limit = {
+						has_global_flag = SE_BRA_CWR
+					}
+					clr_global_flag = SE_BRA_CWR
+				}
+			}
+		}
+	}
+}
