@@ -16,13 +16,6 @@ add_political_power = 49
 
 # Experience
 army_experience = 5
-USA = {
-	set_autonomy = {
-		target = ROK
-		autonomous_state = autonomy_integrated_puppet	#Military Occupation
-		freedom_level = 0.9
-	}
-}
 
 #recruit_character = DPK_terentii_shtykov
 

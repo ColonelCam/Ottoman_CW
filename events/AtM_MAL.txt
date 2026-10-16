@@ -74,6 +74,9 @@ country_event = {
 			}
 			add_threat = 10
 		}
+		ENG = {
+			release = BMA
+		}
 		BMA = {
 			declare_war_on = {
 				target = MLA

@@ -83,6 +83,15 @@ political_actions = {
 				id = phm_events.5
 			}
 		}
+		complete_effect = {
+			ENG = {
+				set_autonomy = {
+					target = BMA
+					autonomous_state = autonomy_integrated_puppet	#Military Occupation
+					freedom_level = 0.2
+				}
+			}
+		}
 	}
 }
 

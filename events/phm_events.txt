@@ -154,6 +154,71 @@ country_event = {
 		}
 }
 
+country_event = {
+	
+	id = phm_events.4
+	title = phm_events.4.t
+	desc = phm_events.4.desc
+	picture = GFX_report_event_generic_communist_militia
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = phm_events.4.a
+		PHI = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = HUK
+				}
+				transfer_state_to = HUK
+			}
+			white_peace = {tag = HUK}
+		}
+		HUK = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = PHI
+				}
+				transfer_state_to = PHI
+			}
+			white_peace = {tag = PHI}
+		}
+		}
+}
+country_event = {
+	
+	id = phm_events.5
+	title = phm_events.5.t
+	desc = phm_events.5.desc
+	picture = GFX_report_event_generic_communist_militia
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+
+	option = {
+		name = phm_events.5.a
+		BMA = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = MLA
+				}
+				transfer_state_to = MLA
+			}
+			white_peace = {tag = MLA}
+		}
+		MLA = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = BMA
+				}
+				transfer_state_to = BMA
+			}
+			white_peace = {tag = BMA}
+		}
+		}
+}
+
 news_event = {
 	
 	id = AtM_phm_news.1
