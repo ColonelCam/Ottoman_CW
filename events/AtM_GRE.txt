@@ -1,0 +1,100 @@
+########################
+###   Greek Events   ###
+########################
+
+add_namespace = AtM_GRE
+
+country_event = {
+	id = AtM_GRE.1
+	title = AtM_GRE.1.t
+	desc = AtM_GRE.1.desc
+	picture = GFX_report_event_ger_civil_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = greek_civil_war_started
+		start_civil_war = {
+			ideology = communism
+			size = 0
+			capital = 185
+			states = { 185 1067 1068 1065 }
+			save_global_event_target_as = GRE_KKE
+			set_country_flag = GRE_communist_greece
+			set_cosmetic_tag = KKE_communist_greece
+		}
+		# KKE initialized in immediate
+		KKE = {
+			set_country_flag = greek_civil_war_started
+			set_eastern_aligned = yes
+			promote_character = GRE_nikolaos_zachariadis
+			ALB = {
+				give_military_access = KKE
+			}
+			YUG = {
+				give_military_access = KKE
+			}
+			BUL = {
+				give_military_access = KKE
+			}
+			hidden_effect = {
+				set_province_controller = 13524
+				set_province_controller = 1164
+				set_province_controller = 4170
+				set_province_controller = 895
+				load_oob = KKE_1946
+			}
+		}
+		GRE = {
+			hidden_effect = {
+				load_oob = GRE_civil_war
+				delete_units = {
+					division_template = "Trigonikó Pezikoú"
+					disband = no
+				}
+				delete_units = {
+					division_template = "Tetrágono Pezikoú"
+					disband = no
+				}
+				delete_units = {
+					division_template = "Merarchía Ippikoú"
+					disband = no
+				}
+			}
+		}
+		hidden_effect = {
+			news_event = {
+				id = AtM_news.11
+				days = 1
+			}
+		}
+	}
+	
+	# Plays as Government
+	option = {
+		name = AtM_GRE.1.a
+		swap_ideas = {
+			remove_idea = GRE_national_schism
+			add_idea = GRE_destroyed_forces
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	# Play as Communists
+	option = {
+		name = AtM_GRE.1.b
+		ai_chance = { base = 0 }
+		event_target:GRE_KKE = {
+			change_tag_from = ROOT
+		}
+		swap_ideas = {
+			remove_idea = GRE_national_schism
+			add_idea = GRE_destroyed_forces
+		}
+		ai_chance = {
+			base = 0
+		}
+	}
+}

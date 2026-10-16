@@ -23,7 +23,10 @@ on_actions = {
 			76 = {
 				transfer_state_to = ROM
 			}
-				
+			news_event = { 
+				id = AtM_news.106
+				hours = 6
+			}
 				}
 			}
         }

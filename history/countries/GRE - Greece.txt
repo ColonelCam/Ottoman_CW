@@ -23,6 +23,7 @@ add_ideas = {
 	#National Spirits
 	GRE_george_ii
 	GRE_national_schism
+	GRE_war_reparations
 	
 	#National Laws
 	partial_economic_mobilisation

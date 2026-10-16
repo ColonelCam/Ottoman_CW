@@ -1,0 +1,19 @@
+ideas = {
+	country = {
+	
+		GRE_war_reparations = {
+		
+			allowed = {
+				original_tag = GRE
+			}
+			
+			picture = idea_GER_economy_of_conquest
+			
+			modifier = {
+                consumer_goods_expected_value = 0.15
+                political_power_gain = -0.15        
+                stability_factor = -0.20 
+			}
+		}
+	}
+}

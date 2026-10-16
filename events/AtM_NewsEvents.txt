@@ -5204,3 +5204,17 @@ news_event = {
 		}
 	}
 }
+news_event = {
+	id = AtM_news.106
+	title = AtM_news.106.t
+	desc = AtM_news.106.desc
+	picture = GFX_Albania_Tirana
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_news.106.a
+	}
+}
