@@ -1,0 +1,29 @@
+
+state={
+	id=273
+	name="STATE_273" # Libyan Desert
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		1948.6.1 = {
+			remove_claim_by = ITA
+		}
+		victory_points = {
+			10884 1 #Ghadames
+		}
+		victory_points = {
+			12082 2 #Sabha
+		}
+	}
+
+	provinces={
+		4962 5004 7985 10884 12022 12082 12866 14990 14991 14992 
+	}
+	
+	manpower = 52633
+	state_category = wasteland
+	local_supplies=0.0 
+}

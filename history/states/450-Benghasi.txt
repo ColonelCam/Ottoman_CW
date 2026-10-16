@@ -1,0 +1,33 @@
+
+state={
+	id=450
+	name="STATE_450"
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_core_of = CYR
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		1948.6.1 = {
+			remove_claim_by = ITA
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 1
+			11954 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			11954 8
+		}
+	}
+
+	provinces={
+		4120 4151 10123 11954 12094
+	}
+	manpower = 82535
+	state_category = rural
+	local_supplies=0.0 
+}

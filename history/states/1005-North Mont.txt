@@ -1,0 +1,29 @@
+state={
+	id=1005
+	name="STATE_1005"
+	resources={
+		chromium=10
+		aluminium=35
+	}
+	history={
+		owner = TUR
+		add_core_of = MNT
+		add_core_of = YUG
+		buildings = {
+			infrastructure = 2
+			9821 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			9821 2 # Kotor
+		}
+	}
+	provinces={
+		937 9821 11858 
+	}
+	manpower=310812
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

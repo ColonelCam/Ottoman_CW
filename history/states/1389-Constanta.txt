@@ -1,0 +1,33 @@
+state={
+	id=1389
+	name="STATE_1389"
+	
+	history = {
+		owner = TUR
+		add_core_of = ROM
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 1
+			dockyard = 1
+			657 = {
+				naval_base = 8
+			}
+			687 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			657 5 
+		}
+	}
+	
+	provinces={
+		657 687 3076 9635 
+	}
+	manpower=250802
+	state_category = town
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

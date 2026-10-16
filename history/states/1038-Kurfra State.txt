@@ -1,0 +1,26 @@
+state={
+	id=1038
+	name="STATE_1038" #Kufra Libya
+	
+	resources={
+		oil=4
+	}
+	
+	history = {
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_core_of = CYR
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		victory_points = {
+			1057 1
+		}
+	}
+	provinces={
+		1057 1140 1994 4191 10754 10785 14988 14989 14993 14994 
+	}
+	manpower=12633
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category = wasteland
+}

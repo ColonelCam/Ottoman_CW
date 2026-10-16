@@ -1,0 +1,27 @@
+state={
+	id=801
+	name="STATE_801"
+
+	history={
+		owner = TUR
+		add_core_of = BUL
+		add_core_of = TUR
+		victory_points = { #Pleven
+			3796 3
+		}
+		victory_points = { #Vidin
+			9771 1
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex =1
+		}
+	}
+
+	provinces={
+		793 965 3796 3819 3952 3971 6952 6982 9610 9771 11754 
+	}
+	manpower = 1018780
+	state_category=town
+	local_supplies=0.0 
+}

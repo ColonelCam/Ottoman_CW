@@ -1,0 +1,27 @@
+state={
+	id=661
+	name="STATE_661"
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		1948.6.1 = {
+			remove_claim_by = ITA
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			4051 1 #Kufra
+		}
+	}
+	
+	provinces={
+		1174 1118 4051 4117 4176 7154 10037 10067 11940 12009 
+	}
+	manpower = 57617
+	state_category = pastoral
+	local_supplies=0.0 
+}

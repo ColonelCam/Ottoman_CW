@@ -1,0 +1,24 @@
+state={
+	id=1141
+	name="STATE_1141" #Kufra Libya
+	
+	impassable = yes
+	
+	history = {
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_core_of = CYR
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		buildings = {
+			infrastructure = 0
+		}
+	}
+	provinces={
+		10104
+	}
+	manpower=500
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category = wasteland
+}

@@ -51,8 +51,8 @@ RUS = {
 	color_ui = rgb { 75 110 45 }
 }
 UKR = {
-	color = rgb { 0 80 230 }
-	color_ui = rgb { 0 80 230 }	
+	color = rgb { 43 174 97 }
+	color_ui = rgb { 43 174 97 }	
 }
 BLR = {
 	color = rgb { 180 220 190 }
@@ -175,8 +175,8 @@ CZE = {
 	color_ui = rgb { 75 100 120 }
 }
 POL = {
-	color = rgb { 219 28 21 }
-	color_ui = rgb { 219 28 21 }
+	color = rgb { 43 174 97 }
+	color_ui = rgb { 43 174 97 }
 }
 SWI = {
 	color = rgb { 224 5 5 }
@@ -223,8 +223,8 @@ TRE = {
 	color_ui = rgb { 70 90 140 }
 }
 ROM = {
-	color = rgb { 215 196 72 }
-	color_ui = rgb { 215 196 72 }
+	color = rgb { 147 50 28 }
+	color_ui = rgb { 147 50 28 }
 }
 MOL = {
 	color = rgb { 150 150 175 }
@@ -243,12 +243,12 @@ TUR = {
 	color_ui = rgb { 147 50 28 }
 }
 ALB = {
-	color = rgb { 149 45 102 }
-	color_ui = rgb { 149 45 102 }
+	color = rgb { 147 50 28 }
+	color_ui = rgb { 147 50 28 }
 }
 FIN = {
-	color = rgb { 205 212 228 }
-	color_ui = rgb { 205 212 228 }
+	color = rgb { 43 174 97 }
+	color_ui = rgb { 43 174 97 }
 }
 SWE = {
 	color = rgb { 36 132 247 }
@@ -311,8 +311,8 @@ MAC = {
 	color_ui = rgb { 200 100 5 }
 }
 BOS = {
-	color = rgb { 225 175 0 }
-	color_ui = rgb { 225 175 0 }
+	color = rgb { 147 50 28 }
+	color_ui = rgb { 147 50 28 }
 }
 JAP = {
 	color = hsv { 0.05 0.3 1 }

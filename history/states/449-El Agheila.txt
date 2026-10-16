@@ -1,0 +1,33 @@
+
+state={
+	id=449
+	name="STATE_449" # El Agheila
+	
+	resources={
+		oil=2
+	}
+
+	history={
+		owner = TUR
+		add_core_of = TUR
+		add_core_of = LBA
+		add_core_of = CYR
+		add_claim_by = ITA # Renounced by Italy in 1947 Paris Peace Treaty
+		1948.6.1 = {
+			remove_claim_by = ITA
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			1127 1
+		}
+	}
+
+	provinces={
+		1198 1127 4057 4200 7076 8069
+	}
+	manpower = 20431
+	state_category = wasteland
+	local_supplies=0.0 
+}

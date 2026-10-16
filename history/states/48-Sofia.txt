@@ -1,0 +1,31 @@
+
+state={
+	id=48
+	name="STATE_48"
+
+	resources={
+		aluminium = 2
+		coal = 1
+	}
+
+	history={
+		owner = TUR
+		add_core_of = BUL
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 6
+			air_base = 3
+		}
+		victory_points = { #Sofia
+			949 25 
+		}
+	}
+
+	provinces={
+		935 949 3908 
+	}
+	manpower = 1685989
+	state_category = city
+	local_supplies=0.0 
+}

@@ -1,0 +1,22 @@
+state = {
+	id = 163
+	name = "STATE_163"
+	
+	history = {
+		owner = TUR
+		add_core_of = YUG
+		add_core_of = SER
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			9602 5 #Nis
+		}
+	}
+	provinces={
+		630 6634 9602 9756 11868 11887 
+	}
+	manpower = 480000
+	state_category = town
+	local_supplies = 3.0 
+}

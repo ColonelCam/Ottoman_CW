@@ -1,0 +1,25 @@
+
+state={
+	id=108
+	name="STATE_108"
+	resources={
+		steel=3
+	}
+
+	history={
+		owner = TUR
+		add_core_of = YUG
+		add_core_of = SER
+		buildings = {
+			infrastructure = 2
+		}
+	}
+
+	provinces={
+		3922 3939 3956 3984 6953 6970 6998 9906 
+	}
+	manpower=707000
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=5.0 
+}

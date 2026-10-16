@@ -1,0 +1,41 @@
+
+state={
+	id=211
+	name="STATE_211"
+
+	history={
+		owner = TUR
+		add_core_of = BUL
+		add_core_of = TUR
+		victory_points = { #Burgas
+			9902 5
+		}
+		victory_points = { #Sliven
+			6967 3
+		}
+		victory_points = { #Yambol
+			9888 1
+		}
+		victory_points = { #Shumen
+			9769 1
+		}
+		victory_points = { #Stara Zagora
+			6814 3
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			9902 = {
+				naval_base = 1
+			}
+		}
+	}
+
+	provinces={
+		6814 6842 6967 9769 9888 9902 9919 
+	}
+	
+	manpower = 1358394
+	state_category = town
+	local_supplies=4.0 
+}

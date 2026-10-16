@@ -1,0 +1,33 @@
+
+state={
+	id=1508
+	name="STATE_1508"
+	
+	resources={
+		chromium=5 #TODO: pending revision
+	}
+	
+	history={
+		# Given to Greece in 1947 Treaty of Paris
+		owner = TUR
+		add_core_of = GRE
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 2
+			dockyard = 1
+			6550 = {
+				naval_base = 1
+			}
+		}
+		victory_points = {
+			6550 1
+		}
+	}
+	
+	provinces={
+		6550 15194
+	}
+	manpower = 62600 
+	state_category = small_island
+	local_supplies=9.0 
+}
