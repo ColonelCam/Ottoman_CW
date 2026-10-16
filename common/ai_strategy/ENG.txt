@@ -1,0 +1,69 @@
+ENG_the_iron_curtain = {
+
+	allowed = {
+		original_tag = ENG
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		country_exists = SOV
+		SOV = {
+			OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 25
+	}
+}
+
+ENG_support_vin = {
+
+	allowed = {
+		original_tag = ENG
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+		country_exists = VIN
+		VIN = {
+			NOT = {
+				OR = {
+				is_communist = yes
+				is_left_wing_radical = yes
+			}
+			}
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN
+		value = 200
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 100
+	}
+	ai_strategy = {
+		type = support
+		id = VIN
+		value = 25
+	}
+	#Reluctant to support Vietnam directly
+	ai_strategy = {
+		type = protect
+		id = VIN
+		value = -25
+	}
+}

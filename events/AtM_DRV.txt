@@ -263,7 +263,10 @@ country_event = {
 			add_ideas = DRV_unprepared_defensives_idea
 		}
 		VIN = {
-			add_ideas = DRV_unprepared_defensives_idea
+			add_timed_idea = {
+				idea = DRV_unprepared_defensives_idea
+				days = 100	
+			}
 		}
 	}
 }

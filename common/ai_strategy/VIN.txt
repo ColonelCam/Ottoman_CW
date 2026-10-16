@@ -1,0 +1,25 @@
+VIN_prepare = {
+
+	allowed = {
+		original_tag = VIN
+	}
+	
+	enable = {
+		is_historical_focus_on = yes
+	}
+
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = DRV
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = IDC
+		value = 100
+	}
+}

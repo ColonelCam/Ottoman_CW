@@ -1,0 +1,719 @@
+on_actions = {
+	on_startup = {
+		#effect = {
+			#every_country = {
+				#set_politics = {
+					#ruling_party = left_wing_radical
+					#elections_allowed = no
+				#}
+			#}
+		#}
+		effect = {
+			if = {
+				limit = {
+					date > 1948.1.1
+					date < 1949.1.1
+				}
+				set_global_flag = start_date_1948
+			}
+		}
+		# Release SSRs if game rule is active
+		effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = soviet_union_structure
+						option = FEDERAL_REPUBLICS
+					}
+				}
+				SOV = {
+					country_event = { id = AtM_SOV.100 } #Soviet Union Release SSRs Game Rule Event
+				}
+			}
+		}
+		# Loaded after the history file only to keep it cleaner as it handles party pops
+		effect = {
+			FIN = {
+				redistribute_parliament_seats_by_popularity = yes
+			}
+		}
+		# Dev Note for DRV
+		effect = {
+			DRV = {
+				country_event = AtM_DRV.67
+			}
+		}
+	}
+	
+	# ROOT is the new faction leader FROM is the old faction leader
+	on_assume_faction_leadership = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { has_idea = nato_leader }
+					ROOT = { has_idea = nato_member }
+				}
+				FROM = {
+					swap_ideas = {
+						remove_idea = nato_leader
+						add_idea = nato_member
+					}
+				}
+				ROOT = {
+					swap_ideas = {
+						remove_idea = nato_member
+						add_idea = nato_leader
+					}
+				}
+			}
+		}
+	}
+	
+	#FROM is faction leader on join faction requests. THIS DOES NOT FIRE ON ADD_TO_FACTION EFFECT! USE ON_OFFER_JOIN_FACTION!
+	on_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_faction_template = faction_template_nato
+					}
+				}
+				add_ideas = nato_member
+			}
+		}
+		effect = {
+			save_alignment = yes
+			set_alignment_from = yes
+		}
+		effect = {
+			set_temp_variable = { influence_change = 10 }
+			set_temp_variable = { influence_target = FROM }
+			add_influence_direct = yes
+		}
+	}
+
+	#FROM is country getting invited.
+	on_offer_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					has_faction_template = faction_template_nato
+				}
+				FROM = {
+					add_ideas = nato_member
+				}
+			}
+		}
+		effect = {
+			FROM = {
+				save_alignment = yes
+				set_alignment = yes
+			}
+		}
+		effect = {
+			FROM = {
+				set_temp_variable = { influence_change = 10 }
+				set_temp_variable = { influence_target = ROOT }
+				add_influence_direct = yes
+			}
+		}
+	}
+
+	# FROM is the faction Leader, ROOT is the country leaving the faction
+	on_leave_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_faction_template = faction_template_nato
+					}
+				}
+				remove_ideas = nato_member
+			}
+		}
+	}
+	
+	#ROOT is winner, FROM is loser (called for all winners against all losers)
+	on_before_peace_conference_start = {
+		# Drop cosmetic tags for losers puppets
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							original_tag = SOV
+							original_tag = ENG
+							original_tag = FRA
+							original_tag = UNC
+						}
+					}
+				}
+				FROM = {
+					every_subject_country = {
+						drop_autonomy_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+		# Match FROM's alignment to ROOT's (winner's) alignment
+		effect = {
+			FROM = {
+				set_alignment_root = yes
+				every_subject_country = {
+					set_alignment_root = yes
+				}	
+			}
+		}
+	}
+	
+	# ROOT is winner, FROM is loser (called for all winners against all losers)
+	on_peaceconference_ended = {
+		# Losers' subjects below puppet autonomy get free and leave faction
+		effect = {
+			FROM = {
+				every_subject_country = {
+					limit = { compare_autonomy_state < autonomy_puppet }
+					leave_faction = yes
+					set_autonomy_free = yes
+				}
+			}
+		}
+	}
+	
+	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+	on_annex = {
+		# Save FROM's original government info before annexation
+		effect = {
+			FROM = { save_popularities = yes }
+		}
+		# Drop cosmetic tags for losers puppets
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						OR = {
+							original_tag = SOV
+							original_tag = ENG
+							original_tag = FRA
+							original_tag = UNC
+						}
+					}
+					every_subject_country = {
+						drop_autonomy_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+	
+	#Used when puppeting in a peace conference
+	#ROOT = nation being puppeted, FROM = overlord
+	on_puppet = {
+		# Save ROOT's original government info before puppeted
+		effect = {
+			ROOT = { save_popularities = yes }
+		}
+		# Set puppet government to match overlord
+		effect = {
+			ROOT = { set_autonomy_match_ideology_no_elections_from = yes }
+		}
+		# Drop existing puppet cosmetic tags
+		effect = {
+			ROOT = { drop_autonomy_cosmetic_tag = yes }
+		}
+		# Set puppet cosmetic tag
+		effect = {
+			ROOT = { set_autonomy_cosmetic_tag_from = yes }
+		}
+		# Match ROOT's alignment to FROM's (liberator's) alignment
+		effect = {
+			ROOT = { set_alignment_from = yes }
+		}
+		# Match ROOT's influence to FROM's (liberator's) influence
+		effect = {
+			ROOT = { set_inherited_influence_from = yes }
+		}
+		effect = {
+			if = {
+				limit = { FROM = { original_tag = UNC } }
+				ROOT = { set_autonomy_trust_territory = yes }
+			}
+		}
+		# Kick (ROOT) from the faction, so that they are not auto-added to the faction when puppeted trough a war
+		effect = {
+			handle_alliance_from = yes
+		}
+	}
+	
+	#ROOT is the nation being forced a government, FROM is the country forcing government
+	on_force_government = {
+		# Match ROOT's ideology to FROM's (forcer's) ideology and leave faction
+		effect = {
+			ROOT = {
+				leave_faction = yes
+				set_autonomy_match_ideology_from = yes
+			}
+		}
+	}
+	
+	#ROOT is the nation being liberated, FROM is the leader of the liberators.
+	on_liberate = {
+		# Drop puppet cosmetic tags when liberated
+		effect = {
+			ROOT = { drop_autonomy_cosmetic_tag = yes }
+		}
+		# Match ROOT's ideology to FROM's (liberator's) ideology
+		effect = {
+			ROOT = { set_autonomy_match_ideology_from = yes }
+		}
+		# Match ROOT's alignment to FROM's (liberator's) alignment
+		effect = {
+			ROOT = { set_alignment_from = yes }
+		}
+		# Match ROOT's influence to FROM's (liberator's) influence
+		effect = {
+			ROOT = { set_inherited_influence_from = yes }
+		}
+		# If African nation and not developed, add agrarian society debuff
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						NOT = {
+							OR = {
+								is_developed_africa = yes
+								has_idea = africa_agrarian_society
+							}
+						}
+						capital_scope = { is_on_continent = africa }
+					}
+				}
+				ROOT = {
+					add_ideas = africa_agrarian_society
+				}
+			}
+		}
+	}
+	
+	#Used when puppeting through the occupied territories menu during peace time (or when releasing from non-core but owned territory, f.e. Britain releasing Egypt)
+	#ROOT = nation being released, FROM = overlord
+	on_release_as_puppet = {
+		# Set puppet government to match overlord
+		effect = {
+			ROOT = { set_autonomy_match_ideology_no_elections_from = yes }
+		}
+		effect = {
+			ROOT = { set_autonomy_cosmetic_tag_from = yes }
+		}
+		effect = {
+			ROOT = { set_alignment_from = yes }
+		}
+		effect = {
+			ROOT = { set_inherited_influence_from = yes }
+		}
+		effect = {
+			if = {
+				limit = { FROM = { original_tag = UNC } }
+				ROOT = { set_autonomy_trust_territory = yes }
+			}
+		}
+		# Unless subject (ROOT) was already in a faction, kick from (OVERLORD) faction
+		effect = {
+			handle_alliance_from = yes
+		}
+	}
+	
+	#ROOT is subject FROM is overlord
+	on_subject_autonomy_level_change = {
+		# Set SOV_SSR cosmetic tag if was set to an SSR autonomy state
+		effect = {
+			if = {
+				limit = { FROM = { original_tag = SOV is_communist = yes } }
+				if = {
+					limit = { has_autonomy_state = autonomy_soviet_socialist_republic }
+					set_cosmetic_tag = SOV_SSR
+				}
+				# Set SOV_occupation cosmetic tag if not set to an SSR or free
+				else_if = {
+					limit = {
+						is_subject = yes
+						NOT = { has_autonomy_state = autonomy_soviet_socialist_republic }
+					}
+					set_autonomy_cosmetic_tag = yes
+				}
+			}
+		}
+		# Set FRA_occupation cosmetic tag
+		effect = {
+			if = {
+				limit = { FROM = { original_tag = FRA } }
+				if = {
+					limit = { is_subject = yes }
+					set_autonomy_cosmetic_tag = yes
+				}
+			}
+		}
+		# Set ENG_occupation cosmetic tag
+		effect = {
+			if = {
+				limit = { FROM = { original_tag = ENG } }
+				if = {
+					limit = { is_subject = yes }
+					set_autonomy_cosmetic_tag = yes
+				}
+			}
+		}
+		# Drop UN Trust Territory cosmetic tag if autonomy changes
+		effect = {
+			if = {
+				limit = {
+					has_cosmetic_tag = UN_trust_territory
+					NOT = { has_autonomy_state = autonomy_trust_territory }
+				}
+				drop_cosmetic_tag = yes
+				set_autonomy_cosmetic_tag = yes
+			}
+		}
+	}
+	
+	#ROOT is subject FROM is previous overlord
+	on_subject_free = {
+		# Drop puppet cosmetic tags
+		effect = {
+			ROOT = { drop_autonomy_cosmetic_tag = yes }
+		}
+		# If African nation and not developed, add agrarian society debuff
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						NOT = {
+							OR = {
+								is_developed_africa = yes
+								has_idea = africa_agrarian_society
+							}
+						}
+						capital_scope = { is_on_continent = africa }
+					}
+				}
+				ROOT = {
+					add_ideas = africa_agrarian_society
+				}
+			}
+		}
+		#Kenya Army takes control of neutrality ideology
+		effect = {
+			if = {
+				limit = {
+					original_tag = KEN
+				}
+				ROOT = {
+					if = {
+						limit = {
+							has_character = KEN_sir_philip_euen_mitchell
+						}
+						retire_character = KEN_sir_philip_euen_mitchell
+					}
+					retire_character = KEN_evelyn_baring
+					set_party_name = {
+					    ideology = neutrality
+					    long_name = KEN_kenya_army_party_long
+					    name = KEN_kenya_army_party
+					}
+				}
+			}
+		}
+	}
+	
+	#ROOT is the nation being released, FROM is the overlord
+	on_release_as_free = {
+		# Drop puppet cosmetic tags when released as free
+		effect = {
+			ROOT = { drop_autonomy_cosmetic_tag = yes }
+		}
+		# If African nation and not developed, add agrarian society debuff
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						NOT = {
+							OR = {
+								is_developed_africa = yes
+								has_idea = africa_agrarian_society
+							}
+						}
+						capital_scope = { is_on_continent = africa }
+					}
+				}
+				ROOT = {
+					add_ideas = africa_agrarian_society
+				}
+			}
+		}
+	}
+	
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		# War Exhaustion from losing a state
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						is_core_of = FROM
+						is_owned_by = FROM
+						NOT = { has_state_flag = state_war_exhaustion_cooldown }
+					}
+					FROM = { has_war_with = ROOT }
+				}
+				FROM.FROM = {
+					save_event_target_as = target_state
+					state_event = {
+						id = war_exhaustion.1
+						trigger_for = FROM
+					}
+				}
+			}
+		}
+		# Recapturing a state that was lost
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						NOT = { has_state_flag = state_war_morale_boost_cooldown }
+					}
+					ROOT = { has_war_with = FROM }
+				}
+				FROM.FROM = {
+					save_event_target_as = target_state
+					state_event = {
+						id = war_exhaustion.2
+						trigger_for = ROOT
+					}
+				}
+			}
+		}
+		# Fall of Saigon
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = { state = 1013 }
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = IDC
+							original_tag = FRA
+						}
+					}
+					news_event = { id = AtM_indochina.3 }
+				}
+			}
+		}
+		# Fall of Hue
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = { state = 1081 }
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = IDC
+							original_tag = FRA
+						}
+					}
+					news_event = { id = AtM_indochina.4 }
+					DRV = {
+						swap_ideas = {
+							remove_idea = DRV_unprepared_defensives_idea
+							add_idea = DRV_southern_vietnam_falls
+							days = 3
+						}
+					}
+				}
+			}
+		}
+		#If any state got that modifier and drv captures it, it should clear the F.E.R
+		#effect = {
+			#if = {
+				#limit = {
+					#FROM.FROM = { has_state_flag = get_resistance_by_fra_drv }
+				#}
+				#if = {
+					#limit = {
+						#original_tag = DRV
+					#}
+					#FROM.FROM.FROM = {
+						#force_enable_resistance = {
+							#clear = yes
+						#}
+					#}
+				#}
+			#}
+			#else = {
+				#FROM.FROM.FROM.PREV = {
+					#add_resistance = 15
+				#}
+			#}
+		#}
+	}
+	on_declare_war = {
+		effect = {
+			# Visible in declare war menu
+			hidden_effect = {
+				if = {
+					limit = {
+						original_tag = USA
+						FROM = { original_tag = SOV }
+					}
+					set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+					set_global_flag = SE_THIRD_WORLD_WAR
+					play_song = 3rd_world_war_SE
+				}
+				else_if = {
+					limit = {
+						original_tag = SOV
+						FROM = { original_tag = USA }
+					}
+					set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+					set_global_flag = SE_THIRD_WORLD_WAR
+					play_song = 3rd_world_war_SE
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						YUG = {
+							AND = {
+								has_war_with = USA
+								has_country_flag = prefered_neutrality
+							}
+						}
+					}
+					SOV = { country_event = AtM_SOV.12 }
+				}
+			}
+		}
+	}
+	
+	on_peace = {
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = second_american_civil_war
+					OR = {
+						AND = {
+							USA = {
+								exists = yes
+							}
+							UOA = {
+								exists = no
+							}
+							NSA = {
+								exists = no
+							}
+							CCA = {
+								exists = no
+							}
+						}
+						AND = {
+							USA = {
+								exists = no
+							}
+							UOA = {
+								exists = yes
+							}
+							NSA = {
+								exists = no
+							}
+							CCA = {
+								exists = no
+							}
+						}
+						AND = {
+							USA = {
+								exists = no
+							}
+							UOA = {
+								exists = no
+							}
+							NSA = {
+								exists = yes
+							}
+							CCA = {
+								exists = no
+							}
+						}
+						AND = {
+							USA = {
+								exists = no
+							}
+							UOA = {
+								exists = no
+							}
+							NSA = {
+								exists = no
+							}
+							CCA = {
+								exists = yes
+							}
+						}
+					}
+				}
+				USA = {
+					country_event = AtM_USA.115
+				}
+			}
+		}
+	}
+
+	on_nuke_drop = {
+		effect = {
+			add_named_threat = {
+				threat = 1.0
+				name = nuclear_strike_threat
+			}
+		}
+		effect = {
+			# Achievement tracking
+			if = {
+				limit = {
+					is_ai = no
+					original_tag = JAP
+					FROM = {
+						owner = {
+							original_tag = USA
+						}
+					}
+				}
+				set_global_flag = uno_achievement_flag
+			}
+			if = {
+				limit = {
+					is_ai = no
+					FROM = {
+						owner = {
+							original_tag = JAP
+						}
+					}
+				}
+				set_global_flag = nani_achievement_flag
+			}
+		}
+	}
+	
+	on_ruling_party_change = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = USA
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+}

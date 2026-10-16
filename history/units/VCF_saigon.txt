@@ -1,0 +1,218 @@
+division_template = {
+	name = "Viet Cong"
+	division_names_group = DRV_GUR_01
+	regiments = {
+		militia = {
+			x = 0
+			y = 0
+		}
+		militia = {
+			x = 0
+			y = 1
+		}
+		militia = {
+			x = 1
+			y = 0
+		}
+		militia = {
+			x = 1
+			y = 1
+		}
+		militia = {
+			x = 2
+			y = 0
+		}
+	}
+	support = {
+		engineer = {
+			x = 0
+			y = 0
+		}
+		signal_company = {
+			x = 0
+			y = 1
+		}
+		field_hospital = {
+			x = 0
+			y = 2
+		}
+	}
+}
+units = {
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1396
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 4284
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 13670
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 4255
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 10137
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 7331
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 13714
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 7229
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 15158
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 15161
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 15160
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 13664
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 4255
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 13668
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 14409
+		division_template = "Viet Cong"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.8
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "DRV"
+		}
+		requested_factories = 1
+		progress = 0.9
+		efficiency = 40
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 5000
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 500
+		producer = CHI
+	}
+	add_equipment_to_stockpile = {
+		type = motorized_equipment
+		amount = 250
+		producer = CHI
+	}
+}

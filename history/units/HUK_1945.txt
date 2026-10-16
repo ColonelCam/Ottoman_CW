@@ -58,16 +58,6 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
 	}
-	division = {
-		division_name = {
-			is_name_ordered = yes
-			name_order = 5
-		}
-		location = 10165 
-		division_template = "Infantry Division"		
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
-	}
 	
 }
 

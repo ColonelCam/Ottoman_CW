@@ -1,0 +1,57 @@
+ideas = {
+	country = {
+
+		PHI_huk_insurgency = {
+		
+			allowed = {
+				original_tag = PHI
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						is_communist = yes
+						is_left_wing_radical = yes
+					}
+				}
+			}
+
+			picture = citizen_militia_2
+
+			modifier = {
+				dig_in_speed = 0.1
+				stability_factor = -0.05
+				resistance_decay = -0.5
+				resistance_growth = 0.25
+			}
+		}
+		
+		HUK_hukbalahap = {
+			allowed = {
+				original_tag = HUK
+			}
+			
+			cancel = {
+				NOT = {
+					OR = {
+						is_communist = yes
+						is_left_wing_radical = yes
+					}
+				}
+			}
+			
+			picture = HUN_resurgent_communist_party_idea
+
+			modifier = {
+				army_speed_factor = -0.4
+				army_core_defence_factor = 0.25
+				army_morale_factor = 0.15
+				conscription = 0.02
+				pocket_penalty = -0.5
+				terrain_penalty_reduction = 0.5
+				supply_consumption_factor = -0.5
+				hidden_modifier = { out_of_supply_factor = -0.5 }
+			}
+		}
+	}
+}

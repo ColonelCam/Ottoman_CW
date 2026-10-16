@@ -1,0 +1,12 @@
+
+VIN_war_category = {
+	icon = infiltration
+	priority = 100
+	
+	allowed = {
+		original_tag = VIN
+	}
+	visible = {
+		always = yes
+	}
+}

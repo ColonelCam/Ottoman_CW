@@ -74,17 +74,27 @@ country_event = {
 		}
 		HUK = {
 			transfer_state = 623
-			set_province_controller = 1288
 			set_province_controller = 7323
 			hidden_effect = {
 				load_oob = "HUK_1948"
 			}
 		}
-		PHI = {
+		HUK = {
 			declare_war_on = {
-				target = HUK
+				target = PHI
 				type = annex_everything
 			}
+			PHI = {
+				set_province_controller = 12213
+				set_province_controller = 10298
+				set_province_controller = 4368
+				set_province_controller = 10241
+				set_province_controller = 4214
+				set_province_controller = 4101
+				set_province_controller = 7325
+				set_province_controller = 7439
+			}
+
 			add_threat = 2
 		}
 		# Add revolt modifiers to random states

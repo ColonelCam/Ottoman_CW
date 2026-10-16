@@ -1,0 +1,171 @@
+on_actions = {
+	# Heavy on performance
+	on_daily = {
+		# Manchurian Handover
+		effect = {
+			if = {
+				limit = {
+					check_variable = { GetID.MH_nationalist_control > 55 }
+				}
+				set_variable = { GetID.MH_control = 3 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { GetID.MH_nationalist_control < 45 }
+				}
+				set_variable = { GetID.MH_control = 2 }
+			}
+			else = {
+				set_variable = { GetID.MH_control = 1 }
+			}
+		}
+		# Chinese Civil War conclusion
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = PRC_won_the_civil_war
+						has_global_flag = ROC_won_the_civil_war
+					}
+					OR = {
+						AND = {
+							PRC = {
+								NOT = {
+									controls_province = 9843 #Beijing
+									controls_province = 11913 #Nanjing
+									controls_province = 1047 #Guangzhou
+									controls_province = 6999 #Chongqing
+								}
+								surrender_progress > 0.7
+							}
+						}
+						AND = {
+							PRC = {
+								controls_province = 9843 #Beijing
+								controls_province = 11913 #Nanjing
+								controls_province = 1047 #Guangzhou
+								controls_province = 6999 #Chongqing
+							}
+							surrender_progress > 0.7
+						}
+					}
+				}
+				##this event firing format is not something I'd do, this is done in short notice.
+				if = {
+					limit = { PRC = { surrender_progress > 0.7 } }
+					PRC = { country_event = AtM_china_cw.1 }
+					#CHI = { country_event = AtM_china_cw.2 }
+				}
+				else_if = {
+					limit = { CHI = { surrender_progress > 0.7 } }
+					CHI = { country_event = AtM_china_cw.1 }
+					#PRC = { country_event = AtM_china_cw.2 }
+				}
+			}
+		}
+		# First Indochina War
+		effect = {
+			if = {
+				limit = {
+					FRA = {
+						has_country_flag = FRA_fighting_the_DRV
+					}
+					VIN = {
+						has_war_with = FRA
+						surrender_progress > 0.425
+					}
+				}
+				# Operation Masterdom takes Southern Vietnam
+				FRA = { country_event = AtM_FRA.2 }
+			}
+		}
+		# Invasion on IDZ
+		effect = {
+			if = {
+				limit = {
+					DRV = {
+						has_country_flag = DRV_nguyen_van_khuong_reached_out
+					}
+					IDZ = {
+						has_war_with = DRV
+						has_war_with = LAO
+						surrender_progress > 0.75
+					}
+				}
+				LAO = {
+					transfer_state = 1564
+				}
+				DRV = { 
+					clr_country_flag = DRV_nguyen_van_khuong_reached_out
+					annex_country = {
+						target = IDZ
+						transfer_troops = no
+					}
+				}
+			}
+		}
+	}
+	
+	on_weekly_USA = {
+		effect = {
+			if = {
+				limit = {
+					has_completed_focus = USA_post_war_demobilization
+					num_divisions > 50
+				}
+				remove_ideas = USA_at_army_limit
+				add_ideas = USA_overstretched_army
+				country_lock_all_division_template = {
+					is_locked = yes
+					desc = USA_division_limit_lock_desc
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = USA_post_war_demobilization
+					num_divisions > 49
+					num_divisions < 51
+				}
+				remove_ideas = USA_overstretched_army
+				add_ideas = USA_at_army_limit
+				country_lock_all_division_template = no
+			}
+			else = {
+				remove_ideas = USA_at_army_limit
+				remove_ideas = USA_overstretched_army
+				country_lock_all_division_template = no
+			}
+		}
+	}
+	
+	on_daily_ITA = {
+		effect = {
+			if = {
+				limit = {
+					ITA = {
+						has_country_flag = ITA_fascism_mechanics_activated
+					}
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = ITA_var_fascism_daily_increase
+				}
+			}
+		}
+	}
+	
+	on_monthly_DRV = {
+		effect = {
+			if = {
+				limit = {
+					DRV = {
+						has_defensive_war_with = IDC
+					}
+				}
+				DRV = {
+					country_event = AtM_DRV.25
+				}
+			}
+		}
+	}
+}

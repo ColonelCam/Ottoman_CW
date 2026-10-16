@@ -78,7 +78,7 @@ units = {
 	
 	division = {
 		name = "6th Infantry Division"
-		location = 4241  # Davao
+		location = 12213  # Aparri
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
@@ -86,13 +86,6 @@ units = {
 	division = {
 		name = "7th Infantry Division"
 		location = 4429  # Puerto Princesa
-		division_template = "Infantry Division"
-		start_experience_factor = 0.2
-		start_equipment_factor = 0.7
-	}
-	division = {
-		name = "8th Infantry Division"
-		location = 1221  # Batangas
 		division_template = "Infantry Division"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7

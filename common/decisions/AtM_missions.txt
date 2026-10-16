@@ -1,0 +1,1317 @@
+political_actions = {
+	USA_kkk_attack_imminent = {
+		allowed = {
+			original_tag = USA
+		}
+		
+		activation = {
+			always = no
+		}
+		
+		available = { # Will fail if
+			OR = {
+				has_completed_focus = USA_fight_against_the_kkk
+				has_completed_focus = USA_american_nationalism
+				has_completed_focus = USA_the_unlikely_option
+			}
+		}
+		
+		fire_only_once = no
+		priority = 100
+		days_mission_timeout = 100
+		
+		icon = generic_ignite_civil_war
+		
+		timeout_effect = {
+			country_event = {
+				id = AtM_USA.20
+			}
+		}
+	}
+
+	PHI_peace = {
+		allowed = {
+			original_tag = PHI
+		}
+		activation = {
+			has_war_with = HUK
+		}
+		
+		available = { 
+			HUK = {
+				has_capitulated = yes
+			}
+		}
+		
+		fire_only_once = no
+		priority = 100
+		days_mission_timeout = 450
+		
+		icon = generic_ignite_civil_war
+		
+		timeout_effect = {
+			country_event = {
+				id = phm_events.4
+			}
+		}
+	}
+	MAL_peace = {
+		allowed = {
+			OR = {
+				original_tag = BMA
+				original_tag = MAL
+			}
+		}
+		activation = {
+			has_war_with = MLA
+		}
+		
+		available = { 
+			MLA = {
+				has_capitulated = yes
+			}
+		}
+		
+		fire_only_once = no
+		priority = 100
+		days_mission_timeout = 450
+		
+		icon = generic_ignite_civil_war
+		
+		timeout_effect = {
+			country_event = {
+				id = phm_events.5
+			}
+		}
+	}
+}
+
+GRE_the_civil_war = {
+	GRE_civil_war = {
+		allowed = {
+			original_tag = GRE
+		}
+		
+		available = { # Will fail if
+			NOT = {
+				has_idea = GRE_national_schism
+			}
+		}
+		
+		fire_only_once = yes
+		days_mission_timeout = 209
+		icon = eng_trade_unions_support
+		
+		timeout_effect = {
+			custom_effect_tooltip = GRE_civil_war_tt
+			country_lock_all_division_template = no
+			country_event = AtM_GRE.1
+		}
+	}
+}
+
+CHI_the_civil_war = {
+	CHI_hold_nanjing = {
+		allowed = {
+			original_tag = CHI
+		}
+
+		available = { # Will fail if
+			NOT = {
+				controls_province = 11913 # Nanjing
+			}
+		}
+		
+		is_good = yes
+		
+		fire_only_once = yes
+		
+		days_mission_timeout = 365 
+		
+		icon = generic_form_nation
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 613
+			}
+		}
+
+		activation = {
+			CHI = {
+				has_war_with = PRC
+			}
+		}
+
+		timeout_effect = {
+			CHI = {
+				set_country_flag = CHI_held_nanjing
+			}
+		}
+		
+		complete_effect = {
+			CHI = {
+				set_country_flag = CHI_lost_nanjing
+				add_timed_idea = {
+					idea = CHI_fall_of_nanjing
+					days = 1460
+				}
+			}
+			hidden_effect = {
+				news_event = {
+					id = AtM_news.36
+					days = 1
+				}
+			}
+		}
+	}	
+	CHI_return_northern_indochina = {
+		allowed = {
+			original_tag = CHI
+		}
+		
+		# Available = completed if meets these requirements
+		available = {
+			NOT = {
+				YUN = {
+					any_owned_state = {
+						OR = {
+							is_core_of = LAO
+							is_core_of = DRV
+						}
+					}
+				}
+			}
+		}
+		
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 90
+		
+		icon = eng_trade_unions_support
+
+		activation = {
+			CHI = {
+				has_country_flag = CHI_france_demands_northern_indochina_flag
+			}
+		}
+
+		timeout_effect = {
+			clr_country_flag = CHI_france_demands_northern_indochina_flag
+			YUN = {
+				every_owned_state = {
+					limit = {
+						is_core_of = LAO
+					}
+					transfer_state_to = LAO
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = TFD
+						OR = { state = 1084 state = 1733 }
+					}
+					transfer_state_to = TFD
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = DRV
+					}
+					transfer_state_to = DRV
+				}
+			}
+			hidden_effect = {
+				FRA = {
+					country_event = {
+						id = AtM_indochina.15
+					}
+				}
+			}			
+		}
+	}	
+}
+
+FRA_rebellion_indochina = {
+	FRA_operation_masterdom_mission = {
+		allowed = {
+			original_tag = FRA
+		}
+		
+		# Available = completed if meets these requirements
+		available = {
+			FRA = {
+				has_country_flag = FRA_countdown_till_invasion
+			}
+		}
+		
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 450
+		
+		icon = eng_trade_unions_support
+
+		activation = {
+			FRA = {
+				has_country_flag = FRA_fighting_the_DRV
+			}
+		}
+
+		complete_effect = {
+			add_war_support = 0.1
+			IDC = {
+				add_manpower = 50000
+				add_stability = 0.05
+				add_war_support = 0.1
+			}
+			CCH = {
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}
+			VNT = {
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}
+			DRV = {
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}
+		}
+
+		timeout_effect = {
+				if = {
+					limit = {
+						any_country = {
+							original_tag = FRA
+							is_subject_of = FRA
+						}
+						controls_state = 1732
+					}
+					1732 = {
+						transfer_state_to = IDC
+					}
+				}
+			FRA = {
+				set_country_flag = FRA_lost_masterdom
+				clr_country_flag = FRA_fighting_the_DRV
+				if = {
+					limit = {
+						IDC = {
+							surrender_progress > 0.85
+						}
+					}
+					white_peace = DRV
+					white_peace = CCH
+					white_peace = VNT
+					DRV = {
+						annex_country = {
+							target = CCH
+							transfer_troops = yes
+						}
+					}	
+					DRV = {
+						annex_country = {
+							target = IDC
+							transfer_troops = no
+						}
+					}	
+					set_global_flag = CCH_indochina_DRV_victory
+				}
+				else_if = {
+					limit = {
+						IDC = {
+							surrender_progress < 0.85
+						}
+					}
+				if = {
+					limit = {
+						any_country = {
+							original_tag = FRA
+							is_subject_of = FRA
+						}
+						controls_state = 1574
+					}
+					1574 = {
+						transfer_state_to = DRV
+						set_demilitarized_zone = yes
+					}
+				}
+				white_peace = DRV
+				white_peace = CCH
+				white_peace = VNT
+				IDC = {
+					annex_country = {
+						target = CCH
+						transfer_troops = no
+					}
+				}
+				set_global_flag = CCH_indochina_stalemate
+				}
+				if = {
+					limit = {
+						country_exists = LAO
+						LAO = {
+							is_subject_of = FRA
+						}
+					}
+					LAO = {
+						set_autonomy_free = yes
+						leave_faction = yes
+						drop_cosmetic_tag = yes
+					}
+				}
+				if = {
+					limit = {
+						country_exists = CAM
+						CAM = {
+							is_subject_of = FRA
+						}
+					}
+					CAM = {
+						set_autonomy_free = yes
+						leave_faction = yes
+						drop_cosmetic_tag = yes
+					}
+				}
+				if = {
+					limit = {
+						country_exists = CPS
+						CPS = {
+							is_subject_of = FRA
+						}
+					}
+					CPS = {
+						set_autonomy_free = yes
+						leave_faction = yes
+						drop_cosmetic_tag = yes
+					}
+				}
+				if = {
+					limit = {
+						country_exists = TFD
+						TFD = {
+							is_subject_of = FRA
+						}
+					}
+					TFD = {
+						set_autonomy_free = yes
+						leave_faction = yes
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+			DRV = {
+				add_stability = 0.25
+				add_war_support = -0.25
+				if = {
+					limit = {
+						has_idea = DRV_scars_of_colonial_rule
+					}
+					swap_ideas = {
+						add_idea = DRV_scars_of_colonial_rule_1
+						remove_idea = DRV_scars_of_colonial_rule
+					}
+				}
+				if = {
+					limit = {
+						has_idea = DRV_scars_of_colonial_rule_1
+					}
+					remove_ideas = DRV_scars_of_colonial_rule_1
+				}
+				if = {
+					limit = {
+						has_idea = DRV_never_surrender_idea
+					}
+					remove_ideas = DRV_never_surrender_idea
+				}
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+				if = {
+					limit = {
+						country_exists = TFD
+						TFD = {
+							is_subject = no
+						}
+					}
+					declare_war_on = {
+						target = TFD
+						type = annex_everything
+					}
+				}
+			}	
+			CCH = {
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}
+			VNT = {
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}
+		}
+	}
+	FRA_north_vietnamese_pacification_mission = {
+		allowed = {
+			original_tag = FRA
+		}
+		
+		# Available = completed if meets these requirements
+		available = {
+			DRV = {
+				OR = {
+					NOT = { country_exists = DRV }
+					is_subject_of = FRA
+					surrender_progress > 0.95
+				}
+			}
+			VIN = {
+				OR = {	
+					NOT = { country_exists = VIN }
+					is_subject_of = FRA
+					surrender_progress > 0.95
+				}
+			}
+		}
+		
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 3000
+		
+		icon = eng_trade_unions_support
+
+		activation = {
+			FRA = {
+				has_country_flag = FRA_countdown_till_invasion
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					country_exists = IDC
+					is_subject_of = FRA
+				}
+				annex_country = {
+					target = DRV
+				}
+			}
+			else_if = {
+				limit = {
+					country_exists = VIN
+					is_subject_of = FRA
+				}
+				annex_country = {
+					target = DRV
+				}
+			}
+			FRA = { set_country_flag = FRA_victory_in_indochina }
+		}
+
+		timeout_effect = {
+			DRV = {
+				add_stability = 0.15
+				add_war_support = -0.15
+				complete_national_focus = DRV_the_geneve_accords
+				if = {
+					limit = {
+						has_idea = DRV_scars_of_colonial_rule
+					}
+					swap_ideas = {
+						add_idea = DRV_scars_of_colonial_rule_1
+						remove_idea = DRV_scars_of_colonial_rule
+					}
+				}
+				if = {
+					limit = {
+						has_idea = DRV_scars_of_colonial_rule_1
+					}
+					remove_ideas = DRV_scars_of_colonial_rule_1
+				}
+				if = {
+					limit = {
+						has_idea = DRV_never_surrender_idea
+					}
+					remove_ideas = DRV_never_surrender_idea
+				}
+				if = {
+					limit = {
+						has_idea = DRV_unprepared_defensives_idea
+					}
+					remove_ideas = DRV_unprepared_defensives_idea
+				}
+			}	
+		}
+	}
+	FRA_invasion_of_hanoi = {
+		allowed = {
+			original_tag = FRA
+		}
+		
+		# Available = completed if meets these requirements
+		available = {
+			FRA = {
+				has_war_with = DRV
+			}
+		}
+		
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 10 # 150
+		
+		icon = eng_trade_unions_support
+
+		activation = {
+			FRA = {
+				has_country_flag = FRA_countdown_till_invasion
+			}
+		}
+
+		timeout_effect = {
+			#fight DRV: (FRA needs to spend money) and DOW on DRV (hist) (1 INF units appear in Hanoi and 1 in Hai Phong - France pays in cash , P, oil, supplies
+			FRA = {
+				set_country_flag = DRV_north_vietnam_war
+				set_global_flag = first_indochina_war
+				clr_country_flag = FRA_fighting_the_DRV
+				declare_war_on = {
+					target = DRV
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = VIN
+					type = annex_everything
+				}
+				IDC = {
+					if = {
+						limit = {
+							is_subject_of = FRA
+							NOT = {
+								has_war_with = DRV
+								has_war_with = VIN
+							}
+						}
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = DRV
+							#hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = VIN
+							#hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+				CCH = {
+					if = {
+						limit = {
+							is_subject_of = FRA
+							NOT = {
+								has_war_with = DRV
+								has_war_with = VIN
+							}
+						}
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = DRV
+							#hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = VIN
+							#hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+			}
+			DRV = {
+				every_core_state = {
+					limit = {
+						CONTROLLER = {
+							OR = {
+								original_tag = FRA
+								is_subject_of = FRA
+							}
+						}
+						NOT = {
+							impassable = yes
+						}
+					}
+					if = {
+						limit = {
+							has_resistance = no
+						}
+						force_enable_resistance = {
+							occupied = DRV
+						}
+						start_resistance = DRV
+						set_resistance = 10
+						set_compliance = 70
+					}
+					else = {
+						add_resistance = 10
+						add_compliance = -20
+					}
+				}
+				add_ideas = DRV_never_surrender_idea
+			}
+			FRA = {
+				hidden_effect = {
+					# TODO: this just kills every DRV troop in Hai Phong, might be too OP
+					DRV = {
+						delete_unit = { state = 1615 } # Hai Phong
+						delete_unit = { state = 1614 } # Hai Hung Thai
+					}
+					if = {
+						limit = {
+							country_exists = VCF
+						}
+						declare_war_on = {
+							target = VCF
+							type = annex_everything
+						}
+					}
+				}
+				custom_effect_tooltip = "FRA_IDC_1946_oob"
+			}
+			IDC = {
+				hidden_effect = {	
+					load_oob = "IDC_rookie_army"
+					if = {
+						limit = {
+							exists = yes
+							is_subject_of = FRA
+							country_exists = VCF
+						}
+						declare_war_on = {
+							target = VCF
+							type = annex_everything
+						}
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = VCF
+							hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+					add_ai_strategy = {
+    					type = theatre_distribution_demand_increase
+   						value = 2
+   						id = 1615
+					}
+					add_manpower = 50000
+					DRV = {
+						remove_ideas = DRV_unprepared_defensives_idea
+						transfer_state = 1615
+						transfer_state = 1614
+						add_timed_idea = { idea = DRV_unprepared_defensives_hanoi_idea days = 365 }
+						1615 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1614 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1612 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1016 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1613 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1616 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1523 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1730 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1731 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1524 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1618 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+						1617 = {
+							add_dynamic_modifier = {
+								modifier = DRV_battle_for_hanoi_modifier_state
+								days = 365
+							}
+						}
+					}
+					set_state_controller = 1615 # Hai Phong
+					set_state_controller = 1614 # Hai Hung Thai
+					add_ideas = IDC_battle_of_hanoi_idea
+					load_oob = FRA_IDC_1946
+				}
+			}
+		CCH = {
+			if = {
+				limit = {
+					exists = yes
+					is_subject_of = FRA
+				}
+				declare_war_on = {
+					target = VCF
+					type = annex_everything
+				}
+				add_to_war = {
+					targeted_alliance = FRA
+					enemy = VCF
+					hostility_reason = asked_to_join
+					single_target_only = yes
+				}
+			}
+		}
+			VIN = {
+				remove_ideas = DRV_unprepared_defensives_idea
+				transfer_state = 1502
+				transfer_state = 1504
+				transfer_state = 1575
+				transfer_state = 1576
+				set_province_controller = 12133
+				set_province_controller = 13559
+				load_oob = VIN_bonus
+				activate_mission = VIN_coalition_collapse
+				add_timed_idea = { idea = DRV_unprepared_defensives_hanoi_idea days = 365 }
+			}
+		VCF = {
+			transfer_state = 1062
+			transfer_state = 1497
+			transfer_state = 1498
+			set_province_controller = 1396
+			set_province_controller = 4284
+			set_province_controller = 13670
+			set_province_controller = 10137
+			set_province_controller = 13714
+			set_province_controller = 7229
+			set_province_controller = 15161
+			set_province_controller = 14409
+			set_province_controller = 13667
+			set_province_controller = 13668
+			load_oob = VCF_saigon
+			# Automatically transferred over from French OOB
+			delete_unit_template_and_units = { division_template = "brigade d artillerie" }
+			DRV = {
+				VCF = {
+					set_autonomy_integrated_puppet_no_elections = yes
+				}
+			}
+		}
+			hidden_effect = {
+				CHI = {
+					country_event = {
+						id = AtM_indochina.9
+					}
+				}
+				news_event = {
+					id = AtM_news.98
+					days = 1
+				}
+			}			
+		}
+	}
+}
+
+VIN_war_category = {
+	VIN_coalition_collapse = {
+		allowed = {
+			original_tag = VIN
+		}
+		activation = {
+			FRA = {
+				has_global_flag = first_indochina_war
+			}
+		}
+		available = {
+			always = no
+		}
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 10
+		icon = generic_tank
+		timeout_effect = {
+			DRV = {
+				diplomatic_relation = {
+					country = VIN
+					relation = military_access
+					active = no
+				}
+				diplomatic_relation = {
+					country = VIN
+					relation = offer_military_access
+					active = no
+				}
+			}
+			VIN = {
+				remove_ideas = DRV_unprepared_defensives_hanoi_idea
+				diplomatic_relation = {
+					country = DRV
+					relation = military_access
+					active = no
+				}
+				diplomatic_relation = {
+					country = DRV
+					relation = offer_military_access
+					active = no
+				}
+				declare_war_on = {
+					target = DRV
+					type = annex_everything
+				}
+				load_oob = DRV_hanoi
+			}
+		}
+	}
+}
+
+DPK_korean_unification = {
+	DPK_hold_against_the_soviet_onslaught = {
+		allowed = {
+			original_tag = DPK
+		}
+		
+		available = {
+			NOT = {
+				DPK = {
+					controls_province = 7171
+				}
+			}
+		}
+		
+		is_good = yes
+		fire_only_once = yes
+		days_mission_timeout = 100
+		
+		icon = generic_tank
+
+		activation = {
+			DPK = {
+				has_country_flag = dpk_independence_war
+				has_war_with = SOV
+			}
+		}
+
+		timeout_effect = {
+			SOV = {
+				white_peace = DPK
+			}
+			DPK = {
+				clr_country_flag = dpk_independence_war
+				retire_character = DPK_revolutionary_council
+				promote_character = DPK_kim_il_sung
+			}
+		}
+		
+		complete_effect = {
+			SOV = {
+				set_autonomy = {
+					target = DPK
+					autonomous_state = autonomy_integrated_puppet	#Military Occupation
+					freedom_level = 0.1
+				}
+			}
+			ROK = {
+				transfer_state = 982
+				transfer_state = 972
+				transfer_state = 983
+			}
+			DPK = {
+				clr_country_flag = dpk_independence_war
+			}
+		}
+	}
+}
+
+DPK_japanese_remnants = {
+	DPK_japanese_insurgance = {
+		allowed = {
+			original_tag = DPK
+		}
+		
+		available = {
+			AND = {
+				has_completed_focus = DPK_search_the_countryside
+				divisions_in_state = {
+					state = var:DPK_target_state
+					size > 0
+				}
+			}
+		}
+
+		activation = {
+			AND = {
+				has_completed_focus = DPK_remove_japanese_presence
+				NOT = {
+					has_active_mission = DPK_japanese_government_crackdown
+					has_active_mission = DPK_military_sabotage
+					has_completed_focus = DPK_execute_the_traitors
+				}
+			}
+		}
+		is_good = no
+		fire_only_once = no
+		days_mission_timeout = 60
+		selectable_mission = yes
+		cost = 60
+		days_re_enable = 20
+		
+		icon = generic_civil_support
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:DPK_target_state
+			}
+		}
+
+		timeout_effect = {
+			add_stability = -0.01
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					10 = {
+						activate_mission = DPK_military_sabotage
+					}
+					10 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+				}
+			}
+			else = {}
+		}
+		
+		complete_effect = {
+			add_stability = 0.02
+			add_political_power = 25
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					10 = {
+						activate_mission = DPK_military_sabotage
+					}
+					10 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+					10 = {
+						activate_mission = DPK_japanese_insurgance
+						random_owned_controlled_state = {
+							set_variable = { ROOT.DPK_target_state = THIS }
+						}
+					}
+				}
+			}
+			else = {}
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+	
+	DPK_japanese_government_crackdown = {
+		allowed = {
+			original_tag = DPK
+		}
+		
+		available = {
+			has_completed_focus = DPK_search_the_government
+		}
+		
+		cost = 25
+		is_good = no
+		fire_only_once = no
+		days_mission_timeout = 20
+		selectable_mission = yes
+		custom_cost_text = decision_cost_PP_25
+		days_re_enable = 20
+		
+		icon = generic_political_discourse
+
+		activation = {
+			AND = {
+				has_completed_focus = DPK_remove_japanese_presence
+				NOT = {
+					has_active_mission = DPK_japanese_insurgance
+					has_active_mission = DPK_military_sabotage
+					has_completed_focus = DPK_execute_the_traitors
+				}
+			}
+		}
+
+		timeout_effect = {
+			add_stability = -0.025
+			add_political_power = -25
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.075
+			} 
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					10 = {
+						activate_mission = DPK_military_sabotage
+					}
+					10 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+				}
+			}
+			else = {}
+		}
+		
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					5 = {
+						activate_mission = DPK_military_sabotage
+					}
+					5 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+					10 = {
+						activate_mission = DPK_japanese_insurgance
+						random_owned_controlled_state = {
+							set_variable = { ROOT.DPK_target_state = THIS }
+						}
+					}
+				}
+			}
+			else = {}
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+	
+	DPK_military_sabotage = {
+		allowed = {
+			original_tag = DPK
+		}
+		
+		available = {
+			has_completed_focus = DPK_search_the_military
+		}
+
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		
+		is_good = no
+		fire_only_once = no
+		selectable_mission = yes
+		days_mission_timeout = 20
+		custom_cost_text = decision_cost_CP_5
+		days_re_enable = 20
+		
+		icon = generic_tank
+
+		activation = {
+			AND = {
+				has_completed_focus = DPK_remove_japanese_presence
+				NOT = {
+					has_active_mission  = DPK_japanese_government_crackdown
+					has_active_mission  = DPK_japanese_insurgance
+					has_completed_focus = DPK_execute_the_traitors
+				}
+			}
+		}
+
+		timeout_effect = {
+			add_war_support = -0.025
+			add_command_power = -25
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.075
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					10 = {
+						activate_mission = DPK_military_sabotage
+					}
+					10 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+				}
+			}
+			else = {}
+		}
+		
+		complete_effect = {
+            hidden_effect = {
+                add_command_power = -5
+            }
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = DPK_execute_the_traitors
+					}
+				}
+				random_list = {
+					5 = {
+						activate_mission = DPK_military_sabotage
+					}
+					5 = {
+						activate_mission = DPK_japanese_government_crackdown
+					}
+					10 = {
+						activate_mission = DPK_japanese_insurgance
+						random_owned_controlled_state = {
+							set_variable = { ROOT.DPK_target_state = THIS }
+						}
+					}
+				}
+			}
+			else = {}
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+}
+
+HUN_survival_focus = {
+	HUN_survive_the_soviet_force = {
+		allowed = {
+			original_tag = HUN
+		}
+		
+		activation = {
+			always = no
+		}
+
+		available = { # Will fail if
+			NOT = {
+				# Országház
+				controls_state = 1311
+			}
+		}
+		
+		fire_only_once = yes
+		
+		days_mission_timeout = 200
+		
+		icon = generic_ignite_civil_war
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				CONTROLLER = {
+					original_tag = HUN
+				}
+			}
+		}
+		
+		complete_effect = {
+			SOV = {
+				set_autonomy = {
+					target = HUN
+					autonomous_state = autonomy_integrated_puppet	#Military Occupation
+					freedom_level = 0.5
+				}
+			}
+			HUN = {
+				set_cosmetic_tag = SOV_occupation
+				kill_country_leader = yes
+			}
+		}
+		
+		timeout_effect = {
+			white_peace = SOV
+			clr_country_flag = HUN_revolution
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+}

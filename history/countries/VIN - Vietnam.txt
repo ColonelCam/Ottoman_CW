@@ -21,6 +21,7 @@ add_political_power = 49
 #}
 1945.9.2 = {
 add_timed_idea = { idea = DRV_flooding_1945 days = 14 }
+add_timed_idea = { idea = DRV_famine_1944_1945 days = 200 }
 # Dissolution of the Dai Viet NatSoc Party
 country_event = { id = AtM_DRV.26 hours = 72 }
 }
@@ -33,14 +34,10 @@ country_event = { id = AtM_DRV.26 hours = 72 }
 	}
 }
 add_ideas = {
-	#National Spirits
-	DRV_unrecognized_state
-	DRV_lack_of_industry
-	DRV_famine_1944_1945
+	#National Spiritss
 	DRV_illiteracy 
 	DRV_scars_of_colonial_rule
 	DRV_political_opposition
-	DRV_economy_idea
 	
 	#National Laws
 	DRV_volunteer

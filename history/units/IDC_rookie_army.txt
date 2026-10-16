@@ -1,0 +1,246 @@
+﻿division_template = {
+	name = "brigade d artillerie"
+	division_names_group = IDC_DEF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Force de defense de Indochine"		
+	division_names_group = IDC_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+}
+
+units = {
+	######## LAND OOB ########
+	##### Nha Trang #####
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 10309 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 10309 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13562 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13562 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 15156 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1605 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13715 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13715 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13715 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13669 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13669 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13669 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 4225 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 13566 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1328 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 15163 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1615 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1615 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1615 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 15181 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 15181 
+		division_template = "Force de defense de Indochine"		
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+}

@@ -137,7 +137,7 @@ USA_prepare_for_the_east = {
 	}
 }
 
-USA_support_chi_and_twn = {
+USA_support_prc = {
 
 	allowed = {
 		original_tag = USA
@@ -145,48 +145,35 @@ USA_support_chi_and_twn = {
 	
 	enable = {
 		is_historical_focus_on = yes
-		NOT = { is_communist = yes }
-		NOT = { is_left_wing_radical = yes }
+		OR = {
+		is_communist = yes
+		is_left_wing_radical = yes }
 	}
 
 	abort = {
-		if = {
-			limit = {
-				OR = {
-					original_tag = TWN
-					original_tag = CHI
-				}
-			}
+		PRC = {
+			NOT = {
 			OR = {
 				is_communist = yes
 				is_left_wing_radical = yes
+			}
 			}
 		}
 	}
 	
 	ai_strategy = {
 		type = send_lend_lease_desire
-		id = CHI
-		value = 200
-	}
-	ai_strategy = {
-		type = send_lend_lease_desire
-		id = TWN
+		id = PRC
 		value = 200
 	}
 	ai_strategy = {
 		type = support
-		id = CHI
-		value = 25
-	}
-	ai_strategy = {
-		type = support
-		id = TWN
+		id = PRC
 		value = 25
 	}
 }
 
-USA_support_rok = {
+USA_support_dpk = {
 
 	allowed = {
 		original_tag = USA
@@ -233,7 +220,7 @@ USA_support_rok = {
 	}
 }
 
-USA_support_vin = {
+USA_support_drv = {
 
 	allowed = {
 		original_tag = USA
@@ -241,13 +228,13 @@ USA_support_vin = {
 	
 	enable = {
 		is_historical_focus_on = yes
-		NOT = { is_communist = yes }
-		NOT = { is_left_wing_radical = yes }
+		is_communist = yes 
+		is_left_wing_radical = yes 
 	}
 
 	abort = {
-		ROK = {
-			OR = {
+		DRV = {
+			NOT = {
 				is_communist = yes
 				is_left_wing_radical = yes
 			}
@@ -256,31 +243,30 @@ USA_support_vin = {
 	
 	ai_strategy = {
 		type = send_volunteers_desire
-		id = VIN
+		id = DRV
 		value = 100
 	}
 	ai_strategy = {
 		type = send_lend_lease_desire
-		id = VIN
+		id = DRV
 		value = 50
 	}
 	ai_strategy = {
 		type = support
-		id = VIN
+		id = DRV
 		value = 25
 	}
-	#Reluctant to support Korea directly
 	ai_strategy = {
 		type = protect
 		id = VIN
 		value = -25
 	}
 }
-## Test
-SOV_support_mla = {
+
+USA_support_mla = {
 
 	allowed = {
-		original_tag = SOV
+		original_tag = USA
 	}
 	
 	enable = {
@@ -314,7 +300,6 @@ SOV_support_mla = {
 	}
 	
 }
-## End Test
 USA_influence_afghanistan = {
 
 	allowed = {

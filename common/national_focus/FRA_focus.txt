@@ -1,0 +1,2218 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+### search_filters = {FOCUS_FILTER_PROPAGANDA}
+### search_filters = {FOCUS_FILTER_ARMY_XP}
+### search_filters = {FOCUS_FILTER_NAVY_XP}
+### search_filters = {FOCUS_FILTER_AIR_XP}
+# Reminder that focus filters prio has to be handled in the generic focus file :)
+
+focus_tree = {
+	id = france_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 150
+			tag = FRA
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 120 y = 970 }
+	
+	focus = {
+		id = FRA_landing_in_saigon
+		icon = GFX_focus_attack_france
+		x = 4
+		y = 0
+		cost = 1.5
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			custom_effect_tooltip = IDC_reoccupation_tt
+			ENG = {
+				country_event = { id = AtM_indochina.6 days = 1 }
+			}
+			country_event = AtM_indochina.1
+		}
+	}
+	
+	focus = {
+		id = FRA_operation_masterdom
+		icon = GFX_focus_hol_war_on_pacifism
+		relative_position_id = FRA_landing_in_saigon
+		prerequisite = { focus = FRA_landing_in_saigon }
+		x = 0
+		y = 1
+		cost = 1.5
+		
+		search_filters = { }
+
+		available = {
+			has_country_flag = uk_responds_op_masterdom
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			# Fight the DRV but try to get allies: Laos and Cambodia is created
+			set_country_flag = IDC_laos_released
+			set_country_flag = FRA_fighting_the_DRV
+			add_war_support = 0.05
+			add_timed_idea = {
+				idea = IDC_operation_masterdom_ns
+				days = 365
+			}
+			add_named_threat = { threat = 3.0 name = FRA_indochinese_war }
+			if = {
+				limit = {
+					country_exists = DRV
+					NOT = { DRV = { is_subject_of = ROOT } }
+				}
+				declare_war_on = {
+					target = DRV
+					type = annex_everything
+				}
+				if = {
+					limit = {
+						country_exists = IDC
+					}
+					IDC = {
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = DRV
+							hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = CCH
+					NOT = { CCH = { is_subject_of = ROOT } }
+				}
+				declare_war_on = {
+					target = CCH
+					type = annex_everything
+				}
+				if = {
+					limit = {
+						country_exists = IDC
+					}
+					IDC = {
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = CCH
+							hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = VIN
+					NOT = { VIN = { is_subject_of = ROOT } }
+				}
+				declare_war_on = {
+					target = VIN
+					type = annex_everything
+				}
+				if = {
+					limit = {
+						country_exists = IDC
+					}
+					IDC = {
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = VIN
+							hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = VNT
+					NOT = { VNT = { is_subject_of = ROOT } }
+				}
+				VNT = {
+					set_province_controller = 14409
+					1503 = {
+						create_unit = {  
+							division = "name = \"Go Yap streetcar workers\" division_template = \"Workers' Militas\" start_experience_factor = 0.2" 
+							owner = VNT 
+							prioritize_location = 14409  
+							allow_spawning_on_enemy_provs = no 
+							count = 1
+						} 
+					}
+				}
+				declare_war_on = {
+					target = VNT
+					type = annex_everything
+				}
+				if = {
+					limit = {
+						country_exists = IDC
+					}
+					IDC = {
+						add_to_war = {
+							targeted_alliance = FRA
+							enemy = VNT
+							hostility_reason = asked_to_join
+							single_target_only = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = IDC
+				}
+				IDC = {
+					add_timed_idea = {
+						idea = IDC_operation_masterdom_ns
+						days = 365
+					}
+					hidden_effect = {
+						load_oob = IDC_1945
+						set_country_flag = FRA_finished_op_masterdom
+					}
+					transfer_state = 1085
+				}
+			}
+			DRV = {
+				country_event = AtM_DRV.9
+				every_core_state = {
+					limit = {
+						CONTROLLER = {
+							OR = {
+								original_tag = FRA
+								is_subject_of = FRA
+							}
+						}
+						NOT = {
+							impassable = yes
+						}
+					}
+					if = {
+						limit = {
+							has_resistance = no
+						}
+						force_enable_resistance = {
+							occupied = DRV
+						}
+						start_resistance = DRV
+						set_resistance = 10
+						set_compliance = 70
+					}
+					else = {
+						add_resistance = 10
+						add_compliance = -20
+					}
+				}
+			}
+			hidden_effect = {
+				news_event = {
+					id = AtM_news.1
+					days = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_retake_cambodia
+		icon = GFX_goal_generic_territory_or_war
+		relative_position_id = FRA_operation_masterdom
+		prerequisite = { focus = FRA_operation_masterdom }
+		x = -1
+		y = 1
+		cost = 4.3
+		
+		search_filters = { }
+
+		available = {
+			country_exists = CAM
+			NOT = {
+				CAM = {
+					is_subject_of = FRA
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			declare_war_on = {
+				target = CAM
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_retake_laos
+		icon = GFX_goal_generic_territory_or_war
+		relative_position_id = FRA_retake_cambodia
+		prerequisite = { focus = FRA_retake_cambodia }
+		x = 0
+		y = 1
+		cost = 4.3
+		
+		search_filters = { }
+
+		available = {
+			country_exists = LAO
+			NOT = {
+				LAO = {
+					is_subject_of = FRA
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			declare_war_on = {
+				target = LAO
+				type = puppet_wargoal_focus
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_aftermath_of_the_brazzaville_conference
+		icon = GFX_focus_fra_le_deluge
+		x = 10
+		y = 0
+		cost = 4.3
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { 
+			factor = 5 
+			modifier = {
+				factor = 0
+				NOT = {
+					has_completed_focus = FRA_operation_masterdom
+				}
+			} 
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			army_experience = 5
+			FWA = {
+				add_ideas = {
+					FRA_brazzaville_declaration
+				}
+			}
+			FEA = {
+				add_ideas = {
+					FRA_brazzaville_declaration
+				}
+			}
+			custom_effect_tooltip = FRA_promises_of_equal_rights_tt
+		}
+	}
+	
+	focus = {
+		id = FRA_frenchification_of_our_colonies
+		icon = GFX_focus_CHL_a_french_alliance
+		relative_position_id = FRA_aftermath_of_the_brazzaville_conference
+		prerequisite = { focus = FRA_aftermath_of_the_brazzaville_conference }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			FRA = {
+				every_subject_country = {
+					every_owned_state = {
+						limit = {
+							has_active_resistance = yes
+							NOT = {
+								capital_scope = {
+									is_on_continent = europe
+								}
+							}
+						}
+						add_compliance = 10
+					}
+					set_temp_variable = { influence_change = 10 }
+					set_temp_variable = { influence_target = FRA }
+					add_influence_direct = yes
+				}
+			}
+			# Should include decisions to promote a new currency in African colonies
+		}
+	}
+	
+	focus = {
+		id = FRA_indochinese_campaign
+		icon = GFX_focus_fra_french_union
+		relative_position_id = FRA_aftermath_of_the_brazzaville_conference
+		prerequisite = { focus = FRA_aftermath_of_the_brazzaville_conference }
+		prerequisite = { focus = FRA_landing_in_saigon }
+		x = -3
+		y = 1
+		cost = 5
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 5 }
+		
+		text_icon = NORDIC_focus_style
+
+		completion_reward = {
+			add_war_support = 0.05
+			# Add decision here
+		}
+	}
+	
+	focus = {
+		id = FRA_promote_french_cooperators
+		icon = GFX_focus_chi_reach_out_to_france
+		relative_position_id = FRA_indochinese_campaign
+		prerequisite = { focus = FRA_indochinese_campaign }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			IDC = {
+				every_owned_state = {
+					limit = {
+						has_resistance = yes
+					}
+					add_compliance = 25
+				}
+			}
+			LAO = {
+				set_temp_variable = { influence_change = 10 }
+				set_temp_variable = { influence_target = FRA }
+				add_influence_direct = yes
+			}
+			CAM = {
+				set_temp_variable = { influence_change = 10 }
+				set_temp_variable = { influence_target = FRA }
+				add_influence_direct = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_separate_rule
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		relative_position_id = FRA_landing_in_saigon
+		prerequisite = { focus = FRA_operation_masterdom }
+		prerequisite = { focus = FRA_indochinese_campaign }
+		x = 2
+		y = 2
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.025
+			release = LAO
+			release = CAM
+			release = DRV
+		}
+	}
+	
+	focus = {
+		id = FRA_the_long_war
+		icon = GFX_focus_generic_total_war
+		relative_position_id = FRA_operation_masterdom
+		prerequisite = { focus = FRA_operation_masterdom }
+		x = 0
+		y = 3
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = -50
+			add_war_support = 0.025
+			add_manpower = 100000
+		}
+	}
+	
+	focus = {
+		id = FRA_total_victory
+		icon = GFX_focus_generic_target_indochina
+		mutually_exclusive = { focus = FRA_broker_a_ceasefire focus = FRA_a_complete_disaster }
+		relative_position_id = FRA_the_long_war
+		prerequisite = { focus = FRA_the_long_war }
+		x = -2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			OR = {
+				country_exists = IDC
+				country_exists = VIN
+			}
+			NOT = {
+				country_exists = DRV
+				country_exists = VCF
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = FRA_a_victory_for_colonialism
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		relative_position_id = FRA_total_victory
+		prerequisite = { focus = FRA_total_victory }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			every_subject_country = {
+				add_autonomy_score = {
+					value = -200
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_broker_a_ceasefire
+		icon = GFX_focus_SWE_refuge_from_war
+		mutually_exclusive = { focus = FRA_a_complete_disaster focus = FRA_total_victory }
+		relative_position_id = FRA_the_long_war
+		prerequisite = { focus = FRA_the_long_war }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			OR = {
+				AND = {
+					country_exists = VIN
+					VIN = {
+						has_war_with = DRV
+						NOT = {
+							surrender_progress > 0.8
+						}
+					}
+				}
+				AND = {
+					country_exists = IDC
+					IDC = {
+						has_war_with = DRV
+						NOT = {
+							surrender_progress > 0.8
+						}
+					}
+				}
+			}
+		}
+		
+		bypass = {
+			NOT = {
+				country_exists = DRV
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				date > 1954.6.1
+			}
+		}
+
+		completion_reward = {
+			VIN = {
+				white_peace = { tag = DRV }
+			}
+			if = {
+				limit = {
+					FRA = { has_war_with = DRV }
+				}
+				FRA = {
+					white_peace = { tag = DRV }
+				}
+			}
+			if = {
+				limit = {
+					IDC = { has_war_with = DRV }
+				}
+				IDC = {
+					white_peace = { tag = DRV }
+				}
+			}
+			# Dien Bien Phu
+			DRV = {
+				transfer_state = 1620
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_funding_the_south
+		icon = GFX_focus_SWI_issue_war_bonds
+		relative_position_id = FRA_broker_a_ceasefire
+		prerequisite = { focus = FRA_broker_a_ceasefire }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			country_exists = VIN
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			VIN = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 2000
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 1000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 500
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 250
+					producer = FRA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_a_complete_disaster
+		icon = GFX_goal_generic_forceful_treaty
+		mutually_exclusive = { focus = FRA_broker_a_ceasefire focus = FRA_total_victory }
+		relative_position_id = FRA_the_long_war
+		prerequisite = { focus = FRA_the_long_war }
+		x = 2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			OR = {
+				country_exists = DRV
+				country_exists = VCF
+			}
+			NOT = {
+				country_exists = IDC
+				country_exists = VIN
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = -50
+		}
+	}
+
+	focus = {
+		id = FRA_defend_thailand
+		icon = GFX_goal_generic_construct_military
+		relative_position_id = FRA_a_complete_disaster
+		prerequisite = { focus = FRA_a_complete_disaster }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			SIA = {
+				exists = yes
+				OR = {
+					is_subject = no
+					AND = {
+						is_subject = yes
+						OVERLORD = {
+							# original_tag = ROOT (?)
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			SIA = {
+				add_war_support = 0.025
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_african_campaign
+		icon = GFX_focus_fra_french_union
+		relative_position_id = FRA_aftermath_of_the_brazzaville_conference
+		prerequisite = { focus = FRA_aftermath_of_the_brazzaville_conference }
+		x = 3
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_war_support = 0.05
+			# Add decision here
+		}
+	}
+	
+	focus = {
+		id = FRA_suppress_algerian_nationalism
+		icon = GFX_focus_generic_annex_country_2
+		relative_position_id = FRA_african_campaign
+		prerequisite = { focus = FRA_african_campaign }
+		x = 2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = -25
+			add_stability = -0.025
+			every_controlled_state = {
+				limit = {
+					is_core_of = ALG
+					NOT = {
+						impassable = yes
+					}
+				}
+				add_resistance = -15
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_the_war_against_the_FLN
+		icon = GFX_focus_generic_provoke_border_clashes
+		relative_position_id = FRA_suppress_algerian_nationalism
+		prerequisite = { focus = FRA_suppress_algerian_nationalism }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = -25
+			add_stability = -0.025
+			every_controlled_state = {
+				limit = {
+					is_core_of = ALG
+					NOT = {
+						impassable = yes
+					}
+				}
+				add_resistance = -15
+			}
+			ALG = {
+				add_stability = -0.025
+				add_war_support = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_the_war_for_madagascar
+		icon = GFX_goal_generic_position_armies
+		relative_position_id = FRA_african_campaign
+		prerequisite = { focus = FRA_african_campaign }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_political_power = -25
+			MAD = {
+				add_stability = -0.025
+				add_autonomy_score = {
+					value = -250
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_protect_our_interests
+		icon = GFX_goal_generic_defence
+		relative_position_id = FRA_the_war_for_madagascar
+		prerequisite = { focus = FRA_the_war_for_madagascar }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			MAD = {
+				add_political_power = -50
+				add_autonomy_score = {
+					value = -100
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.05
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_protect_the_south
+		icon = GFX_focus_generic_africa_defense
+		relative_position_id = FRA_african_campaign
+		prerequisite = { focus = FRA_african_campaign }
+		x = -2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = FRA_destroy_moroccan_opposition
+		icon = GFX_focus_generic_annex_country
+		relative_position_id = FRA_protect_the_south
+		prerequisite = { focus = FRA_protect_the_south }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			MOR = {
+				add_political_power = -50
+				add_stability = -0.025
+				add_autonomy_score = {
+					value = -250
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_successful_pacification
+		icon = GFX_focus_generic_target_africa
+		relative_position_id = FRA_protect_our_interests
+		prerequisite = { focus = FRA_destroy_moroccan_opposition }
+		prerequisite = { focus = FRA_protect_our_interests }
+		prerequisite = { focus = FRA_the_war_against_the_FLN }
+		mutually_exclusive = { focus = FRA_abandon_colonialism }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			add_political_power = -150
+			add_stability = -0.05
+			add_war_support = -0.1
+			every_subject_country = {
+				# Add national spirit here
+				add_autonomy_score = {
+					value = -1000
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_abandon_colonialism
+		icon = GFX_focus_generic_africa_liberation
+		relative_position_id = FRA_protect_our_interests
+		prerequisite = { focus = FRA_destroy_moroccan_opposition }
+		prerequisite = { focus = FRA_protect_our_interests }
+		prerequisite = { focus = FRA_the_war_against_the_FLN }
+		mutually_exclusive = { focus = FRA_successful_pacification }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			add_political_power = 100
+			custom_effect_tooltip = FRA_release_all_colonies_tt
+			hidden_effect = {
+				every_possible_country = {
+					if = {
+						limit = {
+							NOT = { exists = yes }
+							# Has cores on states owned by FRA or a subject of FRA
+							any_state = {
+								is_core_of = THIS
+								OR = {
+									is_owned_by = FRA
+									owner = { is_subject_of = FRA }
+								}
+								# But FRA itself doesn't core those states
+								NOT = { is_core_of = FRA }
+							}
+						}
+
+						save_event_target_as = nation_to_release
+
+						every_country = {
+							limit = {
+								any_owned_state = {
+									is_core_of = event_target:nation_to_release
+									OR = {
+										is_owned_by = FRA
+										owner = { is_subject_of = FRA }
+									}
+									NOT = { is_core_of = FRA }
+								}
+							}
+							release = event_target:nation_to_release
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_post_war_trauma
+		icon = GFX_focus_generic_surrender
+		x = 21
+		y = 0
+		cost = 10
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { 
+			factor = 10
+			modifier = {
+				factor = 0
+				NOT = {
+					has_completed_focus = FRA_operation_masterdom
+				}
+			} 
+		}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+
+	focus = {
+		id = FRA_destroy_the_nazi_legacy
+		icon = GFX_focus_POL_ban_nazi_party
+		relative_position_id = FRA_post_war_trauma
+		prerequisite = { focus = FRA_post_war_trauma }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.025
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_reconstruction_efforts
+		icon = GFX_focus_generic_low_cost_housing
+		relative_position_id = FRA_destroy_the_nazi_legacy
+		prerequisite = { focus = FRA_destroy_the_nazi_legacy }
+		x = 2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_stability = 0.025
+			1445 = { #Nord
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			785 = { #Picardie
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			remove_ideas = FRA_collapsing_franc
+			
+			add_timed_idea = {
+				idea = FRA_franc_devalued
+				days = 365
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_repopulate_the_country
+		icon = GFX_focus_generic_full_employment
+		relative_position_id = FRA_destroy_the_nazi_legacy
+		prerequisite = { focus = FRA_destroy_the_nazi_legacy }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_stability = 0.025
+			29 = { #Pas-De-Calais
+				add_manpower = 10000
+			}
+			785 = { #Picardie
+				add_manpower = 10000
+			}
+			1443 = { #Haut-Normandie
+				add_manpower = 10000
+			}
+			1445 = { #Nord
+				add_manpower = 10000
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_develop_algeria
+		icon = GFX_goal_generic_construction2
+		relative_position_id = FRA_reconstruction_efforts
+		prerequisite = { focus = FRA_reconstruction_efforts }
+		prerequisite = { focus = FRA_repopulate_the_country }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			459 = { #Algiers
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			459 = { #Algiers
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_develop_northern_france
+		icon = GFX_focus_generic_industry_3
+		relative_position_id = FRA_develop_algeria
+		prerequisite = { focus = FRA_develop_algeria }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			1443 = { #Haut-Normandie
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			1443 = { #Haut-Normandie
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_develop_southern_france
+		icon = GFX_focus_generic_industry_3
+		relative_position_id = FRA_develop_algeria
+		prerequisite = { focus = FRA_develop_algeria }
+		x = 2
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			21 = { #Provence
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			21 = { #Provence
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_develop_the_colonies
+		icon = GFX_focus_generic_industry_3
+		relative_position_id = FRA_develop_algeria
+		prerequisite = { focus = FRA_develop_algeria }
+		x = 4
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			FEA = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+						OR = {
+							is_in_home_area = yes
+							NOT = {
+								owner = {
+									any_owned_state = {
+										free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+										is_in_home_area = yes
+									}
+								}
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			FWA = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+						OR = {
+							is_in_home_area = yes
+							NOT = {
+								owner = {
+									any_owned_state = {
+										free_building_slots = {
+											building = industrial_complex
+											size > 1
+											include_locked = yes
+										}
+										is_in_home_area = yes
+									}
+								}
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_remilitarisation_efforts
+		icon = GFX_focus_generic_tank_assembly
+		relative_position_id = FRA_post_war_trauma
+		prerequisite = { focus = FRA_post_war_trauma }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = armor
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_renew_french_arms_production
+		icon = GFX_focus_focus_fra_maquis
+		relative_position_id = FRA_remilitarisation_efforts
+		prerequisite = { focus = FRA_remilitarisation_efforts }
+		x = -1
+		y = 2
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = infantry_weapons
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 1
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_cold_war_technologies
+		icon = GFX_focus_generic_modernize_industry
+		relative_position_id = FRA_remilitarisation_efforts
+		prerequisite = { focus = FRA_remilitarisation_efforts }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_the_future_scientists
+		icon = GFX_focus_generic_socialist_science
+		relative_position_id = FRA_cold_war_technologies
+		prerequisite = { focus = FRA_cold_war_technologies }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_ideas = FRA_french_science_expansion
+		}
+	}
+
+	focus = {
+		id = FRA_the_french_army
+		icon = GFX_focus_generic_tank_production
+		relative_position_id = FRA_cold_war_technologies
+		prerequisite = { focus = FRA_cold_war_technologies focus = FRA_renew_french_arms_production }
+		x = 0
+		y = 2
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_ideas = FRA_the_french_armed_forces
+			army_experience = 25
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				specialization = specialization_land
+				value = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_the_next_nuclear_power
+		icon = GFX_focus_generic_nuclear_development
+		relative_position_id = FRA_the_french_army
+		prerequisite = { focus = FRA_the_french_army }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				specialization = specialization_air
+				value = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_end_the_provisional_government
+		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
+		x = 27
+		y = 0
+		cost = 10
+		
+		search_filters = { }
+
+		available = {
+			has_stability > 0.25
+			date > 1946.1.1
+		}
+		
+		bypass = { 
+			NOT = {
+				has_cosmetic_tag = FRA_provisional_government
+			}
+		}
+		
+		continue_if_invalid = yes
+
+		ai_will_do = { factor = 10 }
+		
+		text_icon = NORDIC_focus_style
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.025
+			drop_cosmetic_tag = yes
+			custom_effect_tooltip = FRA_fourth_republic_tt
+		}
+	}
+	
+	focus = {
+		id = FRA_elect_vincent_auriol
+		icon = GFX_focus_generic_election
+		relative_position_id = FRA_end_the_provisional_government
+		prerequisite = { focus = FRA_end_the_provisional_government }
+		x = 0
+		y = 1
+		cost = 4.3
+		
+		search_filters = { }
+
+		available = {
+			date > 1947.1.1
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			promote_character = FRA_vincent_auriol
+		}
+	}
+	
+	focus = {
+		id = FRA_elect_rene_coty
+		icon = GFX_focus_generic_election
+		relative_position_id = FRA_elect_vincent_auriol
+		prerequisite = { focus = FRA_elect_vincent_auriol }
+		x = 0
+		y = 1
+		cost = 4.3
+		
+		search_filters = { }
+
+		available = {
+			date > 1954.1.1
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			promote_character = FRA_rene_coty
+		}
+	}
+	
+	focus = {
+		id = FRA_foreign_policy
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 13
+		y = 6
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				NOT = {
+					has_completed_focus = FRA_operation_masterdom
+				}
+			} 
+		}
+
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+	
+	focus = {
+		id = FRA_aid_against_egypt
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+		relative_position_id = FRA_foreign_policy
+		prerequisite = { focus = FRA_foreign_policy }
+		x = -3
+		y = 1
+		cost = 2.2
+		
+		search_filters = { }
+
+		available = {
+			OR = {
+				ENG = {
+					has_war_with = EGY
+				}
+				ISR = {
+					has_war_with = EGY
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					ENG = {
+						has_war_with = EGY
+					}
+				}
+				ENG = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_1
+						amount = 2000
+						producer = FRA
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment_1
+						amount = 500
+						producer = USA
+					}
+				}
+			}
+			if = {
+				limit = {
+					ISR = {
+						has_war_with = EGY
+					}
+				}
+				ISR = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_1
+						amount = 2000
+						producer = FRA
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment_1
+						amount = 1000
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 500
+						producer = FRA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 250
+						producer = FRA
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_military_coordination
+		icon = GFX_goal_generic_more_territorial_claims
+		relative_position_id = FRA_aid_against_egypt
+		prerequisite = { focus = FRA_aid_against_egypt }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			OR = {
+				NOT = {
+					ENG = {
+						has_war_with = ROOT
+					}
+					ISR = {
+						has_war_with = ROOT
+					}
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = ENG
+				}
+				add_intel = {
+					target = ENG
+					army_intel = 5
+				}
+				ENG = {
+					army_experience = 5
+				}
+			}
+			if = {
+				limit = {
+					country_exists = ISR
+				}
+				add_intel = {
+					target = ISR
+					army_intel = 5
+				}
+				ISR = {
+					army_experience = 5
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_east_vs_west
+		icon = GFX_focus_PER_communist_afghanistan_intervention
+		relative_position_id = FRA_foreign_policy
+		prerequisite = { focus = FRA_foreign_policy }
+		x = 3
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_fortify_the_saarland
+		icon = GFX_focus_generic_mountain_fortification
+		relative_position_id = FRA_east_vs_west
+		prerequisite = { focus = FRA_east_vs_west }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			# Saarland
+			1063 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = FRA
+						is_subject_of = FRA
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			# Saarland
+			1063 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 11531
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					instant_build = yes
+					province = 13510
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_reintegrate_the_saarland
+		icon = GFX_focus_generic_court
+		relative_position_id = FRA_fortify_the_saarland
+		prerequisite = { focus = FRA_fortify_the_saarland }
+		x = 0
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			# Saarland
+			1063 = {
+				CONTROLLER = {
+					OR = {
+						original_tag = FRA
+						is_subject_of = FRA
+					}
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			add_political_power = -25
+			add_stability = -0.025
+			transfer_state = 1063
+			every_other_country = {
+				limit = {
+					is_literally_germany = yes
+					exists = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = large_decrease
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_aid_korea
+		icon = GFX_focus_generic_armored_air_support
+		relative_position_id = FRA_foreign_policy
+		prerequisite = { focus = FRA_foreign_policy }
+		x = 0
+		y = 1
+		cost = 2.2
+		
+		search_filters = { }
+
+		available = {
+			ROK = {
+				surrender_progress > 0.05
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			ROK = {
+				add_war_support = 0.025
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 1000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 2000
+					producer = FRA
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_provide_equipment
+		icon = GFX_focus_generic_license_production
+		relative_position_id = FRA_aid_korea
+		prerequisite = { focus = FRA_aid_korea }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			ROK = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 2000
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment_1
+					amount = 1000
+					producer = USA
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = 500
+					producer = FRA
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 250
+					producer = FRA
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_french_volunteer_corps
+		icon = GFX_focus_generic_manpower
+		relative_position_id = FRA_aid_korea
+		prerequisite = { focus = FRA_aid_korea }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			ROK = {
+				load_oob = ROK_FRA_volunteer_corps
+				custom_effect_tooltip = FRA_french_volunteer_corps_oob
+			}
+		}
+	}
+	
+	focus = {
+		id = FRA_the_last_stand
+		icon = GFX_focus_generic_target_soviet
+		x = 23
+		y = 6
+		cost = 5
+		
+		search_filters = { }
+
+		available = {
+			surrender_progress > 0.1
+			has_war_with = SOV
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {
+		id = FRA_defensive_posture
+		icon = GFX_focus_SWI_fortify_border_with_france
+		relative_position_id = FRA_the_last_stand
+		prerequisite = { focus = FRA_the_last_stand }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = FRA_prepare_paris
+		icon = GFX_focus_focus_fra_border
+		relative_position_id = FRA_the_last_stand
+		prerequisite = { focus = FRA_the_last_stand }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			16 = {
+				free_building_slots = {
+					building = anti_air_building
+					size > 0
+				}
+			}
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			# Ile-de-France
+			16 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}
+						OR = {
+							is_in_home_area = yes
+							NOT = {
+								owner = {
+									any_owned_state = {
+										free_building_slots = {
+											building = anti_air_building
+											size > 1
+										}
+										is_in_home_area = yes
+									}
+								}
+							}
+						}
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+				}
+				if = {
+					limit = {
+						free_building_slots = {
+							building = bunker
+							size > 1
+							province = 11506
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = 11506 # Paris
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_raise_the_final_defenders
+		icon = GFX_focus_generic_little_entente
+		relative_position_id = FRA_prepare_paris
+		prerequisite = { focus = FRA_prepare_paris }
+		prerequisite = { focus = FRA_defensive_posture }
+		x = -1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = { }
+		
+		bypass = { }
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_manpower = 500000
+			# todo: load an oob
+		}
+	}
+	
+	focus = {
+		id = FRA_launch_our_nuclear_arsenal
+		icon = GFX_focus_wonderweapons
+		relative_position_id = FRA_prepare_paris
+		prerequisite = { focus = FRA_prepare_paris }
+		x = 1
+		y = 1
+		cost = 8.6
+		
+		search_filters = { }
+
+		available = {
+			num_of_nukes > 0
+		}
+		
+		bypass = { }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			# todo
+		}
+	}
+}

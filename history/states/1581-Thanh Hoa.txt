@@ -1,0 +1,35 @@
+state={
+	id=1581
+	name="STATE_1581"
+	resources={
+		tungsten=3
+		chromium=3
+		rubber=1
+	}
+	
+	history={
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = DRV
+		add_claim_by = IDC
+		add_claim_by = VTQ
+		add_claim_by = VTC
+		add_claim_by = VNT
+		1948.6.1 = {
+			owner = DRV
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			11936 4 #Thanh Hoa
+		}
+	}
+	provinces={
+		10129 11936 15174 15175  
+	}
+	manpower=1250556
+	buildings_max_level_factor=1.000
+	state_category=rural
+	local_supplies=0.000
+}

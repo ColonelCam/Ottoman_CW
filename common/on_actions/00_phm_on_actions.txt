@@ -4,21 +4,55 @@ on_actions = {
             BMA = {
                 country_event = {
                     id = AtM_MAL.1
-                    days = 7
+                    days = 70
                 }
             }
             PHI = {
                 country_event = {
                     id = AtM_PHI.4
-                    days = 10
+                    days = 305
                 }
             }
             PRC = {
                 country_event = {
                     id = phm_events.1
-                    days = 20 # 900
+                    days = 1000
                 }
             }
+        }
+    }
+    on_capitulation = {
+        effect = {
+			if = {
+				limit = {
+                    FROM = { original_tag = VIN	}
+					ROOT = { original_tag = DRV }
+				}
+			FROM = {
+				white_peace = { tag = ROOT }
+				
+			annex_country = {
+				target = DRV
+				transfer_troops = no
+			}
+				
+				}
+			}
+			if = {
+				limit = {
+                    FROM = { original_tag = DRV	}
+					ROOT = { original_tag = VIN }
+				}
+			FROM = {
+				white_peace = { tag = ROOT }
+				
+			annex_country = {
+				target = VIN
+				transfer_troops = no
+			}
+				
+				}
+			}
         }
     }
 }
