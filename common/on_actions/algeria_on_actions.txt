@@ -1,0 +1,40 @@
+on_actions = {
+    on_daily = {
+        effect = {
+			if = {
+				limit = {
+					tag = ALG
+					has_war_with = FRA
+					all_core_state = {
+						is_controlled_by = ALG
+					}
+				}
+			ALG = {
+				white_peace = { tag = FRA }
+				
+			1007 = {
+				transfer_state_to = ALG
+			}
+			513 = {
+				transfer_state_to = ALG
+			}
+			1004 = {
+				transfer_state_to = ALG
+			}
+			1136 = {
+				transfer_state_to = ALG
+			}
+			1135 = {
+				transfer_state_to = ALG
+			}
+			514 = {
+				transfer_state_to = ALG
+			}
+			1465 = {
+				transfer_state_to = ALG
+			}
+				}
+			}
+        }
+    }
+}
