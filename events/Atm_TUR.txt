@@ -209,3 +209,31 @@ country_event = {
 		add_to_faction = ALG
 	}
 }
+
+country_event = {
+	id = AtM_TUR.12
+	title = AtM_TUR.12.t
+	desc = AtM_TUR.12.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.12.a
+		add_political_power = 20
+	}
+}
+
+country_event = {
+	id = AtM_TUR.13
+	title = AtM_TUR.13.t
+	desc = AtM_TUR.13.d
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_TUR.13.a
+		add_to_faction = EGY
+	}
+}
