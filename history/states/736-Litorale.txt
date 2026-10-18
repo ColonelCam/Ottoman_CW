@@ -1,0 +1,29 @@
+state = {
+	id = 736
+	name = "STATE_736"
+	
+	state_category = city
+
+	history = {
+		owner = AUS
+		add_core_of = YUG
+		add_core_of = SLV
+		add_claim_by = ITA
+		
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+		}
+		victory_points = {
+			13511 1
+		}
+	}
+
+	provinces = {
+		599 11595 13511 13512
+	}
+	manpower = 1038159 # was 1063159 before Istria was merged with Fiume (~25k pop added to new Istria state (Fiume + Pola)
+	buildings_max_level_factor = 1.000
+
+	local_supplies = 0.0 
+}

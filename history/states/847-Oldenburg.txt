@@ -1,0 +1,39 @@
+
+state={
+	id=847
+	name="STATE_847"
+	history={
+		owner = GER
+		add_core_of = GER
+		add_core_of = HAN
+		1948.6.1 = {
+			owner = WGR
+		}
+		buildings = {
+			infrastructure = 2
+			air_base = 3
+			dockyard = 1
+			241 = {
+				naval_base = 4
+				naval_headquarters = {
+					level = 1
+					allowed = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+				}
+			}
+		}
+		victory_points = {
+			241 3
+		}
+		victory_points = {
+			11360 1
+		}
+	}
+	provinces={
+		241 309 336 3234 11360 15457 
+	}
+	manpower = 1400000
+	state_category = city
+	local_supplies=0.0 
+}

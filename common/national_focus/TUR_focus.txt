@@ -221,7 +221,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-
+			remove_idea = { idea = TUR_slavic_seperatism }
 		}
 	}
 
@@ -398,9 +398,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			EGY = {
-				has_government = fascism
-			}
+			date > 1952.6.6
 		}
 
 		ai_will_do = { factor = 5 }
@@ -492,6 +490,7 @@ focus_tree = {
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
+			remove_ideas = { idea = TUR_post_war_economy }
 			add_timed_idea = {
 				idea = TUR_post_war_reconstruction
 				days = 365

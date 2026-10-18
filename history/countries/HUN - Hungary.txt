@@ -1,0 +1,148 @@
+﻿capital = 1311 # Budapest
+
+oob = "HUN_1945"
+set_stability = 0.7
+set_war_support = 0.7
+add_command_power = 5
+set_research_slots = 3
+add_political_power = 49
+
+add_ideas = {
+	#National Spirits
+	HUN_economic_collapse
+	HUN_the_turul_will_return
+	
+	#National Laws
+	
+	#Companies
+}
+
+# Because it's done trough an election event
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	#set_air_oob = "HUN_1945_air_bba"
+	set_technology = {
+		#Small Airframe
+		basic_small_airframe_1 = 1
+		basic_small_airframe_2 = 1
+
+		#Medium Airframe
+		basic_medium_airframe_1 = 1
+		
+		#Large Airframe
+		basic_large_airframe_1 = 1
+
+		#Transport Plane
+		bba_early_transport_plane = 1
+
+		#Upgrades
+		early_bombs = 1
+		aa_lmg = 1
+		aircraft_construction = 1
+		engines_1 = 1
+		engines_2 = 1
+	}
+	else = {
+		#set_air_oob = "HUN_1945_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			fighter1 = 1
+			naval_bomber1 = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	#set_oob = "HUN_1945_nsb"
+	set_technology = {
+		#Tank Chassis
+		gwtank_chassis = 1
+		
+		#Light Tanks
+		basic_light_tank_chassis_1 = 1
+		
+		#Upgrades
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+	else = {
+		#set_oob = "HUN_1945"
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
+set_grand_doctrine = mass_assault
+set_sub_doctrine = great_war_infantry
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	
+	### Special Forces ###
+	marines = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+	interwar_artillery = 1
+	rocket_artillery = 1
+	interwar_antitank = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = HUN_high_national_council
+recruit_character = HUN_matys_rakosi
+recruit_character = HUN_erno_gero
+recruit_character = HUN_nagy_imre
+recruit_character = HUN_kadar_janos
+recruit_character = HUN_bela_miklos
+recruit_character = HUN_ferenc_nagy
+recruit_character = HUN_lajos_dinnyes
+recruit_character = HUN_istvan_dobi
+recruit_character = HUN_otto_von_habsburg
+
+set_popularities = {
+	democratic = 0 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 65
+	social_democrat = 0
+	communism = 20 #Communism
+	left_wing_radical = 0
+	neutrality = 0 #Paternal Autocracy
+	fascism = 15 #Nationalism
+}
+
+set_politics = {
+	ruling_party = social_liberal
+	last_election = "1941.11.4"
+	election_frequency = 48
+	elections_allowed = yes
+}

@@ -1,0 +1,24 @@
+state={
+	id=1312
+	name="STATE_1312"
+	
+	history = {
+		owner = AUS
+		add_core_of = HUN
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 3
+		}
+		victory_points = {
+			13762 7 
+		}
+	}
+	
+	provinces={
+		13760 13761 13762
+	}
+	manpower=645882
+	state_category = large_city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

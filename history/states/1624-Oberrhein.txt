@@ -1,0 +1,40 @@
+state={
+	id=1624
+	name="STATE_1624"
+	
+	resources={
+		steel=4
+		aluminium=1
+		coal=3
+	}
+	
+	history={
+		owner = GER
+		add_core_of = GER
+		add_core_of = RHI
+		add_core_of = PRE
+		1948.6.1 = {
+			owner = RHI
+		}
+		1950.6.1 = {
+			owner = WGR
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = { 
+			3423 2 #Koblenz 
+		}
+		victory_points = {
+			11560 3 #Mainz 
+		}
+	}
+
+	provinces={
+		3423 11560 
+	}
+	
+	state_category = rural
+	manpower = 507739
+	local_supplies=0.0 
+}

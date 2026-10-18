@@ -1,0 +1,33 @@
+state={
+	id=1043
+	name="STATE_1043"
+	
+	resources={
+		steel=8
+		coal=1
+	}
+	
+	history={
+		owner = GER
+		add_core_of = GER
+		add_core_of = WUR
+		1950.6.1 = {
+			owner = WGR
+		}
+		victory_points = {
+			519 3
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+	}
+	
+	provinces={
+		519 694 3690 6934 9655 11486 13126 
+	}
+	manpower=1154998
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

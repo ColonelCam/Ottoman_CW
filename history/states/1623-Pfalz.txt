@@ -1,0 +1,36 @@
+state={
+	id=1623
+	name="STATE_1623"
+	
+	resources={
+		steel=6
+		aluminium=3
+		coal=3
+	}
+	
+	history={
+		owner = GER
+		add_core_of = GER
+		add_core_of = RHI
+		1948.6.1 = {
+			owner = RHI
+		}
+		1950.6.1 = {
+			owner = WGR
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = {
+			3558 2 #Ludwigshafen
+		}
+	}
+
+	provinces={
+		563 3558 11547 
+	}
+	
+	state_category = rural
+	manpower = 627739
+	local_supplies=0.0 
+}

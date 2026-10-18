@@ -1,0 +1,29 @@
+state = {
+	id = 1311
+	name = "STATE_1311"
+
+	history = {
+		owner = AUS
+		add_core_of = HUN
+		buildings = {
+			infrastructure = 8
+			9660 = {
+				landmark_orszaghaz = {
+					level = 1
+				}
+			}
+		}
+		victory_points = {
+			9660 25 
+		}
+	}
+
+	provinces = {
+		9660
+	}
+	
+	manpower = 500
+	state_category = enclave
+	buildings_max_level_factor = 1.000
+	local_supplies = 0.000
+}

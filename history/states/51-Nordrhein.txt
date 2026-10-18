@@ -1,0 +1,49 @@
+
+state={
+	id=51
+	name="STATE_51"
+	resources={
+		steel=2
+		coal=14
+	}
+	
+	history={
+		owner = GER
+		add_core_of = GER
+		add_core_of = RHI
+		add_core_of = PRE
+		1948.6.1 = {
+			owner = WGR
+		}
+		buildings = {
+			infrastructure = 1
+			anti_air_building = 1
+			industrial_complex = 1
+		}
+		victory_points = {
+			6469 12 #Essen
+		}
+		victory_points = {
+			15446 20 #Cologne
+		}
+		victory_points = {
+			15447 7 #Wuppertal
+		}
+		victory_points = {
+			15449 8 #Duisburg
+		}
+		victory_points = {
+			3444 3 #Krefeld
+		}
+		victory_points = {
+			15448 10 #Dusseldorf
+		}
+	}
+
+	provinces={
+		3444 3512 6469 15445 15446 15447 15448 15449 15451 15452 
+	}
+	manpower = 5044743
+	state_category = megalopolis
+	local_supplies=0.0 
+}
