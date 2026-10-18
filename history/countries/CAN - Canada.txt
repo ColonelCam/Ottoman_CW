@@ -1,0 +1,236 @@
+﻿capital = 276 # Ottawa
+
+set_convoys = 100
+set_stability = 0.8
+set_war_support = 0.5
+add_command_power = 20
+set_research_slots = 3
+add_political_power = 99
+starting_train_buffer = 1
+
+set_cosmetic_tag = CAN_UK
+
+set_country_flag = monroe_doctrine
+
+add_to_tech_sharing_group = commonwealth_research
+
+# Experience
+army_experience = 5
+air_experience = 5
+navy_experience = 5
+
+ENG = {
+	set_autonomy = {
+		target = CAN
+		autonomous_state = autonomy_dominion
+		freedom_level = 0.8
+	}
+}
+
+# Head of Intelligence
+#recruit_character = Stuart Taylor Wood
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_intelligence_agency = {
+		name = "Royal Canadian Mounted Police (RCMP)"
+		icon = GFX_intelligence_agency_logo_can
+	}
+}
+
+# Special Projects
+complete_special_project = {
+	project = sp:sp_air_radar
+}
+
+set_grand_doctrine = grand_battleplan
+set_sub_doctrine = mission_type_tactics
+
+# Starting tech
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	infantry_weapons_2 = 1
+	infantry_at = 1
+	support_weapons = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	
+	### Special Forces ###
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+	interwar_antiair = 1
+	interwar_antitank = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	mechanical_computing = 1
+	radio = 1
+	basic_fortification_tech = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+	construction1 = 1
+	excavation1 = 1
+	fuel_silos = 1
+	synth_oil_experiments = 1
+	fuel_refining = 1
+}
+
+recruit_character = CAN_mackenzie_king
+recruit_character = CAN_tim_buck
+
+set_popularities = {
+	democratic = 31 #Social Conservatism
+	market_liberal = 13
+	social_liberal = 37
+	social_democrat = 15
+	communism = 1 #Communism
+	left_wing_radical = 0
+	neutrality = 3 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = social_liberal
+	last_election = "1944.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_oob = "CAN_1945_nsb"
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis_1 = 1
+	}
+	else = {
+		set_oob = "CAN_1945"
+		set_technology = {
+			gwtank = 1
+			basic_light_tank = 1
+		}
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "CAN_1945_naval"
+	set_technology = {
+		#Destroyers
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+
+		#Cruisers
+		early_ship_hull_cruiser = 1
+		
+		#Carriers
+		early_ship_hull_carrier = 1
+
+		#Naval Support
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		basic_naval_mines = 1
+		mtg_transport = 1
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+	set_air_oob = "CAN_1945_air_bba"
+	set_technology = {
+		aa_lmg = 1
+		engines_1 = 1
+		aircraft_construction = 1
+		basic_small_airframe_1 = 1
+	}
+	else = {
+		set_air_oob = "CAN_1945_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			naval_bomber1 = 1
+			early_bomber = 1
+		}
+	}
+}
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = { has_dlc = "Man the Guns" } 
+	### Ship Variants ###
+	# Destroyers #
+	create_equipment_variant = {
+		name = "S Class"
+		type = ship_hull_light_1
+		name_group = CAN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "River Class"
+		type = ship_hull_light_1
+		name_group = CAN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Iroquois Class"
+		type = ship_hull_light_2
+		name_group = CAN_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_2
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_light_battery_2
+			rear_1_custom_slot = ship_depth_charge_2
+		}
+	}
+}

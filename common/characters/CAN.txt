@@ -1,0 +1,44 @@
+characters={
+	CAN_mackenzie_king={
+		name="Mackenzie King"
+		portraits={
+			civilian={
+				large="gfx/leaders/CAN/Portrait_Canada_AtM_Mackenzie_King.png"
+			}
+		}
+		country_leader={
+			ideology=social_liberal_sub
+			expire="1965.1.1.1"
+			traits = { CAN_liberal_corporatist }
+		}
+	}
+
+	CAN_tim_buck={
+		name="Tim Buck"
+		portraits={
+			civilian={
+				large="gfx/leaders/CAN/Portrait_Canada_Tim_Buck.dds"
+			}
+		}
+		country_leader={
+			ideology=american_communism
+			traits = {
+				###
+			}
+		}
+	}
+	QUE_fred_rose={
+		name="Fred Rose"
+		portraits={
+			civilian={
+				large="gfx/leaders/CAN/fred_rose.tga"
+			}
+		}
+		country_leader={
+			ideology=american_communism
+			traits = {
+				###
+			}
+		}
+	}
+}
