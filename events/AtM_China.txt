@@ -1,0 +1,1243 @@
+##########################
+###   Chinese Events   ###
+##########################
+
+add_namespace = AtM_china
+add_namespace = AtM_china_news
+add_namespace = AtM_taiwan
+add_namespace = AtM_china_cw
+
+country_event = { #Replacement of Long Yun
+	id = AtM_china.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.1" }
+	title = AtM_china.1.t
+	desc = AtM_china.1.d
+	picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china.1.a
+		ai_chance = { base = 1 }
+		custom_effect_tooltip = CHI_long_yun_deposed_tt
+		YUN = { promote_character = YUN_lu_han }
+	}
+}
+
+country_event = { #Signing of the Double Tenth Agreement
+	id = AtM_china.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.2" }
+	title = AtM_china.2.t
+	desc = AtM_china.2.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china.2.a
+		every_country = {
+			limit = {
+				is_ai = no
+			}
+			news_event = {
+				id = AtM_china_news.1
+				days = 1
+			}
+		}
+		hidden_effect = {
+			country_event = { id = AtM_china.3 days = 200 } #PCC, days value provisional
+		}
+	}
+}
+
+country_event = { #Political Consultative Conference
+	id = AtM_china.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.3" }
+	title = AtM_china.3.t
+	desc = AtM_china.3.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = { #failure, historical option
+		name = AtM_china.3.a
+		set_global_flag = CHI_civil_war_initiated
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = MON
+					is_core_of = TAN
+				}
+			}
+			add_claim_by = CHI
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				news_event = {
+					id = AtM_china_news.2
+					days = 1
+				}
+			}
+			country_event = { id = AtM_china.4 days = 200 } #1947 elections, days value provisional
+		}
+		ai_chance = {
+			base = 7
+			modifier = { 
+				factor = 5
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+	
+	option = { #success, althist option
+		name = AtM_china.3.b
+		white_peace = PRC
+		set_global_flag = CHI_civil_war_avoided
+		set_autonomy = {
+			target = PRC
+			autonomous_state = autonomy_chinese_warlord
+		}
+		PRC = {
+			set_cosmetic_tag = PRC_CHI
+			set_politics = {
+				ruling_party = communism
+			}
+			set_popularities = {
+				democratic = 0 #Social Conservatism
+				market_liberal = 0
+				social_liberal = 0
+				social_democrat = 0
+				communism = 80 #Communism
+				left_wing_radical = 10
+				neutrality = 10 #Paternal Autocracy
+				fascism = 0 #Nationalism
+			}
+			add_ideas = PRC_decommunization
+			MAN = {
+				set_cosmetic_tag = MAN_CHI
+				if = {
+					limit = { NOT = { owns_state = 12 } }
+					transfer_state = 12
+				}
+				if = {
+					limit = { NOT = { owns_state = 191 } }
+					transfer_state = 191
+				}
+				if = {
+					limit = { NOT = { owns_state = 328 } }
+					transfer_state = 328
+				}
+				if = {
+					limit = { NOT = { owns_state = 610 } }
+					transfer_state = 610
+				}
+				if = {
+					limit = { NOT = { owns_state = 715 } }
+					transfer_state = 715
+				}
+				if = {
+					limit = { NOT = { owns_state = 716 } }
+					transfer_state = 716
+				}
+				if = {
+					limit = { NOT = { owns_state = 717 } }
+					transfer_state = 717
+				}
+				if = {
+					limit = { NOT = { owns_state = 714 } }
+					transfer_state = 714
+				}
+				if = {
+					limit = { NOT = { owns_state = 761 } }
+					transfer_state = 761
+				}
+				if = {
+					limit = { NOT = { owns_state = 815 } }
+					transfer_state = 815
+				}
+				if = {
+					limit = { NOT = { owns_state = 1097 } }
+					transfer_state = 1097
+				}
+				if = {
+					limit = { NOT = { owns_state = 1189 } }
+					transfer_state = 1189
+				}
+				if = {
+					limit = { NOT = { owns_state = 1192 } }
+					transfer_state = 1192
+				}
+				if = {
+					limit = { NOT = { owns_state = 1416 } }
+					transfer_state = 1416
+				}
+				if = {
+					limit = { NOT = { owns_state = 1417 } }
+					transfer_state = 1417
+				}
+				if = {
+					limit = { NOT = { owns_state = 1418 } }
+					transfer_state = 1418
+				}
+				if = {
+					limit = { NOT = { owns_state = 1419 } }
+					transfer_state = 1419
+				}
+				if = {
+					limit = { NOT = { owns_state = 1537 } }
+					transfer_state = 1537
+				}
+			}
+			SUI = {
+				# Inner Mongolian Adminisrative Office
+				611 = { add_core_of = SUI }
+				612 = { add_core_of = SUI }
+				if = {
+					limit = { NOT = { owns_state = 565 } }
+					transfer_state = 565
+				}
+				if = {
+					limit = { NOT = { owns_state = 611 } }
+					transfer_state = 611
+				}
+				if = {
+					limit = { NOT = { owns_state = 612 } }
+					transfer_state = 612
+				}
+				if = {
+					limit = { NOT = { owns_state = 621 } }
+					transfer_state = 621
+				}
+				if = {
+					limit = { NOT = { owns_state = 746 } }
+					transfer_state = 746
+				}
+				if = {
+					limit = { NOT = { owns_state = 1287 } }
+					transfer_state = 1287
+				}
+				set_cosmetic_tag = SUI_MEN_CHI
+			}
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = MON
+					is_core_of = TAN
+				}
+			}
+			remove_claim_by = CHI
+			remove_claim_by = PRC
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				news_event = {
+					id = AtM_china_news.3
+					days = 1
+				}
+			}
+			country_event = { id = AtM_china.4 days = 200 } #1947 elections, days value provisional
+		}
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 0
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #1947 Elections
+	id = AtM_china.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.4" }
+	title = AtM_china.4.t
+	desc = AtM_china.4.d
+	#picture = GFX_report_event_china_infiltration
+	
+	immediate = {
+		hidden_effect = {
+			if = { 
+				limit = { has_global_flag = CHI_civil_war_avoided }
+				drop_cosmetic_tag = yes
+				YUN = { set_cosmetic_tag = YUN_CHI }
+				SHX = { set_cosmetic_tag = SHX_CHI }
+				SZC = { set_cosmetic_tag = SZC_CHI }
+				XSM = { set_cosmetic_tag = XSM_CHI }
+				NXM = { set_cosmetic_tag = NXM_CHI }
+				GXC = { set_cosmetic_tag = GXC_CHI }
+				SIK = { set_cosmetic_tag = SIK_CHI }
+				SUI = { set_cosmetic_tag = SUI_CHI }
+			}
+			country_event = { id = AtM_china.5 days = 1095 }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { #KMT
+		name = AtM_china.4.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1947.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #YCP
+		name = AtM_china.4.b
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1947.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #CDSP
+		name = AtM_china.4.c
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1947.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #CCP
+		name = AtM_china.4.e
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1947.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+}
+
+country_event = { #1950 Elections
+	id = AtM_china.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.5" }
+	title = AtM_china.5.t
+	desc = AtM_china.5.d
+	#picture = GFX_report_event_china_infiltration
+	
+	trigger = {
+		#not CHI lost civil war NOT = {  }
+	}
+	
+	is_triggered_only = yes
+	
+	option = { #KMT
+		name = AtM_china.5.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1950.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #YCP
+		name = AtM_china.5.b
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1950.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #CDSP
+		name = AtM_china.5.c
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1950.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #PIP
+		name = AtM_china.5.e
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1950.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+	
+	option = { #CCP
+		name = AtM_china.5.f
+		trigger = { NOT = { has_global_flag = CHI_civil_war_initiated } }
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+			election_frequency = 36
+			last_election = "1950.11.23" #National Assembly, not exactly the legislature.
+		}
+	}
+}
+
+##Civil War 
+
+country_event = { #civil war conclusion
+	id = AtM_china_cw.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_cw.1" }
+	title = AtM_china_cw.1.t
+	desc = AtM_china_cw.1.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #CHI capitulates
+		name = AtM_china_cw.1.a
+		trigger = {
+			CHI = {
+				surrender_progress > 0.7
+			}
+		}
+		set_global_flag = PRC_won_the_civil_war
+		every_country = {
+			limit = { has_idea = CHI_civil_war }
+			remove_ideas = CHI_civil_war
+		}
+		set_capital = { state = 991 } #Taipei
+		add_popularity = {
+			ideology = communism
+			popularity = -0.25
+		}
+		end_puppet = YUN
+		end_puppet = SHX
+		end_puppet = SZC
+		end_puppet = XSM
+		end_puppet = NXM
+		end_puppet = GXC
+		end_puppet = SIK
+		end_puppet = SUI
+		end_puppet = MAN
+		end_puppet = YLC
+		end_puppet = XGC
+		end_puppet = XIK
+		if = {
+			limit = {
+				TWN = {
+					exists = yes
+					is_subject_of = CHI
+				}
+			}
+			annex_country = {
+				target = TWN
+				transfer_troops = yes
+			}
+		}
+		create_dynamic_country = {
+			original_tag = CHI
+			copy_tag = CHI
+			set_cosmetic_tag = CHI_KMT
+			set_politics = {
+				ruling_party = neutrality
+			}
+			#add_to_war = {
+			#	targeted_alliance = CHI
+			#	enemy = PRC
+			#	hostility_reason = war
+			#	single_target_only = yes
+			#}
+			every_state = {
+				limit = {
+					is_owned_by = CHI
+				}
+				set_state_owner_to = PREV
+				remove_core_of = FROM
+			}
+			CHI = {
+				transfer_units_fraction = {
+					target = PREV
+					size = 0.8
+					stockpile_ratio = 0.8
+					army_ratio = 0.8
+					navy_ratio = 0
+					air_ratio = 0.5
+				}
+			}
+			GXC = {
+				annex_country = {
+					target = PREV
+					transfer_troops = yes
+				}
+			}
+		}
+		white_peace = PRC
+		set_truce = {
+			target = PRC
+			days = 3650
+		}
+		set_western_member = yes
+		SIK = { #will be replaced with a CHI/PRC mechanic on who gets to power in full content.
+			annex_country = {
+				target = XGC
+				transfer_troops = yes
+			}
+			if = {
+				limit = { is_historical_focus_on = yes }
+				country_event = AtM_xinjiang.7
+			}
+			else = {
+				random_list = {
+					1 = { #Burhan Shahidi becomes governor
+						modifier = {
+							factor = 0
+							SIK = { 
+								has_country_leader = {
+									character = SIK_burhan_shahidi
+									ruling_only = yes
+								}
+							}
+						}
+						country_event = AtM_xinjiang.7
+					}
+					1 = { country_event = AtM_xinjiang.8 } #Yulbars Khan becomes governor
+					1 = {} #nothing
+				}
+			}
+		}
+		PRC = {
+			if = {
+				limit = { has_wargoal_against = CHI }
+				remove_wargoal = { type = all target = CHI }
+			}
+			if = {
+				limit = { has_wargoal_against = YUN }
+				remove_wargoal = { type = all target = YUN }
+			}
+			if = {
+				limit = { has_wargoal_against = SHX }
+				remove_wargoal = { type = all target = SHX }
+			}
+			if = {
+				limit = { has_wargoal_against = SZC }
+				remove_wargoal = { type = all target = SZC }
+			}
+			if = {
+				limit = { has_wargoal_against = XSM }
+				remove_wargoal = { type = all target = XSM }
+			}
+			if = {
+				limit = { has_wargoal_against = NXM }
+				remove_wargoal = { type = all target = NXM }
+			}
+			if = {
+				limit = { has_wargoal_against = GXC }
+				remove_wargoal = { type = all target = GXC }
+			}
+			if = {
+				limit = { has_wargoal_against = SIK }
+				remove_wargoal = { type = all target = SIK }
+			}
+			if = {
+				limit = { has_wargoal_against = SUI }
+				remove_wargoal = { type = all target = SUI }
+			}
+			if = {
+				limit = { has_wargoal_against = YLC }
+				remove_wargoal = { type = all target = YLC }
+			}
+			if = {
+				limit = { has_wargoal_against = XGC }
+				remove_wargoal = { type = all target = XGC }
+			}
+			if = {
+				limit = { has_wargoal_against = XIK }
+				remove_wargoal = { type = all target = XIK }
+			}
+		}
+		hidden_effect = {
+			set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+			set_global_flag = SE_PRC_WINS
+			play_song = prc_victory_in_ccw_SE
+		}
+		USA = {
+			add_to_faction = PRC
+		}
+	}
+	
+	option = { #PRC capitulates
+		name = AtM_china_cw.1.b
+		trigger = {
+			PRC = {
+				surrender_progress > 0.7
+			}
+		}
+		set_global_flag = ROC_won_the_civil_war
+		every_country = {
+			limit = { has_idea = CHI_civil_war }
+			remove_ideas = CHI_civil_war
+		}
+		set_capital = { state = 613 } #Nanjing
+		add_popularity = {
+			ideology = communism
+			popularity = -0.25
+		}
+		hidden_effect = {
+			#### TODO: code in the Battle of Beijing-Tianjin ####
+			if = {
+				limit = { CHI = { NOT = { owns_state = 597 } } }
+				597 = { set_state_owner_to = CHI }
+			}
+			if = {
+				limit = { CHI = { NOT = { owns_state = 598 } } }
+				598 = { set_state_owner_to = CHI }
+			}
+			if = {
+				limit = { CHI = { NOT = { owns_state = 614 } } }
+				614 = { set_state_owner_to = CHI }
+			}
+			if = {
+				limit = { CHI = { NOT = { owns_state = 743 } } }
+				743 = { set_state_owner_to = CHI }
+			}
+			if = {
+				limit = { CHI = { NOT = { owns_state = 608 } } }
+				608 = { set_state_owner_to = CHI }
+			}
+			if = {
+				limit = { SHX = { NOT = { owns_state = 622 } } }
+				622 = { set_state_owner_to = SHX }
+			}
+			SHX = {
+				annex_country = {
+					target = YLC
+					transfer_troops = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				PRC = {
+					OR = {
+						# Any Soviet border states
+						controls_state = 714
+						controls_state = 717
+						controls_state = 761
+						controls_state = 815
+						controls_state = 1419
+						controls_state = 1537
+					}
+				}
+			}
+			PRC = {
+				716 = { set_state_owner_to = PRC }
+				set_capital = { state = 716 } #Shenyang
+				set_cosmetic_tag = PRC_MAN
+				set_eastern_member = yes
+				remove_wargoal = {
+					type = all
+					target = CHI
+				}
+				remove_wargoal = {
+					type = all
+					target = YUN
+				}
+				remove_wargoal = {
+					type = all
+					target = SHX
+				}
+				remove_wargoal = {
+					type = all
+					target = SZC
+				}
+				remove_wargoal = {
+					type = all
+					target = XSM
+				}
+				remove_wargoal = {
+					type = all
+					target = NXM
+				}
+				remove_wargoal = {
+					type = all
+					target = GXC
+				}
+				remove_wargoal = {
+					type = all
+					target = SIK
+				}
+				remove_wargoal = {
+					type = all
+					target = SUI
+				}
+				remove_wargoal = {
+					type = all
+					target = YLC
+				}
+				remove_wargoal = {
+					type = all
+					target = XGC
+				}
+				remove_wargoal = {
+					type = all
+					target = XIK
+				}
+			}
+			if = {
+				limit = {
+					MAN = {
+						exists = yes
+						is_subject_of = CHI
+					}
+				}
+				MAN = { add_ideas = MAN_left_alone }
+				CHI = { end_puppet = MAN }
+			}
+			CHI = {
+				white_peace = PRC
+				set_truce = {
+					target = PRC
+					days = 3650
+				}
+			}
+			# Puppet of XSM...
+			XGC = {
+				white_peace = PRC
+				set_truce = {
+					target = PRC
+					days = 3650
+				}
+			}
+			if = {
+				limit = {
+					USA = {
+						has_war_with = PRC
+					}
+				}
+				USA = {
+					white_peace = PRC
+					set_truce = {
+						target = PRC
+						days = 3650
+					}
+				}
+			}
+			SOV = { give_guarantee = PRC }
+			if = {
+				limit = {
+					ETR = {
+						OR = {
+							has_government = left_wing_radical
+							has_government = communism
+						}
+					}
+				}
+				SOV = { give_guarantee = ETR }
+			}
+			custom_effect_tooltip = PRC_rump_state_tt
+		}
+		else = {
+			#nothing. you WILL get annexed
+			
+			custom_effect_tooltip = PRC_pending_annexation_cw
+			add_ideas = PRC_total_collapse
+
+			hidden_effect = {
+				MAN = {
+					promote_character = CHI_chen_cheng_manchuria
+				}
+			}
+		}
+		hidden_effect = {
+			set_global_flag = GLOBAL__SEEING_SUPER_EVENT
+			set_global_flag = SE_ROC_WINS
+			play_song = roc_victory_in_ccw_SE
+		}
+	}
+}
+
+## with AtM_china_cw.1 fired in on_actions, 
+##AtM_china_cw.2 should be reformatted to be 
+##fired as reaction to winner tag.
+
+#country_event = { #corrections to civil war in case CHI won
+#	id = AtM_china_cw.2
+#	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_cw.2" }
+#	title = AtM_china_cw.2.t
+#	desc = AtM_china_cw.2.d
+#	#picture = GFX_report_event_china_infiltration
+#	
+#	trigger = {
+#		original_tag = CHI
+#		CHI = { has_war = no }
+#		PRC = { exists = no }
+#	}
+#	
+#	fire_only_once = yes
+#	
+#	hidden = yes
+#	
+#	option = { #do your calc
+#		name = AtM_china_cw.2.a
+#		every_country = {
+#			limit = { has_idea = CHI_civil_war }
+#			remove_ideas = CHI_civil_war
+#		}
+#		
+#	}
+#}
+
+##Xinjiang border war events:
+country_event = { #Invasion of Xinjiang
+	id = AtM_china_cw.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_cw.3" }
+	title = AtM_china_cw.3.t
+	desc = AtM_china_cw.3.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			PRC = {
+				if = {
+					limit = {
+						SIK = {
+							NOT = {
+								has_country_leader = {
+									character = SIK_burhan_shahidi
+									ruling_only = yes
+								}
+							}
+						}
+						ETR = {
+							NOT = {
+								has_country_leader = {
+									character = ETR_ehmetjan_qasimi
+									ruling_only = yes
+								}
+							}
+						}
+					}
+					declare_war_on = {
+						target = ETR
+						type = annex_everything
+					}
+					declare_war_on = {
+						target = SIK
+						type = annex_everything
+					}
+				}
+				else = {
+					annex_country = {
+						target = ETR
+						transfer_troops = yes
+					}
+					declare_war_on = {
+						target = SIK
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_china_cw.3.a
+	}
+}
+
+country_event = { #Xinjiang Blunder
+	id = AtM_china_cw.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_cw.4" }
+	title = AtM_china_cw.4.t
+	desc = AtM_china_cw.4.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			SIK = {
+				SIK_yulbars_khan = { promote_character = yes }
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_china_cw.4.a
+	}
+}
+
+#Taiwan events
+country_event = { #2-28 incident
+	id = AtM_taiwan.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.1" }
+	title = AtM_taiwan.1.t
+	desc = AtM_taiwan.1.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.1.a
+		set_country_flag = TWN_228_negotiation
+		hidden_effect = { CHI = { country_event = { id = AtM_taiwan.2 days = 3 } } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 0
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_taiwan.1.b
+		set_country_flag = TWN_228_crackdown
+		hidden_effect = { CHI = { country_event = { id = AtM_taiwan.2 days = 3 } } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 5
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #2-28 incident
+	id = AtM_taiwan.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.2" }
+	title = AtM_taiwan.2.t
+	desc = AtM_taiwan.2.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.2.a
+		set_country_flag = CHI_228_negotiation
+		hidden_effect = { TWN = { country_event = { id = AtM_taiwan.3 days = 7 } } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 0
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_taiwan.2.b
+		set_country_flag = CHI_228_crackdown
+		hidden_effect = { TWN = { country_event = { id = AtM_taiwan.3 days = 7 } } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 5
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #climax
+	id = AtM_taiwan.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.3" }
+	title = AtM_taiwan.3.t
+	desc = AtM_taiwan.3.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.3.a
+		trigger = {
+			TWN = { has_country_flag = TWN_228_crackdown }
+			CHI = { has_country_flag = CHI_228_crackdown }
+		}
+		TWN = { country_event = { id = AtM_taiwan.4 days = 18 } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 5
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = AtM_taiwan.3.b
+		trigger = {
+			TWN = { has_country_flag = TWN_228_negotiation }
+			CHI = { has_country_flag = CHI_228_negotiation }
+		}
+		TWN = { country_event = { id = AtM_taiwan.5 days = 18 } }
+	}
+	
+	option = {
+		name = AtM_taiwan.3.c
+		TWN = { country_event = { id = AtM_taiwan.6 days = 18 } }
+		ai_chance = {
+			base = 1
+			modifier = { 
+				factor = 0
+				OR = {
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = { #crackdown doubled down
+	id = AtM_taiwan.4
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.4" }
+	title = AtM_taiwan.4.t
+	desc = AtM_taiwan.4.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.4.a
+		CHI = { country_event = AtM_taiwan.7 } #annex TWN
+	}
+}
+
+country_event = { #negotiation doubled down
+	id = AtM_taiwan.5
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.5" }
+	title = AtM_taiwan.5.t
+	desc = AtM_taiwan.5.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.5.a
+		CHI = { country_event = AtM_taiwan.8 } #
+	}
+}
+
+country_event = { #conflict
+	id = AtM_taiwan.6
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.6" }
+	title = AtM_taiwan.6.t
+	desc = AtM_taiwan.6.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.6.a
+		if  = {
+			limit = {
+				CHI = { has_country_flag = CHI_228_crackdown }
+			}
+			TWN = { country_event = { id = AtM_taiwan.4 days = 7 } }
+		}
+		else_if  = {
+			limit = {
+				CHI = { has_country_flag = CHI_228_negotiation }
+			}
+			TWN = { country_event = { id = AtM_taiwan.5 days = 7 } }
+		}
+	}
+	
+	option = {
+		name = AtM_taiwan.6.b
+		country_event = { id = AtM_taiwan.9 days = 7 }
+	}
+}
+
+country_event = { #crackdown went bad
+	id = AtM_taiwan.7
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.7" }
+	title = AtM_taiwan.7.t
+	desc = AtM_taiwan.7.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.7.a
+		annex_country = {
+			target = TWN
+			transfer_troops = yes
+		}
+		#add state modifiers to Taiwan with negative effects
+	}
+}
+
+country_event = { #autonomy granted hard
+	id = AtM_taiwan.8
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.8" }
+	title = AtM_taiwan.8.t
+	desc = AtM_taiwan.8.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.8.a
+		#add state modifiers to Taiwan with positive effects
+	}
+}
+
+country_event = { #to be continued:tm:
+	id = AtM_taiwan.9
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_taiwan.9" }
+	title = AtM_taiwan.9.t
+	desc = AtM_taiwan.9.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_taiwan.9.a
+		set_country_flag = TWN_ready_to_secede
+		#when PRC wins the civil war; TWN will secede from RoC
+	}
+}
+
+#news events
+
+news_event = { #Signing of the Double Tenth Agreement
+	id = AtM_china_news.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_news.1" }
+	title = AtM_china_news.1.t
+	desc = AtM_china_news.1.d
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china_news.1.a
+	}
+}
+
+news_event = { #War Resumes in China
+	id = AtM_china_news.2
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_news.2" }
+	title = AtM_china_news.2.t
+	desc = AtM_china_news.2.d
+	picture = GFX_1946_war_in_china
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china_news.2.a
+		ai_chance = { base = 1 }
+		trigger = { TAG = PRC }
+	}
+	
+	option = {
+		name = AtM_china_news.2.b
+		ai_chance = { base = 1 }
+		trigger = { TAG = CHI }
+	}
+	
+	option = {
+		name = AtM_china_news.2.c
+		ai_chance = { base = 1 }
+		trigger = { TAG = SOV }
+	}
+	
+	option = {
+		name = AtM_china_news.2.e
+		ai_chance = { base = 1 }
+		trigger = { TAG = USA }
+	}
+	
+	option = {
+		name = AtM_china_news.2.f
+		ai_chance = { base = 1 }
+		trigger = { NOT = { tag = USA tag = SOV tag = PRC tag = CHI } }
+	}
+}
+
+news_event = { #Peace in China?
+	id = AtM_china_news.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china_news.3" }
+	title = AtM_china_news.3.t
+	desc = AtM_china_news.3.d
+	picture = GFX_1946_war_in_china_2
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china_news.3.a
+		ai_chance = { base = 1 }
+		trigger = { OR = { tag = CHI tag = PRC } }
+	}
+	
+	option = {
+		name = AtM_china_news.3.b
+		ai_chance = { base = 1 }
+		trigger = { NOT = { tag = CHI tag = PRC } }
+	}
+}
+
+#####
+
+country_event = { #Sino-Soviet War?
+	id = AtM_china.999
+	immediate = { log = "[GetDateText]: [Root.GetName]: event AtM_china.999" }
+	title = AtM_china.999.t
+	desc = AtM_china.999.d
+	#picture = GFX_report_event_china_infiltration
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AtM_china.999.a
+		every_state = {
+			limit = {
+				is_owned_by = PRC
+				is_controlled_by = CHI
+			}
+			transfer_state_to = CHI
+		}
+		white_peace = PRC
+		SOV = { give_guarantee = PRC }
+	}
+	option = {
+		name = AtM_china.999.b
+		SOV = {
+			give_guarantee = PRC
+			add_to_war = {
+				targeted_alliance = PRC
+				enemy = CHI
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+}
