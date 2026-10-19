@@ -1,0 +1,27 @@
+characters={
+	MEX_manuel_avila_camacho={
+		name=MEX_manuel_avila_camacho
+		portraits={
+			civilian={
+				large="gfx/leaders/MEX/Portrait_Mexico_Manuel_Avila_Camacho.png"
+			}
+		}
+		country_leader={
+			ideology=moderatism
+			traits={}
+			expire="1965.1.1.1"
+		}
+	}
+	MEX_valentin_campa={
+		name= "Valentín Campa"
+		portraits={
+			civilian={
+				large="gfx/leaders/MEX/valentin_campa.tga"
+			}
+		}
+		country_leader={
+			ideology=american_communism
+			traits={}
+		}
+	}
+}

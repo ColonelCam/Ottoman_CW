@@ -1,0 +1,141 @@
+﻿capital = 277 # Mexico City
+
+oob = "MEX_1945"
+
+set_convoys = 30
+
+set_stability = 0.45
+
+set_war_support = 0.25
+
+add_command_power = 5
+
+set_research_slots = 3
+
+add_political_power = 99
+
+set_country_flag = monroe_doctrine
+
+add_ideas = {
+	#National Spirits
+	MEX_income_inequality
+	MEX_end_of_the_church_government_conflicts
+	
+	#National Laws
+	
+	#Companies
+}
+
+add_timed_idea = { idea = MEX_politicised_army days = 138 }
+
+add_timed_idea = { idea = MEX_camachos_reforms days = 365 }
+
+set_technology = {
+	### Infantry ###
+	infantry_weapons_1 = 1
+	
+	### Motorization ###
+	tech_trucks = 1
+	motorised_infantry = 1
+	
+	### Support ###
+	tech_support = 1
+	tech_military_police = 1
+	tech_recon = 1
+	tech_engineers = 1
+	basic_train = 1
+	
+	### Artillery ###
+	gw_artillery = 1
+
+	### Engineering ###
+	electronic_mechanical_engineering = 1
+	mechanical_computing = 1
+	radio = 1
+
+	### Industry ###
+	basic_machine_tools = 1
+}
+
+recruit_character = MEX_manuel_avila_camacho
+recruit_character = MEX_valentin_campa
+
+country_event = {
+	id = merfam.7
+	days = 1825	#years = 5
+}
+
+set_popularities = {
+	democratic = 30 #Social Conservatism
+	market_liberal = 0
+	social_liberal = 0
+	social_democrat = 0
+	communism = 5 #Communism
+	left_wing_radical = 5
+	neutrality = 60 #Paternal Autocracy
+	fascism = 0 #Nationalism
+}
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1940.7.7"
+	election_frequency = 72
+	elections_allowed = yes
+}
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Nicolás Bravo Class"			
+		type = ship_hull_light_1
+		name_group = MEX_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Durango Class"			# represents both Guanajuato and Durango classes (gunboats)
+		type = ship_hull_light_1
+		name_group = MEX_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = empty
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Anahuac Class"			
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = MEX_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}
