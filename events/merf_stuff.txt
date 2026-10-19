@@ -356,6 +356,7 @@ country_event = {
 		name = merfam.3.a
 		transfer_state = 1224
 		transfer_state = 331
+		transfer_state = 332
 		release = QUE
 		QUE = {
 			add_popularity = {
@@ -448,5 +449,78 @@ news_event = {
 	major = yes
 	option = {
 		name = merfam.6.a
+	}
+}
+
+#general strike in Mexico!
+country_event = {
+	id = merfam.7
+	title = merfam.7.t
+	desc = merfam.7.d
+	#picture =
+	is_triggered_only = yes #history file
+	fire_only_once = yes
+	option = {
+		name = merfam.7.a
+		news_event = {
+			id = merfam.8
+			hours = 6
+		}
+		country_event = {
+			id = merfam.9
+			days = 31
+		}
+	}
+}
+#above
+news_event = {
+	id = merfam.8
+	title = merfam.8.t
+	desc = merfam.8.d
+	picture = GFX_news_event_023
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merfam.8.a
+	}
+}
+#The Chihuahua Rebellion
+country_event = {
+	id = merfam.9
+	title = merfam.9.t
+	desc = merfam.9.d
+	#picture =
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = merfam.9.a
+		start_civil_war = {
+		    ideology = communism
+		    size = 0.1
+		    capital = 480
+		    states = {
+		        480 482 474
+		    }
+		}
+		USA = {
+			transfer_state = 484
+			declare_war_on = {
+			    target = ROOT
+			    type = annex_everything
+			}
+		}
+		news_event = merfam.10
+	}
+}
+#above
+news_event = {
+	id = merfam.10
+	title = merfam.10.t
+	desc = merfam.10.d
+	picture = GFX_news_event_023
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merfam.10.a
 	}
 }

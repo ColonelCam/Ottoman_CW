@@ -17,7 +17,7 @@ add_to_tech_sharing_group = commonwealth_research
 #quebec indie ref
 country_event = {
 	id = merfam.1
-	years = 4
+	days = 1460	#years = 4
 }
 
 # Experience
