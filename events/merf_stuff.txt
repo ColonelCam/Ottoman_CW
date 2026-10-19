@@ -284,3 +284,169 @@ news_event = {
 		name = merf.10.a
 	}
 }
+
+add_namespace = merfam
+
+#Quebecois Independence Referendum!
+country_event = {
+	id = merfam.1
+	title = merfam.1.t
+	desc = merfam.1.d
+	is_triggered_only = yes #history file
+	fire_only_once = yes
+	option = {
+		name = merfam.1.a
+		every_country = {
+			limit = {
+				has_subject = ROOT
+			}
+			set_autonomy = {
+			    target = ROOT
+			    autonomous_state = autonomy_free
+			    end_wars = yes
+			    end_civil_wars = yes
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction = yes
+			}
+			leave_faction = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = QUE
+			}
+			remove_core_of = ROOT
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.33
+		}
+		news_event = { id = merfam.2 hours = 9 }
+		country_event = {
+			id = merfam.3
+			days = 21
+		}
+	}
+}
+
+#News event for above
+news_event = {
+	id = merfam.2
+	title = merfam.2.t
+	desc = merfam.2.d
+	picture = GFX_news_event_023
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merfam.2.a
+	}
+}
+
+#evidence of rigging in the Quebecois Indie Ref!
+country_event = {
+	id = merfam.3
+	title = merfam.3.t
+	desc = merfam.3.d
+	#picture =
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = merfam.3.a
+		transfer_state = 1224
+		transfer_state = 331
+		release = QUE
+		QUE = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.35
+			}			
+			set_politics = {
+			    ruling_party = communism
+			    elections_allowed = no
+			}
+		}
+		USA = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				add_to_faction = QUE
+			}
+		}
+		transfer_units_fraction= {
+			target = QUE
+			size = 0.2
+			stockpile_ratio = 0.3
+			army_ratio = 0.2
+			navy_ratio = 0.1
+			air_ratio = 0.4
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+		news_event = merfam.4
+		country_event = {
+			id = merfam.5
+			days = 10
+		}
+	}
+}
+#news for above
+news_event = {
+	id = merfam.4
+	title = merfam.4.t
+	desc = merfam.4.d
+	picture = GFX_news_event_023
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merfam.4.a
+	}
+}
+#America invades Canada
+country_event = {
+	id = merfam.5
+	title = merfam.5.t
+	desc = merfam.5.d
+	#picture =
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = merfam.5.a
+		start_civil_war = {
+		    ideology = communism
+		    size = 0.2
+		    capital = 473
+		    states = {
+		        473
+		    }
+		}
+		QUE = {
+			declare_war_on = {
+			    target = CAN
+			    type = annex_everything
+			}
+		}
+		USA = {
+			declare_war_on = {
+			    target = CAN
+			    type = annex_everything
+			}
+		}
+		news_event = merfam.6
+	}
+}
+#above
+news_event = {
+	id = merfam.6
+	title = merfam.6.t
+	desc = merfam.6.d
+	picture = GFX_news_event_023
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = merfam.6.a
+	}
+}

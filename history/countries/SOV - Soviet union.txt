@@ -73,8 +73,7 @@ recruit_character = SOV_konstantin_rokossovsky
 add_ideas = {
 	#National Spirits
 	victors_of_wwii
-	SOV_war_torn_economy
-	SOV_politburo_power_struggles
+	#SOV_politburo_power_struggles
 	
 	#National Laws
 	war_economy
@@ -98,6 +97,11 @@ add_ideas = {
 	#SOV_black_sea_shipyard
 	#SOV_ilyushin_design_bureau
 	#SOV_tula_arms_plant
+}
+
+add_timed_idea = {
+	idea = SOV_war_torn_economy
+	days = 700
 }
 
 
