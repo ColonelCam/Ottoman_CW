@@ -356,6 +356,7 @@ country_event = {
 		name = merfam.3.a
 		transfer_state = 1224
 		transfer_state = 331
+		transfer_state = 332
 		release = QUE
 		QUE = {
 			add_popularity = {
