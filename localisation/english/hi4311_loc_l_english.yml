@@ -57,5 +57,5 @@
     IRN_TUR_ask_iran_to_hit_uk: "Ask Iran to Strike South"
     IRN_TUR_ask_iran_to_hit_uk_desc: "Now that we are allies with Iran, we can leverage them in our war against [ENG.GetNameDefCap] and ask them to strike south with our support for a new front against the British empire."
     
-    IRN_will_join_later_tt: "§Y[IRN.GetNameDefCap]§! may request to join §Y[TUR.GetNameDefCap]§! if relations remain §HFriendly§! and Iran is reunified under §H$IRN_democratic_party$§!\n"
+    IRN_will_join_later_tt: "§Y[IRN.GetNameDefCap]§! may request to join §Y[TUR.GetNameDefCap]§! if relations remain §HFriendly§! and Iran is reunified under §H$IRN_democratic_party$§!\n§L(Iran must regain all Core States except [ENG.GetAdjective]-Occupied Ones.)§!\n"
     IRN_will_be_more_prepared_tt: "£going_to_combat  §HIran will become more prepared to strike [ENG.GetNameDef] when the time comes.§!"

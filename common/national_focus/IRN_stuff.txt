@@ -339,6 +339,7 @@ focus_tree = {
 				limit = { is_owned_by = SOV }
 				transfer_state_to = IRN
 			}
+			country_event = hi4311_news_event.2
 		}
 	}
 	focus = {
