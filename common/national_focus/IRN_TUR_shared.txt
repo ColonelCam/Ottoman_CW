@@ -35,10 +35,12 @@ shared_focus = {
 	available = {
 		TUR = { is_faction_leader = yes }
 		custom_trigger_tooltip = {
-			tooltip = IRN_will_join_later_tt		
+			tooltip = IRN_will_join_later_tt
 			tag = IRN
 			IRN = {
-				every_core_state = { is_owned_by = PREV }
+				has_completed_focus = IRN_get_back_russian_states
+				has_completed_focus = IRN_strike_baluchistan
+				has_completed_focus = IRN_request_ottoman_state_return
 				BLC = { exists = no }
 				PER = { exists = no }
 				NOT = { has_country_flag = IRN_antagonized_by_TUR }

@@ -5,7 +5,7 @@ country_event = { # Reza Khan passes away
 	id = hi4311_event.1
 	title = hi4311_event.1.t
 	desc = hi4311_event.1.desc
-	picture = GFX_report_event_generic_funeral
+	picture = GFX_report_event_PER_reza_shah_pahlavi
 	
 	is_triggered_only = yes
 	

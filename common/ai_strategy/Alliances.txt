@@ -1,0 +1,117 @@
+the_allies_are_homies = {
+
+	allowed = {
+		OR = {
+			original_tag = ENG  # United Kingdom
+			original_tag = CAN  # Canada
+			original_tag = FRA  # France
+			original_tag = BEL  # Belgium
+			original_tag = HOL  # Netherlands
+			original_tag = LUX  # Luxembourg
+			original_tag = ITA  # Italy
+			#original_tag = GRE  # Greece # Was part of the Allies too. Has a civil war though so(?)
+			original_tag = NOR  # Norway
+			original_tag = DEN  # Denmark
+			original_tag = ICE  # Iceland
+		}
+	}
+
+	enable = {
+		OR = {
+			is_democratic = yes
+			is_autocratic = yes
+		}
+		USA = {
+			OR = {
+				is_democratic = yes
+				is_autocratic = yes
+			}
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = alliance
+		id = USA
+		value = 250
+	}
+	ai_strategy = {
+		type = befriend
+		id = USA
+		value = 100
+	}
+}
+
+the_arab_league = {
+
+	allowed = {
+		OR = {
+			original_tag = SAU  # Saudi Arabia
+			original_tag = IRQ  # Iraq
+			original_tag = SYR  # Syria
+			original_tag = JOR  # Jordan
+			original_tag = LEB  # Lebanon
+			original_tag = YEM  # Yemen
+			original_tag = PAL  # Palestine
+		}
+	}
+
+	enable = {
+		has_global_flag = arab_israeli_war
+	}
+
+	abort = {
+		OR = {
+			NOT = {
+				OR = {
+					has_idea = arab_league_member
+					original_tag = PAL # Not part of the Arab League
+				}
+			}
+			EGY = {
+				is_ally_with = ISR
+			}
+		}
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = EGY
+		value = 25
+	}
+	ai_strategy = {
+		type = befriend
+		id = EGY
+		value = 10
+	}
+}
+
+everyone_loves_the_mediterranean = {
+
+	allowed = {
+		always = yes
+	}
+	
+	enable = {
+		ROOT = {
+			is_in_faction_with = ITA
+		}
+		ITA = {
+			is_faction_leader = yes
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = alliance
+		id = ITA
+		value = 250
+	}
+	ai_strategy = {
+		type = befriend
+		id = ITA
+		value = 100
+	}
+}
